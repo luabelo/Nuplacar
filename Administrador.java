@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package nu.nuplacarproto2;
 
-/**
- *
- * @author PC Gamer
- */
 public class Administrador {
     private String nome;
     private String senha;
@@ -32,7 +24,5 @@ public class Administrador {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
-    
-    
+
 }
