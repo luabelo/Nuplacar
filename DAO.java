@@ -1,12 +1,22 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package nu.nuplacarproto2;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
+/**
+ *
+ * @author PC Gamer
+ */
 public class DAO {
 
-    public boolean acessoAdm(Administrador adm){
+    public boolean acessoAdm( Administrador adm){
         
         Connection con = ConexaoBD.obtemConexao();
         PreparedStatement pstm = null;
@@ -20,12 +30,17 @@ public class DAO {
             pstm.execute();
             try (ResultSet rs = pstm.executeQuery()) {
                 return rs.next();
-            }  
+            }
+            
         }
         catch(SQLException ex){
             
         }
         return false;
+     
+            
+        
     }
+
 }
 
