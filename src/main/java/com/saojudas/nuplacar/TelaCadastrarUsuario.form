@@ -55,12 +55,14 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="nomeBandeira" min="-2" pref="501" max="-2" attributes="0"/>
-                                      <Component id="criarTimeButton" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="senhaLabel" min="-2" max="-2" attributes="0"/>
+                                      <Component id="criarUsuarioButton" min="-2" max="-2" attributes="0"/>
+                                      <Component id="senhaPasswordField" max="32767" attributes="0"/>
+                                      <Component id="confirmarSenhaLabel" min="-2" max="-2" attributes="0"/>
+                                      <Component id="confirmarSenhaPasswordField" alignment="0" pref="513" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                                   <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
@@ -79,19 +81,23 @@
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="senhaLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="nomeBandeira" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                          <Component id="criarTimeButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="senhaPasswordField" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="confirmarSenhaLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="confirmarSenhaPasswordField" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                  <Component id="criarUsuarioButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -151,7 +157,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI Semibold" size="30" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Times"/>
+                <Property name="text" type="java.lang.String" value="Cadastrar Usu&#xe1;rio"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -302,10 +308,10 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="nomeTimeTextField" alignment="0" min="-2" pref="515" max="-2" attributes="0"/>
-                          <Component id="nomeTimeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="nomeUsuarioLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="nomeUsuarioField" min="-2" pref="511" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="41" max="32767" attributes="0"/>
+                      <EmptySpace pref="45" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -313,44 +319,48 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="9" max="32767" attributes="0"/>
-                      <Component id="nomeTimeLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="nomeUsuarioLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="nomeTimeTextField" min="-2" max="-2" attributes="0"/>
+                      <Component id="nomeUsuarioField" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JTextField" name="nomeTimeTextField">
+            <Component class="javax.swing.JTextField" name="nomeUsuarioField">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nomeTimeTextFieldActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nomeUsuarioFieldActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="nomeTimeLabel">
+            <Component class="javax.swing.JLabel" name="nomeUsuarioLabel">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Nome do time"/>
+                <Property name="text" type="java.lang.String" value="Nome do usu&#xe1;rio"/>
               </Properties>
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="senhaLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Bandeira"/>
+            <Property name="text" type="java.lang.String" value="Senha"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="nomeBandeira">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nomeBandeiraActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="criarTimeButton">
+        <Component class="javax.swing.JButton" name="criarUsuarioButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Criar Time"/>
+            <Property name="text" type="java.lang.String" value="Criar Usu&#xe1;rio"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="criarTimeButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="criarUsuarioButtonActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JPasswordField" name="senhaPasswordField">
+        </Component>
+        <Component class="javax.swing.JLabel" name="confirmarSenhaLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Confirmar Senha"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JPasswordField" name="confirmarSenhaPasswordField">
         </Component>
       </SubComponents>
     </Container>

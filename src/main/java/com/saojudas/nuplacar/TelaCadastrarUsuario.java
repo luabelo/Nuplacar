@@ -11,12 +11,12 @@ import javax.swing.JOptionPane;
  *
  * @author PC Gamer
  */
-public class TelaCadastrarTimes extends javax.swing.JFrame {
+public class TelaCadastrarUsuario extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaInicialAdm
      */
-    public TelaCadastrarTimes() {
+    public TelaCadastrarUsuario() {
         super("Tela Inicial");
         initComponents();
         setLocationRelativeTo(null);
@@ -43,11 +43,13 @@ public class TelaCadastrarTimes extends javax.swing.JFrame {
         usuarioButton = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
-        nomeTimeTextField = new javax.swing.JTextField();
-        nomeTimeLabel = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        nomeBandeira = new javax.swing.JTextField();
-        criarTimeButton = new javax.swing.JButton();
+        nomeUsuarioField = new javax.swing.JTextField();
+        nomeUsuarioLabel = new javax.swing.JLabel();
+        senhaLabel = new javax.swing.JLabel();
+        criarUsuarioButton = new javax.swing.JButton();
+        senhaPasswordField = new javax.swing.JPasswordField();
+        confirmarSenhaLabel = new javax.swing.JLabel();
+        confirmarSenhaPasswordField = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,7 +67,7 @@ public class TelaCadastrarTimes extends javax.swing.JFrame {
         );
 
         timeLabel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 30)); // NOI18N
-        timeLabel.setText("Times");
+        timeLabel.setText("Cadastrar Usuário");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -178,13 +180,13 @@ public class TelaCadastrarTimes extends javax.swing.JFrame {
 
         jPanel6.setBackground(new java.awt.Color(233, 233, 233));
 
-        nomeTimeTextField.addActionListener(new java.awt.event.ActionListener() {
+        nomeUsuarioField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nomeTimeTextFieldActionPerformed(evt);
+                nomeUsuarioFieldActionPerformed(evt);
             }
         });
 
-        nomeTimeLabel.setText("Nome do time");
+        nomeUsuarioLabel.setText("Nome do usuário");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -193,34 +195,30 @@ public class TelaCadastrarTimes extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nomeTimeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 515, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nomeTimeLabel))
-                .addContainerGap(41, Short.MAX_VALUE))
+                    .addComponent(nomeUsuarioLabel)
+                    .addComponent(nomeUsuarioField, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addContainerGap(9, Short.MAX_VALUE)
-                .addComponent(nomeTimeLabel)
+                .addComponent(nomeUsuarioLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nomeTimeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nomeUsuarioField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
         );
 
-        jLabel1.setText("Bandeira");
+        senhaLabel.setText("Senha");
 
-        nomeBandeira.addActionListener(new java.awt.event.ActionListener() {
+        criarUsuarioButton.setText("Criar Usuário");
+        criarUsuarioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nomeBandeiraActionPerformed(evt);
+                criarUsuarioButtonActionPerformed(evt);
             }
         });
 
-        criarTimeButton.setText("Criar Time");
-        criarTimeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                criarTimeButtonActionPerformed(evt);
-            }
-        });
+        confirmarSenhaLabel.setText("Confirmar Senha");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -235,11 +233,13 @@ public class TelaCadastrarTimes extends javax.swing.JFrame {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(nomeBandeira, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(criarTimeButton))
-                                .addGap(58, 58, 58)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(senhaLabel)
+                                    .addComponent(criarUsuarioButton)
+                                    .addComponent(senhaPasswordField)
+                                    .addComponent(confirmarSenhaLabel)
+                                    .addComponent(confirmarSenhaPasswordField, javax.swing.GroupLayout.DEFAULT_SIZE, 513, Short.MAX_VALUE))
+                                .addGap(46, 46, 46)
                                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
@@ -257,11 +257,15 @@ public class TelaCadastrarTimes extends javax.swing.JFrame {
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addComponent(jLabel1)
+                        .addComponent(senhaLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nomeBandeira, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
-                        .addComponent(criarTimeButton)))
+                        .addComponent(senhaPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(confirmarSenhaLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(confirmarSenhaPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(24, 24, 24)
+                .addComponent(criarUsuarioButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -285,27 +289,24 @@ public class TelaCadastrarTimes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void criarTimeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarTimeButtonActionPerformed
+    private void criarUsuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarUsuarioButtonActionPerformed
 
-        try {
-        String nome = nomeTimeTextField.getText();
-        String bandeira = nomeBandeira.getText();
-        Time time = new Time(nome, bandeira);
-        time.cadastrarTime();
-        JOptionPane.showMessageDialog(null,"Time criado com sucesso", "",1);
+        String nome = nomeUsuarioField.getText();
+        String senha = new String(senhaPasswordField.getPassword());
+        String confirmarSenha = new String(confirmarSenhaPasswordField.getPassword());
+        Usuario usuario = new Usuario(nome, senha);
+       try {
+        if (senha.equals(confirmarSenha)) { 
+            usuario.cadastrarUsuario();
+            JOptionPane.showMessageDialog(null,"Usuário criado com sucesso", "",1);
+        } else {
+            JOptionPane.showMessageDialog(null,"Senhas não coincidem. Tente novamente", "Erro",2);
+            }
         }
         catch (Exception e) {
             e.printStackTrace();
         }
-    }//GEN-LAST:event_criarTimeButtonActionPerformed
-
-    private void nomeBandeiraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeBandeiraActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nomeBandeiraActionPerformed
-
-    private void nomeTimeTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeTimeTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nomeTimeTextFieldActionPerformed
+    }//GEN-LAST:event_criarUsuarioButtonActionPerformed
 
     private void usuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioButtonActionPerformed
         // TODO add your handling code here:
@@ -335,6 +336,10 @@ public class TelaCadastrarTimes extends javax.swing.JFrame {
         // - fechar essa tela
     }//GEN-LAST:event_simularButtonActionPerformed
 
+    private void nomeUsuarioFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeUsuarioFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nomeUsuarioFieldActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -352,14 +357,22 @@ public class TelaCadastrarTimes extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastrarTimes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastrarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastrarTimes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastrarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastrarTimes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastrarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastrarTimes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastrarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -372,25 +385,27 @@ public class TelaCadastrarTimes extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaCadastrarTimes().setVisible(true);
+                new TelaCadastrarUsuario().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton criarTimeButton;
+    private javax.swing.JLabel confirmarSenhaLabel;
+    private javax.swing.JPasswordField confirmarSenhaPasswordField;
+    private javax.swing.JButton criarUsuarioButton;
     private javax.swing.JButton gruposButton;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JTextField nomeBandeira;
-    private javax.swing.JLabel nomeTimeLabel;
-    private javax.swing.JTextField nomeTimeTextField;
+    private javax.swing.JTextField nomeUsuarioField;
+    private javax.swing.JLabel nomeUsuarioLabel;
     private javax.swing.JButton placarButton;
+    private javax.swing.JLabel senhaLabel;
+    private javax.swing.JPasswordField senhaPasswordField;
     private javax.swing.JButton simularButton;
     private javax.swing.JLabel timeLabel;
     private javax.swing.JButton timesButton;
