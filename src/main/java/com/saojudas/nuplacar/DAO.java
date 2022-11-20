@@ -13,12 +13,11 @@ public class DAO {
         PreparedStatement pstm = null;
         
         try{
-        String sql = "SELECT * FROM tb_usuario WHERE nome = ? AND senha = ? AND tipoUsuario = ?";
+        String sql = "SELECT * FROM tb_usuario WHERE nome = ? AND senha = ?";
             pstm = con.prepareStatement(sql);
                 
             pstm.setString(1, adm.getNome());
             pstm.setString(2, adm.getSenha());
-            pstm.setString(3,adm.getTipoUsuario());
             pstm.execute();
             try (ResultSet rs = pstm.executeQuery()) {
                 return rs.next();

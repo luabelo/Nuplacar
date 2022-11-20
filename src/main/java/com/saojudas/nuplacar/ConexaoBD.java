@@ -11,11 +11,6 @@ public class ConexaoBD {
     private static String senha = "admin123";
     public static Connection obtemConexao () {
         try {
-            //Connection c = DriverManager.getConnection(
-            //"jdbc:mysql://" + host + ":" + porta + "/" + bd, usuario, senha);
-            
-            //Connection c = DriverManager.getConnection("jdbc:mysql//" + host + ":" + porta + "/" + bd + "?user="+usuario+"&password="+senha+"&useTimezone=true&serverTimezone=America/Sao_Paulo");
-            
             String url = String.format(
                 "jdbc:mysql://%s:%s/%s?useTimezone=true&serverTimezone=UTC",
                 host, porta, db
@@ -30,11 +25,6 @@ public class ConexaoBD {
     }
     public Connection obterConexao () {
         try {
-            //Connection c = DriverManager.getConnection(
-            //"jdbc:mysql://" + host + ":" + porta + "/" + bd, usuario, senha);
-            
-            //Connection c = DriverManager.getConnection("jdbc:mysql//" + host + ":" + porta + "/" + bd + "?user="+usuario+"&password="+senha+"&useTimezone=true&serverTimezone=America/Sao_Paulo");
-            
             String url = String.format(
                 "jdbc:mysql://%s:%s/%s?useTimezone=true&serverTimezone=UTC",
                 host, porta, db
