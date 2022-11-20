@@ -42,6 +42,9 @@ public class TelaCadastrarUsuario extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         confirmarSenhaLabel = new javax.swing.JLabel();
         confirmarSenhaPasswordField = new javax.swing.JPasswordField();
+        jPanel7 = new javax.swing.JPanel();
+        tipoDeContaLabel = new javax.swing.JLabel();
+        tipoContaComboBox = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         cadastrarUsuarioTitulo = new javax.swing.JLabel();
@@ -149,6 +152,35 @@ public class TelaCadastrarUsuario extends javax.swing.JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
+        jPanel7.setBackground(new java.awt.Color(233, 233, 233));
+
+        tipoDeContaLabel.setText("Tipo de conta");
+
+        tipoContaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Comum", "Administrador" }));
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(tipoDeContaLabel)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(tipoContaComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tipoDeContaLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tipoContaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -160,14 +192,17 @@ public class TelaCadastrarUsuario extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(0, 317, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(100, 100, 100)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -359,7 +394,8 @@ public class TelaCadastrarUsuario extends javax.swing.JFrame {
         String nome = nomeUsuarioField.getText();
         String senha = new String(senhaPasswordField.getPassword());
         String confirmarSenha = new String(confirmarSenhaPasswordField.getPassword());
-        Usuario usuario = new Usuario(nome, senha);
+        String tipoUsuario = tipoContaComboBox.getSelectedItem().toString();
+        Usuario usuario = new Usuario(nome, senha, tipoUsuario);
         try {
             if (senha.equals(confirmarSenha)) {
                 usuario.cadastrarUsuario();
@@ -439,6 +475,7 @@ public class TelaCadastrarUsuario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JLabel logoLabel;
     private javax.swing.JPanel menuLateralPanel;
     private javax.swing.JTextField nomeUsuarioField;
@@ -448,6 +485,8 @@ public class TelaCadastrarUsuario extends javax.swing.JFrame {
     private javax.swing.JPasswordField senhaPasswordField;
     private javax.swing.JButton simularButton;
     private javax.swing.JButton timesButton;
+    private javax.swing.JComboBox<String> tipoContaComboBox;
+    private javax.swing.JLabel tipoDeContaLabel;
     private javax.swing.JButton usuarioButton;
     // End of variables declaration//GEN-END:variables
 }

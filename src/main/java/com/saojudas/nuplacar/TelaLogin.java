@@ -143,14 +143,12 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         
-          String login = loginTextField.getText();
-        String senha = new String(senhaPasswordField.getPassword());
-        
+        String login = loginTextField.getText();
+        String senha = new String(senhaPasswordField.getPassword());        
         try {
-            Administrador adm = new Administrador( login , senha);
+            Administrador adm = new Administrador(login, senha);
             DAO dao = new DAO();
             if (dao.acessoAdm(adm)){
-                //JOptionPane.showMessageDialog(null, "Bem-vindo, " + usuario.getNome());
             TelaInicialAdm telaAdm = new TelaInicialAdm();
             telaAdm.setVisible(true);
             this.dispose();
