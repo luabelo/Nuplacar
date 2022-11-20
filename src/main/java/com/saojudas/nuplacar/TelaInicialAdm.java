@@ -87,9 +87,13 @@ public class TelaInicialAdm extends javax.swing.JFrame {
         menuLateralPanel.setForeground(new java.awt.Color(86, 4, 44));
 
         simularButton.setBackground(new java.awt.Color(141, 27, 61));
-        simularButton.setText("Simular");
+        simularButton.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        simularButton.setForeground(new java.awt.Color(255, 255, 255));
+        simularButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/simularMenu.png"))); // NOI18N
+        simularButton.setText("  Simular");
         simularButton.setAlignmentY(0.0F);
         simularButton.setBorder(null);
+        simularButton.setContentAreaFilled(false);
         simularButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
         simularButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,8 +102,15 @@ public class TelaInicialAdm extends javax.swing.JFrame {
         });
 
         placarButton.setBackground(new java.awt.Color(105, 29, 51));
-        placarButton.setText("Placar");
+        placarButton.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        placarButton.setForeground(new java.awt.Color(255, 255, 255));
+        placarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/placarMenu.png"))); // NOI18N
+        placarButton.setText("  Placar");
         placarButton.setBorder(null);
+        placarButton.setBorderPainted(false);
+        placarButton.setContentAreaFilled(false);
+        placarButton.setFocusPainted(false);
+        placarButton.setFocusable(false);
         placarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 placarButtonActionPerformed(evt);
@@ -107,8 +118,12 @@ public class TelaInicialAdm extends javax.swing.JFrame {
         });
 
         gruposButton.setBackground(new java.awt.Color(141, 27, 61));
-        gruposButton.setText("Grupos");
+        gruposButton.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        gruposButton.setForeground(new java.awt.Color(255, 255, 255));
+        gruposButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gruposMenu.png"))); // NOI18N
+        gruposButton.setText("  Grupos");
         gruposButton.setBorder(null);
+        gruposButton.setContentAreaFilled(false);
         gruposButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 gruposButtonActionPerformed(evt);
@@ -116,8 +131,12 @@ public class TelaInicialAdm extends javax.swing.JFrame {
         });
 
         timesButton.setBackground(new java.awt.Color(141, 27, 61));
-        timesButton.setText("Times");
+        timesButton.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        timesButton.setForeground(new java.awt.Color(255, 255, 255));
+        timesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/timesMenu.png"))); // NOI18N
+        timesButton.setText("  Times");
         timesButton.setBorder(null);
+        timesButton.setContentAreaFilled(false);
         timesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 timesButtonActionPerformed(evt);
@@ -128,6 +147,7 @@ public class TelaInicialAdm extends javax.swing.JFrame {
         usuarioButton.setText("Usuario");
         usuarioButton.setAlignmentY(0.0F);
         usuarioButton.setBorder(null);
+        usuarioButton.setContentAreaFilled(false);
         usuarioButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
         usuarioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,11 +165,10 @@ public class TelaInicialAdm extends javax.swing.JFrame {
             .addComponent(gruposButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(menuLateralPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(menuLateralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(logoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
-                    .addComponent(usuarioButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(logoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE))
             .addComponent(timesButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(simularButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(usuarioButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         menuLateralPanelLayout.setVerticalGroup(
             menuLateralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,7 +275,7 @@ public class TelaInicialAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_simularButtonActionPerformed
 
     private void placarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placarButtonActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_placarButtonActionPerformed
 
     private void gruposButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gruposButtonActionPerformed
@@ -264,7 +283,9 @@ public class TelaInicialAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_gruposButtonActionPerformed
 
     private void timesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timesButtonActionPerformed
-        // TODO add your handling code here:
+        TelaListarTimes tlt = new TelaListarTimes();
+        tlt.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_timesButtonActionPerformed
 
     private void usuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioButtonActionPerformed

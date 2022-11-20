@@ -35,6 +35,10 @@ public class TelaListarUsuarios extends javax.swing.JFrame {
         usuarioTable = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
         listarUsuariosButton = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        timeLabel = new javax.swing.JLabel();
+        novoUsuarioButton = new javax.swing.JButton();
         menuLateralPanel = new javax.swing.JPanel();
         simularButton = new javax.swing.JButton();
         placarButton = new javax.swing.JButton();
@@ -42,10 +46,6 @@ public class TelaListarUsuarios extends javax.swing.JFrame {
         timesButton = new javax.swing.JButton();
         usuarioButton = new javax.swing.JButton();
         logoLabel = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        timeLabel = new javax.swing.JLabel();
-        novoUsuarioButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,7 +73,7 @@ public class TelaListarUsuarios extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
 
         jPanel6.setBackground(new java.awt.Color(233, 233, 233));
@@ -101,92 +101,6 @@ public class TelaListarUsuarios extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addComponent(listarUsuariosButton, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(25, Short.MAX_VALUE))
-        );
-
-        menuLateralPanel.setBackground(new java.awt.Color(141, 27, 61));
-        menuLateralPanel.setForeground(new java.awt.Color(86, 4, 44));
-
-        simularButton.setBackground(new java.awt.Color(141, 27, 61));
-        simularButton.setText("Simular");
-        simularButton.setAlignmentY(0.0F);
-        simularButton.setBorder(null);
-        simularButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        simularButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                simularButtonActionPerformed(evt);
-            }
-        });
-
-        placarButton.setBackground(new java.awt.Color(141, 27, 61));
-        placarButton.setText("Placar");
-        placarButton.setBorder(null);
-        placarButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                placarButtonActionPerformed(evt);
-            }
-        });
-
-        gruposButton.setBackground(new java.awt.Color(141, 27, 61));
-        gruposButton.setText("Grupos");
-        gruposButton.setBorder(null);
-        gruposButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                gruposButtonActionPerformed(evt);
-            }
-        });
-
-        timesButton.setBackground(new java.awt.Color(105, 29, 51));
-        timesButton.setText("Times");
-        timesButton.setBorder(null);
-        timesButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                timesButtonActionPerformed(evt);
-            }
-        });
-
-        usuarioButton.setBackground(new java.awt.Color(141, 27, 61));
-        usuarioButton.setText("Usuario");
-        usuarioButton.setAlignmentY(0.0F);
-        usuarioButton.setBorder(null);
-        usuarioButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        usuarioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usuarioButtonActionPerformed(evt);
-            }
-        });
-
-        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LogoNuplacarMenu.png"))); // NOI18N
-
-        javax.swing.GroupLayout menuLateralPanelLayout = new javax.swing.GroupLayout(menuLateralPanel);
-        menuLateralPanel.setLayout(menuLateralPanelLayout);
-        menuLateralPanelLayout.setHorizontalGroup(
-            menuLateralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(placarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(gruposButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(menuLateralPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(menuLateralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(logoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
-                    .addComponent(usuarioButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-            .addComponent(timesButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(simularButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        menuLateralPanelLayout.setVerticalGroup(
-            menuLateralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuLateralPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(logoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(placarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(gruposButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(timesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(simularButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(usuarioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(java.awt.SystemColor.controlHighlight);
@@ -240,6 +154,111 @@ public class TelaListarUsuarios extends javax.swing.JFrame {
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
+        menuLateralPanel.setBackground(new java.awt.Color(141, 27, 61));
+        menuLateralPanel.setForeground(new java.awt.Color(86, 4, 44));
+
+        simularButton.setBackground(new java.awt.Color(141, 27, 61));
+        simularButton.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        simularButton.setForeground(new java.awt.Color(255, 255, 255));
+        simularButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/simularMenu.png"))); // NOI18N
+        simularButton.setText("  Simular");
+        simularButton.setAlignmentY(0.0F);
+        simularButton.setBorder(null);
+        simularButton.setContentAreaFilled(false);
+        simularButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        simularButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                simularButtonActionPerformed(evt);
+            }
+        });
+
+        placarButton.setBackground(new java.awt.Color(105, 29, 51));
+        placarButton.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        placarButton.setForeground(new java.awt.Color(255, 255, 255));
+        placarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/placarMenu.png"))); // NOI18N
+        placarButton.setText("  Placar");
+        placarButton.setBorder(null);
+        placarButton.setBorderPainted(false);
+        placarButton.setContentAreaFilled(false);
+        placarButton.setFocusPainted(false);
+        placarButton.setFocusable(false);
+        placarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                placarButtonActionPerformed(evt);
+            }
+        });
+
+        gruposButton.setBackground(new java.awt.Color(141, 27, 61));
+        gruposButton.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        gruposButton.setForeground(new java.awt.Color(255, 255, 255));
+        gruposButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gruposMenu.png"))); // NOI18N
+        gruposButton.setText("  Grupos");
+        gruposButton.setBorder(null);
+        gruposButton.setContentAreaFilled(false);
+        gruposButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gruposButtonActionPerformed(evt);
+            }
+        });
+
+        timesButton.setBackground(new java.awt.Color(141, 27, 61));
+        timesButton.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        timesButton.setForeground(new java.awt.Color(255, 255, 255));
+        timesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/timesMenu.png"))); // NOI18N
+        timesButton.setText("  Times");
+        timesButton.setBorder(null);
+        timesButton.setContentAreaFilled(false);
+        timesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                timesButtonActionPerformed(evt);
+            }
+        });
+
+        usuarioButton.setBackground(new java.awt.Color(141, 27, 61));
+        usuarioButton.setText("Usuario");
+        usuarioButton.setAlignmentY(0.0F);
+        usuarioButton.setBorder(null);
+        usuarioButton.setContentAreaFilled(false);
+        usuarioButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        usuarioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usuarioButtonActionPerformed(evt);
+            }
+        });
+
+        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LogoNuplacarMenu.png"))); // NOI18N
+
+        javax.swing.GroupLayout menuLateralPanelLayout = new javax.swing.GroupLayout(menuLateralPanel);
+        menuLateralPanel.setLayout(menuLateralPanelLayout);
+        menuLateralPanelLayout.setHorizontalGroup(
+            menuLateralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(placarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(gruposButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(menuLateralPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(logoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE))
+            .addComponent(timesButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(simularButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(usuarioButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        menuLateralPanelLayout.setVerticalGroup(
+            menuLateralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuLateralPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(logoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(placarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(gruposButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(timesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(simularButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(usuarioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -257,13 +276,15 @@ public class TelaListarUsuarios extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(menuLateralPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addComponent(menuLateralPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -274,34 +295,6 @@ public class TelaListarUsuarios extends javax.swing.JFrame {
         TCU.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_novoUsuarioButtonActionPerformed
-
-    private void simularButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simularButtonActionPerformed
-        // - todos os times estao cadastrados?
-        // sim, continuar
-        // nao, dialogo pedindo pra cadastrar todos os times
-        // - todos os grupos cadastrados?
-        // sim, continuar
-        // nao, dialogo pedindo pra cadastrar todos os grupos
-        // - campeonato.simularPartidasFaseGrupo()
-        // - abrir tela "Simulacao - Fase Grupos"
-        // - fechar essa tela
-    }//GEN-LAST:event_simularButtonActionPerformed
-
-    private void placarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placarButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_placarButtonActionPerformed
-
-    private void gruposButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gruposButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_gruposButtonActionPerformed
-
-    private void timesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timesButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_timesButtonActionPerformed
-
-    private void usuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_usuarioButtonActionPerformed
 
     private void listarUsuariosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarUsuariosButtonActionPerformed
         Connection con = ConexaoBD.obtemConexao();
@@ -317,6 +310,30 @@ public class TelaListarUsuarios extends javax.swing.JFrame {
         } catch (Exception e){
             e.printStackTrace();}     
     }//GEN-LAST:event_listarUsuariosButtonActionPerformed
+
+    private void simularButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simularButtonActionPerformed
+        // colocar redirecionamento para telaSimular
+    }//GEN-LAST:event_simularButtonActionPerformed
+
+    private void placarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placarButtonActionPerformed
+        TelaInicialAdm tia = new TelaInicialAdm();
+        tia.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_placarButtonActionPerformed
+
+    private void gruposButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gruposButtonActionPerformed
+        // colocar redirecionamento para telaListarGrupos
+    }//GEN-LAST:event_gruposButtonActionPerformed
+
+    private void timesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timesButtonActionPerformed
+        TelaListarTimes tlt = new TelaListarTimes();
+        tlt.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_timesButtonActionPerformed
+
+    private void usuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioButtonActionPerformed
+
+    }//GEN-LAST:event_usuarioButtonActionPerformed
 
     /**
      * @param args the command line arguments
