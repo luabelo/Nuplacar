@@ -169,7 +169,7 @@ public class TelaInicialUsuario extends javax.swing.JFrame {
 
         bemVindoAdminTitulo.setFont(new java.awt.Font("Segoe UI Semibold", 0, 30)); // NOI18N
         bemVindoAdminTitulo.setForeground(new java.awt.Color(151, 151, 151));
-        bemVindoAdminTitulo.setText("Seja bem-vindo, Administrador!");
+        bemVindoAdminTitulo.setText("Seja bem-vindo, Usuário!");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);

@@ -4,6 +4,9 @@
  */
 package com.saojudas.nuplacar;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
 
@@ -144,21 +147,28 @@ public class TelaLogin extends javax.swing.JFrame {
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         
         String login = loginTextField.getText();
-        String senha = new String(senhaPasswordField.getPassword());        
+        String senha = new String(senhaPasswordField.getPassword());
+        Connection con = ConexaoBD.obtemConexao();
+        String sql = "SELECT * FROM tb_usuario where nome ='"+login+"' and senha ='"+senha+"'"; 
         try {
-            Administrador adm = new Administrador(login, senha);
-            DAO dao = new DAO();
-            if (dao.acessoAdm(adm)){
-            TelaInicialAdm telaAdm = new TelaInicialAdm();
-            telaAdm.setVisible(true);
-            this.dispose();
-        }
-            else {
-                JOptionPane.showMessageDialog(null, "Login e/ou senha inválidos");
+            PreparedStatement pstm = con.prepareStatement(sql);
+            ResultSet rs = pstm.executeQuery();
+            if (rs.next()) {
+            String name = rs.getString(4);
+            if (name.equals("Administrador")) {
+                TelaInicialAdm TIA = new TelaInicialAdm();
+                TIA.setVisible(true);
+                this.dispose();
+            } else {
+                TelaInicialUsuario TIU = new TelaInicialUsuario();
+                TIU.setVisible(true);
+                this.dispose();
             }
-        }
-        catch (Exception e) {
-            e.printStackTrace();
+            } else {
+             JOptionPane.showMessageDialog(null,"Login e/ou senha inválidos!","Erro",2);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();     
         }
     }//GEN-LAST:event_loginButtonActionPerformed
 

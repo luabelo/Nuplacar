@@ -279,7 +279,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="97" green="97" red="97" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Seja bem-vindo, Administrador!"/>
+            <Property name="text" type="java.lang.String" value="Seja bem-vindo, Usu&#xe1;rio!"/>
           </Properties>
         </Component>
       </SubComponents>
