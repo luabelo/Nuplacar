@@ -202,7 +202,7 @@ public class TelaCadastrarTimes extends javax.swing.JFrame {
             }
         });
 
-        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/saojudas/nuplacar/icons/LogoNuplacarMenu.png"))); // NOI18N
+        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LogoNuplacarMenu.png"))); // NOI18N
 
         javax.swing.GroupLayout menuLateralPanelLayout = new javax.swing.GroupLayout(menuLateralPanel);
         menuLateralPanel.setLayout(menuLateralPanelLayout);
@@ -263,7 +263,7 @@ public class TelaCadastrarTimes extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(cadastrarTimeTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(525, Short.MAX_VALUE))
+                .addContainerGap(303, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

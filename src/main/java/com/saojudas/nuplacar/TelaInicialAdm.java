@@ -135,7 +135,7 @@ public class TelaInicialAdm extends javax.swing.JFrame {
             }
         });
 
-        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/saojudas/nuplacar/icons/LogoNuplacarMenu.png"))); // NOI18N
+        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LogoNuplacarMenu.png"))); // NOI18N
 
         javax.swing.GroupLayout menuLateralPanelLayout = new javax.swing.GroupLayout(menuLateralPanel);
         menuLateralPanel.setLayout(menuLateralPanelLayout);
