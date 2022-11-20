@@ -4,10 +4,6 @@
  */
 package com.saojudas.nuplacar;
 
-/**
- *
- * @author Mathe
- */
 public class NuplacarProto2 {
         
 }
