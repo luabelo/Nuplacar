@@ -312,7 +312,7 @@ public class TelaListarUsuarios extends javax.swing.JFrame {
             ResultSet rs = pstm.executeQuery();
             DefaultTableModel model = (DefaultTableModel)usuarioTable.getModel();
             while (rs.next()){
-            model.addRow(new String[]{rs.getString(1),rs.getString(2),rs.getString(3)});
+            model.addRow(new String[]{rs.getString(1),rs.getString(2),rs.getString(4)});
             }
         } catch (Exception e){
             e.printStackTrace();}     

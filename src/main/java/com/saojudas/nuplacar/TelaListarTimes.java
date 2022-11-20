@@ -4,6 +4,11 @@
  */
 package com.saojudas.nuplacar;;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.table.DefaultTableModel;
+
 public class TelaListarTimes extends javax.swing.JFrame {
 
     /**
@@ -25,6 +30,8 @@ public class TelaListarTimes extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel5 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        timeTable = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
         buscarTimeTextField = new javax.swing.JTextField();
         buscarTimeButton = new javax.swing.JButton();
@@ -42,15 +49,31 @@ public class TelaListarTimes extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        timeTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Time", "Bandeira"
+            }
+        ));
+        jScrollPane1.setViewportView(timeTable);
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 820, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(117, 117, 117))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel6.setBackground(new java.awt.Color(233, 233, 233));
@@ -64,6 +87,11 @@ public class TelaListarTimes extends javax.swing.JFrame {
 
         buscarTimeButton.setText("Buscar");
         buscarTimeButton.setBorder(null);
+        buscarTimeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarTimeButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -253,7 +281,9 @@ public class TelaListarTimes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void novoTimeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoTimeButtonActionPerformed
-        // TODO add your handling code here:
+        TelaCadastrarTimes TCT = new TelaCadastrarTimes();
+        TCT.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_novoTimeButtonActionPerformed
 
     private void buscarTimeTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarTimeTextFieldActionPerformed
@@ -287,6 +317,21 @@ public class TelaListarTimes extends javax.swing.JFrame {
     private void usuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_usuarioButtonActionPerformed
+
+    private void buscarTimeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarTimeButtonActionPerformed
+       Connection con = ConexaoBD.obtemConexao();
+        
+        String sql = "SELECT * FROM tb_time";
+        try {
+            PreparedStatement pstm = con.prepareStatement(sql);
+            ResultSet rs = pstm.executeQuery();
+            DefaultTableModel model = (DefaultTableModel)timeTable.getModel();
+            while (rs.next()){
+            model.addRow(new String[]{rs.getString(1),rs.getString(2),rs.getString(3)});
+            }
+        } catch (Exception e){
+            e.printStackTrace();}    
+    }//GEN-LAST:event_buscarTimeButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -334,12 +379,14 @@ public class TelaListarTimes extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel logoLabel;
     private javax.swing.JPanel menuLateralPanel;
     private javax.swing.JButton novoTimeButton;
     private javax.swing.JButton placarButton;
     private javax.swing.JButton simularButton;
     private javax.swing.JLabel timeLabel;
+    private javax.swing.JTable timeTable;
     private javax.swing.JButton timesButton;
     private javax.swing.JButton usuarioButton;
     // End of variables declaration//GEN-END:variables
