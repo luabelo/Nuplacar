@@ -1,8 +1,7 @@
 package com.saojudas.nuplacar;;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 public class TelaListarTimes extends javax.swing.JFrame {
@@ -298,18 +297,17 @@ public class TelaListarTimes extends javax.swing.JFrame {
     }//GEN-LAST:event_buscarTimeTextFieldActionPerformed
 
     private void buscarTimeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarTimeButtonActionPerformed
-       Connection con = ConexaoBD.obtemConexao();
-        
-        String sql = "SELECT * FROM tb_time";
-        try {
-            PreparedStatement pstm = con.prepareStatement(sql);
-            ResultSet rs = pstm.executeQuery();
+            Time time = new Time();
+            ArrayList<Time> list = time.ObterTimes();
             DefaultTableModel model = (DefaultTableModel)timeTable.getModel();
-            while (rs.next()){
-            model.addRow(new String[]{rs.getString(1),rs.getString(2),rs.getString(3)});
-            }
-        } catch (Exception e){
-            e.printStackTrace();}    
+            model.setRowCount(0);
+            Object[] row = new Object[3];
+            for (int i = 0;i < list.size();i++) {
+                row[0] = list.get(i).getIdTime();
+                row[1] = list.get(i).getNome();
+                row[2] = list.get(i).getBandeira();
+                model.addRow(row);
+            }    
     }//GEN-LAST:event_buscarTimeButtonActionPerformed
 
     private void simularButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simularButtonActionPerformed

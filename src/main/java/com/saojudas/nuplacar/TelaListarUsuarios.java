@@ -7,6 +7,11 @@ package com.saojudas.nuplacar;;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -297,18 +302,17 @@ public class TelaListarUsuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_novoUsuarioButtonActionPerformed
 
     private void listarUsuariosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarUsuariosButtonActionPerformed
-        Connection con = ConexaoBD.obtemConexao();
-        
-        String sql = "SELECT * FROM tb_usuario";
-        try {
-            PreparedStatement pstm = con.prepareStatement(sql);
-            ResultSet rs = pstm.executeQuery();
+            Usuario usuario = new Usuario();
+            ArrayList<Usuario> list = usuario.ObterUsuario();
             DefaultTableModel model = (DefaultTableModel)usuarioTable.getModel();
-            while (rs.next()){
-            model.addRow(new String[]{rs.getString(1),rs.getString(2),rs.getString(4)});
-            }
-        } catch (Exception e){
-            e.printStackTrace();}     
+            model.setRowCount(0);
+            Object[] row = new Object[3];
+            for (int i = 0;i < list.size();i++) {
+                row[0] = list.get(i).getId();
+                row[1] = list.get(i).getNome();
+                row[2] = list.get(i).getTipoUsuario();
+                model.addRow(row);
+            }  
     }//GEN-LAST:event_listarUsuariosButtonActionPerformed
 
     private void simularButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simularButtonActionPerformed
