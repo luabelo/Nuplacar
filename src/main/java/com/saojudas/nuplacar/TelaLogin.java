@@ -4,6 +4,7 @@
  */
 package com.saojudas.nuplacar;
 
+import com.saojudas.nuplacar.DAO.AdministradorDAO;
 import javax.swing.JOptionPane;
 
 /**
@@ -147,7 +148,7 @@ public class TelaLogin extends javax.swing.JFrame {
         
         try {
             Administrador adm = new Administrador( login , senha);
-            DAO dao = new DAO();
+            AdministradorDAO dao = new AdministradorDAO();
             if (dao.acessoAdm(adm)){
                 //JOptionPane.showMessageDialog(null, "Bem-vindo, " + usuario.getNome());
             TelaInicialAdm telaAdm = new TelaInicialAdm();

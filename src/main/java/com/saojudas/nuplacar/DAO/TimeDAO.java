@@ -1,11 +1,13 @@
-package com.saojudas.nuplacar;
+package com.saojudas.nuplacar.DAO;
 
+import com.saojudas.nuplacar.Administrador;
+import com.saojudas.nuplacar.ConexaoBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class DAO {
+public class TimeDAO {
 
     public boolean acessoAdm(Administrador adm){
         

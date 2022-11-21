@@ -8,6 +8,7 @@ package com.saojudas.nuplacar;
  *
  * @author Mathe
  */
-public class NuplacarProto2 {
-        
+public class Grupo {
+    private Time[] times = new Time[4];
+    private char id;
 }
