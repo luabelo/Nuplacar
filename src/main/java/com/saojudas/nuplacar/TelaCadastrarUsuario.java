@@ -370,10 +370,11 @@ public class TelaCadastrarUsuario extends javax.swing.JFrame {
         String confirmarSenha = new String(confirmarSenhaPasswordField.getPassword());
         String tipoUsuario = tipoContaComboBox.getSelectedItem().toString();
         Usuario usuario = new Usuario(nome, senha, tipoUsuario);
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
         try {
             if (senha.equals(confirmarSenha)) {
-                usuario.cadastrarUsuario();
-                JOptionPane.showMessageDialog(null,"Usuário criado com sucesso", "",1);
+                usuarioDAO.cadastrarUsuario(usuario);
+                JOptionPane.showMessageDialog(null,"Usuário criado com sucesso", "NuPlacar",1);
             } else {
                 JOptionPane.showMessageDialog(null,"Senhas não coincidem. Tente novamente", "Erro",2);
             }

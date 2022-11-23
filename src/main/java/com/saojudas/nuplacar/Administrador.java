@@ -50,5 +50,6 @@ public class Administrador {
     public void setTipoUsuario(String tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
     }
+    
 
 }

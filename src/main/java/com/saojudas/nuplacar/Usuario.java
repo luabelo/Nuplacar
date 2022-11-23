@@ -1,8 +1,5 @@
 package com.saojudas.nuplacar;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-
 public class Usuario {
     private int id;
     private String nome;
@@ -68,20 +65,5 @@ public class Usuario {
         this.tipoUsuario = tipoUsuario;
     }
 
-
-    public void cadastrarUsuario() {
-        String sql = "INSERT INTO tb_usuario (nome, senha, tipoUsuario) values (?, ?, ?)";
-        Connection connection = new ConexaoBD().obterConexao();
-        try ( PreparedStatement ps = connection.prepareStatement(sql);) {
-            ps.setString(1,nome);
-            ps.setString(2,senha);
-            ps.setString(3,tipoUsuario);
-            ps.execute();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-}
-    
 
 }

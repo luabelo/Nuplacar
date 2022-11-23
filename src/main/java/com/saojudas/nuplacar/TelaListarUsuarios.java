@@ -17,6 +17,7 @@ public class TelaListarUsuarios extends javax.swing.JFrame {
     public TelaListarUsuarios() {
         super("Tela Inicial");
         initComponents();
+        listarUsuariosTela();
         setLocationRelativeTo(null);
     }
 
@@ -34,6 +35,8 @@ public class TelaListarUsuarios extends javax.swing.JFrame {
         usuarioTable = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
         listarUsuariosButton = new javax.swing.JButton();
+        buscarUsuarioTextField = new javax.swing.JTextField();
+        listarUsuariosButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         timeLabel = new javax.swing.JLabel();
@@ -72,7 +75,7 @@ public class TelaListarUsuarios extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addContainerGap(110, Short.MAX_VALUE))
         );
 
         jPanel6.setBackground(new java.awt.Color(233, 233, 233));
@@ -85,21 +88,36 @@ public class TelaListarUsuarios extends javax.swing.JFrame {
             }
         });
 
+        listarUsuariosButton1.setText("Limpar");
+        listarUsuariosButton1.setBorder(null);
+        listarUsuariosButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listarUsuariosButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(206, 206, 206)
-                .addComponent(listarUsuariosButton, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(buscarUsuarioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 618, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(listarUsuariosButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(listarUsuariosButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(listarUsuariosButton, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap(30, Short.MAX_VALUE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(listarUsuariosButton, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buscarUsuarioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(listarUsuariosButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15))
         );
 
         jPanel2.setBackground(java.awt.SystemColor.controlHighlight);
@@ -297,7 +315,8 @@ public class TelaListarUsuarios extends javax.swing.JFrame {
 
     private void listarUsuariosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarUsuariosButtonActionPerformed
             UsuarioDAO usuarioDao = new UsuarioDAO();
-            ArrayList<Usuario> list = usuarioDao.obterUsuario();
+            int id = Integer.parseInt(buscarUsuarioTextField.getText());
+            ArrayList<Usuario> list = usuarioDao.obterUsuarioId(id);
             DefaultTableModel model = (DefaultTableModel)usuarioTable.getModel();
             model.setRowCount(0);
             Object[] row = new Object[3];
@@ -306,7 +325,7 @@ public class TelaListarUsuarios extends javax.swing.JFrame {
                 row[1] = list.get(i).getNome();
                 row[2] = list.get(i).getTipoUsuario();
                 model.addRow(row);
-            }  
+            }    
     }//GEN-LAST:event_listarUsuariosButtonActionPerformed
 
     private void simularButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simularButtonActionPerformed
@@ -332,6 +351,10 @@ public class TelaListarUsuarios extends javax.swing.JFrame {
     private void usuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioButtonActionPerformed
 
     }//GEN-LAST:event_usuarioButtonActionPerformed
+
+    private void listarUsuariosButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarUsuariosButton1ActionPerformed
+        listarUsuariosTela();
+    }//GEN-LAST:event_listarUsuariosButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -374,8 +397,24 @@ public class TelaListarUsuarios extends javax.swing.JFrame {
             }
         });
     }
+    
+    private void listarUsuariosTela() {
+            
+            UsuarioDAO usuarioDao = new UsuarioDAO();
+            ArrayList<Usuario> list = usuarioDao.obterUsuario();
+            DefaultTableModel model = (DefaultTableModel)usuarioTable.getModel();
+            model.setRowCount(0);
+            Object[] row = new Object[3];
+            for (int i = 0;i < list.size();i++) {
+                row[0] = list.get(i).getId();
+                row[1] = list.get(i).getNome();
+                row[2] = list.get(i).getTipoUsuario();
+                model.addRow(row);
+            }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField buscarUsuarioTextField;
     private javax.swing.JButton gruposButton;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -383,6 +422,7 @@ public class TelaListarUsuarios extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton listarUsuariosButton;
+    private javax.swing.JButton listarUsuariosButton1;
     private javax.swing.JLabel logoLabel;
     private javax.swing.JPanel menuLateralPanel;
     private javax.swing.JButton novoUsuarioButton;

@@ -388,7 +388,8 @@ public class TelaDeletarUsuario extends javax.swing.JFrame {
                 JOptionPane.YES_NO_OPTION,2);
         if (confirmacao == JOptionPane.YES_OPTION) {
             usuarioDao.deletarUsuario(id);
-            JOptionPane.showMessageDialog(null, "Usuário deletado com sucesso","",1);
+            atualizarUsuarioDeletado();
+            JOptionPane.showMessageDialog(null, "Usuário deletado com sucesso","NuPlacar",1);
         } else if (confirmacao == JOptionPane.NO_OPTION){
         }
     }//GEN-LAST:event_deletarUsuarioButtonActionPerformed
@@ -457,6 +458,22 @@ public class TelaDeletarUsuario extends javax.swing.JFrame {
                 new TelaDeletarUsuario().setVisible(true);
             }
         });
+    }
+    
+    private void atualizarUsuarioDeletado() {
+        UsuarioDAO usuarioDao = new UsuarioDAO();
+            int id = Integer.parseInt(buscarIdTextField.getText());
+            ArrayList<Usuario> list = usuarioDao.obterUsuarioId(id);
+            DefaultTableModel model = (DefaultTableModel)deletaUsuarioTable.getModel();
+            model.setRowCount(0);
+            Object[] row = new Object[4];
+            for (int i = 0;i < list.size();i++) {
+                row[0] = list.get(i).getId();
+                row[1] = list.get(i).getNome();
+                row[2] = list.get(i).getSenha();
+                row[3] = list.get(i).getTipoUsuario();
+                model.addRow(row);
+            } 
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

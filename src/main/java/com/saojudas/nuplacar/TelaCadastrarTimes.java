@@ -308,7 +308,8 @@ public class TelaCadastrarTimes extends javax.swing.JFrame {
         String nome = nomeTimeTextField.getText();
         String bandeira = nomeBandeira.getText();
         Time time = new Time(nome, bandeira);
-        time.cadastrarTime();
+        TimeDAO timeDAO = new TimeDAO();
+        timeDAO.cadastrarTime(time);
         JOptionPane.showMessageDialog(null,"Time criado com sucesso", "",1);
         }
         catch (Exception e) {
