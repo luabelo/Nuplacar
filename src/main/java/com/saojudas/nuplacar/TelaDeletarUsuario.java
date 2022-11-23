@@ -382,15 +382,14 @@ public class TelaDeletarUsuario extends javax.swing.JFrame {
         UsuarioDAO usuarioDao = new UsuarioDAO();
         int id = Integer.parseInt(buscarIdTextField.getText());
         
-        int dialogButton = JOptionPane.YES_NO_OPTION;
-        JOptionPane.showConfirmDialog(null,
+        int confirmacao = JOptionPane.showConfirmDialog(null,
                 "Essa ação é irreversível. Deseja continuar?",
                 "Atenção",
                 JOptionPane.YES_NO_OPTION,2);
-        if (dialogButton == JOptionPane.YES_OPTION) {
+        if (confirmacao == JOptionPane.YES_OPTION) {
             usuarioDao.deletarUsuario(id);
             JOptionPane.showMessageDialog(null, "Usuário deletado com sucesso","",1);
-        } else if (dialogButton == JOptionPane.NO_OPTION){
+        } else if (confirmacao == JOptionPane.NO_OPTION){
         }
     }//GEN-LAST:event_deletarUsuarioButtonActionPerformed
 
