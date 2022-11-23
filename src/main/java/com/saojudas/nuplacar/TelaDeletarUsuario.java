@@ -5,16 +5,18 @@
 package com.saojudas.nuplacar;;
 
 import java.util.ArrayList;
-
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 
-public class TelaListarUsuarios extends javax.swing.JFrame {
+public class TelaDeletarUsuario extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaInicialAdm
      */
-    public TelaListarUsuarios() {
+    public TelaDeletarUsuario() {
         super("Tela Inicial");
         initComponents();
         setLocationRelativeTo(null);
@@ -30,10 +32,12 @@ public class TelaListarUsuarios extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel5 = new javax.swing.JPanel();
+        deletarUsuarioButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        usuarioTable = new javax.swing.JTable();
+        deletaUsuarioTable = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
-        listarUsuariosButton = new javax.swing.JButton();
+        buscarIdTextField = new javax.swing.JTextField();
+        buscarUsuario = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         timeLabel = new javax.swing.JLabel();
@@ -45,43 +49,64 @@ public class TelaListarUsuarios extends javax.swing.JFrame {
         timesButton = new javax.swing.JButton();
         usuarioButton = new javax.swing.JButton();
         logoLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        usuarioTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+        deletarUsuarioButton.setText("Deletar usuário");
+        deletarUsuarioButton.setBorder(null);
+        deletarUsuarioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deletarUsuarioButtonActionPerformed(evt);
+            }
+        });
 
+        deletaUsuarioTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "ID", "Nome do Usuário", "Tipo de Usuário"
+                "ID", "Nome", "Senha", "Tipo de Usuário"
             }
         ));
-        jScrollPane1.setViewportView(usuarioTable);
+        jScrollPane1.setViewportView(deletaUsuarioTable);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 921, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(160, 160, 160)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 732, Short.MAX_VALUE)
+                    .addComponent(deletarUsuarioButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(deletarUsuarioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel6.setBackground(new java.awt.Color(233, 233, 233));
 
-        listarUsuariosButton.setText("Buscar");
-        listarUsuariosButton.setBorder(null);
-        listarUsuariosButton.addActionListener(new java.awt.event.ActionListener() {
+        buscarIdTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listarUsuariosButtonActionPerformed(evt);
+                buscarIdTextFieldActionPerformed(evt);
+            }
+        });
+
+        buscarUsuario.setText("Buscar");
+        buscarUsuario.setBorder(null);
+        buscarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarUsuarioActionPerformed(evt);
             }
         });
 
@@ -89,17 +114,21 @@ public class TelaListarUsuarios extends javax.swing.JFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(206, 206, 206)
-                .addComponent(listarUsuariosButton, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addGap(158, 158, 158)
+                .addComponent(buscarIdTextField)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buscarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(108, 108, 108))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(listarUsuariosButton, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap(27, Short.MAX_VALUE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buscarIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buscarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22))
         );
 
         jPanel2.setBackground(java.awt.SystemColor.controlHighlight);
@@ -255,8 +284,10 @@ public class TelaListarUsuarios extends javax.swing.JFrame {
                 .addComponent(simularButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(usuarioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(132, Short.MAX_VALUE))
         );
+
+        jLabel1.setText("Dados atuais");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -264,13 +295,19 @@ public class TelaListarUsuarios extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(menuLateralPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(6, 6, 6))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(6, 6, 6))
+                            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(181, 181, 181)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -280,7 +317,9 @@ public class TelaListarUsuarios extends javax.swing.JFrame {
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabel1)
+                        .addGap(1, 1, 1)
                         .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(menuLateralPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -294,20 +333,6 @@ public class TelaListarUsuarios extends javax.swing.JFrame {
         TCU.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_novoUsuarioButtonActionPerformed
-
-    private void listarUsuariosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarUsuariosButtonActionPerformed
-            UsuarioDAO usuarioDao = new UsuarioDAO();
-            ArrayList<Usuario> list = usuarioDao.obterUsuario();
-            DefaultTableModel model = (DefaultTableModel)usuarioTable.getModel();
-            model.setRowCount(0);
-            Object[] row = new Object[3];
-            for (int i = 0;i < list.size();i++) {
-                row[0] = list.get(i).getId();
-                row[1] = list.get(i).getNome();
-                row[2] = list.get(i).getTipoUsuario();
-                model.addRow(row);
-            }  
-    }//GEN-LAST:event_listarUsuariosButtonActionPerformed
 
     private void simularButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simularButtonActionPerformed
         // colocar redirecionamento para telaSimular
@@ -333,6 +358,42 @@ public class TelaListarUsuarios extends javax.swing.JFrame {
 
     }//GEN-LAST:event_usuarioButtonActionPerformed
 
+    private void buscarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarUsuarioActionPerformed
+        UsuarioDAO usuarioDao = new UsuarioDAO();
+            int id = Integer.parseInt(buscarIdTextField.getText());
+            ArrayList<Usuario> list = usuarioDao.obterUsuarioId(id);
+            DefaultTableModel model = (DefaultTableModel)deletaUsuarioTable.getModel();
+            model.setRowCount(0);
+            Object[] row = new Object[4];
+            for (int i = 0;i < list.size();i++) {
+                row[0] = list.get(i).getId();
+                row[1] = list.get(i).getNome();
+                row[2] = list.get(i).getSenha();
+                row[3] = list.get(i).getTipoUsuario();
+                model.addRow(row);
+            }  
+    }//GEN-LAST:event_buscarUsuarioActionPerformed
+
+    private void buscarIdTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarIdTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buscarIdTextFieldActionPerformed
+
+    private void deletarUsuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarUsuarioButtonActionPerformed
+        UsuarioDAO usuarioDao = new UsuarioDAO();
+        int id = Integer.parseInt(buscarIdTextField.getText());
+        
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        JOptionPane.showConfirmDialog(null,
+                "Essa ação é irreversível. Deseja continuar?",
+                "Atenção",
+                JOptionPane.YES_NO_OPTION,2);
+        if (dialogButton == JOptionPane.YES_OPTION) {
+            usuarioDao.deletarUsuario(id);
+            JOptionPane.showMessageDialog(null, "Usuário deletado com sucesso","",1);
+        } else if (dialogButton == JOptionPane.NO_OPTION){
+        }
+    }//GEN-LAST:event_deletarUsuarioButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -350,14 +411,38 @@ public class TelaListarUsuarios extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaListarUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaDeletarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaListarUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaDeletarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaListarUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaDeletarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaListarUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaDeletarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -370,19 +455,23 @@ public class TelaListarUsuarios extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaListarUsuarios().setVisible(true);
+                new TelaDeletarUsuario().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField buscarIdTextField;
+    private javax.swing.JButton buscarUsuario;
+    private javax.swing.JTable deletaUsuarioTable;
+    private javax.swing.JButton deletarUsuarioButton;
     private javax.swing.JButton gruposButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton listarUsuariosButton;
     private javax.swing.JLabel logoLabel;
     private javax.swing.JPanel menuLateralPanel;
     private javax.swing.JButton novoUsuarioButton;
@@ -391,6 +480,5 @@ public class TelaListarUsuarios extends javax.swing.JFrame {
     private javax.swing.JLabel timeLabel;
     private javax.swing.JButton timesButton;
     private javax.swing.JButton usuarioButton;
-    private javax.swing.JTable usuarioTable;
     // End of variables declaration//GEN-END:variables
 }
