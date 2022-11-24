@@ -4,6 +4,8 @@
  */
 package com.saojudas.nuplacar;
 
+import com.saojudas.nuplacar.CRUDTime.Time;
+
 /**
  *
  * @author Mathe

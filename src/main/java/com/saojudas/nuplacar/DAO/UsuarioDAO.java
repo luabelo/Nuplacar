@@ -2,8 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.saojudas.nuplacar;
+package com.saojudas.nuplacar.DAO;
 
+import com.saojudas.nuplacar.ConexaoBD;
+import com.saojudas.nuplacar.CRUDUsuário.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -108,4 +110,20 @@ public class UsuarioDAO {
         }    
         }
     
-        }
+    public boolean usuarioExiste(String nome) {
+        Connection conn = ConexaoBD.obtemConexao();
+        
+        try {
+            String sql = "SELECT * FROM tb_usuario WHERE nome = ?";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1, nome);
+            ResultSet rs = pstm.executeQuery();
+            return rs.next();
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }    
+        return false;
+    }
+    
+}

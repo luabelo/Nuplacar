@@ -2,21 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.saojudas.nuplacar;;
+package com.saojudas.nuplacar.CRUDUsuário;;
 
-import java.util.ArrayList;
+import com.saojudas.nuplacar.DAO.UsuarioDAO;
+import com.saojudas.nuplacar.TelaInicialAdm;
+import com.saojudas.nuplacar.CRUDTime.TelaListarTimes;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 
-public class TelaDeletarUsuario extends javax.swing.JFrame {
+public class TelaEditarUsuario extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaInicialAdm
      */
-    public TelaDeletarUsuario() {
+    public TelaEditarUsuario() {
         super("Tela Inicial");
         initComponents();
         setLocationRelativeTo(null);
@@ -32,9 +33,18 @@ public class TelaDeletarUsuario extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel5 = new javax.swing.JPanel();
-        deletarUsuarioButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        editarUsuarioButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        deletaUsuarioTable = new javax.swing.JTable();
+        atualizaUsuarioTable = new javax.swing.JTable();
+        novoNomeTextField = new javax.swing.JTextField();
+        nomeLabel = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        novoTipoUsuarioComboBox = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        novaConfirmarSenhaPasswordField = new javax.swing.JPasswordField();
+        novaSenhaPasswordField = new javax.swing.JPasswordField();
         jPanel6 = new javax.swing.JPanel();
         buscarIdTextField = new javax.swing.JTextField();
         buscarUsuario = new javax.swing.JButton();
@@ -53,15 +63,17 @@ public class TelaDeletarUsuario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        deletarUsuarioButton.setText("Deletar usuário");
-        deletarUsuarioButton.setBorder(null);
-        deletarUsuarioButton.addActionListener(new java.awt.event.ActionListener() {
+        jLabel2.setText("Novos dados");
+
+        editarUsuarioButton.setText("Editar");
+        editarUsuarioButton.setBorder(null);
+        editarUsuarioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deletarUsuarioButtonActionPerformed(evt);
+                editarUsuarioButtonActionPerformed(evt);
             }
         });
 
-        deletaUsuarioTable.setModel(new javax.swing.table.DefaultTableModel(
+        atualizaUsuarioTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -69,29 +81,84 @@ public class TelaDeletarUsuario extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "ID", "Nome", "Senha", "Tipo de Usuário"
+                "IdUsuario", "Nome", "Senha", "Tipo de Usuario"
             }
         ));
-        jScrollPane1.setViewportView(deletaUsuarioTable);
+        jScrollPane1.setViewportView(atualizaUsuarioTable);
+
+        nomeLabel.setText("Nome");
+
+        jLabel3.setText("Senha");
+
+        jLabel4.setText("Confirmar Senha");
+
+        novoTipoUsuarioComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Comum", "Administrador" }));
+        novoTipoUsuarioComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                novoTipoUsuarioComboBoxActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Tipo de usuário");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(160, 160, 160)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 732, Short.MAX_VALUE)
-                    .addComponent(deletarUsuarioButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(157, 157, 157)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(novoNomeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(novaSenhaPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(59, 59, 59)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(novaConfirmarSenhaPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(114, 114, 114)
+                                .addComponent(jLabel5))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(5, 5, 5)
+                                .addComponent(novoTipoUsuarioComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jLabel2)
+                    .addComponent(editarUsuarioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 751, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 765, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 116, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(deletarUsuarioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel2)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nomeLabel)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(novoNomeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(novaConfirmarSenhaPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(novaSenhaPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
+                        .addComponent(editarUsuarioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(424, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(novoTipoUsuarioComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
 
         jPanel6.setBackground(new java.awt.Color(233, 233, 233));
@@ -146,7 +213,7 @@ public class TelaDeletarUsuario extends javax.swing.JFrame {
 
         timeLabel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 30)); // NOI18N
         timeLabel.setForeground(new java.awt.Color(151, 151, 151));
-        timeLabel.setText("Usuário");
+        timeLabel.setText("Editar Usuário");
 
         novoUsuarioButton.setBackground(new java.awt.Color(141, 27, 61));
         novoUsuarioButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -284,7 +351,7 @@ public class TelaDeletarUsuario extends javax.swing.JFrame {
                 .addComponent(simularButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(usuarioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
 
         jLabel1.setText("Dados atuais");
@@ -359,10 +426,10 @@ public class TelaDeletarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_usuarioButtonActionPerformed
 
     private void buscarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarUsuarioActionPerformed
-        UsuarioDAO usuarioDao = new UsuarioDAO();
+            UsuarioDAO usuarioDao = new UsuarioDAO();
             int id = Integer.parseInt(buscarIdTextField.getText());
             ArrayList<Usuario> list = usuarioDao.obterUsuarioId(id);
-            DefaultTableModel model = (DefaultTableModel)deletaUsuarioTable.getModel();
+            DefaultTableModel model = (DefaultTableModel)atualizaUsuarioTable.getModel();
             model.setRowCount(0);
             Object[] row = new Object[4];
             for (int i = 0;i < list.size();i++) {
@@ -374,25 +441,32 @@ public class TelaDeletarUsuario extends javax.swing.JFrame {
             }  
     }//GEN-LAST:event_buscarUsuarioActionPerformed
 
+    private void editarUsuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarUsuarioButtonActionPerformed
+        UsuarioDAO usuarioDao = new UsuarioDAO();
+        int id = Integer.parseInt(buscarIdTextField.getText());
+        String novoNome = novoNomeTextField.getText();
+        String novaSenha = new String(novaSenhaPasswordField.getPassword());
+        String confirmarNovaSenha = new String(novaConfirmarSenhaPasswordField.getPassword());
+        String novoTipoUsuario = novoTipoUsuarioComboBox.getSelectedItem().toString();
+        
+        Usuario usuario = new Usuario (id, novoNome, novaSenha,novoTipoUsuario);
+        usuarioDao.atualizarUsuario(usuario);
+        
+        if (novaSenha.equals(confirmarNovaSenha)) {
+                JOptionPane.showMessageDialog(null,"Usuário atualizado com sucesso", "NuPlacar",1);
+                mostrarUsuarioAtualizado();
+            } else {
+                JOptionPane.showMessageDialog(null,"Senhas não coincidem. Tente novamente", "Erro",2);
+            }
+    }//GEN-LAST:event_editarUsuarioButtonActionPerformed
+
     private void buscarIdTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarIdTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buscarIdTextFieldActionPerformed
 
-    private void deletarUsuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarUsuarioButtonActionPerformed
-        UsuarioDAO usuarioDao = new UsuarioDAO();
-        int id = Integer.parseInt(buscarIdTextField.getText());
-        
-        int confirmacao = JOptionPane.showConfirmDialog(null,
-                "Essa ação é irreversível. Deseja continuar?",
-                "Atenção",
-                JOptionPane.YES_NO_OPTION,2);
-        if (confirmacao == JOptionPane.YES_OPTION) {
-            usuarioDao.deletarUsuario(id);
-            atualizarUsuarioDeletado();
-            JOptionPane.showMessageDialog(null, "Usuário deletado com sucesso","NuPlacar",1);
-        } else if (confirmacao == JOptionPane.NO_OPTION){
-        }
-    }//GEN-LAST:event_deletarUsuarioButtonActionPerformed
+    private void novoTipoUsuarioComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoTipoUsuarioComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_novoTipoUsuarioComboBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -411,30 +485,14 @@ public class TelaDeletarUsuario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaDeletarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaEditarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaDeletarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaEditarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaDeletarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaEditarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaDeletarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaEditarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -455,16 +513,16 @@ public class TelaDeletarUsuario extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaDeletarUsuario().setVisible(true);
+                new TelaEditarUsuario().setVisible(true);
             }
         });
     }
     
-    private void atualizarUsuarioDeletado() {
-        UsuarioDAO usuarioDao = new UsuarioDAO();
+    private void mostrarUsuarioAtualizado() {
+            UsuarioDAO usuarioDao = new UsuarioDAO();
             int id = Integer.parseInt(buscarIdTextField.getText());
             ArrayList<Usuario> list = usuarioDao.obterUsuarioId(id);
-            DefaultTableModel model = (DefaultTableModel)deletaUsuarioTable.getModel();
+            DefaultTableModel model = (DefaultTableModel)atualizaUsuarioTable.getModel();
             model.setRowCount(0);
             Object[] row = new Object[4];
             for (int i = 0;i < list.size();i++) {
@@ -473,16 +531,20 @@ public class TelaDeletarUsuario extends javax.swing.JFrame {
                 row[2] = list.get(i).getSenha();
                 row[3] = list.get(i).getTipoUsuario();
                 model.addRow(row);
-            } 
+            }  
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable atualizaUsuarioTable;
     private javax.swing.JTextField buscarIdTextField;
     private javax.swing.JButton buscarUsuario;
-    private javax.swing.JTable deletaUsuarioTable;
-    private javax.swing.JButton deletarUsuarioButton;
+    private javax.swing.JButton editarUsuarioButton;
     private javax.swing.JButton gruposButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
@@ -490,6 +552,11 @@ public class TelaDeletarUsuario extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel logoLabel;
     private javax.swing.JPanel menuLateralPanel;
+    private javax.swing.JLabel nomeLabel;
+    private javax.swing.JPasswordField novaConfirmarSenhaPasswordField;
+    private javax.swing.JPasswordField novaSenhaPasswordField;
+    private javax.swing.JTextField novoNomeTextField;
+    private javax.swing.JComboBox<String> novoTipoUsuarioComboBox;
     private javax.swing.JButton novoUsuarioButton;
     private javax.swing.JButton placarButton;
     private javax.swing.JButton simularButton;

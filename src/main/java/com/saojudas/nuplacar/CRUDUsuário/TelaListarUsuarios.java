@@ -2,21 +2,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.saojudas.nuplacar;;
+package com.saojudas.nuplacar.CRUDUsuário;;
 
-import javax.swing.JOptionPane;
+import com.saojudas.nuplacar.TelaInicialAdm;
+import com.saojudas.nuplacar.CRUDTime.TelaListarTimes;
+import com.saojudas.nuplacar.DAO.UsuarioDAO;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 
-public class TelaEditarTime extends javax.swing.JFrame {
+public class TelaListarUsuarios extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaInicialAdm
      */
-    public TelaEditarTime() {
+    public TelaListarUsuarios() {
         super("Tela Inicial");
         initComponents();
+        listarUsuariosTela();
         setLocationRelativeTo(null);
     }
 
@@ -30,21 +33,18 @@ public class TelaEditarTime extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel5 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        editarTimeButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        atualizaUsuarioTable = new javax.swing.JTable();
-        novoNomeTextField = new javax.swing.JTextField();
-        novaSenhaTextField = new javax.swing.JTextField();
-        nomeLabel = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        usuarioTable = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
-        buscarIdTextField = new javax.swing.JTextField();
-        buscarTimeButton = new javax.swing.JButton();
+        listarUsuariosButton = new javax.swing.JButton();
+        buscarUsuarioTextField = new javax.swing.JTextField();
+        listarUsuariosButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         timeLabel = new javax.swing.JLabel();
-        novoTimeButton = new javax.swing.JButton();
+        deleteUsuarioButton = new javax.swing.JButton();
+        editarUsuarioButton = new javax.swing.JButton();
+        novoUsuarioButton2 = new javax.swing.JButton();
         menuLateralPanel = new javax.swing.JPanel();
         simularButton = new javax.swing.JButton();
         placarButton = new javax.swing.JButton();
@@ -52,90 +52,51 @@ public class TelaEditarTime extends javax.swing.JFrame {
         timesButton = new javax.swing.JButton();
         usuarioButton = new javax.swing.JButton();
         logoLabel = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel2.setText("Novos dados");
-
-        editarTimeButton.setText("Editar Time");
-        editarTimeButton.setBorder(null);
-        editarTimeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editarTimeButtonActionPerformed(evt);
-            }
-        });
-
-        atualizaUsuarioTable.setModel(new javax.swing.table.DefaultTableModel(
+        usuarioTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
-                "IdTime", "Nome", "Bandeira"
+                "ID", "Nome do Usuário", "Tipo de Usuário"
             }
         ));
-        jScrollPane1.setViewportView(atualizaUsuarioTable);
-
-        nomeLabel.setText("Nome");
-
-        jLabel3.setText("Bandeira");
+        jScrollPane1.setViewportView(usuarioTable);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(157, 157, 157)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(novoNomeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(novaSenhaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel2)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(editarTimeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 751, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 130, Short.MAX_VALUE))
+                .addGap(45, 45, 45)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 921, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(46, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nomeLabel)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(novoNomeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(novaSenhaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addComponent(editarTimeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(395, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(110, Short.MAX_VALUE))
         );
 
         jPanel6.setBackground(new java.awt.Color(233, 233, 233));
 
-        buscarIdTextField.addActionListener(new java.awt.event.ActionListener() {
+        listarUsuariosButton.setText("Buscar");
+        listarUsuariosButton.setBorder(null);
+        listarUsuariosButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buscarIdTextFieldActionPerformed(evt);
+                listarUsuariosButtonActionPerformed(evt);
             }
         });
 
-        buscarTimeButton.setText("Buscar");
-        buscarTimeButton.setBorder(null);
-        buscarTimeButton.addActionListener(new java.awt.event.ActionListener() {
+        listarUsuariosButton1.setText("Limpar");
+        listarUsuariosButton1.setBorder(null);
+        listarUsuariosButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buscarTimeButtonActionPerformed(evt);
+                listarUsuariosButton1ActionPerformed(evt);
             }
         });
 
@@ -144,20 +105,23 @@ public class TelaEditarTime extends javax.swing.JFrame {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addGap(158, 158, 158)
-                .addComponent(buscarIdTextField)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buscarTimeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(108, 108, 108))
+                .addGap(50, 50, 50)
+                .addComponent(buscarUsuarioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 633, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(listarUsuariosButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(listarUsuariosButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
+                .addContainerGap(30, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buscarIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buscarTimeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22))
+                    .addComponent(listarUsuariosButton, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buscarUsuarioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(listarUsuariosButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15))
         );
 
         jPanel2.setBackground(java.awt.SystemColor.controlHighlight);
@@ -175,14 +139,32 @@ public class TelaEditarTime extends javax.swing.JFrame {
 
         timeLabel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 30)); // NOI18N
         timeLabel.setForeground(new java.awt.Color(151, 151, 151));
-        timeLabel.setText("Time");
+        timeLabel.setText("Gerenciar Usuários");
 
-        novoTimeButton.setBackground(new java.awt.Color(141, 27, 61));
-        novoTimeButton.setForeground(new java.awt.Color(255, 255, 255));
-        novoTimeButton.setText("Novo Time");
-        novoTimeButton.addActionListener(new java.awt.event.ActionListener() {
+        deleteUsuarioButton.setBackground(new java.awt.Color(141, 27, 61));
+        deleteUsuarioButton.setForeground(new java.awt.Color(255, 255, 255));
+        deleteUsuarioButton.setText("Deletar Usuário");
+        deleteUsuarioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                novoTimeButtonActionPerformed(evt);
+                deleteUsuarioButtonActionPerformed(evt);
+            }
+        });
+
+        editarUsuarioButton.setBackground(new java.awt.Color(141, 27, 61));
+        editarUsuarioButton.setForeground(new java.awt.Color(255, 255, 255));
+        editarUsuarioButton.setText("Editar Usuário");
+        editarUsuarioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarUsuarioButtonActionPerformed(evt);
+            }
+        });
+
+        novoUsuarioButton2.setBackground(new java.awt.Color(141, 27, 61));
+        novoUsuarioButton2.setForeground(new java.awt.Color(255, 255, 255));
+        novoUsuarioButton2.setText("Novo Usuário");
+        novoUsuarioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                novoUsuarioButton2ActionPerformed(evt);
             }
         });
 
@@ -196,8 +178,12 @@ public class TelaEditarTime extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(timeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 357, Short.MAX_VALUE)
-                .addComponent(novoTimeButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(novoUsuarioButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(editarUsuarioButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(deleteUsuarioButton)
                 .addGap(83, 83, 83))
         );
         jPanel2Layout.setVerticalGroup(
@@ -207,7 +193,10 @@ public class TelaEditarTime extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(timeLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(novoTimeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(deleteUsuarioButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(editarUsuarioButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(novoUsuarioButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -313,10 +302,8 @@ public class TelaEditarTime extends javax.swing.JFrame {
                 .addComponent(simularButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(usuarioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        jLabel1.setText("Dados atuais");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -324,19 +311,13 @@ public class TelaEditarTime extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(menuLateralPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(6, 6, 6))
-                            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(181, 181, 181)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(6, 6, 6))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -346,9 +327,7 @@ public class TelaEditarTime extends javax.swing.JFrame {
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(1, 1, 1)
-                        .addComponent(jLabel1)
-                        .addGap(1, 1, 1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(menuLateralPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -357,11 +336,26 @@ public class TelaEditarTime extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void novoTimeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoTimeButtonActionPerformed
-        TelaCadastrarTimes TCT = new TelaCadastrarTimes();
-        TCT.setVisible(true);
+    private void deleteUsuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteUsuarioButtonActionPerformed
+        TelaDeletarUsuario TDU = new TelaDeletarUsuario ();
+        TDU.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_novoTimeButtonActionPerformed
+    }//GEN-LAST:event_deleteUsuarioButtonActionPerformed
+
+    private void listarUsuariosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarUsuariosButtonActionPerformed
+            UsuarioDAO usuarioDao = new UsuarioDAO();
+            int id = Integer.parseInt(buscarUsuarioTextField.getText());
+            ArrayList<Usuario> list = usuarioDao.obterUsuarioId(id);
+            DefaultTableModel model = (DefaultTableModel)usuarioTable.getModel();
+            model.setRowCount(0);
+            Object[] row = new Object[3];
+            for (int i = 0;i < list.size();i++) {
+                row[0] = list.get(i).getId();
+                row[1] = list.get(i).getNome();
+                row[2] = list.get(i).getTipoUsuario();
+                model.addRow(row);
+            }    
+    }//GEN-LAST:event_listarUsuariosButtonActionPerformed
 
     private void simularButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simularButtonActionPerformed
         // colocar redirecionamento para telaSimular
@@ -384,40 +378,24 @@ public class TelaEditarTime extends javax.swing.JFrame {
     }//GEN-LAST:event_timesButtonActionPerformed
 
     private void usuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioButtonActionPerformed
-
+        
     }//GEN-LAST:event_usuarioButtonActionPerformed
 
-    private void buscarTimeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarTimeButtonActionPerformed
-            TimeDAO timeDAO = new TimeDAO();
-            int id = Integer.parseInt(buscarIdTextField.getText());
-            ArrayList<Time> list = timeDAO.obterTimeId(id);
-            DefaultTableModel model = (DefaultTableModel)atualizaUsuarioTable.getModel();
-            model.setRowCount(0);
-            Object[] row = new Object[3];
-            for (int i = 0;i < list.size();i++) {
-                row[0] = list.get(i).getIdTime();
-                row[1] = list.get(i).getNome();
-                row[2] = list.get(i).getBandeira();
-                model.addRow(row);
-            }  
-    }//GEN-LAST:event_buscarTimeButtonActionPerformed
+    private void listarUsuariosButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarUsuariosButton1ActionPerformed
+        listarUsuariosTela();
+    }//GEN-LAST:event_listarUsuariosButton1ActionPerformed
 
-    private void editarTimeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarTimeButtonActionPerformed
-        TimeDAO timeDAO = new TimeDAO();
-        int id = Integer.parseInt(buscarIdTextField.getText());
-        String novoNome = novoNomeTextField.getText();
-        String novaBandeira = novaSenhaTextField.getText();
-        
-        Time time = new Time (id,novoNome, novaBandeira);
-        timeDAO.atualizarTime(time);
-        mostrarTimeAtualizado();
-        JOptionPane.showMessageDialog(null,"Time atualizado com sucesso", "",1);
-            
-    }//GEN-LAST:event_editarTimeButtonActionPerformed
+    private void editarUsuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarUsuarioButtonActionPerformed
+        TelaEditarUsuario TEU = new TelaEditarUsuario ();
+        TEU.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_editarUsuarioButtonActionPerformed
 
-    private void buscarIdTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarIdTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buscarIdTextFieldActionPerformed
+    private void novoUsuarioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoUsuarioButton2ActionPerformed
+        TelaCadastrarUsuario TCU = new TelaCadastrarUsuario ();
+        TCU.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_novoUsuarioButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -436,38 +414,14 @@ public class TelaEditarTime extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaEditarTime.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListarUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaEditarTime.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListarUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaEditarTime.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListarUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaEditarTime.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListarUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -480,50 +434,46 @@ public class TelaEditarTime extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaEditarTime().setVisible(true);
+                new TelaListarUsuarios().setVisible(true);
             }
         });
     }
     
-    private void mostrarTimeAtualizado() {
-            TimeDAO timeDAO = new TimeDAO();
-            int id = Integer.parseInt(buscarIdTextField.getText());
-            ArrayList<Time> list = timeDAO.obterTimeId(id);
-            DefaultTableModel model = (DefaultTableModel)atualizaUsuarioTable.getModel();
+    private void listarUsuariosTela() {
+            
+            UsuarioDAO usuarioDao = new UsuarioDAO();
+            ArrayList<Usuario> list = usuarioDao.obterUsuario();
+            DefaultTableModel model = (DefaultTableModel)usuarioTable.getModel();
             model.setRowCount(0);
             Object[] row = new Object[3];
             for (int i = 0;i < list.size();i++) {
-                row[0] = list.get(i).getIdTime();
+                row[0] = list.get(i).getId();
                 row[1] = list.get(i).getNome();
-                row[2] = list.get(i).getBandeira();
+                row[2] = list.get(i).getTipoUsuario();
                 model.addRow(row);
-            } 
+            }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable atualizaUsuarioTable;
-    private javax.swing.JTextField buscarIdTextField;
-    private javax.swing.JButton buscarTimeButton;
-    private javax.swing.JButton editarTimeButton;
+    private javax.swing.JTextField buscarUsuarioTextField;
+    private javax.swing.JButton deleteUsuarioButton;
+    private javax.swing.JButton editarUsuarioButton;
     private javax.swing.JButton gruposButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton listarUsuariosButton;
+    private javax.swing.JButton listarUsuariosButton1;
     private javax.swing.JLabel logoLabel;
     private javax.swing.JPanel menuLateralPanel;
-    private javax.swing.JLabel nomeLabel;
-    private javax.swing.JTextField novaSenhaTextField;
-    private javax.swing.JTextField novoNomeTextField;
-    private javax.swing.JButton novoTimeButton;
+    private javax.swing.JButton novoUsuarioButton2;
     private javax.swing.JButton placarButton;
     private javax.swing.JButton simularButton;
     private javax.swing.JLabel timeLabel;
     private javax.swing.JButton timesButton;
     private javax.swing.JButton usuarioButton;
+    private javax.swing.JTable usuarioTable;
     // End of variables declaration//GEN-END:variables
 }

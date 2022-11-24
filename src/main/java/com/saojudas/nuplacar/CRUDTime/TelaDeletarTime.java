@@ -2,8 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.saojudas.nuplacar;;
+package com.saojudas.nuplacar.CRUDTime;;
 
+import com.saojudas.nuplacar.DAO.TimeDAO;
+import com.saojudas.nuplacar.TelaInicialAdm;
+import javax.swing.JOptionPane;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JOptionPane;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import com.saojudas.nuplacar.DAO.TimeDAO;
+import javax.swing.JOptionPane;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
@@ -144,7 +156,7 @@ public class TelaDeletarTime extends javax.swing.JFrame {
 
         timeLabel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 30)); // NOI18N
         timeLabel.setForeground(new java.awt.Color(151, 151, 151));
-        timeLabel.setText("Times");
+        timeLabel.setText("Deletar Time");
 
         novoTimeButton.setBackground(new java.awt.Color(141, 27, 61));
         novoTimeButton.setForeground(new java.awt.Color(255, 255, 255));

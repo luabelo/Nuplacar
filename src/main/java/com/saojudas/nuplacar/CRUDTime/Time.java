@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.saojudas.nuplacar;
+package com.saojudas.nuplacar.CRUDTime;
 
+import com.saojudas.nuplacar.ConexaoBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,6 +26,11 @@ public class Time {
     }
     
     public Time() {
+    }
+    
+    public Time(int idTime, String nome) {
+        this.idTime = idTime;
+        this.nome = nome;
     }
     
     public Time (String nome, String bandeira) {
@@ -83,8 +89,13 @@ public class Time {
             }                        
         } catch (Exception e){
             e.printStackTrace();
-}    
+        }    
         return timeList;
 
-}
+    }
+    
+    @Override
+    public String toString () {
+        return nome;
+    }
 }

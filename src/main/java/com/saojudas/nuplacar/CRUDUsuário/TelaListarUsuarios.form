@@ -64,7 +64,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="921" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="46" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -113,11 +113,11 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                  <Component id="buscarUsuarioTextField" min="-2" pref="618" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="buscarUsuarioTextField" min="-2" pref="633" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="listarUsuariosButton" min="-2" pref="120" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="listarUsuariosButton1" min="-2" pref="102" max="-2" attributes="0"/>
+                  <Component id="listarUsuariosButton1" min="-2" pref="120" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -180,8 +180,12 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="timeLabel" min="-2" pref="481" max="-2" attributes="0"/>
-                  <EmptySpace pref="340" max="32767" attributes="0"/>
-                  <Component id="novoUsuarioButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="novoUsuarioButton2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="editarUsuarioButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="deleteUsuarioButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -193,7 +197,11 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="timeLabel" alignment="1" min="-2" pref="38" max="-2" attributes="0"/>
-                      <Component id="novoUsuarioButton" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="deleteUsuarioButton" alignment="3" max="32767" attributes="0"/>
+                          <Component id="editarUsuarioButton" alignment="3" max="32767" attributes="0"/>
+                          <Component id="novoUsuarioButton2" alignment="3" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace pref="17" max="32767" attributes="0"/>
               </Group>
@@ -224,10 +232,38 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="97" green="97" red="97" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Usu&#xe1;rio"/>
+            <Property name="text" type="java.lang.String" value="Gerenciar Usu&#xe1;rios"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="novoUsuarioButton">
+        <Component class="javax.swing.JButton" name="deleteUsuarioButton">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="3d" green="1b" red="8d" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Deletar Usu&#xe1;rio"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteUsuarioButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="editarUsuarioButton">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="3d" green="1b" red="8d" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Editar Usu&#xe1;rio"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editarUsuarioButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="novoUsuarioButton2">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="3d" green="1b" red="8d" type="rgb"/>
@@ -238,7 +274,7 @@
             <Property name="text" type="java.lang.String" value="Novo Usu&#xe1;rio"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="novoUsuarioButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="novoUsuarioButton2ActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

@@ -1,5 +1,8 @@
-package com.saojudas.nuplacar;
+package com.saojudas.nuplacar.DAO;
 
+import com.saojudas.nuplacar.Administrador;
+import com.saojudas.nuplacar.ConexaoBD;
+import com.saojudas.nuplacar.CRUDUsuário.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
