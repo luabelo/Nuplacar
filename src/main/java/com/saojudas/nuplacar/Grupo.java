@@ -4,11 +4,35 @@
  */
 package com.saojudas.nuplacar;
 
+import java.util.ArrayList;
 /**
  *
  * @author Mathe
  */
 public class Grupo {
-    private Time[] times = new Time[4];
+    private ArrayList<Time> times = new ArrayList();
     private char id;
+
+    public Grupo(char id, ArrayList<Time> times) {
+        this.id = id;
+        this.times = times;
+    }
+
+    public ArrayList<Time> getTimes() {
+        return times;
+    }
+
+    public void setTimes(ArrayList<Time> times) {
+        this.times = times;
+    }
+
+    public char getId() {
+        return id;
+    }
+
+    public void setId(char id) {
+        this.id = id;
+    }
+    
+    
 }

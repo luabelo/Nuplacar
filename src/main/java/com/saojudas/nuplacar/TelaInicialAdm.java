@@ -4,6 +4,14 @@
  */
 package com.saojudas.nuplacar;;
 
+import com.saojudas.nuplacar.DAO.TimeDAO;
+import com.saojudas.nuplacar.DAO.GrupoDAO;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import com.saojudas.nuplacar.DAO.TimeDAO;
+import com.saojudas.nuplacar.DAO.GrupoDAO;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author PC Gamer
@@ -193,15 +201,21 @@ public class TelaInicialAdm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void simularButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simularButtonActionPerformed
-        // - todos os times estao cadastrados?
-        // sim, continuar
-        // nao, dialogo pedindo pra cadastrar todos os times
-        // - todos os grupos cadastrados?
-        // sim, continuar
-        // nao, dialogo pedindo pra cadastrar todos os grupos
-        // - campeonato.simularPartidasFaseGrupo()
-        // - abrir tela "Simulacao - Fase Grupos"
-        // - fechar essa tela
+        
+        int totalTimes = TimeDAO.listarTimes().size();
+        ArrayList<Grupo> grupos = GrupoDAO.listarGruposCompletos();
+        
+        if (totalTimes < 32) {
+            JOptionPane.showInputDialog(null, "Há somente " + totalTimes  + " times cadastrados, cadastre mais " + (totalTimes - 32) + " times para iniciar a simulação");
+        }
+        else if (grupos.size() != 8) {
+            JOptionPane.showInputDialog(null, "Há grupos incompletos, por favor cadastre todos antes de fazer a simulação!");
+        }
+        else {
+            TelaSimularFaseGrupos telaSimularFaseGrupos = new TelaSimularFaseGrupos(grupos);
+            telaSimularFaseGrupos.setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_simularButtonActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

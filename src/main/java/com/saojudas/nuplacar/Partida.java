@@ -15,13 +15,16 @@ public class Partida {
     private Time time2;
     private int golsTime1;
     private int golsTime2;
+    private boolean partidaFinalizada = false;
+    
 
-    public Partida(int id, Time time1, Time time2, int golsTime1, int golsTime2) {
+    public Partida(int id, Time time1, Time time2, int golsTime1, int golsTime2, boolean partidaFinalizada) {
         this.id = id;
         this.time1 = time1;
         this.time2 = time2;
         this.golsTime1 = golsTime1;
         this.golsTime2 = golsTime2;
+        this.partidaFinalizada = partidaFinalizada;
     }
 
     public Partida(Time time1, Time time2) {
@@ -59,11 +62,28 @@ public class Partida {
     
     public void simularPartida() {
         Random random = new Random();
-        golsTime1 = random.nextInt(10);
-        golsTime2 = random.nextInt(10);
+        golsTime1 = random.nextInt(3);
+        golsTime2 = random.nextInt(3);
+        atualizarStatusTimes();
     }
     
     private void atualizarStatusTimes() {
-        // aplicar as alterações na classificacao dos times
+        if (partidaFinalizada) {
+            if (golsTime1 > golsTime2) {
+                time1.ganhouPartida(golsTime1);
+                time2.perdeuPartida(golsTime2);
+            }
+            else if (golsTime1 == golsTime2) {
+                time1.empatouPartida(golsTime1);
+                time2.empatouPartida(golsTime2);
+            }
+            else {
+                time1.perdeuPartida(golsTime1);
+                time2.ganhouPartida(golsTime2);
+            }
+        }
+        else {
+            System.out.println("Partida ainda não foi finalizada");
+        }
     }
 }
