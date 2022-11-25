@@ -8,6 +8,18 @@ import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import com.saojudas.nuplacar.DAO.TimeDAO;
+import com.saojudas.nuplacar.TelaListarGrupos;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import com.saojudas.nuplacar.DAO.TimeDAO;
+import com.saojudas.nuplacar.TelaInicialAdm;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import com.saojudas.nuplacar.DAO.TimeDAO;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
@@ -371,7 +383,9 @@ public class TelaListarTimes extends javax.swing.JFrame {
     }//GEN-LAST:event_placarButtonActionPerformed
 
     private void gruposButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gruposButtonActionPerformed
-        // colocar redirecionamento para telaListarGrupos
+        TelaListarGrupos TLG = new TelaListarGrupos();
+        TLG.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_gruposButtonActionPerformed
 
     private void timesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timesButtonActionPerformed

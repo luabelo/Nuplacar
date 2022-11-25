@@ -92,7 +92,7 @@ public class TelaListarGrupos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Nome"
+                "Nome"
             }
         ));
         jScrollPane1.setViewportView(grupoATable);
@@ -110,7 +110,7 @@ public class TelaListarGrupos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Nome"
+                "Nome"
             }
         ));
         jScrollPane2.setViewportView(grupoBTable);
@@ -120,7 +120,7 @@ public class TelaListarGrupos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Nome"
+                "Nome"
             }
         ));
         jScrollPane3.setViewportView(grupoDTable);
@@ -130,7 +130,7 @@ public class TelaListarGrupos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Nome"
+                "Nome"
             }
         ));
         jScrollPane4.setViewportView(grupoCTable);
@@ -140,7 +140,7 @@ public class TelaListarGrupos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Nome"
+                "Nome"
             }
         ));
         jScrollPane5.setViewportView(grupoFTable);
@@ -150,7 +150,7 @@ public class TelaListarGrupos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Nome"
+                "Nome"
             }
         ));
         jScrollPane6.setViewportView(grupoETable);
@@ -160,7 +160,7 @@ public class TelaListarGrupos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Nome"
+                "Nome"
             }
         ));
         jScrollPane7.setViewportView(grupoGTable);
@@ -170,7 +170,7 @@ public class TelaListarGrupos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Nome"
+                "Nome"
             }
         ));
         jScrollPane8.setViewportView(grupoHTable);
@@ -572,7 +572,9 @@ public class TelaListarGrupos extends javax.swing.JFrame {
     }//GEN-LAST:event_placarButtonActionPerformed
 
     private void gruposButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gruposButtonActionPerformed
-        // colocar redirecionamento para telaListarGrupos
+        TelaListarGrupos TLG = new TelaListarGrupos();
+        TLG.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_gruposButtonActionPerformed
 
     private void timesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timesButtonActionPerformed
@@ -648,86 +650,78 @@ public class TelaListarGrupos extends javax.swing.JFrame {
         GrupoDAO grupoDAO = new GrupoDAO();
         ArrayList<Time> list = grupoDAO.addTimesA();
         DefaultTableModel model = (DefaultTableModel) grupoATable.getModel();
-        Object[] row = new Object[2];
+        Object[] row = new Object[1];
         model.setRowCount(0);
         for (int i = 0;i < list.size();i++) {
-                row[0] = list.get(i).getIdTime();
-                row[1] = list.get(i).getNome();
+                row[0] = list.get(i).getNome();
                 model.addRow(row);      
         }        
         // Grupo B
         ArrayList<Time> list1 = grupoDAO.addTimesB();
         DefaultTableModel model1 = (DefaultTableModel) grupoBTable.getModel();
-        Object[] row1 = new Object[2];
+        Object[] row1 = new Object[1];
         model1.setRowCount(0);
         for (int i1 = 0;i1 < list1.size();i1++) {
-                row1[0] = list1.get(i1).getIdTime();
-                row1[1] = list1.get(i1).getNome();
+                row1[0] = list1.get(i1).getNome();
                 model1.addRow(row1);
         }
         
         // Grupo C
         ArrayList<Time> list2 = grupoDAO.addTimesC();
         DefaultTableModel model2 = (DefaultTableModel) grupoCTable.getModel();
-        Object[] row2 = new Object[2];
+        Object[] row2 = new Object[1];
         model2.setRowCount(0);
         for (int i2 = 0;i2 < list2.size();i2++) {
-                row2[0] = list2.get(i2).getIdTime();
-                row2[1] = list2.get(i2).getNome();
+                row2[0] = list2.get(i2).getNome();
                 model2.addRow(row2);
         }
         // Grupo D
         ArrayList<Time> list3 = grupoDAO.addTimesD();
         DefaultTableModel model3 = (DefaultTableModel) grupoDTable.getModel();
-        Object[] row3 = new Object[2];
+        Object[] row3 = new Object[1];
         model3.setRowCount(0);
         for (int i3 = 0;i3 < list3.size();i3++) {
-                row3[0] = list3.get(i3).getIdTime();
-                row3[1] = list3.get(i3).getNome();
+                row3[0] = list3.get(i3).getNome();
                 model3.addRow(row3);
         }
         
         // Grupo E
         ArrayList<Time> list4 = grupoDAO.addTimesE();
         DefaultTableModel model4 = (DefaultTableModel) grupoETable.getModel();
-        Object[] row4 = new Object[2];
+        Object[] row4 = new Object[1];
         model4.setRowCount(0);
         for (int i4 = 0;i4 < list4.size();i4++) {
-                row4[0] = list4.get(i4).getIdTime();
-                row4[1] = list4.get(i4).getNome();
+                row4[0] = list4.get(i4).getNome();
                 model4.addRow(row4);
         }
         
         // Grupo F
         ArrayList<Time> list5 = grupoDAO.addTimesF();
         DefaultTableModel model5 = (DefaultTableModel) grupoFTable.getModel();
-        Object[] row5 = new Object[2];
+        Object[] row5 = new Object[1];
         model5.setRowCount(0);
         for (int i5 = 0;i5 < list5.size();i5++) {
-                row5[0] = list5.get(i5).getIdTime();
-                row5[1] = list5.get(i5).getNome();
+                row5[0] = list5.get(i5).getNome();
                 model5.addRow(row5);
         }
         
         // Grupo G
         ArrayList<Time> list6 = grupoDAO.addTimesG();
         DefaultTableModel model6 = (DefaultTableModel) grupoGTable.getModel();
-        Object[] row6 = new Object[2];
+        Object[] row6 = new Object[1];
         model6.setRowCount(0);
         for (int i6 = 0;i6 < list6.size();i6++) {
-                row6[0] = list6.get(i6).getIdTime();
-                row6[1] = list6.get(i6).getNome();
+                row6[0] = list6.get(i6).getNome();
                 model6.addRow(row6);
         }
         
         // Grupo H
         ArrayList<Time> list7 = grupoDAO.addTimesH();
         DefaultTableModel model7 = (DefaultTableModel) grupoHTable.getModel();
-        Object[] row7 = new Object[2];
+        Object[] row7 = new Object[1];
         model7.setRowCount(0);
         for (int i7 = 0;i7 < list7.size();i7++) {
-                row7[0] = list7.get(i7).getIdTime();
-                row7[1] = list7.get(i7).getNome();
+                row7[0] = list7.get(i7).getNome();
                 model7.addRow(row7);
         }
         } catch (Exception e){

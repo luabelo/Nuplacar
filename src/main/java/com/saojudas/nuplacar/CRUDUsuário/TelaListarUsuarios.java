@@ -7,6 +7,12 @@ package com.saojudas.nuplacar.CRUDUsuário;;
 import com.saojudas.nuplacar.TelaInicialAdm;
 import com.saojudas.nuplacar.CRUDTime.TelaListarTimes;
 import com.saojudas.nuplacar.DAO.UsuarioDAO;
+import com.saojudas.nuplacar.TelaListarGrupos;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import com.saojudas.nuplacar.TelaInicialAdm;
+import com.saojudas.nuplacar.CRUDTime.TelaListarTimes;
+import com.saojudas.nuplacar.DAO.UsuarioDAO;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -368,7 +374,9 @@ public class TelaListarUsuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_placarButtonActionPerformed
 
     private void gruposButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gruposButtonActionPerformed
-        // colocar redirecionamento para telaListarGrupos
+        TelaListarGrupos TLG = new TelaListarGrupos();
+        TLG.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_gruposButtonActionPerformed
 
     private void timesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timesButtonActionPerformed
