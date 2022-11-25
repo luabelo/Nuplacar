@@ -18,6 +18,8 @@ public class Time {
     private int idTime;
     private String nome;
     private String bandeira;
+    private String tipo;
+
 
     public Time(int idTime, String nome, String bandeira) {
         this.idTime = idTime;
@@ -56,6 +58,16 @@ public class Time {
 
     public String getBandeira() {
         return "./bandeiras/" + nome + ".png";
+    }
+    
+    
+    
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
     
     public void cadastrarTime() {
