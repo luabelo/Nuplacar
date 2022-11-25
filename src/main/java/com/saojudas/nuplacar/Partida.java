@@ -64,6 +64,7 @@ public class Partida {
         Random random = new Random();
         golsTime1 = random.nextInt(3);
         golsTime2 = random.nextInt(3);
+        partidaFinalizada = true;
         atualizarStatusTimes();
     }
     

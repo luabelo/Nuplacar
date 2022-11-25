@@ -4,13 +4,12 @@
  */
 package com.saojudas.nuplacar;;
 
-import com.saojudas.nuplacar.DAO.TimeDAO;
 import com.saojudas.nuplacar.DAO.GrupoDAO;
-import javax.swing.JOptionPane;
 import com.saojudas.nuplacar.DAO.TimeDAO;
-import com.saojudas.nuplacar.DAO.GrupoDAO; 
-import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import java.util.ArrayList;
+import java.util.Collections;
+
 
 /**
  *
@@ -33,6 +32,7 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
         
         this.grupos = grupos;
         this.campeonato = new Campeonato(grupos);
+        setValoresIniciaisTabelas();
     }
 
     /**
@@ -85,6 +85,11 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
         });
 
         refazerSimulacaoButton.setText("Refazer simulação");
+        refazerSimulacaoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refazerSimulacaoButtonActionPerformed(evt);
+            }
+        });
 
         avancarButton.setText("Avançar para a próxima fase");
 
@@ -465,8 +470,15 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
     }//GEN-LAST:event_voltarButtonActionPerformed
 
     private void SimularButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SimularButtonActionPerformed
-        campeonato.simularPartidasFaseGrupo();
+        simularFaseGrupo();
     }//GEN-LAST:event_SimularButtonActionPerformed
+
+    private void refazerSimulacaoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refazerSimulacaoButtonActionPerformed
+        TimeDAO.zerarClassificacaoGeral();
+        this.grupos = GrupoDAO.listarGruposCompletos();
+        this.campeonato = new Campeonato(grupos);
+        simularFaseGrupo();
+    }//GEN-LAST:event_refazerSimulacaoButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -501,7 +513,7 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaSimularFaseGrupos().setVisible(true);
+                new TelaSimularFaseGrupos(GrupoDAO.listarGruposCompletos()).setVisible(true);
             }
         });
     }
@@ -530,4 +542,56 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
     private javax.swing.JButton refazerSimulacaoButton;
     private javax.swing.JButton voltarButton;
     // End of variables declaration//GEN-END:variables
+
+    private void simularFaseGrupo() {
+        campeonato.simularPartidasFaseGrupo();
+        grupos.forEach((grupo) -> {
+            ArrayList<Time> times = grupo.getTimes();
+            Collections.sort(times, new ClassificacaoComparator());
+            switch (grupo.getId()) {
+                case 'A' -> setResultadoSimulacao(grupoATable, times);
+                case 'B' -> setResultadoSimulacao(grupoBTable, times);
+                case 'C' -> setResultadoSimulacao(grupoCTable, times);
+                case 'D' -> setResultadoSimulacao(grupoDTable, times);
+                case 'E' -> setResultadoSimulacao(grupoETable, times);
+                case 'F' -> setResultadoSimulacao(grupoFTable, times);
+                case 'G' -> setResultadoSimulacao(grupoGTable, times);
+                case 'H' -> setResultadoSimulacao(grupoHTable, times);
+            }
+        });
+    }
+    
+    private void setValoresIniciaisTabelas() {
+        grupos.forEach((grupo) -> {
+            ArrayList<Time> times = grupo.getTimes();
+            switch (grupo.getId()) {
+                case 'A' -> setValorTabela(grupoATable, times);
+                case 'B' -> setValorTabela(grupoBTable, times);
+                case 'C' -> setValorTabela(grupoCTable, times);
+                case 'D' -> setValorTabela(grupoDTable, times);
+                case 'E' -> setValorTabela(grupoETable, times);
+                case 'F' -> setValorTabela(grupoFTable, times);
+                case 'G' -> setValorTabela(grupoGTable, times);
+                case 'H' -> setValorTabela(grupoHTable, times);
+            }
+        });
+    }
+    
+    private void setValorTabela(JTable tabela, ArrayList<Time> times) {        
+        for (int i = 0; i < 4; i++) {
+            tabela.setValueAt(times.get(i).getNome(), i, 0);
+            tabela.setValueAt(0, i, 1);
+            tabela.setValueAt(0, i, 2);
+            tabela.setValueAt(0, i, 3);
+        }
+    }
+    
+    private void setResultadoSimulacao(JTable tabela, ArrayList<Time> times) {
+        for (int i = 0; i < 4; i++) {
+            tabela.setValueAt(times.get(i).getNome(), i, 0);
+            tabela.setValueAt(times.get(i).getPontos(), i, 1);
+            tabela.setValueAt(times.get(i).getGolPro(), i, 2);
+            tabela.setValueAt(times.get(i).getSaldoGols(), i, 3);
+        }
+    }
 }

@@ -12,7 +12,6 @@ import java.util.ArrayList;
 public class GrupoDAO {
 
     public static ArrayList<Grupo> listarGruposCompletos(){
-        ArrayList<Time> times = new ArrayList<>();
         ArrayList<Grupo> grupos = new ArrayList<>();
         Time time1;
         Time time2;
@@ -22,11 +21,12 @@ public class GrupoDAO {
         try (
             Connection conexao = ConexaoBD.obtemConexao();
         ){
-        String sql = "SELECT * FROM tb_times";
+        String sql = "SELECT * FROM tb_grupos";
             PreparedStatement ps = conexao.prepareStatement(sql);
             ps.execute();
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
+                    ArrayList<Time> times = new ArrayList<>();
                     try{
                         time1 = TimeDAO.getTimePorNome(rs.getString("time1"));
                         times.add(time1);
@@ -40,7 +40,7 @@ public class GrupoDAO {
                     catch(Exception ex) {
                         ex.printStackTrace();
                     }
-                    grupos.add(new Grupo(rs.getString("id").charAt(0), times));
+                    grupos.add(new Grupo(rs.getString("idGrupo").charAt(0), times));
                 }
             }
         }

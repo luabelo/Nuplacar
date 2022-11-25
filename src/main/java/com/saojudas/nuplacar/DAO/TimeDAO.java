@@ -42,7 +42,8 @@ public class TimeDAO {
             ps.setString(1, nome);
 
             try (ResultSet rs = ps.executeQuery()){
-                return new Time(rs.getString("nome"), rs.getString("bandeira"));
+                rs.next();
+                return new Time(rs.getString("nome"), rs.getString("bandeira"));                
             }
             catch(NullPointerException ex) {
                 throw new NullPointerException("Time com o nome: " +  nome + " não foi encontrado!");
@@ -57,7 +58,7 @@ public class TimeDAO {
         try (
             Connection conexao = ConexaoBD.obtemConexao();
         ){
-            String sql = "UPDATE tb_time SET pontos=?, jogos=?, vitorias=?, empates=?, derrotas=?, golPro=?, golContra=?, saldoGols=? WHERE nome=?";
+            String sql = "UPDATE tb_times SET pontos=?, jogos=?, vitorias=?, empates=?, derrotas=?, golPro=?, golContra=?, saldoGols=? WHERE nome=?";
 
             PreparedStatement ps = conexao.prepareStatement(sql);
 
@@ -74,6 +75,33 @@ public class TimeDAO {
             ps.execute();
         }
         catch(Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    public static void zerarClassificacaoGeral() {
+        try (
+            Connection conexao = ConexaoBD.obtemConexao();
+        ){
+            String sql = """
+                        UPDATE 
+                            tb_times 
+                        SET 
+                            pontos = 0, 
+                            jogos = 0, 
+                            vitorias = 0, 
+                            empates = 0,
+                            derrotas = 0,
+                            golPro = 0,
+                            golContra = 0, 
+                            saldoGols = 0
+                        """;
+
+            PreparedStatement ps = conexao.prepareStatement(sql);
+            ps.execute();
+        }
+        catch(Exception ex) {
+            ex.printStackTrace();
         }
     }
 }

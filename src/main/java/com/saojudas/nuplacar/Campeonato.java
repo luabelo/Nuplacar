@@ -5,6 +5,7 @@
 package com.saojudas.nuplacar;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 /**
  *
@@ -54,5 +55,26 @@ public class Campeonato {
     public ArrayList<Grupo> getClassificacaoTimesPorGrupo() {
         //pegar na base os grupos com os times
         return new ArrayList();
+    }
+}
+
+class ClassificacaoComparator implements Comparator<Time> {
+    
+    @Override
+    public int compare(Time time1, Time time2) {
+        if (time1.getPontos() == time2.getPontos()) {
+            if (time1.getSaldoGols() > time2.getSaldoGols()) {
+                return -1;
+            }
+            else {
+                return 1;
+            }
+        }
+        else if (time1.getPontos() > time2.getPontos()){
+            return -1;
+        }
+        else {
+            return 1;
+        }
     }
 }
