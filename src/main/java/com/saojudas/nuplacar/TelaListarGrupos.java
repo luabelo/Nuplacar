@@ -71,7 +71,6 @@ public class TelaListarGrupos extends javax.swing.JFrame {
         placarButton = new javax.swing.JButton();
         gruposButton = new javax.swing.JButton();
         timesButton = new javax.swing.JButton();
-        usuarioButton = new javax.swing.JButton();
         logoLabel = new javax.swing.JLabel();
 
         jCheckBoxMenuItem1.setSelected(true);
@@ -479,18 +478,6 @@ public class TelaListarGrupos extends javax.swing.JFrame {
             }
         });
 
-        usuarioButton.setBackground(new java.awt.Color(141, 27, 61));
-        usuarioButton.setText("Usuario");
-        usuarioButton.setAlignmentY(0.0F);
-        usuarioButton.setBorder(null);
-        usuarioButton.setContentAreaFilled(false);
-        usuarioButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        usuarioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usuarioButtonActionPerformed(evt);
-            }
-        });
-
         logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LogoNuplacarMenu.png"))); // NOI18N
 
         javax.swing.GroupLayout menuLateralPanelLayout = new javax.swing.GroupLayout(menuLateralPanel);
@@ -504,7 +491,6 @@ public class TelaListarGrupos extends javax.swing.JFrame {
                 .addComponent(logoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE))
             .addComponent(timesButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(simularButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(usuarioButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         menuLateralPanelLayout.setVerticalGroup(
             menuLateralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -519,8 +505,6 @@ public class TelaListarGrupos extends javax.swing.JFrame {
                 .addComponent(timesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(simularButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(usuarioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -578,12 +562,10 @@ public class TelaListarGrupos extends javax.swing.JFrame {
     }//GEN-LAST:event_gruposButtonActionPerformed
 
     private void timesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timesButtonActionPerformed
-
+        TelaListarTimes tlt = new TelaListarTimes();
+        tlt.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_timesButtonActionPerformed
-
-    private void usuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioButtonActionPerformed
-
-    }//GEN-LAST:event_usuarioButtonActionPerformed
 
     private void novoTimeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoTimeButtonActionPerformed
         TelaCadastrarTimes TCT = new TelaCadastrarTimes();
@@ -886,6 +868,5 @@ public class TelaListarGrupos extends javax.swing.JFrame {
     private javax.swing.JComboBox<Time> time1ComboBox;
     private javax.swing.JLabel timeLabel;
     private javax.swing.JButton timesButton;
-    private javax.swing.JButton usuarioButton;
     // End of variables declaration//GEN-END:variables
 }

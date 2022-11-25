@@ -4,6 +4,7 @@
  */
 package com.saojudas.nuplacar;;
 
+import com.saojudas.nuplacar.CRUDUsuário.TelaListarUsuarios;
 import com.saojudas.nuplacar.CRUDTime.TelaListarTimes;
 
 /**
@@ -38,8 +39,11 @@ public class TelaInicialAdm extends javax.swing.JFrame {
         placarButton = new javax.swing.JButton();
         gruposButton = new javax.swing.JButton();
         timesButton = new javax.swing.JButton();
-        usuarioButton = new javax.swing.JButton();
         logoLabel = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        gerenciarUsuariosButton = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         bemVindoAdminTitulo = new javax.swing.JLabel();
@@ -145,19 +149,54 @@ public class TelaInicialAdm extends javax.swing.JFrame {
             }
         });
 
-        usuarioButton.setBackground(new java.awt.Color(141, 27, 61));
-        usuarioButton.setText("Usuario");
-        usuarioButton.setAlignmentY(0.0F);
-        usuarioButton.setBorder(null);
-        usuarioButton.setContentAreaFilled(false);
-        usuarioButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        usuarioButton.addActionListener(new java.awt.event.ActionListener() {
+        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LogoNuplacarMenu.png"))); // NOI18N
+
+        jPanel6.setBackground(new java.awt.Color(141, 27, 61));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/profile-user.png"))); // NOI18N
+
+        jLabel3.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText(" Admin");
+
+        gerenciarUsuariosButton.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        gerenciarUsuariosButton.setForeground(new java.awt.Color(255, 255, 255));
+        gerenciarUsuariosButton.setText("Gerenciar usuários");
+        gerenciarUsuariosButton.setBorder(null);
+        gerenciarUsuariosButton.setContentAreaFilled(false);
+        gerenciarUsuariosButton.setDefaultCapable(false);
+        gerenciarUsuariosButton.setMargin(new java.awt.Insets(2, 20, 3, 20));
+        gerenciarUsuariosButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usuarioButtonActionPerformed(evt);
+                gerenciarUsuariosButtonActionPerformed(evt);
             }
         });
 
-        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LogoNuplacarMenu.png"))); // NOI18N
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(gerenciarUsuariosButton)
+                    .addComponent(jLabel3))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(gerenciarUsuariosButton))
+                    .addComponent(jLabel1))
+                .addGap(55, 55, 55))
+        );
 
         javax.swing.GroupLayout menuLateralPanelLayout = new javax.swing.GroupLayout(menuLateralPanel);
         menuLateralPanel.setLayout(menuLateralPanelLayout);
@@ -165,12 +204,15 @@ public class TelaInicialAdm extends javax.swing.JFrame {
             menuLateralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(placarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(gruposButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(menuLateralPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(logoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE))
             .addComponent(timesButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(simularButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(usuarioButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(menuLateralPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(menuLateralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(logoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+                    .addGroup(menuLateralPanelLayout.createSequentialGroup()
+                        .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         menuLateralPanelLayout.setVerticalGroup(
             menuLateralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,8 +228,8 @@ public class TelaInicialAdm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(simularButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(usuarioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         jPanel4.setBackground(java.awt.SystemColor.controlHighlight);
@@ -217,7 +259,7 @@ public class TelaInicialAdm extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(bemVindoAdminTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(519, Short.MAX_VALUE))
+                .addContainerGap(524, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -281,7 +323,9 @@ public class TelaInicialAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_placarButtonActionPerformed
 
     private void gruposButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gruposButtonActionPerformed
-        // TODO add your handling code here:
+        TelaListarGrupos TLG = new TelaListarGrupos();
+        TLG.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_gruposButtonActionPerformed
 
     private void timesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timesButtonActionPerformed
@@ -290,9 +334,11 @@ public class TelaInicialAdm extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_timesButtonActionPerformed
 
-    private void usuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_usuarioButtonActionPerformed
+    private void gerenciarUsuariosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerenciarUsuariosButtonActionPerformed
+        TelaListarUsuarios TLU = new TelaListarUsuarios();
+        TLU.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_gerenciarUsuariosButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -332,18 +378,21 @@ public class TelaInicialAdm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bemVindoAdminTitulo;
+    private javax.swing.JButton gerenciarUsuariosButton;
     private javax.swing.JButton gruposButton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JLabel logoLabel;
     private javax.swing.JPanel menuLateralPanel;
     private javax.swing.JButton placarButton;
     private javax.swing.JButton simularButton;
     private javax.swing.JLabel timeLabel;
     private javax.swing.JButton timesButton;
-    private javax.swing.JButton usuarioButton;
     // End of variables declaration//GEN-END:variables
 }

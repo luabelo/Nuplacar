@@ -4,18 +4,9 @@
  */
 package com.saojudas.nuplacar.CRUDTime;;
 
-import com.saojudas.nuplacar.DAO.TimeDAO;
+import com.saojudas.nuplacar.CRUDUsuário.TelaListarUsuarios;
 import com.saojudas.nuplacar.TelaInicialAdm;
-import javax.swing.JOptionPane;
-import java.util.ArrayList;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JOptionPane;
-import java.util.ArrayList;
-import javax.swing.table.DefaultTableModel;
 import com.saojudas.nuplacar.DAO.TimeDAO;
-import javax.swing.JOptionPane;
-import java.util.ArrayList;
-import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
@@ -57,8 +48,11 @@ public class TelaDeletarTime extends javax.swing.JFrame {
         placarButton = new javax.swing.JButton();
         gruposButton = new javax.swing.JButton();
         timesButton = new javax.swing.JButton();
-        usuarioButton = new javax.swing.JButton();
         logoLabel = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        gerenciarUsuariosButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -101,7 +95,7 @@ public class TelaDeletarTime extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(deletarTimeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(537, Short.MAX_VALUE))
         );
 
         jPanel6.setBackground(new java.awt.Color(233, 233, 233));
@@ -252,19 +246,54 @@ public class TelaDeletarTime extends javax.swing.JFrame {
             }
         });
 
-        usuarioButton.setBackground(new java.awt.Color(141, 27, 61));
-        usuarioButton.setText("Usuario");
-        usuarioButton.setAlignmentY(0.0F);
-        usuarioButton.setBorder(null);
-        usuarioButton.setContentAreaFilled(false);
-        usuarioButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        usuarioButton.addActionListener(new java.awt.event.ActionListener() {
+        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LogoNuplacarMenu.png"))); // NOI18N
+
+        jPanel7.setBackground(new java.awt.Color(141, 27, 61));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/profile-user.png"))); // NOI18N
+
+        jLabel3.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText(" Admin");
+
+        gerenciarUsuariosButton.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        gerenciarUsuariosButton.setForeground(new java.awt.Color(255, 255, 255));
+        gerenciarUsuariosButton.setText("Gerenciar usuários");
+        gerenciarUsuariosButton.setBorder(null);
+        gerenciarUsuariosButton.setContentAreaFilled(false);
+        gerenciarUsuariosButton.setDefaultCapable(false);
+        gerenciarUsuariosButton.setMargin(new java.awt.Insets(2, 20, 3, 20));
+        gerenciarUsuariosButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usuarioButtonActionPerformed(evt);
+                gerenciarUsuariosButtonActionPerformed(evt);
             }
         });
 
-        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LogoNuplacarMenu.png"))); // NOI18N
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(gerenciarUsuariosButton))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(gerenciarUsuariosButton))
+                    .addComponent(jLabel2))
+                .addGap(55, 55, 55))
+        );
 
         javax.swing.GroupLayout menuLateralPanelLayout = new javax.swing.GroupLayout(menuLateralPanel);
         menuLateralPanel.setLayout(menuLateralPanelLayout);
@@ -272,12 +301,13 @@ public class TelaDeletarTime extends javax.swing.JFrame {
             menuLateralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(placarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(gruposButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(menuLateralPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(logoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE))
             .addComponent(timesButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(simularButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(usuarioButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(menuLateralPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(menuLateralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(logoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         menuLateralPanelLayout.setVerticalGroup(
             menuLateralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -293,8 +323,8 @@ public class TelaDeletarTime extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(simularButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(usuarioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel1.setText("Dados atuais");
@@ -364,10 +394,6 @@ public class TelaDeletarTime extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_timesButtonActionPerformed
 
-    private void usuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioButtonActionPerformed
-
-    }//GEN-LAST:event_usuarioButtonActionPerformed
-
     private void buscarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarUsuarioActionPerformed
             TimeDAO timeDAO = new TimeDAO();
             int id = Integer.parseInt(buscarIdTextField.getText());
@@ -402,6 +428,12 @@ public class TelaDeletarTime extends javax.swing.JFrame {
         } else if (confirmacao == JOptionPane.NO_OPTION){
         }
     }//GEN-LAST:event_deletarTimeButtonActionPerformed
+
+    private void gerenciarUsuariosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerenciarUsuariosButtonActionPerformed
+        TelaListarUsuarios TLU = new TelaListarUsuarios();
+        TLU.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_gerenciarUsuariosButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -521,12 +553,16 @@ public class TelaDeletarTime extends javax.swing.JFrame {
     private javax.swing.JButton buscarUsuario;
     private javax.swing.JTable deletaTimeTable;
     private javax.swing.JButton deletarTimeButton;
+    private javax.swing.JButton gerenciarUsuariosButton;
     private javax.swing.JButton gruposButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel logoLabel;
     private javax.swing.JPanel menuLateralPanel;
@@ -535,6 +571,5 @@ public class TelaDeletarTime extends javax.swing.JFrame {
     private javax.swing.JButton simularButton;
     private javax.swing.JLabel timeLabel;
     private javax.swing.JButton timesButton;
-    private javax.swing.JButton usuarioButton;
     // End of variables declaration//GEN-END:variables
 }

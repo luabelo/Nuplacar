@@ -46,8 +46,11 @@ public class TelaCadastrarUsuario extends javax.swing.JFrame {
         placarButton = new javax.swing.JButton();
         gruposButton = new javax.swing.JButton();
         timesButton = new javax.swing.JButton();
-        usuarioButton = new javax.swing.JButton();
         logoLabel = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        gerenciarUsuariosButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -187,7 +190,7 @@ public class TelaCadastrarUsuario extends javax.swing.JFrame {
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(0, 317, Short.MAX_VALUE))
+                .addGap(0, 318, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,7 +205,7 @@ public class TelaCadastrarUsuario extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(criarUsuarioButton)
-                .addContainerGap(171, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(java.awt.SystemColor.controlHighlight);
@@ -303,19 +306,54 @@ public class TelaCadastrarUsuario extends javax.swing.JFrame {
             }
         });
 
-        usuarioButton.setBackground(new java.awt.Color(141, 27, 61));
-        usuarioButton.setText("Usuario");
-        usuarioButton.setAlignmentY(0.0F);
-        usuarioButton.setBorder(null);
-        usuarioButton.setContentAreaFilled(false);
-        usuarioButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        usuarioButton.addActionListener(new java.awt.event.ActionListener() {
+        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LogoNuplacarMenu.png"))); // NOI18N
+
+        jPanel9.setBackground(new java.awt.Color(141, 27, 61));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/profile-user.png"))); // NOI18N
+
+        jLabel7.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText(" Admin");
+
+        gerenciarUsuariosButton2.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        gerenciarUsuariosButton2.setForeground(new java.awt.Color(255, 255, 255));
+        gerenciarUsuariosButton2.setText("Gerenciar usuários");
+        gerenciarUsuariosButton2.setBorder(null);
+        gerenciarUsuariosButton2.setContentAreaFilled(false);
+        gerenciarUsuariosButton2.setDefaultCapable(false);
+        gerenciarUsuariosButton2.setMargin(new java.awt.Insets(2, 20, 3, 20));
+        gerenciarUsuariosButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usuarioButtonActionPerformed(evt);
+                gerenciarUsuariosButton2ActionPerformed(evt);
             }
         });
 
-        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LogoNuplacarMenu.png"))); // NOI18N
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addComponent(gerenciarUsuariosButton2))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(gerenciarUsuariosButton2))
+                    .addComponent(jLabel6))
+                .addGap(55, 55, 55))
+        );
 
         javax.swing.GroupLayout menuLateralPanelLayout = new javax.swing.GroupLayout(menuLateralPanel);
         menuLateralPanel.setLayout(menuLateralPanelLayout);
@@ -323,12 +361,13 @@ public class TelaCadastrarUsuario extends javax.swing.JFrame {
             menuLateralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(placarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(gruposButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(menuLateralPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(logoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE))
             .addComponent(timesButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(simularButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(usuarioButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(menuLateralPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(menuLateralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(logoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+                    .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         menuLateralPanelLayout.setVerticalGroup(
             menuLateralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -344,7 +383,7 @@ public class TelaCadastrarUsuario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(simularButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(usuarioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -423,9 +462,11 @@ public class TelaCadastrarUsuario extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_timesButtonActionPerformed
 
-    private void usuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioButtonActionPerformed
-
-    }//GEN-LAST:event_usuarioButtonActionPerformed
+    private void gerenciarUsuariosButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerenciarUsuariosButton2ActionPerformed
+        TelaListarUsuarios TLU = new TelaListarUsuarios();
+        TLU.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_gerenciarUsuariosButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -482,7 +523,13 @@ public class TelaCadastrarUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel confirmarSenhaLabel;
     private javax.swing.JPasswordField confirmarSenhaPasswordField;
     private javax.swing.JButton criarUsuarioButton;
+    private javax.swing.JButton gerenciarUsuariosButton1;
+    private javax.swing.JButton gerenciarUsuariosButton2;
     private javax.swing.JButton gruposButton;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -490,6 +537,8 @@ public class TelaCadastrarUsuario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JLabel logoLabel;
     private javax.swing.JPanel menuLateralPanel;
     private javax.swing.JTextField nomeUsuarioField;
@@ -501,6 +550,5 @@ public class TelaCadastrarUsuario extends javax.swing.JFrame {
     private javax.swing.JButton timesButton;
     private javax.swing.JComboBox<String> tipoContaComboBox;
     private javax.swing.JLabel tipoDeContaLabel;
-    private javax.swing.JButton usuarioButton;
     // End of variables declaration//GEN-END:variables
 }
