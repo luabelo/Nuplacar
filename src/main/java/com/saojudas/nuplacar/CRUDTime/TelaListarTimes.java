@@ -1,6 +1,10 @@
 package com.saojudas.nuplacar.CRUDTime;;
 
-
+import javax.swing.JTable;
+import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableCellRenderer;
+import java.awt.Component;
+import java.awt.Image;
 import com.saojudas.nuplacar.CRUDUsuário.TelaListarUsuarios;
 import com.saojudas.nuplacar.TelaListarGrupos;
 import com.saojudas.nuplacar.TelaInicialAdm;
@@ -392,8 +396,11 @@ public class TelaListarTimes extends javax.swing.JFrame {
                 row[0] = list.get(i).getIdTime();
                 row[1] = list.get(i).getNome();
                 row[2] = list.get(i).getBandeira();
-                model.addRow(row);
-            }     
+                model.addRow(row);  
+            } 
+            // mostrar a bandeira na tabela
+        timeTable.getColumnModel().getColumn(2).setCellRenderer(new ImageRender());
+        timeTable.setRowHeight(40);
     }//GEN-LAST:event_buscarTimeButtonActionPerformed
 
     private void simularButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simularButtonActionPerformed
@@ -488,8 +495,23 @@ public class TelaListarTimes extends javax.swing.JFrame {
                 row[2] = lista.get(i).getBandeira();
                 modelo.addRow(row); // adiciona as linhas
             }    
+            timeTable.getColumnModel().getColumn(2).setCellRenderer(new ImageRender());
+            timeTable.setRowHeight(40);
     }
+    
+    // renderização da imagem
+    private class ImageRender extends DefaultTableCellRenderer {
 
+    @Override
+    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+        byte[] bytes = (byte[]) value;
+        //redimensionar a imagem dentro da tabela
+        Image image = new ImageIcon(bytes).getImage().getScaledInstance(60, 40, Image.SCALE_DEFAULT);
+        ImageIcon imageIcon = new ImageIcon(image);
+        setIcon(imageIcon);
+        return this;
+    }
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buscarTimeButton;
     private javax.swing.JTextField buscarTimeTextField;

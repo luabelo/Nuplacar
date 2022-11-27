@@ -12,7 +12,6 @@ public class Time {
     private byte[] bandeira;
     private String tipo;
 
-
     public Time(int idTime, String nome, byte[] bandeira) {
         this.idTime = idTime;
         this.nome = nome;
@@ -47,13 +46,10 @@ public class Time {
         this.idTime = idTime;
     }    
 
-
     public byte[] getBandeira() {
         return bandeira;
     }
-    
-    
-    
+      
     public String getTipo() {
         return tipo;
     }
