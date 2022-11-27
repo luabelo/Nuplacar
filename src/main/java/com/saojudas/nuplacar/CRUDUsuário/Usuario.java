@@ -1,28 +1,42 @@
-package com.saojudas.nuplacar;
+package com.saojudas.nuplacar.CRUDUsuário;
 
-public class Administrador {
+public class Usuario {
     private int id;
     private String nome;
     private String senha;
     private String tipoUsuario;
             
-    public Administrador(String nome, String senha) {
+    public Usuario(String nome, String senha) {
         this.nome = nome;
         this.senha = senha;
     }
+
+    public Usuario() {   
+    }
     
-    public Administrador(String nome, String senha, String tipoUsuario) {
+    public Usuario(int id) {   
+        this.id = id;
+    }
+    
+    public Usuario(int id, String nome, String tipoUsuario) {
+        this.id = id;
+        this.nome = nome;
+        this.tipoUsuario = tipoUsuario;
+    }
+    
+    public Usuario(String nome, String senha, String tipoUsuario) {
+        this.nome = nome;
+        this.senha = senha;
+        this.tipoUsuario = tipoUsuario;
+    }
+
+    public Usuario(int id, String nome, String senha, String tipoUsuario) {
+        this.id = id;
         this.nome = nome;
         this.senha = senha;
         this.tipoUsuario = tipoUsuario;
     }
     
-    public Administrador(int id, String nome, String senha) {
-        this.id = id;
-        this.nome = nome;
-        this.senha = senha;
-    }
-
     public int getId() {
         return id;
     }
@@ -42,7 +56,7 @@ public class Administrador {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-
+    
     public String getTipoUsuario() {
         return tipoUsuario;
     }
@@ -50,6 +64,6 @@ public class Administrador {
     public void setTipoUsuario(String tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
     }
-    
+
 
 }
