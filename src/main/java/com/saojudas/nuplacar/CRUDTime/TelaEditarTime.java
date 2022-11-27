@@ -449,9 +449,8 @@ public class TelaEditarTime extends javax.swing.JFrame {
         TimeDAO timeDAO = new TimeDAO();
         int id = Integer.parseInt(buscarIdTextField.getText());
         String novoNome = novoNomeTextField.getText();
-        String novaBandeira = novaSenhaTextField.getText();
         
-        Time time = new Time (id,novoNome, novaBandeira);
+        Time time = new Time (id,novoNome);
         timeDAO.atualizarTime(time);
         mostrarTimeAtualizado();
         JOptionPane.showMessageDialog(null,"Time atualizado com sucesso", "",1);

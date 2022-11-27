@@ -1,17 +1,34 @@
 package com.saojudas.nuplacar.CRUDTime;;
 
-
 import com.saojudas.nuplacar.CRUDUsuário.TelaListarUsuarios;
 import com.saojudas.nuplacar.TelaListarGrupos;
 import com.saojudas.nuplacar.TelaInicialAdm;
 import com.saojudas.nuplacar.DAO.TimeDAO;
 import javax.swing.JOptionPane;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import java.awt.Image;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import com.saojudas.nuplacar.ConexaoBD;
+
 public class TelaCadastrarTimes extends javax.swing.JFrame {
+    
+   private ImageIcon format=null;
+   String nomeImagem=null;
+   int s=0;
+   byte[] bandeira=null;
+   Connection connection=null;
 
     public TelaCadastrarTimes() {
         super("Tela Inicial");
         initComponents();
+        connection=ConexaoBD.obtemConexao();
         setLocationRelativeTo(null);
     }
 
@@ -26,7 +43,8 @@ public class TelaCadastrarTimes extends javax.swing.JFrame {
         criarTimeButton = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        nomeBandeira = new javax.swing.JTextField();
+        imagemBandeiraLabel = new javax.swing.JLabel();
+        uploadButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         cadastrarTimeTitulo = new javax.swing.JLabel();
@@ -62,7 +80,7 @@ public class TelaCadastrarTimes extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(nomeTimeLabel)
-                        .addGap(0, 473, Short.MAX_VALUE))
+                        .addGap(0, 444, Short.MAX_VALUE))
                     .addComponent(nomeTimeTextField))
                 .addContainerGap())
         );
@@ -87,58 +105,70 @@ public class TelaCadastrarTimes extends javax.swing.JFrame {
 
         jLabel1.setText("Bandeira");
 
-        nomeBandeira.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nomeBandeiraActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(nomeBandeira, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addContainerGap()
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(imagemBandeiraLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nomeBandeira, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(imagemBandeiraLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
         );
+
+        uploadButton.setText("Upload ");
+        uploadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                uploadButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(126, 126, 126)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(criarTimeButton)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(377, 377, 377)
+                                .addComponent(criarTimeButton))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(176, 176, 176)
+                        .addComponent(uploadButton)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(164, 164, 164)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addComponent(uploadButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addComponent(criarTimeButton)
-                .addContainerGap(281, Short.MAX_VALUE))
+                .addGap(231, 231, 231))
         );
 
         jPanel2.setBackground(java.awt.SystemColor.controlHighlight);
@@ -168,7 +198,7 @@ public class TelaCadastrarTimes extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(cadastrarTimeTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(525, Short.MAX_VALUE))
+                .addContainerGap(526, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -349,24 +379,41 @@ public class TelaCadastrarTimes extends javax.swing.JFrame {
     private void criarTimeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarTimeButtonActionPerformed
         try {
         String nome = nomeTimeTextField.getText();
-        String bandeira = nomeBandeira.getText();
         Time time = new Time(nome, bandeira);
         TimeDAO timeDAO = new TimeDAO();
         
         if (timeDAO.timeExiste(nome) == true){
         JOptionPane.showMessageDialog(null,"Time já existe. Por favor, informe outro nome", "",2);
         } else {
-        timeDAO.cadastrarTime(time);
+        // adiciona a foto no banco de dados
+        String sql= "INSERT INTO tb_time(`nome`, `bandeira`) VALUES (?,?)";               
+               PreparedStatement pst=connection.prepareStatement(sql);                
+                pst.setString(1, nome);
+                pst.setBytes(2, bandeira);                
+                pst.execute();
         JOptionPane.showMessageDialog(null,"Time criado com sucesso", "",1);
         }
         }catch (Exception e) {
             e.printStackTrace();
         }
+    }
+        // redimensionar a foto para caber no label
+        public ImageIcon redimensionarImagem(String imagePath, byte[] pic){
+          
+        ImageIcon myImage=null;
+        if(imagePath !=null)
+        {
+        myImage=new ImageIcon(imagePath);
+        
+        }else{
+         myImage=new ImageIcon(pic);
+        }
+                
+        Image img=myImage.getImage();
+        Image img2=img.getScaledInstance(imagemBandeiraLabel.getWidth(),imagemBandeiraLabel.getHeight(),  Image.SCALE_SMOOTH);
+        ImageIcon image=new ImageIcon(img2);
+        return image;
     }//GEN-LAST:event_criarTimeButtonActionPerformed
-
-    private void nomeBandeiraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeBandeiraActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nomeBandeiraActionPerformed
 
     private void nomeTimeTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeTimeTextFieldActionPerformed
         // TODO add your handling code here:
@@ -399,6 +446,28 @@ public class TelaCadastrarTimes extends javax.swing.JFrame {
         TLU.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_gerenciarUsuariosButtonActionPerformed
+
+    private void uploadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uploadButtonActionPerformed
+        // o botão vai mostrar os arquivos do usuário para ele selecionar
+        JFileChooser jFileChooser=new JFileChooser();
+        jFileChooser.showOpenDialog(null);
+        File f=jFileChooser.getSelectedFile();
+        nomeImagem=f.getAbsolutePath();
+        ImageIcon micon=new ImageIcon(nomeImagem);        
+        try {
+            File image=new File(nomeImagem);
+            FileInputStream fis=new FileInputStream(image);
+            ByteArrayOutputStream baos=new ByteArrayOutputStream();
+            byte[] buf=new byte[1024];
+            for(int readnum; (readnum=fis.read(buf)) !=-1;)
+            {            
+                baos.write(buf,0,readnum);                
+            }
+            bandeira=baos.toByteArray();
+            imagemBandeiraLabel.setIcon(redimensionarImagem(nomeImagem, buf));
+        } catch (Exception e) {
+        }       
+    }//GEN-LAST:event_uploadButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -446,6 +515,7 @@ public class TelaCadastrarTimes extends javax.swing.JFrame {
     private javax.swing.JButton criarTimeButton;
     private javax.swing.JButton gerenciarUsuariosButton;
     private javax.swing.JButton gruposButton;
+    private javax.swing.JLabel imagemBandeiraLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -457,11 +527,11 @@ public class TelaCadastrarTimes extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JLabel logoLabel;
     private javax.swing.JPanel menuLateralPanel;
-    private javax.swing.JTextField nomeBandeira;
     private javax.swing.JLabel nomeTimeLabel;
     private javax.swing.JTextField nomeTimeTextField;
     private javax.swing.JButton placarButton;
     private javax.swing.JButton simularButton;
     private javax.swing.JButton timesButton;
+    private javax.swing.JButton uploadButton;
     // End of variables declaration//GEN-END:variables
 }
