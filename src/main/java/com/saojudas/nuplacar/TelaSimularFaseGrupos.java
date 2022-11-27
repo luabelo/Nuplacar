@@ -23,7 +23,7 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
     private Campeonato campeonato;
     
     public TelaSimularFaseGrupos(ArrayList<Grupo> grupos) {
-        super("Tela Inicial");
+        super("Simular fase grupos");
         
         initComponents();
         setLocationRelativeTo(null);
@@ -468,7 +468,8 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void voltarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarButtonActionPerformed
-        // TODO add your handling code here:
+        new TelaInicialAdm().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_voltarButtonActionPerformed
 
     private void SimularButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SimularButtonActionPerformed

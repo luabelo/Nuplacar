@@ -6,6 +6,11 @@ package com.saojudas.nuplacar;
 
 import com.saojudas.nuplacar.CRUDUsuário.TelaListarUsuarios;
 import com.saojudas.nuplacar.CRUDTime.TelaListarTimes;
+import com.saojudas.nuplacar.DAO.TimeDAO;
+import com.saojudas.nuplacar.DAO.GrupoDAO;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -318,8 +323,7 @@ public class TelaInicialAdm extends javax.swing.JFrame {
             JOptionPane.showInputDialog(null, "Há grupos incompletos, por favor cadastre todos antes de fazer a simulação!");
         }
         else {
-            TelaSimularFaseGrupos telaSimularFaseGrupos = new TelaSimularFaseGrupos(grupos);
-            telaSimularFaseGrupos.setVisible(true);
+            new TelaSimularFaseGrupos(grupos).setVisible(true);
             this.dispose();
         }
     }//GEN-LAST:event_simularButtonActionPerformed
@@ -329,20 +333,17 @@ public class TelaInicialAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_placarButtonActionPerformed
 
     private void gruposButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gruposButtonActionPerformed
-        TelaListarGrupos TLG = new TelaListarGrupos();
-        TLG.setVisible(true);
+        new TelaListarGrupos().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_gruposButtonActionPerformed
 
     private void timesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timesButtonActionPerformed
-        TelaListarTimes tlt = new TelaListarTimes();
-        tlt.setVisible(true);
+        new TelaListarTimes().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_timesButtonActionPerformed
 
     private void gerenciarUsuariosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerenciarUsuariosButtonActionPerformed
-        TelaListarUsuarios TLU = new TelaListarUsuarios();
-        TLU.setVisible(true);
+        new TelaListarUsuarios().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_gerenciarUsuariosButtonActionPerformed
 

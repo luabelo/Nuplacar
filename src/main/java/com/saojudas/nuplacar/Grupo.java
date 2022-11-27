@@ -1,7 +1,7 @@
 package com.saojudas.nuplacar;
 
 import java.util.ArrayList;
-import com.saojudas.nuplacar.CRUDTime.Time;
+//import com.saojudas.nuplacar.CRUDTime.Time;
 
  public class Grupo {
     private ArrayList<Time> times = new ArrayList();
@@ -37,8 +37,8 @@ import com.saojudas.nuplacar.CRUDTime.Time;
         this.id = id;
     }
     
-    @Override
-    public String toString () {
-        return id.toString();
-    }
+//    @Override
+//    public String toString () {
+//        return id.toString();
+//    }
 }

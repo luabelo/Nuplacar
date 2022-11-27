@@ -155,16 +155,14 @@ public class TelaLogin extends javax.swing.JFrame {
             PreparedStatement pstm = con.prepareStatement(sql);
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
-            String name = rs.getString(4);
-            if (name.equals("Administrador")) {
-                TelaInicialAdm TIA = new TelaInicialAdm();
-                TIA.setVisible(true);
-                this.dispose();
-            } else {
-                TelaInicialUsuario TIU = new TelaInicialUsuario();
-                TIU.setVisible(true);
-                this.dispose();
-            }
+                String name = rs.getString(4);
+                if (name.equals("Administrador")) {
+                    new TelaInicialAdm().setVisible(true);
+                    this.dispose();
+                } else {
+                    new TelaInicialUsuario().setVisible(true);
+                    this.dispose();
+                }
             } else {
              JOptionPane.showMessageDialog(null,"Login e/ou senha inválidos!","Erro",2);
             }
