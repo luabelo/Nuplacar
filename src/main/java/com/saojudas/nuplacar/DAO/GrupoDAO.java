@@ -33,7 +33,7 @@ public class GrupoDAO {
             time = new Time(
                     rs.getInt(1),
                     rs.getString(2),
-                    rs.getString(3));
+                    rs.getBytes(3));
             timesList.add(time);
             }                        
         } catch (Exception e){
@@ -56,7 +56,7 @@ public class GrupoDAO {
             time = new Time(
                     rs.getInt(1),
                     rs.getString(2),
-                    rs.getString(3));
+                    rs.getBytes(3));
             timesList.add(time);
             }                        
         } catch (Exception e){
@@ -79,7 +79,7 @@ public class GrupoDAO {
             time = new Time(
                     rs.getInt(1),
                     rs.getString(2),
-                    rs.getString(3));
+                    rs.getBytes(3));
             timesList.add(time);
             }                        
         } catch (Exception e){
@@ -102,7 +102,7 @@ public class GrupoDAO {
             time = new Time(
                     rs.getInt(1),
                     rs.getString(2),
-                    rs.getString(3));
+                    rs.getBytes(3));
             timesList.add(time);
             }                        
         } catch (Exception e){
@@ -125,7 +125,7 @@ public class GrupoDAO {
             time = new Time(
                     rs.getInt(1),
                     rs.getString(2),
-                    rs.getString(3));
+                    rs.getBytes(3));
             timesList.add(time);
             }                        
         } catch (Exception e){
@@ -148,7 +148,7 @@ public class GrupoDAO {
             time = new Time(
                     rs.getInt(1),
                     rs.getString(2),
-                    rs.getString(3));
+                    rs.getBytes(3));
             timesList.add(time);
             }                        
         } catch (Exception e){
@@ -171,7 +171,7 @@ public class GrupoDAO {
             time = new Time(
                     rs.getInt(1),
                     rs.getString(2),
-                    rs.getString(3));
+                    rs.getBytes(3));
             timesList.add(time);
             }                        
         } catch (Exception e){
@@ -194,7 +194,7 @@ public class GrupoDAO {
             time = new Time(
                     rs.getInt(1),
                     rs.getString(2),
-                    rs.getString(3));
+                    rs.getBytes(3));
             timesList.add(time);
             }                        
         } catch (Exception e){

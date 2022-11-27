@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.saojudas.nuplacar.DAO;
 
 import com.saojudas.nuplacar.ConexaoBD;
@@ -11,10 +7,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-/**
- *
- * @author Mathe
- */
 public class TimeDAO {
     
     public void cadastrarTime(Time time) {
@@ -22,7 +14,7 @@ public class TimeDAO {
         Connection connection = new ConexaoBD().obterConexao();
         try ( PreparedStatement ps = connection.prepareStatement(sql);) {
             ps.setString(1,time.getNome());
-            ps.setString(2,time.getBandeira());
+            ps.setBytes(2,time.getBandeira());
             ps.execute();
 
         } catch (Exception e) {
@@ -43,7 +35,7 @@ public class TimeDAO {
             time = new Time(
                     rs.getInt(1),
                     rs.getString(2),
-                    rs.getString(3));
+                    rs.getBytes(3));
             timeList.add(time);
             }                        
         } catch (Exception e){
@@ -68,7 +60,7 @@ public class TimeDAO {
                 time = new Time(
                     rs.getInt(1),
                     rs.getString(2),
-                        rs.getString(3));
+                    rs.getBytes(3));
             timeList.add(time);
             }                           
         } catch (Exception e){
@@ -85,7 +77,7 @@ public class TimeDAO {
             String sql = "UPDATE tb_time SET nome = ?, bandeira = ? WHERE idTime = ?";
             PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setString(1,time.getNome());
-            pstm.setString(2,time.getBandeira());
+            pstm.setBytes(2,time.getBandeira());
             pstm.setInt(3,time.getIdTime());
             pstm.executeUpdate();
                

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.saojudas.nuplacar.CRUDTime;
 
 import com.saojudas.nuplacar.ConexaoBD;
@@ -10,18 +6,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-/**
- *
- * @author Mathe
- */
 public class Time {
     private int idTime;
     private String nome;
-    private String bandeira;
+    private byte[] bandeira;
     private String tipo;
 
 
-    public Time(int idTime, String nome, String bandeira) {
+    public Time(int idTime, String nome, byte[] bandeira) {
         this.idTime = idTime;
         this.nome = nome;
         this.bandeira = bandeira;
@@ -35,7 +27,7 @@ public class Time {
         this.nome = nome;
     }
     
-    public Time (String nome, String bandeira) {
+    public Time (String nome, byte[] bandeira) {
         this.nome = nome;
         this.bandeira = bandeira;
     }
@@ -56,8 +48,8 @@ public class Time {
     }    
 
 
-    public String getBandeira() {
-        return "./bandeiras/" + nome + ".png";
+    public byte[] getBandeira() {
+        return bandeira;
     }
     
     
@@ -75,7 +67,7 @@ public class Time {
         Connection connection = new ConexaoBD().obterConexao();
         try ( PreparedStatement ps = connection.prepareStatement(sql);) {
             ps.setString(1,nome);
-            ps.setString(2,bandeira);
+            ps.setBytes(2,bandeira);
             ps.execute();
 
         } catch (Exception e) {
@@ -96,7 +88,7 @@ public class Time {
             time = new Time(
                     rs.getInt(1),
                     rs.getString(2),
-                    rs.getString(3));
+                    rs.getBytes(3));
             timeList.add(time);
             }                        
         } catch (Exception e){
