@@ -8,8 +8,7 @@ import java.util.ArrayList;
 /**
  *
  * @author Mathe
- */
-public class Grupo {
+ */public class Grupo {
     private ArrayList<Time> times = new ArrayList();
     private char id;
 

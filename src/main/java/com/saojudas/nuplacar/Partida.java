@@ -68,6 +68,20 @@ public class Partida {
         atualizarStatusTimes();
     }
     
+    public void simularPartidaSemEmpate() {
+        Random random = new Random();
+        golsTime1 = random.nextInt(3);
+        golsTime2 = random.nextInt(3);
+        
+        if (golsTime1 == golsTime2) {
+            simularPartidaSemEmpate();
+        }
+        else {
+            partidaFinalizada = true;
+            atualizarStatusTimes();
+        }
+    }
+    
     private void atualizarStatusTimes() {
         if (partidaFinalizada) {
             if (golsTime1 > golsTime2) {

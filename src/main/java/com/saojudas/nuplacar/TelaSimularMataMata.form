@@ -54,15 +54,24 @@
                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="403" max="-2" attributes="0"/>
+                          <Component id="jLabel67" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jLabel68" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="378" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
                           <Component id="Time1Jogo1Label" min="-2" pref="140" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                  <Component id="Time2Jogo2GolsLabel" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="Time1Jogo9Label" min="-2" pref="140" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jLabel23" min="-2" pref="28" max="-2" attributes="0"/>
+                                          <Component id="Time1Jogo9GolsLabel" min="-2" pref="28" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" attributes="0">
                                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -70,8 +79,8 @@
                                                           <EmptySpace min="-2" pref="386" max="-2" attributes="0"/>
                                                           <Group type="103" groupAlignment="0" attributes="0">
                                                               <Component id="SimularButton" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="jLabel39" alignment="1" min="-2" pref="28" max="-2" attributes="0"/>
-                                                              <Component id="jLabel60" alignment="1" min="-2" pref="28" max="-2" attributes="0"/>
+                                                              <Component id="Time1Jogo14GolsLabel" alignment="1" min="-2" pref="28" max="-2" attributes="0"/>
+                                                              <Component id="Time2Jogo14GolsLabel" alignment="1" min="-2" pref="28" max="-2" attributes="0"/>
                                                           </Group>
                                                           <EmptySpace max="-2" attributes="0"/>
                                                       </Group>
@@ -84,7 +93,7 @@
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Group type="102" alignment="0" attributes="0">
                                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                                          <Component id="jLabel47" min="-2" pref="28" max="-2" attributes="0"/>
+                                                          <Component id="Time2Jogo6GolsLabel" min="-2" pref="28" max="-2" attributes="0"/>
                                                           <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
                                                       </Group>
                                                       <Group type="102" attributes="0">
@@ -100,8 +109,8 @@
                                                                       <Group type="102" alignment="0" attributes="0">
                                                                           <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                                                                           <Group type="103" groupAlignment="1" attributes="0">
-                                                                              <Component id="jLabel37" min="-2" pref="28" max="-2" attributes="0"/>
-                                                                              <Component id="jLabel42" min="-2" pref="28" max="-2" attributes="0"/>
+                                                                              <Component id="Time1Jogo11GolsLabel" min="-2" pref="28" max="-2" attributes="0"/>
+                                                                              <Component id="Time2Jogo11GolsLabel" min="-2" pref="28" max="-2" attributes="0"/>
                                                                           </Group>
                                                                           <EmptySpace max="-2" attributes="0"/>
                                                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -125,16 +134,16 @@
                                                               <Group type="102" attributes="0">
                                                                   <Component id="Time2Jogo15Label" min="-2" pref="140" max="-2" attributes="0"/>
                                                                   <EmptySpace max="-2" attributes="0"/>
-                                                                  <Component id="jLabel62" min="-2" pref="28" max="-2" attributes="0"/>
+                                                                  <Component id="Time2Jogo15GolsLabel" min="-2" pref="28" max="-2" attributes="0"/>
                                                                   <EmptySpace max="32767" attributes="0"/>
-                                                                  <Component id="jLabel50" min="-2" pref="28" max="-2" attributes="0"/>
+                                                                  <Component id="Time2Jogo7GolsLabel" min="-2" pref="28" max="-2" attributes="0"/>
                                                               </Group>
                                                               <Group type="102" attributes="0">
                                                                   <Component id="Time1Jogo15Label" min="-2" pref="140" max="-2" attributes="0"/>
                                                                   <EmptySpace max="-2" attributes="0"/>
-                                                                  <Component id="jLabel63" min="-2" pref="28" max="-2" attributes="0"/>
+                                                                  <Component id="Time1Jogo15GolsLabel" min="-2" pref="28" max="-2" attributes="0"/>
                                                                   <EmptySpace min="-2" pref="420" max="-2" attributes="0"/>
-                                                                  <Component id="jLabel49" min="-2" pref="28" max="-2" attributes="0"/>
+                                                                  <Component id="Time1Jogo7GolsLabel" min="-2" pref="28" max="-2" attributes="0"/>
                                                               </Group>
                                                           </Group>
                                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -145,11 +154,11 @@
                                                               <Group type="102" alignment="1" attributes="0">
                                                                   <Component id="jLabel65" min="-2" max="-2" attributes="0"/>
                                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                                  <Component id="jLabel40" min="-2" pref="28" max="-2" attributes="0"/>
+                                                                  <Component id="Time2Jogo5GolsLabel" min="-2" pref="28" max="-2" attributes="0"/>
                                                               </Group>
-                                                              <Component id="jLabel36" alignment="1" min="-2" pref="28" max="-2" attributes="0"/>
-                                                              <Component id="jLabel53" alignment="1" min="-2" pref="28" max="-2" attributes="0"/>
-                                                              <Component id="jLabel54" alignment="1" min="-2" pref="28" max="-2" attributes="0"/>
+                                                              <Component id="Time1Jogo5GolsLabel" alignment="1" min="-2" pref="28" max="-2" attributes="0"/>
+                                                              <Component id="Time1Jogo8GolsLabel" alignment="1" min="-2" pref="28" max="-2" attributes="0"/>
+                                                              <Component id="Time2Jogo8GolsLabel" alignment="1" min="-2" pref="28" max="-2" attributes="0"/>
                                                               <Group type="102" alignment="1" attributes="0">
                                                                   <Group type="103" groupAlignment="1" attributes="0">
                                                                       <Group type="102" alignment="1" attributes="0">
@@ -163,7 +172,7 @@
                                                                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                                                       </Group>
                                                                   </Group>
-                                                                  <Component id="jLabel46" min="-2" pref="28" max="-2" attributes="0"/>
+                                                                  <Component id="Time1Jogo6GolsLabel" min="-2" pref="28" max="-2" attributes="0"/>
                                                               </Group>
                                                           </Group>
                                                       </Group>
@@ -190,11 +199,15 @@
                                               <Component id="Time1Jogo10Label" alignment="1" min="-2" pref="140" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jLabel22" min="-2" pref="28" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="Time2Jogo9GolsLabel" min="-2" pref="28" max="-2" attributes="0"/>
+                                              <Component id="Time2Jogo10GolsLabel" min="-2" pref="28" max="-2" attributes="0"/>
+                                              <Component id="Time1Jogo10GolsLabel" min="-2" pref="28" max="-2" attributes="0"/>
+                                          </Group>
                                           <EmptySpace max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel57" alignment="1" min="-2" pref="28" max="-2" attributes="0"/>
-                                              <Component id="jLabel58" alignment="1" min="-2" pref="28" max="-2" attributes="0"/>
+                                              <Component id="Time1Jogo12GolsLabel" alignment="1" min="-2" pref="28" max="-2" attributes="0"/>
+                                              <Component id="Time2Jogo12GolsLabel" alignment="1" min="-2" pref="28" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -207,7 +220,7 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel2" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="Time1Jogo1GolsLabel" min="-2" pref="28" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -218,43 +231,48 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="Time2Jogo1Label" min="-2" pref="140" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel16" min="-2" pref="28" max="-2" attributes="0"/>
+                                      <Component id="Time2Jogo1GolsLabel" min="-2" pref="28" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="jLabel64" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="Time1Jogo4Label" min="-2" pref="140" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel21" min="-2" pref="28" max="-2" attributes="0"/>
+                                      <Component id="Time1Jogo4GolsLabel" min="-2" pref="28" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="Time2Jogo4Label" min="-2" pref="140" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel20" min="-2" pref="28" max="-2" attributes="0"/>
+                                      <Component id="Time2Jogo4GolsLabel" min="-2" pref="28" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="Time2Jogo3Label" min="-2" pref="140" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel17" min="-2" pref="28" max="-2" attributes="0"/>
+                                      <Component id="Time2Jogo3GolsLabel" min="-2" pref="28" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="Time1Jogo2Label" min="-2" pref="140" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel6" min="-2" pref="28" max="-2" attributes="0"/>
+                                      <Component id="Time1Jogo2GolsLabel" min="-2" pref="28" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="Time1Jogo3Label" min="-2" pref="140" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel19" min="-2" pref="28" max="-2" attributes="0"/>
+                                      <Component id="Time1Jogo3GolsLabel" min="-2" pref="28" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="Time2Jogo2Label" min="-2" pref="140" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel18" min="-2" pref="28" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="204" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="Time2Jogo13Label" min="-2" pref="140" max="-2" attributes="0"/>
-                                          <Component id="Time1Jogo13Label" min="-2" pref="140" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="378" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="Time2Jogo13Label" min="-2" pref="140" max="-2" attributes="0"/>
+                                                  <Component id="Time1Jogo13Label" min="-2" pref="140" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="Time2Jogo2Label" min="-2" pref="140" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="378" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
@@ -265,20 +283,15 @@
                                               </Group>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabel31" min="-2" pref="28" max="-2" attributes="0"/>
-                                                  <Component id="jLabel32" min="-2" pref="28" max="-2" attributes="0"/>
+                                                  <Component id="Time1Jogo16GolsLabel" min="-2" pref="28" max="-2" attributes="0"/>
+                                                  <Component id="Time2Jogo16GolsLabel" min="-2" pref="28" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
+                                          <Component id="Time2Jogo13GolsLabel" min="-2" pref="28" max="-2" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabel61" min="-2" pref="28" max="-2" attributes="0"/>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jLabel27" min="-2" pref="28" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
-                                                      <Component id="jLabel70" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
+                                              <Component id="Time1Jogo13GolsLabel" min="-2" pref="28" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
+                                              <Component id="jLabel70" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -296,13 +309,6 @@
                       </Group>
                   </Group>
               </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="424" max="-2" attributes="0"/>
-                  <Component id="jLabel67" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jLabel68" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="378" max="-2" attributes="0"/>
-              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -318,12 +324,12 @@
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="Time1Jogo11Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel37" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Time1Jogo11GolsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="Time2Jogo11Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel42" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Time2Jogo11GolsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="filler3" min="-2" pref="0" max="-2" attributes="0"/>
@@ -339,17 +345,17 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="Time1Jogo14Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel39" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Time1Jogo14GolsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="Time1Jogo13Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel27" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Time1Jogo13GolsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel70" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="Time2Jogo14Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel60" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Time2Jogo14GolsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="Time2Jogo13Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel61" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Time2Jogo13GolsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -371,26 +377,26 @@
                                                   <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
                                                       <Component id="Time1Jogo9Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="Time1Jogo9GolsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Group type="103" groupAlignment="3" attributes="0">
                                                       <Component id="Time1Jogo1Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="Time1Jogo1GolsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="Time1Jogo5Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel36" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="Time1Jogo5GolsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Group type="103" groupAlignment="3" attributes="0">
                                                           <Component id="Time2Jogo1Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="Time2Jogo1GolsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                                           <Component id="jLabel64" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       </Group>
                                                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                                           <Component id="Time2Jogo5Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="jLabel40" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="Time2Jogo5GolsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       </Group>
                                                   </Group>
                                               </Group>
@@ -398,38 +404,39 @@
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="Time2Jogo9Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="Time2Jogo9GolsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="Time1Jogo2Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="Time2Jogo2Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Group type="103" groupAlignment="3" attributes="0">
                                                       <Component id="Time1Jogo16Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel31" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="Time1Jogo16GolsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="Time1Jogo6Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel46" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="Time1Jogo6GolsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Group type="103" groupAlignment="3" attributes="0">
                                                           <Component id="Time2Jogo16Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="jLabel32" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="Time2Jogo16GolsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       </Group>
                                                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                                           <Component id="Time2Jogo6Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="jLabel47" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="Time2Jogo6GolsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       </Group>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="Time1Jogo2GolsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="Time1Jogo2Label" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="Time2Jogo2GolsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="Time2Jogo2Label" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -439,20 +446,19 @@
                                           <Component id="jLabel69" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="Time1Jogo3Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="Time1Jogo7GolsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="Time1Jogo7Label" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="jLabel49" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="Time1Jogo7Label" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="Time1Jogo3Label" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="Time1Jogo3GolsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -463,40 +469,42 @@
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="Time2Jogo3Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Time2Jogo3GolsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace pref="20" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="Time1Jogo10Label" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="Time1Jogo12Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel57" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Time1Jogo12GolsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Time1Jogo10GolsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="Time2Jogo10Label" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="Time2Jogo12Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel58" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Time2Jogo12GolsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Time2Jogo10GolsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="Time1Jogo4Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Time1Jogo4GolsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="Time1Jogo8Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel53" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Time1Jogo8GolsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="Time2Jogo4Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Time2Jogo4GolsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="Time2Jogo8Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel54" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Time2Jogo8GolsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="Time2Jogo7Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel50" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Time2Jogo7GolsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
@@ -507,12 +515,12 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="Time1Jogo15Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel63" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="Time1Jogo15GolsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="Time2Jogo15Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel62" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="Time2Jogo15GolsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="178" max="-2" attributes="0"/>
                       </Group>
@@ -583,7 +591,7 @@
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel2">
+        <Component class="javax.swing.JLabel" name="Time1Jogo1GolsLabel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -620,7 +628,7 @@
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Time1"/>
+            <Property name="text" type="java.lang.String" value=" "/>
             <Property name="alignmentX" type="float" value="1.0"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
@@ -634,12 +642,12 @@
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Time1"/>
+            <Property name="text" type="java.lang.String" value=" "/>
             <Property name="alignmentX" type="float" value="1.0"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel6">
+        <Component class="javax.swing.JLabel" name="Time1Jogo2GolsLabel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -662,7 +670,7 @@
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Time1"/>
+            <Property name="text" type="java.lang.String" value=" "/>
             <Property name="alignmentX" type="float" value="1.0"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
@@ -746,7 +754,7 @@
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Time1"/>
+            <Property name="text" type="java.lang.String" value=" "/>
             <Property name="alignmentX" type="float" value="1.0"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
@@ -774,12 +782,12 @@
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Time1"/>
+            <Property name="text" type="java.lang.String" value=" "/>
             <Property name="alignmentX" type="float" value="1.0"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel16">
+        <Component class="javax.swing.JLabel" name="Time2Jogo1GolsLabel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -793,7 +801,7 @@
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel17">
+        <Component class="javax.swing.JLabel" name="Time2Jogo3GolsLabel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -807,7 +815,7 @@
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel18">
+        <Component class="javax.swing.JLabel" name="Time2Jogo2GolsLabel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -821,7 +829,7 @@
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel19">
+        <Component class="javax.swing.JLabel" name="Time1Jogo3GolsLabel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -835,7 +843,7 @@
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel20">
+        <Component class="javax.swing.JLabel" name="Time2Jogo4GolsLabel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -849,7 +857,7 @@
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel21">
+        <Component class="javax.swing.JLabel" name="Time1Jogo4GolsLabel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -863,7 +871,7 @@
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel22">
+        <Component class="javax.swing.JLabel" name="Time2Jogo9GolsLabel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -877,7 +885,7 @@
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel23">
+        <Component class="javax.swing.JLabel" name="Time1Jogo9GolsLabel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -900,7 +908,7 @@
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Time1"/>
+            <Property name="text" type="java.lang.String" value=" "/>
             <Property name="alignmentX" type="float" value="1.0"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
@@ -914,12 +922,12 @@
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Time1"/>
+            <Property name="text" type="java.lang.String" value=" "/>
             <Property name="alignmentX" type="float" value="1.0"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel27">
+        <Component class="javax.swing.JLabel" name="Time1Jogo13GolsLabel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -942,7 +950,7 @@
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Time1"/>
+            <Property name="text" type="java.lang.String" value=" "/>
             <Property name="alignmentX" type="float" value="1.0"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
@@ -956,7 +964,7 @@
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Time1"/>
+            <Property name="text" type="java.lang.String" value=" "/>
             <Property name="alignmentX" type="float" value="1.0"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
@@ -970,12 +978,12 @@
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Time1"/>
+            <Property name="text" type="java.lang.String" value=" "/>
             <Property name="alignmentX" type="float" value="1.0"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel31">
+        <Component class="javax.swing.JLabel" name="Time1Jogo16GolsLabel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -989,7 +997,7 @@
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel32">
+        <Component class="javax.swing.JLabel" name="Time2Jogo16GolsLabel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1012,7 +1020,7 @@
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Time1"/>
+            <Property name="text" type="java.lang.String" value=" "/>
             <Property name="alignmentX" type="float" value="1.0"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
@@ -1026,7 +1034,7 @@
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Time1"/>
+            <Property name="text" type="java.lang.String" value=" "/>
             <Property name="alignmentX" type="float" value="1.0"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
@@ -1040,12 +1048,12 @@
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Time1"/>
+            <Property name="text" type="java.lang.String" value=" "/>
             <Property name="alignmentX" type="float" value="1.0"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel36">
+        <Component class="javax.swing.JLabel" name="Time1Jogo5GolsLabel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1059,7 +1067,7 @@
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel37">
+        <Component class="javax.swing.JLabel" name="Time1Jogo11GolsLabel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1082,12 +1090,12 @@
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Time1"/>
+            <Property name="text" type="java.lang.String" value=" "/>
             <Property name="alignmentX" type="float" value="1.0"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel39">
+        <Component class="javax.swing.JLabel" name="Time1Jogo14GolsLabel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1101,7 +1109,7 @@
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel40">
+        <Component class="javax.swing.JLabel" name="Time2Jogo5GolsLabel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1124,12 +1132,12 @@
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Time1"/>
+            <Property name="text" type="java.lang.String" value=" "/>
             <Property name="alignmentX" type="float" value="1.0"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel42">
+        <Component class="javax.swing.JLabel" name="Time2Jogo11GolsLabel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1152,7 +1160,7 @@
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Time1"/>
+            <Property name="text" type="java.lang.String" value=" "/>
             <Property name="alignmentX" type="float" value="1.0"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
@@ -1166,7 +1174,7 @@
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Time1"/>
+            <Property name="text" type="java.lang.String" value=" "/>
             <Property name="alignmentX" type="float" value="1.0"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
@@ -1180,12 +1188,12 @@
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Time1"/>
+            <Property name="text" type="java.lang.String" value=" "/>
             <Property name="alignmentX" type="float" value="1.0"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel46">
+        <Component class="javax.swing.JLabel" name="Time1Jogo6GolsLabel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1199,7 +1207,7 @@
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel47">
+        <Component class="javax.swing.JLabel" name="Time2Jogo6GolsLabel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1222,12 +1230,12 @@
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Time1"/>
+            <Property name="text" type="java.lang.String" value=" "/>
             <Property name="alignmentX" type="float" value="1.0"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel49">
+        <Component class="javax.swing.JLabel" name="Time1Jogo7GolsLabel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1241,7 +1249,7 @@
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel50">
+        <Component class="javax.swing.JLabel" name="Time2Jogo7GolsLabel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1264,7 +1272,7 @@
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Time1"/>
+            <Property name="text" type="java.lang.String" value=" "/>
             <Property name="alignmentX" type="float" value="1.0"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
@@ -1278,12 +1286,12 @@
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Time1"/>
+            <Property name="text" type="java.lang.String" value=" "/>
             <Property name="alignmentX" type="float" value="1.0"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel53">
+        <Component class="javax.swing.JLabel" name="Time1Jogo8GolsLabel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1297,7 +1305,7 @@
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel54">
+        <Component class="javax.swing.JLabel" name="Time2Jogo8GolsLabel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1320,7 +1328,7 @@
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Time1"/>
+            <Property name="text" type="java.lang.String" value=" "/>
             <Property name="alignmentX" type="float" value="1.0"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
@@ -1334,12 +1342,12 @@
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Time1"/>
+            <Property name="text" type="java.lang.String" value=" "/>
             <Property name="alignmentX" type="float" value="1.0"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel57">
+        <Component class="javax.swing.JLabel" name="Time1Jogo12GolsLabel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1353,7 +1361,7 @@
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel58">
+        <Component class="javax.swing.JLabel" name="Time2Jogo12GolsLabel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1376,12 +1384,12 @@
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Time1"/>
+            <Property name="text" type="java.lang.String" value=" "/>
             <Property name="alignmentX" type="float" value="1.0"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel60">
+        <Component class="javax.swing.JLabel" name="Time2Jogo14GolsLabel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1395,7 +1403,7 @@
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel61">
+        <Component class="javax.swing.JLabel" name="Time2Jogo13GolsLabel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1409,7 +1417,7 @@
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel62">
+        <Component class="javax.swing.JLabel" name="Time2Jogo15GolsLabel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1423,7 +1431,7 @@
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel63">
+        <Component class="javax.swing.JLabel" name="Time1Jogo15GolsLabel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1529,6 +1537,34 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="3&#xb0; Lugar"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="Time2Jogo10GolsLabel">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="0"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="0"/>
+            <Property name="alignmentX" type="float" value="1.0"/>
+            <Property name="opaque" type="boolean" value="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="Time1Jogo10GolsLabel">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="0"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="0"/>
+            <Property name="alignmentX" type="float" value="1.0"/>
+            <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
       </SubComponents>

@@ -20,8 +20,6 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
     /**
      * Creates new form TelaInicialAdm
      */
-    
-    private ArrayList<Grupo> grupos = new ArrayList();
     private Campeonato campeonato;
     
     public TelaSimularFaseGrupos(ArrayList<Grupo> grupos) {
@@ -30,7 +28,6 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         
-        this.grupos = grupos;
         this.campeonato = new Campeonato(grupos);
         setValoresIniciaisTabelas();
     }
@@ -92,6 +89,11 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
         });
 
         avancarButton.setText("Avançar para a próxima fase");
+        avancarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                avancarButtonActionPerformed(evt);
+            }
+        });
 
         grupoATable.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         grupoATable.setModel(new javax.swing.table.DefaultTableModel(
@@ -475,10 +477,14 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
 
     private void refazerSimulacaoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refazerSimulacaoButtonActionPerformed
         TimeDAO.zerarClassificacaoGeral();
-        this.grupos = GrupoDAO.listarGruposCompletos();
-        this.campeonato = new Campeonato(grupos);
+        this.campeonato = new Campeonato(GrupoDAO.listarGruposCompletos());
         simularFaseGrupo();
     }//GEN-LAST:event_refazerSimulacaoButtonActionPerformed
+
+    private void avancarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avancarButtonActionPerformed
+        new TelaSimularMataMata(this.campeonato).setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_avancarButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -545,7 +551,7 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
 
     private void simularFaseGrupo() {
         campeonato.simularPartidasFaseGrupo();
-        grupos.forEach((grupo) -> {
+        campeonato.getGrupos().forEach((grupo) -> {
             ArrayList<Time> times = grupo.getTimes();
             Collections.sort(times, new ClassificacaoComparator());
             switch (grupo.getId()) {
@@ -562,6 +568,7 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
     }
     
     private void setValoresIniciaisTabelas() {
+        ArrayList<Grupo> grupos = campeonato.getGrupos();
         grupos.forEach((grupo) -> {
             ArrayList<Time> times = grupo.getTimes();
             switch (grupo.getId()) {

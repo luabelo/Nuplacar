@@ -8,7 +8,7 @@ public class ConexaoBD {
     private static String porta = "3306";
     private static String db = "nuplacar";
     private static String usuario = "root";
-    private static String senha = "admin123";
+    private static String senha = "root";
     public static Connection obtemConexao () {
         try {
             //Connection c = DriverManager.getConnection(

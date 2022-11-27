@@ -21,18 +21,23 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
      * Creates new form TelaSimularMataMata
      */
     
-    private ArrayList<Grupo> grupos = new ArrayList();
     private Campeonato campeonato;
+    private Campeonato campeonatoFaseGrupo;
     
-    public TelaSimularMataMata(ArrayList<Grupo> grupos) {
+    public TelaSimularMataMata(Campeonato campeonato) {
         super("Simulação Mata-mata");
         
         initComponents();
         setLocationRelativeTo(null);
         
-        this.grupos = grupos;
-        this.campeonato = new Campeonato(grupos);
-        setValoresIniciaisTabelas();
+        this.campeonato = campeonato;
+        try {
+            campeonatoFaseGrupo = (Campeonato) campeonato.clone();
+        }
+        catch (Exception e){
+        }
+        setJogosIniciais();
+        simularFaseMataMata();
     }
 
     /**
@@ -50,11 +55,11 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
         avancarButton = new javax.swing.JButton();
         SimularButton = new javax.swing.JButton();
         Time2Jogo1Label = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        Time1Jogo1GolsLabel = new javax.swing.JLabel();
         Time1Jogo1Label = new javax.swing.JLabel();
         Time1Jogo16Label = new javax.swing.JLabel();
         Time1Jogo9Label = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        Time1Jogo2GolsLabel = new javax.swing.JLabel();
         Time2Jogo9Label = new javax.swing.JLabel();
         Time2Jogo3Label = new javax.swing.JLabel();
         Time1Jogo2Label = new javax.swing.JLabel();
@@ -64,53 +69,53 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
         Time2Jogo10Label = new javax.swing.JLabel();
         Time1Jogo4Label = new javax.swing.JLabel();
         Time1Jogo10Label = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
+        Time2Jogo1GolsLabel = new javax.swing.JLabel();
+        Time2Jogo3GolsLabel = new javax.swing.JLabel();
+        Time2Jogo2GolsLabel = new javax.swing.JLabel();
+        Time1Jogo3GolsLabel = new javax.swing.JLabel();
+        Time2Jogo4GolsLabel = new javax.swing.JLabel();
+        Time1Jogo4GolsLabel = new javax.swing.JLabel();
+        Time2Jogo9GolsLabel = new javax.swing.JLabel();
+        Time1Jogo9GolsLabel = new javax.swing.JLabel();
         Time1Jogo13Label = new javax.swing.JLabel();
         Time2Jogo13Label = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
+        Time1Jogo13GolsLabel = new javax.swing.JLabel();
         Time2Jogo16Label = new javax.swing.JLabel();
         Time1Jogo15Label = new javax.swing.JLabel();
         Time2Jogo15Label = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
+        Time1Jogo16GolsLabel = new javax.swing.JLabel();
+        Time2Jogo16GolsLabel = new javax.swing.JLabel();
         Time1Jogo11Label = new javax.swing.JLabel();
         Time2Jogo5Label = new javax.swing.JLabel();
         Time1Jogo5Label = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
+        Time1Jogo5GolsLabel = new javax.swing.JLabel();
+        Time1Jogo11GolsLabel = new javax.swing.JLabel();
         Time1Jogo6Label = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
+        Time1Jogo14GolsLabel = new javax.swing.JLabel();
+        Time2Jogo5GolsLabel = new javax.swing.JLabel();
         Time2Jogo11Label = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
+        Time2Jogo11GolsLabel = new javax.swing.JLabel();
         Time1Jogo14Label = new javax.swing.JLabel();
         Time2Jogo6Label = new javax.swing.JLabel();
         Time2Jogo7Label = new javax.swing.JLabel();
-        jLabel46 = new javax.swing.JLabel();
-        jLabel47 = new javax.swing.JLabel();
+        Time1Jogo6GolsLabel = new javax.swing.JLabel();
+        Time2Jogo6GolsLabel = new javax.swing.JLabel();
         Time1Jogo7Label = new javax.swing.JLabel();
-        jLabel49 = new javax.swing.JLabel();
-        jLabel50 = new javax.swing.JLabel();
+        Time1Jogo7GolsLabel = new javax.swing.JLabel();
+        Time2Jogo7GolsLabel = new javax.swing.JLabel();
         Time1Jogo8Label = new javax.swing.JLabel();
         Time2Jogo8Label = new javax.swing.JLabel();
-        jLabel53 = new javax.swing.JLabel();
-        jLabel54 = new javax.swing.JLabel();
+        Time1Jogo8GolsLabel = new javax.swing.JLabel();
+        Time2Jogo8GolsLabel = new javax.swing.JLabel();
         Time1Jogo12Label = new javax.swing.JLabel();
         Time2Jogo12Label = new javax.swing.JLabel();
-        jLabel57 = new javax.swing.JLabel();
-        jLabel58 = new javax.swing.JLabel();
+        Time1Jogo12GolsLabel = new javax.swing.JLabel();
+        Time2Jogo12GolsLabel = new javax.swing.JLabel();
         Time2Jogo14Label = new javax.swing.JLabel();
-        jLabel60 = new javax.swing.JLabel();
-        jLabel61 = new javax.swing.JLabel();
-        jLabel62 = new javax.swing.JLabel();
-        jLabel63 = new javax.swing.JLabel();
+        Time2Jogo14GolsLabel = new javax.swing.JLabel();
+        Time2Jogo13GolsLabel = new javax.swing.JLabel();
+        Time2Jogo15GolsLabel = new javax.swing.JLabel();
+        Time1Jogo15GolsLabel = new javax.swing.JLabel();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
         filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
@@ -122,6 +127,8 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
         jLabel68 = new javax.swing.JLabel();
         jLabel69 = new javax.swing.JLabel();
         jLabel70 = new javax.swing.JLabel();
+        Time2Jogo10GolsLabel = new javax.swing.JLabel();
+        Time1Jogo10GolsLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -161,12 +168,12 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
         Time2Jogo1Label.setAlignmentX(1.0F);
         Time2Jogo1Label.setOpaque(true);
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("0");
-        jLabel2.setAlignmentX(1.0F);
-        jLabel2.setOpaque(true);
+        Time1Jogo1GolsLabel.setBackground(new java.awt.Color(255, 255, 255));
+        Time1Jogo1GolsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Time1Jogo1GolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Time1Jogo1GolsLabel.setText("0");
+        Time1Jogo1GolsLabel.setAlignmentX(1.0F);
+        Time1Jogo1GolsLabel.setOpaque(true);
 
         Time1Jogo1Label.setBackground(new java.awt.Color(255, 255, 255));
         Time1Jogo1Label.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -178,28 +185,28 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
         Time1Jogo16Label.setBackground(new java.awt.Color(255, 255, 255));
         Time1Jogo16Label.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Time1Jogo16Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Time1Jogo16Label.setText("Time1");
+        Time1Jogo16Label.setText(" ");
         Time1Jogo16Label.setAlignmentX(1.0F);
         Time1Jogo16Label.setOpaque(true);
 
         Time1Jogo9Label.setBackground(new java.awt.Color(255, 255, 255));
         Time1Jogo9Label.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Time1Jogo9Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Time1Jogo9Label.setText("Time1");
+        Time1Jogo9Label.setText(" ");
         Time1Jogo9Label.setAlignmentX(1.0F);
         Time1Jogo9Label.setOpaque(true);
 
-        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("0");
-        jLabel6.setAlignmentX(1.0F);
-        jLabel6.setOpaque(true);
+        Time1Jogo2GolsLabel.setBackground(new java.awt.Color(255, 255, 255));
+        Time1Jogo2GolsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Time1Jogo2GolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Time1Jogo2GolsLabel.setText("0");
+        Time1Jogo2GolsLabel.setAlignmentX(1.0F);
+        Time1Jogo2GolsLabel.setOpaque(true);
 
         Time2Jogo9Label.setBackground(new java.awt.Color(255, 255, 255));
         Time2Jogo9Label.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Time2Jogo9Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Time2Jogo9Label.setText("Time1");
+        Time2Jogo9Label.setText(" ");
         Time2Jogo9Label.setAlignmentX(1.0F);
         Time2Jogo9Label.setOpaque(true);
 
@@ -241,7 +248,7 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
         Time2Jogo10Label.setBackground(new java.awt.Color(255, 255, 255));
         Time2Jogo10Label.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Time2Jogo10Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Time2Jogo10Label.setText("Time1");
+        Time2Jogo10Label.setText(" ");
         Time2Jogo10Label.setAlignmentX(1.0F);
         Time2Jogo10Label.setOpaque(true);
 
@@ -255,338 +262,338 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
         Time1Jogo10Label.setBackground(new java.awt.Color(255, 255, 255));
         Time1Jogo10Label.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Time1Jogo10Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Time1Jogo10Label.setText("Time1");
+        Time1Jogo10Label.setText(" ");
         Time1Jogo10Label.setAlignmentX(1.0F);
         Time1Jogo10Label.setOpaque(true);
 
-        jLabel16.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel16.setText("0");
-        jLabel16.setAlignmentX(1.0F);
-        jLabel16.setOpaque(true);
+        Time2Jogo1GolsLabel.setBackground(new java.awt.Color(255, 255, 255));
+        Time2Jogo1GolsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Time2Jogo1GolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Time2Jogo1GolsLabel.setText("0");
+        Time2Jogo1GolsLabel.setAlignmentX(1.0F);
+        Time2Jogo1GolsLabel.setOpaque(true);
 
-        jLabel17.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel17.setText("0");
-        jLabel17.setAlignmentX(1.0F);
-        jLabel17.setOpaque(true);
+        Time2Jogo3GolsLabel.setBackground(new java.awt.Color(255, 255, 255));
+        Time2Jogo3GolsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Time2Jogo3GolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Time2Jogo3GolsLabel.setText("0");
+        Time2Jogo3GolsLabel.setAlignmentX(1.0F);
+        Time2Jogo3GolsLabel.setOpaque(true);
 
-        jLabel18.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel18.setText("0");
-        jLabel18.setAlignmentX(1.0F);
-        jLabel18.setOpaque(true);
+        Time2Jogo2GolsLabel.setBackground(new java.awt.Color(255, 255, 255));
+        Time2Jogo2GolsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Time2Jogo2GolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Time2Jogo2GolsLabel.setText("0");
+        Time2Jogo2GolsLabel.setAlignmentX(1.0F);
+        Time2Jogo2GolsLabel.setOpaque(true);
 
-        jLabel19.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel19.setText("0");
-        jLabel19.setAlignmentX(1.0F);
-        jLabel19.setOpaque(true);
+        Time1Jogo3GolsLabel.setBackground(new java.awt.Color(255, 255, 255));
+        Time1Jogo3GolsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Time1Jogo3GolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Time1Jogo3GolsLabel.setText("0");
+        Time1Jogo3GolsLabel.setAlignmentX(1.0F);
+        Time1Jogo3GolsLabel.setOpaque(true);
 
-        jLabel20.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel20.setText("0");
-        jLabel20.setAlignmentX(1.0F);
-        jLabel20.setOpaque(true);
+        Time2Jogo4GolsLabel.setBackground(new java.awt.Color(255, 255, 255));
+        Time2Jogo4GolsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Time2Jogo4GolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Time2Jogo4GolsLabel.setText("0");
+        Time2Jogo4GolsLabel.setAlignmentX(1.0F);
+        Time2Jogo4GolsLabel.setOpaque(true);
 
-        jLabel21.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel21.setText("0");
-        jLabel21.setAlignmentX(1.0F);
-        jLabel21.setOpaque(true);
+        Time1Jogo4GolsLabel.setBackground(new java.awt.Color(255, 255, 255));
+        Time1Jogo4GolsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Time1Jogo4GolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Time1Jogo4GolsLabel.setText("0");
+        Time1Jogo4GolsLabel.setAlignmentX(1.0F);
+        Time1Jogo4GolsLabel.setOpaque(true);
 
-        jLabel22.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel22.setText("0");
-        jLabel22.setAlignmentX(1.0F);
-        jLabel22.setOpaque(true);
+        Time2Jogo9GolsLabel.setBackground(new java.awt.Color(255, 255, 255));
+        Time2Jogo9GolsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Time2Jogo9GolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Time2Jogo9GolsLabel.setText("0");
+        Time2Jogo9GolsLabel.setAlignmentX(1.0F);
+        Time2Jogo9GolsLabel.setOpaque(true);
 
-        jLabel23.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel23.setText("0");
-        jLabel23.setAlignmentX(1.0F);
-        jLabel23.setOpaque(true);
+        Time1Jogo9GolsLabel.setBackground(new java.awt.Color(255, 255, 255));
+        Time1Jogo9GolsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Time1Jogo9GolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Time1Jogo9GolsLabel.setText("0");
+        Time1Jogo9GolsLabel.setAlignmentX(1.0F);
+        Time1Jogo9GolsLabel.setOpaque(true);
 
         Time1Jogo13Label.setBackground(new java.awt.Color(255, 255, 255));
         Time1Jogo13Label.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Time1Jogo13Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Time1Jogo13Label.setText("Time1");
+        Time1Jogo13Label.setText(" ");
         Time1Jogo13Label.setAlignmentX(1.0F);
         Time1Jogo13Label.setOpaque(true);
 
         Time2Jogo13Label.setBackground(new java.awt.Color(255, 255, 255));
         Time2Jogo13Label.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Time2Jogo13Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Time2Jogo13Label.setText("Time1");
+        Time2Jogo13Label.setText(" ");
         Time2Jogo13Label.setAlignmentX(1.0F);
         Time2Jogo13Label.setOpaque(true);
 
-        jLabel27.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel27.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel27.setText("0");
-        jLabel27.setAlignmentX(1.0F);
-        jLabel27.setOpaque(true);
+        Time1Jogo13GolsLabel.setBackground(new java.awt.Color(255, 255, 255));
+        Time1Jogo13GolsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Time1Jogo13GolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Time1Jogo13GolsLabel.setText("0");
+        Time1Jogo13GolsLabel.setAlignmentX(1.0F);
+        Time1Jogo13GolsLabel.setOpaque(true);
 
         Time2Jogo16Label.setBackground(new java.awt.Color(255, 255, 255));
         Time2Jogo16Label.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Time2Jogo16Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Time2Jogo16Label.setText("Time1");
+        Time2Jogo16Label.setText(" ");
         Time2Jogo16Label.setAlignmentX(1.0F);
         Time2Jogo16Label.setOpaque(true);
 
         Time1Jogo15Label.setBackground(new java.awt.Color(255, 255, 255));
         Time1Jogo15Label.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Time1Jogo15Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Time1Jogo15Label.setText("Time1");
+        Time1Jogo15Label.setText(" ");
         Time1Jogo15Label.setAlignmentX(1.0F);
         Time1Jogo15Label.setOpaque(true);
 
         Time2Jogo15Label.setBackground(new java.awt.Color(255, 255, 255));
         Time2Jogo15Label.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Time2Jogo15Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Time2Jogo15Label.setText("Time1");
+        Time2Jogo15Label.setText(" ");
         Time2Jogo15Label.setAlignmentX(1.0F);
         Time2Jogo15Label.setOpaque(true);
 
-        jLabel31.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel31.setText("0");
-        jLabel31.setAlignmentX(1.0F);
-        jLabel31.setOpaque(true);
+        Time1Jogo16GolsLabel.setBackground(new java.awt.Color(255, 255, 255));
+        Time1Jogo16GolsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Time1Jogo16GolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Time1Jogo16GolsLabel.setText("0");
+        Time1Jogo16GolsLabel.setAlignmentX(1.0F);
+        Time1Jogo16GolsLabel.setOpaque(true);
 
-        jLabel32.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel32.setText("0");
-        jLabel32.setAlignmentX(1.0F);
-        jLabel32.setOpaque(true);
+        Time2Jogo16GolsLabel.setBackground(new java.awt.Color(255, 255, 255));
+        Time2Jogo16GolsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Time2Jogo16GolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Time2Jogo16GolsLabel.setText("0");
+        Time2Jogo16GolsLabel.setAlignmentX(1.0F);
+        Time2Jogo16GolsLabel.setOpaque(true);
 
         Time1Jogo11Label.setBackground(new java.awt.Color(255, 255, 255));
         Time1Jogo11Label.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Time1Jogo11Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Time1Jogo11Label.setText("Time1");
+        Time1Jogo11Label.setText(" ");
         Time1Jogo11Label.setAlignmentX(1.0F);
         Time1Jogo11Label.setOpaque(true);
 
         Time2Jogo5Label.setBackground(new java.awt.Color(255, 255, 255));
         Time2Jogo5Label.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Time2Jogo5Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Time2Jogo5Label.setText("Time1");
+        Time2Jogo5Label.setText(" ");
         Time2Jogo5Label.setAlignmentX(1.0F);
         Time2Jogo5Label.setOpaque(true);
 
         Time1Jogo5Label.setBackground(new java.awt.Color(255, 255, 255));
         Time1Jogo5Label.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Time1Jogo5Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Time1Jogo5Label.setText("Time1");
+        Time1Jogo5Label.setText(" ");
         Time1Jogo5Label.setAlignmentX(1.0F);
         Time1Jogo5Label.setOpaque(true);
 
-        jLabel36.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel36.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel36.setText("0");
-        jLabel36.setAlignmentX(1.0F);
-        jLabel36.setOpaque(true);
+        Time1Jogo5GolsLabel.setBackground(new java.awt.Color(255, 255, 255));
+        Time1Jogo5GolsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Time1Jogo5GolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Time1Jogo5GolsLabel.setText("0");
+        Time1Jogo5GolsLabel.setAlignmentX(1.0F);
+        Time1Jogo5GolsLabel.setOpaque(true);
 
-        jLabel37.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel37.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel37.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel37.setText("0");
-        jLabel37.setAlignmentX(1.0F);
-        jLabel37.setOpaque(true);
+        Time1Jogo11GolsLabel.setBackground(new java.awt.Color(255, 255, 255));
+        Time1Jogo11GolsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Time1Jogo11GolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Time1Jogo11GolsLabel.setText("0");
+        Time1Jogo11GolsLabel.setAlignmentX(1.0F);
+        Time1Jogo11GolsLabel.setOpaque(true);
 
         Time1Jogo6Label.setBackground(new java.awt.Color(255, 255, 255));
         Time1Jogo6Label.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Time1Jogo6Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Time1Jogo6Label.setText("Time1");
+        Time1Jogo6Label.setText(" ");
         Time1Jogo6Label.setAlignmentX(1.0F);
         Time1Jogo6Label.setOpaque(true);
 
-        jLabel39.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel39.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel39.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel39.setText("0");
-        jLabel39.setAlignmentX(1.0F);
-        jLabel39.setOpaque(true);
+        Time1Jogo14GolsLabel.setBackground(new java.awt.Color(255, 255, 255));
+        Time1Jogo14GolsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Time1Jogo14GolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Time1Jogo14GolsLabel.setText("0");
+        Time1Jogo14GolsLabel.setAlignmentX(1.0F);
+        Time1Jogo14GolsLabel.setOpaque(true);
 
-        jLabel40.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel40.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel40.setText("0");
-        jLabel40.setAlignmentX(1.0F);
-        jLabel40.setOpaque(true);
+        Time2Jogo5GolsLabel.setBackground(new java.awt.Color(255, 255, 255));
+        Time2Jogo5GolsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Time2Jogo5GolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Time2Jogo5GolsLabel.setText("0");
+        Time2Jogo5GolsLabel.setAlignmentX(1.0F);
+        Time2Jogo5GolsLabel.setOpaque(true);
 
         Time2Jogo11Label.setBackground(new java.awt.Color(255, 255, 255));
         Time2Jogo11Label.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Time2Jogo11Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Time2Jogo11Label.setText("Time1");
+        Time2Jogo11Label.setText(" ");
         Time2Jogo11Label.setAlignmentX(1.0F);
         Time2Jogo11Label.setOpaque(true);
 
-        jLabel42.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel42.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel42.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel42.setText("0");
-        jLabel42.setAlignmentX(1.0F);
-        jLabel42.setOpaque(true);
+        Time2Jogo11GolsLabel.setBackground(new java.awt.Color(255, 255, 255));
+        Time2Jogo11GolsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Time2Jogo11GolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Time2Jogo11GolsLabel.setText("0");
+        Time2Jogo11GolsLabel.setAlignmentX(1.0F);
+        Time2Jogo11GolsLabel.setOpaque(true);
 
         Time1Jogo14Label.setBackground(new java.awt.Color(255, 255, 255));
         Time1Jogo14Label.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Time1Jogo14Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Time1Jogo14Label.setText("Time1");
+        Time1Jogo14Label.setText(" ");
         Time1Jogo14Label.setAlignmentX(1.0F);
         Time1Jogo14Label.setOpaque(true);
 
         Time2Jogo6Label.setBackground(new java.awt.Color(255, 255, 255));
         Time2Jogo6Label.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Time2Jogo6Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Time2Jogo6Label.setText("Time1");
+        Time2Jogo6Label.setText(" ");
         Time2Jogo6Label.setAlignmentX(1.0F);
         Time2Jogo6Label.setOpaque(true);
 
         Time2Jogo7Label.setBackground(new java.awt.Color(255, 255, 255));
         Time2Jogo7Label.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Time2Jogo7Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Time2Jogo7Label.setText("Time1");
+        Time2Jogo7Label.setText(" ");
         Time2Jogo7Label.setAlignmentX(1.0F);
         Time2Jogo7Label.setOpaque(true);
 
-        jLabel46.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel46.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel46.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel46.setText("0");
-        jLabel46.setAlignmentX(1.0F);
-        jLabel46.setOpaque(true);
+        Time1Jogo6GolsLabel.setBackground(new java.awt.Color(255, 255, 255));
+        Time1Jogo6GolsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Time1Jogo6GolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Time1Jogo6GolsLabel.setText("0");
+        Time1Jogo6GolsLabel.setAlignmentX(1.0F);
+        Time1Jogo6GolsLabel.setOpaque(true);
 
-        jLabel47.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel47.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel47.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel47.setText("0");
-        jLabel47.setAlignmentX(1.0F);
-        jLabel47.setOpaque(true);
+        Time2Jogo6GolsLabel.setBackground(new java.awt.Color(255, 255, 255));
+        Time2Jogo6GolsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Time2Jogo6GolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Time2Jogo6GolsLabel.setText("0");
+        Time2Jogo6GolsLabel.setAlignmentX(1.0F);
+        Time2Jogo6GolsLabel.setOpaque(true);
 
         Time1Jogo7Label.setBackground(new java.awt.Color(255, 255, 255));
         Time1Jogo7Label.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Time1Jogo7Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Time1Jogo7Label.setText("Time1");
+        Time1Jogo7Label.setText(" ");
         Time1Jogo7Label.setAlignmentX(1.0F);
         Time1Jogo7Label.setOpaque(true);
 
-        jLabel49.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel49.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel49.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel49.setText("0");
-        jLabel49.setAlignmentX(1.0F);
-        jLabel49.setOpaque(true);
+        Time1Jogo7GolsLabel.setBackground(new java.awt.Color(255, 255, 255));
+        Time1Jogo7GolsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Time1Jogo7GolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Time1Jogo7GolsLabel.setText("0");
+        Time1Jogo7GolsLabel.setAlignmentX(1.0F);
+        Time1Jogo7GolsLabel.setOpaque(true);
 
-        jLabel50.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel50.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel50.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel50.setText("0");
-        jLabel50.setAlignmentX(1.0F);
-        jLabel50.setOpaque(true);
+        Time2Jogo7GolsLabel.setBackground(new java.awt.Color(255, 255, 255));
+        Time2Jogo7GolsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Time2Jogo7GolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Time2Jogo7GolsLabel.setText("0");
+        Time2Jogo7GolsLabel.setAlignmentX(1.0F);
+        Time2Jogo7GolsLabel.setOpaque(true);
 
         Time1Jogo8Label.setBackground(new java.awt.Color(255, 255, 255));
         Time1Jogo8Label.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Time1Jogo8Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Time1Jogo8Label.setText("Time1");
+        Time1Jogo8Label.setText(" ");
         Time1Jogo8Label.setAlignmentX(1.0F);
         Time1Jogo8Label.setOpaque(true);
 
         Time2Jogo8Label.setBackground(new java.awt.Color(255, 255, 255));
         Time2Jogo8Label.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Time2Jogo8Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Time2Jogo8Label.setText("Time1");
+        Time2Jogo8Label.setText(" ");
         Time2Jogo8Label.setAlignmentX(1.0F);
         Time2Jogo8Label.setOpaque(true);
 
-        jLabel53.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel53.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel53.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel53.setText("0");
-        jLabel53.setAlignmentX(1.0F);
-        jLabel53.setOpaque(true);
+        Time1Jogo8GolsLabel.setBackground(new java.awt.Color(255, 255, 255));
+        Time1Jogo8GolsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Time1Jogo8GolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Time1Jogo8GolsLabel.setText("0");
+        Time1Jogo8GolsLabel.setAlignmentX(1.0F);
+        Time1Jogo8GolsLabel.setOpaque(true);
 
-        jLabel54.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel54.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel54.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel54.setText("0");
-        jLabel54.setAlignmentX(1.0F);
-        jLabel54.setOpaque(true);
+        Time2Jogo8GolsLabel.setBackground(new java.awt.Color(255, 255, 255));
+        Time2Jogo8GolsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Time2Jogo8GolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Time2Jogo8GolsLabel.setText("0");
+        Time2Jogo8GolsLabel.setAlignmentX(1.0F);
+        Time2Jogo8GolsLabel.setOpaque(true);
 
         Time1Jogo12Label.setBackground(new java.awt.Color(255, 255, 255));
         Time1Jogo12Label.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Time1Jogo12Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Time1Jogo12Label.setText("Time1");
+        Time1Jogo12Label.setText(" ");
         Time1Jogo12Label.setAlignmentX(1.0F);
         Time1Jogo12Label.setOpaque(true);
 
         Time2Jogo12Label.setBackground(new java.awt.Color(255, 255, 255));
         Time2Jogo12Label.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Time2Jogo12Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Time2Jogo12Label.setText("Time1");
+        Time2Jogo12Label.setText(" ");
         Time2Jogo12Label.setAlignmentX(1.0F);
         Time2Jogo12Label.setOpaque(true);
 
-        jLabel57.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel57.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel57.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel57.setText("0");
-        jLabel57.setAlignmentX(1.0F);
-        jLabel57.setOpaque(true);
+        Time1Jogo12GolsLabel.setBackground(new java.awt.Color(255, 255, 255));
+        Time1Jogo12GolsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Time1Jogo12GolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Time1Jogo12GolsLabel.setText("0");
+        Time1Jogo12GolsLabel.setAlignmentX(1.0F);
+        Time1Jogo12GolsLabel.setOpaque(true);
 
-        jLabel58.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel58.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel58.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel58.setText("0");
-        jLabel58.setAlignmentX(1.0F);
-        jLabel58.setOpaque(true);
+        Time2Jogo12GolsLabel.setBackground(new java.awt.Color(255, 255, 255));
+        Time2Jogo12GolsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Time2Jogo12GolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Time2Jogo12GolsLabel.setText("0");
+        Time2Jogo12GolsLabel.setAlignmentX(1.0F);
+        Time2Jogo12GolsLabel.setOpaque(true);
 
         Time2Jogo14Label.setBackground(new java.awt.Color(255, 255, 255));
         Time2Jogo14Label.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Time2Jogo14Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Time2Jogo14Label.setText("Time1");
+        Time2Jogo14Label.setText(" ");
         Time2Jogo14Label.setAlignmentX(1.0F);
         Time2Jogo14Label.setOpaque(true);
 
-        jLabel60.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel60.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel60.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel60.setText("0");
-        jLabel60.setAlignmentX(1.0F);
-        jLabel60.setOpaque(true);
+        Time2Jogo14GolsLabel.setBackground(new java.awt.Color(255, 255, 255));
+        Time2Jogo14GolsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Time2Jogo14GolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Time2Jogo14GolsLabel.setText("0");
+        Time2Jogo14GolsLabel.setAlignmentX(1.0F);
+        Time2Jogo14GolsLabel.setOpaque(true);
 
-        jLabel61.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel61.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel61.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel61.setText("0");
-        jLabel61.setAlignmentX(1.0F);
-        jLabel61.setOpaque(true);
+        Time2Jogo13GolsLabel.setBackground(new java.awt.Color(255, 255, 255));
+        Time2Jogo13GolsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Time2Jogo13GolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Time2Jogo13GolsLabel.setText("0");
+        Time2Jogo13GolsLabel.setAlignmentX(1.0F);
+        Time2Jogo13GolsLabel.setOpaque(true);
 
-        jLabel62.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel62.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel62.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel62.setText("0");
-        jLabel62.setAlignmentX(1.0F);
-        jLabel62.setOpaque(true);
+        Time2Jogo15GolsLabel.setBackground(new java.awt.Color(255, 255, 255));
+        Time2Jogo15GolsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Time2Jogo15GolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Time2Jogo15GolsLabel.setText("0");
+        Time2Jogo15GolsLabel.setAlignmentX(1.0F);
+        Time2Jogo15GolsLabel.setOpaque(true);
 
-        jLabel63.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel63.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel63.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel63.setText("0");
-        jLabel63.setAlignmentX(1.0F);
-        jLabel63.setOpaque(true);
+        Time1Jogo15GolsLabel.setBackground(new java.awt.Color(255, 255, 255));
+        Time1Jogo15GolsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Time1Jogo15GolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Time1Jogo15GolsLabel.setText("0");
+        Time1Jogo15GolsLabel.setAlignmentX(1.0F);
+        Time1Jogo15GolsLabel.setOpaque(true);
 
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("Oitavas de final");
@@ -612,6 +619,20 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
         jLabel70.setForeground(new java.awt.Color(255, 255, 255));
         jLabel70.setText("3° Lugar");
 
+        Time2Jogo10GolsLabel.setBackground(new java.awt.Color(255, 255, 255));
+        Time2Jogo10GolsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Time2Jogo10GolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Time2Jogo10GolsLabel.setText("0");
+        Time2Jogo10GolsLabel.setAlignmentX(1.0F);
+        Time2Jogo10GolsLabel.setOpaque(true);
+
+        Time1Jogo10GolsLabel.setBackground(new java.awt.Color(255, 255, 255));
+        Time1Jogo10GolsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Time1Jogo10GolsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Time1Jogo10GolsLabel.setText("0");
+        Time1Jogo10GolsLabel.setAlignmentX(1.0F);
+        Time1Jogo10GolsLabel.setOpaque(true);
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -620,15 +641,23 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(403, 403, 403)
+                        .addComponent(jLabel67)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel68)
+                        .addGap(378, 378, 378))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(Time1Jogo1Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(39, 39, 39)
+                                .addGap(6, 6, 6)
+                                .addComponent(Time2Jogo2GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(5, 5, 5)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel5Layout.createSequentialGroup()
                                         .addComponent(Time1Jogo9Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Time1Jogo9GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel5Layout.createSequentialGroup()
                                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -636,8 +665,8 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
                                                         .addGap(386, 386, 386)
                                                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                             .addComponent(SimularButton)
-                                                            .addComponent(jLabel39, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addComponent(jLabel60, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                            .addComponent(Time1Jogo14GolsLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addComponent(Time2Jogo14GolsLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -646,7 +675,7 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
                                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addGroup(jPanel5Layout.createSequentialGroup()
                                                         .addGap(0, 0, Short.MAX_VALUE)
-                                                        .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(Time2Jogo6GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addGap(160, 160, 160))
                                                     .addGroup(jPanel5Layout.createSequentialGroup()
                                                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -660,8 +689,8 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
                                                                     .addGroup(jPanel5Layout.createSequentialGroup()
                                                                         .addGap(7, 7, 7)
                                                                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                            .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                            .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                            .addComponent(Time1Jogo11GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                            .addComponent(Time2Jogo11GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                             .addComponent(Time1Jogo11Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -676,15 +705,15 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
                                                             .addGroup(jPanel5Layout.createSequentialGroup()
                                                                 .addComponent(Time2Jogo15Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(jLabel62, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(Time2Jogo15GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addComponent(Time2Jogo7GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                             .addGroup(jPanel5Layout.createSequentialGroup()
                                                                 .addComponent(Time1Jogo15Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(Time1Jogo15GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addGap(420, 420, 420)
-                                                                .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                                .addComponent(Time1Jogo7GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                         .addGap(0, 0, Short.MAX_VALUE))
                                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -692,10 +721,10 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
                                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                                                                 .addComponent(jLabel65)
                                                                 .addGap(18, 18, 18)
-                                                                .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                            .addComponent(jLabel36, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addComponent(jLabel53, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addComponent(jLabel54, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(Time2Jogo5GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                            .addComponent(Time1Jogo5GolsLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addComponent(Time1Jogo8GolsLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addComponent(Time2Jogo8GolsLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                                                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                                     .addGroup(jPanel5Layout.createSequentialGroup()
@@ -706,7 +735,7 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
                                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                         .addComponent(filler2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                         .addGap(12, 12, 12)))
-                                                                .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                                                .addComponent(Time1Jogo6GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(Time2Jogo5Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -724,11 +753,14 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
                                             .addComponent(Time2Jogo9Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(Time1Jogo10Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(Time2Jogo9GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(Time2Jogo10GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(Time1Jogo10GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel57, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel58, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(Time1Jogo12GolsLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(Time2Jogo12GolsLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(Time1Jogo12Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -736,7 +768,7 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
                                         .addGap(199, 199, 199))))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Time1Jogo1GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap())))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -744,37 +776,39 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
                                 .addGroup(jPanel5Layout.createSequentialGroup()
                                     .addComponent(Time2Jogo1Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Time2Jogo1GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
                                     .addComponent(jLabel64))
                                 .addGroup(jPanel5Layout.createSequentialGroup()
                                     .addComponent(Time1Jogo4Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(Time1Jogo4GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel5Layout.createSequentialGroup()
                                     .addComponent(Time2Jogo4Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(Time2Jogo4GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel5Layout.createSequentialGroup()
                                     .addComponent(Time2Jogo3Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(Time2Jogo3GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel5Layout.createSequentialGroup()
                                     .addComponent(Time1Jogo2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(Time1Jogo2GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel5Layout.createSequentialGroup()
                                     .addComponent(Time1Jogo3Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(Time1Jogo3GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel5Layout.createSequentialGroup()
-                                    .addComponent(Time2Jogo2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(204, 204, 204)
-                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(Time2Jogo13Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(Time1Jogo13Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel5Layout.createSequentialGroup()
+                                            .addGap(378, 378, 378)
+                                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(Time2Jogo13Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(Time1Jogo13Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                                            .addComponent(Time2Jogo2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(378, 378, 378)))
                                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel5Layout.createSequentialGroup()
                                             .addGap(116, 116, 116)
@@ -783,14 +817,14 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
                                                 .addComponent(Time1Jogo16Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(Time1Jogo16GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(Time2Jogo16GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGroup(jPanel5Layout.createSequentialGroup()
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel61, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(Time2Jogo13GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGroup(jPanel5Layout.createSequentialGroup()
-                                                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(Time1Jogo13GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addGap(139, 139, 139)
                                                     .addComponent(jLabel70)))))))
                             .addGroup(jPanel5Layout.createSequentialGroup()
@@ -801,12 +835,6 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel24)
                         .addGap(47, 47, 47))))
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(424, 424, 424)
-                .addComponent(jLabel67)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel68)
-                .addGap(378, 378, 378))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -821,11 +849,11 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(Time1Jogo11Label)
-                                    .addComponent(jLabel37))
+                                    .addComponent(Time1Jogo11GolsLabel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(Time2Jogo11Label)
-                                    .addComponent(jLabel42))
+                                    .addComponent(Time2Jogo11GolsLabel))
                                 .addGap(18, 18, 18)
                                 .addComponent(filler3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -839,16 +867,16 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(Time1Jogo14Label)
-                                    .addComponent(jLabel39)
+                                    .addComponent(Time1Jogo14GolsLabel)
                                     .addComponent(Time1Jogo13Label)
-                                    .addComponent(jLabel27)
+                                    .addComponent(Time1Jogo13GolsLabel)
                                     .addComponent(jLabel70))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(Time2Jogo14Label)
-                                    .addComponent(jLabel60)
+                                    .addComponent(Time2Jogo14GolsLabel)
                                     .addComponent(Time2Jogo13Label)
-                                    .addComponent(jLabel61)))
+                                    .addComponent(Time2Jogo13GolsLabel)))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel5Layout.createSequentialGroup()
@@ -865,109 +893,112 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
                                                 .addGap(73, 73, 73)
                                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                     .addComponent(Time1Jogo9Label)
-                                                    .addComponent(jLabel23)))
+                                                    .addComponent(Time1Jogo9GolsLabel)))
                                             .addGroup(jPanel5Layout.createSequentialGroup()
                                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                     .addComponent(Time1Jogo1Label)
-                                                    .addComponent(jLabel2)
+                                                    .addComponent(Time1Jogo1GolsLabel)
                                                     .addComponent(Time1Jogo5Label)
-                                                    .addComponent(jLabel36))
+                                                    .addComponent(Time1Jogo5GolsLabel))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                         .addComponent(Time2Jogo1Label)
-                                                        .addComponent(jLabel16)
+                                                        .addComponent(Time2Jogo1GolsLabel)
                                                         .addComponent(jLabel64))
                                                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                         .addComponent(Time2Jogo5Label)
-                                                        .addComponent(jLabel40)))))
+                                                        .addComponent(Time2Jogo5GolsLabel)))))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(Time2Jogo9Label)
-                                            .addComponent(jLabel22))
+                                            .addComponent(Time2Jogo9GolsLabel))
                                         .addGap(3, 3, 3)
                                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                                .addGap(8, 8, 8)
-                                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                    .addComponent(Time1Jogo2Label)
-                                                    .addComponent(jLabel6))
-                                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                    .addComponent(Time2Jogo2Label)
-                                                    .addComponent(jLabel18)))
-                                            .addGroup(jPanel5Layout.createSequentialGroup()
                                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                     .addComponent(Time1Jogo16Label)
-                                                    .addComponent(jLabel31)
+                                                    .addComponent(Time1Jogo16GolsLabel)
                                                     .addComponent(Time1Jogo6Label)
-                                                    .addComponent(jLabel46))
+                                                    .addComponent(Time1Jogo6GolsLabel))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                         .addComponent(Time2Jogo16Label)
-                                                        .addComponent(jLabel32))
+                                                        .addComponent(Time2Jogo16GolsLabel))
                                                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                         .addComponent(Time2Jogo6Label)
-                                                        .addComponent(jLabel47))))))
+                                                        .addComponent(Time2Jogo6GolsLabel))))
+                                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                                .addGap(8, 8, 8)
+                                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                    .addComponent(Time1Jogo2GolsLabel)
+                                                    .addComponent(Time1Jogo2Label))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                    .addComponent(Time2Jogo2GolsLabel)
+                                                    .addComponent(Time2Jogo2Label)))))
                                     .addGroup(jPanel5Layout.createSequentialGroup()
                                         .addGap(90, 90, 90)
                                         .addComponent(jLabel69)))
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addGap(59, 59, 59)
+                                        .addGap(79, 79, 79)
+                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(Time1Jogo7GolsLabel)
+                                            .addComponent(Time1Jogo7Label)))
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addGap(77, 77, 77)
                                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(Time1Jogo3Label)
-                                            .addComponent(jLabel19)))
-                                    .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addGap(61, 61, 61)
-                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jLabel49)
-                                            .addComponent(Time1Jogo7Label))))))
+                                            .addComponent(Time1Jogo3GolsLabel))))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(Time2Jogo3Label)
-                                    .addComponent(jLabel17))
+                                    .addComponent(Time2Jogo3GolsLabel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(Time1Jogo10Label)
                                     .addComponent(Time1Jogo12Label)
-                                    .addComponent(jLabel57))
+                                    .addComponent(Time1Jogo12GolsLabel)
+                                    .addComponent(Time1Jogo10GolsLabel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(Time2Jogo10Label)
                                     .addComponent(Time2Jogo12Label)
-                                    .addComponent(jLabel58))
+                                    .addComponent(Time2Jogo12GolsLabel)
+                                    .addComponent(Time2Jogo10GolsLabel))
                                 .addGap(8, 8, 8)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(Time1Jogo4Label)
-                                    .addComponent(jLabel21)
+                                    .addComponent(Time1Jogo4GolsLabel)
                                     .addComponent(Time1Jogo8Label)
-                                    .addComponent(jLabel53))
+                                    .addComponent(Time1Jogo8GolsLabel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(Time2Jogo4Label)
-                                    .addComponent(jLabel20)
+                                    .addComponent(Time2Jogo4GolsLabel)
                                     .addComponent(Time2Jogo8Label)
-                                    .addComponent(jLabel54))
+                                    .addComponent(Time2Jogo8GolsLabel))
                                 .addGap(54, 54, 54))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(Time2Jogo7Label)
-                                    .addComponent(jLabel50))
+                                    .addComponent(Time2Jogo7GolsLabel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(FaseGruposLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Time1Jogo15Label)
-                            .addComponent(jLabel63))
+                            .addComponent(Time1Jogo15GolsLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Time2Jogo15Label)
-                            .addComponent(jLabel62))
+                            .addComponent(Time2Jogo15GolsLabel))
                         .addGap(178, 178, 178)))
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(avancarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -996,14 +1027,16 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SimularButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SimularButtonActionPerformed
-        simularFaseGrupo();
+        new TelaSimularFaseGrupos(campeonatoFaseGrupo.getGrupos()).setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_SimularButtonActionPerformed
 
     private void refazerSimulacaoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refazerSimulacaoButtonActionPerformed
-        TimeDAO.zerarClassificacaoGeral();
-        this.grupos = GrupoDAO.listarGruposCompletos();
-        this.campeonato = new Campeonato(grupos);
-        simularFaseGrupo();
+        try {
+            campeonato = (Campeonato)campeonatoFaseGrupo.clone();
+            simularFaseMataMata();
+        }
+        catch (Exception e) {}
     }//GEN-LAST:event_refazerSimulacaoButtonActionPerformed
 
     private void avancarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avancarButtonActionPerformed
@@ -1047,7 +1080,7 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaSimularMataMata(GrupoDAO.listarGruposCompletos()).setVisible(true);
+                new TelaSimularMataMata(new Campeonato(GrupoDAO.listarGruposCompletos())).setVisible(true);
             }
         });
     }
@@ -1055,73 +1088,75 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel FaseGruposLabel;
     private javax.swing.JButton SimularButton;
+    private javax.swing.JLabel Time1Jogo10GolsLabel;
     private javax.swing.JLabel Time1Jogo10Label;
+    private javax.swing.JLabel Time1Jogo11GolsLabel;
     private javax.swing.JLabel Time1Jogo11Label;
+    private javax.swing.JLabel Time1Jogo12GolsLabel;
     private javax.swing.JLabel Time1Jogo12Label;
+    private javax.swing.JLabel Time1Jogo13GolsLabel;
     private javax.swing.JLabel Time1Jogo13Label;
+    private javax.swing.JLabel Time1Jogo14GolsLabel;
     private javax.swing.JLabel Time1Jogo14Label;
+    private javax.swing.JLabel Time1Jogo15GolsLabel;
     private javax.swing.JLabel Time1Jogo15Label;
+    private javax.swing.JLabel Time1Jogo16GolsLabel;
     private javax.swing.JLabel Time1Jogo16Label;
+    private javax.swing.JLabel Time1Jogo1GolsLabel;
     private javax.swing.JLabel Time1Jogo1Label;
+    private javax.swing.JLabel Time1Jogo2GolsLabel;
     private javax.swing.JLabel Time1Jogo2Label;
+    private javax.swing.JLabel Time1Jogo3GolsLabel;
     private javax.swing.JLabel Time1Jogo3Label;
+    private javax.swing.JLabel Time1Jogo4GolsLabel;
     private javax.swing.JLabel Time1Jogo4Label;
+    private javax.swing.JLabel Time1Jogo5GolsLabel;
     private javax.swing.JLabel Time1Jogo5Label;
+    private javax.swing.JLabel Time1Jogo6GolsLabel;
     private javax.swing.JLabel Time1Jogo6Label;
+    private javax.swing.JLabel Time1Jogo7GolsLabel;
     private javax.swing.JLabel Time1Jogo7Label;
+    private javax.swing.JLabel Time1Jogo8GolsLabel;
     private javax.swing.JLabel Time1Jogo8Label;
+    private javax.swing.JLabel Time1Jogo9GolsLabel;
     private javax.swing.JLabel Time1Jogo9Label;
+    private javax.swing.JLabel Time2Jogo10GolsLabel;
     private javax.swing.JLabel Time2Jogo10Label;
+    private javax.swing.JLabel Time2Jogo11GolsLabel;
     private javax.swing.JLabel Time2Jogo11Label;
+    private javax.swing.JLabel Time2Jogo12GolsLabel;
     private javax.swing.JLabel Time2Jogo12Label;
+    private javax.swing.JLabel Time2Jogo13GolsLabel;
     private javax.swing.JLabel Time2Jogo13Label;
+    private javax.swing.JLabel Time2Jogo14GolsLabel;
     private javax.swing.JLabel Time2Jogo14Label;
+    private javax.swing.JLabel Time2Jogo15GolsLabel;
     private javax.swing.JLabel Time2Jogo15Label;
+    private javax.swing.JLabel Time2Jogo16GolsLabel;
     private javax.swing.JLabel Time2Jogo16Label;
+    private javax.swing.JLabel Time2Jogo1GolsLabel;
     private javax.swing.JLabel Time2Jogo1Label;
+    private javax.swing.JLabel Time2Jogo2GolsLabel;
     private javax.swing.JLabel Time2Jogo2Label;
+    private javax.swing.JLabel Time2Jogo3GolsLabel;
     private javax.swing.JLabel Time2Jogo3Label;
+    private javax.swing.JLabel Time2Jogo4GolsLabel;
     private javax.swing.JLabel Time2Jogo4Label;
+    private javax.swing.JLabel Time2Jogo5GolsLabel;
     private javax.swing.JLabel Time2Jogo5Label;
+    private javax.swing.JLabel Time2Jogo6GolsLabel;
     private javax.swing.JLabel Time2Jogo6Label;
+    private javax.swing.JLabel Time2Jogo7GolsLabel;
     private javax.swing.JLabel Time2Jogo7Label;
+    private javax.swing.JLabel Time2Jogo8GolsLabel;
     private javax.swing.JLabel Time2Jogo8Label;
+    private javax.swing.JLabel Time2Jogo9GolsLabel;
     private javax.swing.JLabel Time2Jogo9Label;
     private javax.swing.JButton avancarButton;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
     private javax.swing.Box.Filler filler3;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel46;
-    private javax.swing.JLabel jLabel47;
-    private javax.swing.JLabel jLabel49;
-    private javax.swing.JLabel jLabel50;
-    private javax.swing.JLabel jLabel53;
-    private javax.swing.JLabel jLabel54;
-    private javax.swing.JLabel jLabel57;
-    private javax.swing.JLabel jLabel58;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel60;
-    private javax.swing.JLabel jLabel61;
-    private javax.swing.JLabel jLabel62;
-    private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
     private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel66;
@@ -1133,55 +1168,130 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
     private javax.swing.JButton refazerSimulacaoButton;
     // End of variables declaration//GEN-END:variables
 
-    private void simularFaseGrupo() {
-        campeonato.simularPartidasFaseGrupo();
-        grupos.forEach((grupo) -> {
+    private void simularFaseMataMata() {
+        campeonato.simularPartidasFaseMataMata();
+        setResultadosOitavasDeFinal();
+        setJogosQuartasDeFinal();
+        setResultadosQuartasDeFinal();
+        setJogosSemiFinal();
+        setResultadosSemifinal();
+        setJogosFinal();
+        setResultadosFinal();
+    }
+    
+    private void ordenarTimes() {
+        campeonato.getGrupos().forEach((grupo) -> {
             ArrayList<Time> times = grupo.getTimes();
             Collections.sort(times, new ClassificacaoComparator());
-            switch (grupo.getId()) {
-                case 'A' -> setResultadoSimulacao(grupoATable, times);
-                case 'B' -> setResultadoSimulacao(grupoBTable, times);
-                case 'C' -> setResultadoSimulacao(grupoCTable, times);
-                case 'D' -> setResultadoSimulacao(grupoDTable, times);
-                case 'E' -> setResultadoSimulacao(grupoETable, times);
-                case 'F' -> setResultadoSimulacao(grupoFTable, times);
-                case 'G' -> setResultadoSimulacao(grupoGTable, times);
-                case 'H' -> setResultadoSimulacao(grupoHTable, times);
-            }
+            grupo.setTimes(times);
         });
     }
     
-    private void setValoresIniciaisTabelas() {
-        grupos.forEach((grupo) -> {
-            ArrayList<Time> times = grupo.getTimes();
-            switch (grupo.getId()) {
-                case 'A' -> setValorTabela(grupoATable, times);
-                case 'B' -> setValorTabela(grupoBTable, times);
-                case 'C' -> setValorTabela(grupoCTable, times);
-                case 'D' -> setValorTabela(grupoDTable, times);
-                case 'E' -> setValorTabela(grupoETable, times);
-                case 'F' -> setValorTabela(grupoFTable, times);
-                case 'G' -> setValorTabela(grupoGTable, times);
-                case 'H' -> setValorTabela(grupoHTable, times);
-            }
-        });
+    private void setJogosIniciais() {
+        ordenarTimes();
+        
+        ArrayList<Grupo> grupos = campeonato.getGrupos();
+        // Lado esquerdo
+        Time1Jogo1Label.setText(grupos.get(0).getTimes().get(0).getNome());
+        Time2Jogo1Label.setText(grupos.get(1).getTimes().get(1).getNome());
+        
+        Time1Jogo2Label.setText(grupos.get(2).getTimes().get(0).getNome());
+        Time2Jogo2Label.setText(grupos.get(3).getTimes().get(1).getNome());
+        
+        Time1Jogo3Label.setText(grupos.get(4).getTimes().get(0).getNome());
+        Time2Jogo3Label.setText(grupos.get(5).getTimes().get(1).getNome());
+        
+        Time1Jogo4Label.setText(grupos.get(6).getTimes().get(0).getNome());
+        Time2Jogo4Label.setText(grupos.get(7).getTimes().get(1).getNome());
+        
+        // Lado direito
+        Time1Jogo5Label.setText(grupos.get(1).getTimes().get(0).getNome());
+        Time2Jogo5Label.setText(grupos.get(0).getTimes().get(1).getNome());
+        
+        Time1Jogo6Label.setText(grupos.get(3).getTimes().get(0).getNome());
+        Time2Jogo6Label.setText(grupos.get(2).getTimes().get(1).getNome());
+        
+        Time1Jogo7Label.setText(grupos.get(5).getTimes().get(0).getNome());
+        Time2Jogo7Label.setText(grupos.get(4).getTimes().get(1).getNome());
+        
+        Time1Jogo8Label.setText(grupos.get(7).getTimes().get(0).getNome());
+        Time2Jogo8Label.setText(grupos.get(6).getTimes().get(1).getNome());
+    }
+
+    private void setResultadosOitavasDeFinal() {
+        Time1Jogo1GolsLabel.setText(Integer.toString(campeonato.getPartidasOitavasDeFinal().get(0).getGolsTime1()));
+        Time2Jogo1GolsLabel.setText(Integer.toString(campeonato.getPartidasOitavasDeFinal().get(0).getGolsTime2()));
+        Time1Jogo2GolsLabel.setText(Integer.toString(campeonato.getPartidasOitavasDeFinal().get(1).getGolsTime1()));
+        Time2Jogo2GolsLabel.setText(Integer.toString(campeonato.getPartidasOitavasDeFinal().get(1).getGolsTime2()));
+        Time1Jogo3GolsLabel.setText(Integer.toString(campeonato.getPartidasOitavasDeFinal().get(2).getGolsTime1()));
+        Time2Jogo3GolsLabel.setText(Integer.toString(campeonato.getPartidasOitavasDeFinal().get(2).getGolsTime2()));
+        Time1Jogo4GolsLabel.setText(Integer.toString(campeonato.getPartidasOitavasDeFinal().get(3).getGolsTime1()));
+        Time2Jogo4GolsLabel.setText(Integer.toString(campeonato.getPartidasOitavasDeFinal().get(3).getGolsTime2()));
+        
+        Time1Jogo5GolsLabel.setText(Integer.toString(campeonato.getPartidasOitavasDeFinal().get(4).getGolsTime1()));
+        Time2Jogo5GolsLabel.setText(Integer.toString(campeonato.getPartidasOitavasDeFinal().get(4).getGolsTime2()));
+        Time1Jogo6GolsLabel.setText(Integer.toString(campeonato.getPartidasOitavasDeFinal().get(5).getGolsTime1()));
+        Time2Jogo6GolsLabel.setText(Integer.toString(campeonato.getPartidasOitavasDeFinal().get(5).getGolsTime2()));
+        Time1Jogo7GolsLabel.setText(Integer.toString(campeonato.getPartidasOitavasDeFinal().get(6).getGolsTime1()));
+        Time2Jogo7GolsLabel.setText(Integer.toString(campeonato.getPartidasOitavasDeFinal().get(6).getGolsTime2()));
+        Time1Jogo8GolsLabel.setText(Integer.toString(campeonato.getPartidasOitavasDeFinal().get(7).getGolsTime1()));
+        Time2Jogo8GolsLabel.setText(Integer.toString(campeonato.getPartidasOitavasDeFinal().get(7).getGolsTime2()));
     }
     
-    private void setValorTabela(JTable tabela, ArrayList<Time> times) {        
-        for (int i = 0; i < 4; i++) {
-            tabela.setValueAt(times.get(i).getNome(), i, 0);
-            tabela.setValueAt(0, i, 1);
-            tabela.setValueAt(0, i, 2);
-            tabela.setValueAt(0, i, 3);
-        }
+    private void setJogosQuartasDeFinal() {
+        Time1Jogo9Label.setText(campeonato.getPartidasQuartasDeFinal().get(0).getTime1().getNome());
+        Time2Jogo9Label.setText(campeonato.getPartidasQuartasDeFinal().get(0).getTime2().getNome());
+        Time1Jogo10Label.setText(campeonato.getPartidasQuartasDeFinal().get(1).getTime1().getNome());
+        Time2Jogo10Label.setText(campeonato.getPartidasQuartasDeFinal().get(1).getTime2().getNome());
+        
+        Time1Jogo11Label.setText(campeonato.getPartidasQuartasDeFinal().get(2).getTime1().getNome());
+        Time2Jogo11Label.setText(campeonato.getPartidasQuartasDeFinal().get(2).getTime2().getNome());
+        Time1Jogo12Label.setText(campeonato.getPartidasQuartasDeFinal().get(3).getTime1().getNome());
+        Time2Jogo12Label.setText(campeonato.getPartidasQuartasDeFinal().get(3).getTime2().getNome());
     }
     
-    private void setResultadoSimulacao(JTable tabela, ArrayList<Time> times) {
-        for (int i = 0; i < 4; i++) {
-            tabela.setValueAt(times.get(i).getNome(), i, 0);
-            tabela.setValueAt(times.get(i).getPontos(), i, 1);
-            tabela.setValueAt(times.get(i).getGolPro(), i, 2);
-            tabela.setValueAt(times.get(i).getSaldoGols(), i, 3);
-        }
+    private void setResultadosQuartasDeFinal() {
+        Time1Jogo9GolsLabel.setText(Integer.toString(campeonato.getPartidasQuartasDeFinal().get(0).getGolsTime1()));
+        Time2Jogo9GolsLabel.setText(Integer.toString(campeonato.getPartidasOitavasDeFinal().get(0).getGolsTime2()));
+        Time1Jogo10GolsLabel.setText(Integer.toString(campeonato.getPartidasQuartasDeFinal().get(1).getGolsTime1()));
+        Time2Jogo10GolsLabel.setText(Integer.toString(campeonato.getPartidasOitavasDeFinal().get(1).getGolsTime2()));
+        
+        Time1Jogo11GolsLabel.setText(Integer.toString(campeonato.getPartidasQuartasDeFinal().get(2).getGolsTime1()));
+        Time2Jogo11GolsLabel.setText(Integer.toString(campeonato.getPartidasOitavasDeFinal().get(2).getGolsTime2()));
+        Time1Jogo12GolsLabel.setText(Integer.toString(campeonato.getPartidasQuartasDeFinal().get(3).getGolsTime1()));
+        Time2Jogo12GolsLabel.setText(Integer.toString(campeonato.getPartidasOitavasDeFinal().get(3).getGolsTime2()));
     }
+    
+    private void setJogosSemiFinal() {
+        Time1Jogo13Label.setText(campeonato.getPartidasSemifinal().get(0).getTime1().getNome());
+        Time2Jogo13Label.setText(campeonato.getPartidasSemifinal().get(0).getTime2().getNome());
+        
+        Time1Jogo14Label.setText(campeonato.getPartidasSemifinal().get(1).getTime1().getNome());
+        Time2Jogo14Label.setText(campeonato.getPartidasSemifinal().get(1).getTime2().getNome());
+    }
+
+    private void setResultadosSemifinal() {
+        Time1Jogo13GolsLabel.setText(Integer.toString(campeonato.getPartidasSemifinal().get(0).getGolsTime1()));
+        Time2Jogo13GolsLabel.setText(Integer.toString(campeonato.getPartidasSemifinal().get(0).getGolsTime2()));
+        
+        Time1Jogo14GolsLabel.setText(Integer.toString(campeonato.getPartidasSemifinal().get(1).getGolsTime1()));
+        Time2Jogo14GolsLabel.setText(Integer.toString(campeonato.getPartidasSemifinal().get(1).getGolsTime2()));
+    }
+    
+    private void setJogosFinal() {
+        Time1Jogo15Label.setText(campeonato.getPartidasFinal().get(0).getTime1().getNome());
+        Time2Jogo15Label.setText(campeonato.getPartidasFinal().get(0).getTime2().getNome());
+        
+        Time1Jogo16Label.setText(campeonato.getPartidasFinal().get(1).getTime1().getNome());
+        Time2Jogo16Label.setText(campeonato.getPartidasFinal().get(1).getTime2().getNome());
+    }
+
+    private void setResultadosFinal() {
+        Time1Jogo15GolsLabel.setText(Integer.toString(campeonato.getPartidasFinal().get(0).getGolsTime1()));
+        Time2Jogo15GolsLabel.setText(Integer.toString(campeonato.getPartidasFinal().get(0).getGolsTime2()));
+        
+        Time1Jogo16GolsLabel.setText(Integer.toString(campeonato.getPartidasFinal().get(1).getGolsTime1()));
+        Time2Jogo16GolsLabel.setText(Integer.toString(campeonato.getPartidasFinal().get(1).getGolsTime2()));
+    }
+
 }
