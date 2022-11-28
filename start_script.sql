@@ -77,14 +77,14 @@ INSERT INTO tb_times (nome, bandeira) VALUES
 ('Uruguai','@var1\uruguai.png'),
 ('Coreia Do Sul','@var1\coreia-do-sul.png');
 
-INSERT INTO tb_grupos (idGrupo, time1, time2, time3, time4) VALUES
-('A', 'Qatar', 'Equador', 'Senegal', 'Holanda'),
-('B', 'Inglaterra', 'Irã', 'EUA', 'País de Gales'),
-('C', 'Argentina', 'Arábia Saudita', 'México', 'Polônia'),
-('D', 'França', 'Dinamarca', 'Tunísia', 'Austrália'),
-('E', 'Espanha', 'Alemanha', 'Japão', 'Costa Rica'),
-('F', 'Bélgica', 'Canadá', 'Marrocos', 'Croácia'),
-('G', 'Brasil', 'Sérvia', 'Suíça', 'Camarões'),
-('H', 'Portugal', 'Gana', 'Uruguai', 'Coreia do Sul');
+INSERT INTO tb_grupos (idGrupo, time1, time2, time3, time4, idConjuntoGrupos) VALUES
+('A', 'Qatar', 'Equador', 'Senegal', 'Holanda', 'Copa do Mundo 2022'),
+('B', 'Inglaterra', 'Irã', 'EUA', 'País de Gales', 'Copa do Mundo 2022'),
+('C', 'Argentina', 'Arábia Saudita', 'México', 'Polônia', 'Copa do Mundo 2022'),
+('D', 'França', 'Dinamarca', 'Tunísia', 'Austrália', 'Copa do Mundo 2022'),
+('E', 'Espanha', 'Alemanha', 'Japão', 'Costa Rica', 'Copa do Mundo 2022'),
+('F', 'Bélgica', 'Canadá', 'Marrocos', 'Croácia', 'Copa do Mundo 2022'),
+('G', 'Brasil', 'Sérvia', 'Suíça', 'Camarões','Copa do Mundo 2022'),
+('H', 'Portugal', 'Gana', 'Uruguai', 'Coreia do Sul','Copa do Mundo 2022');
 
 SELECT * FROM tb_times
