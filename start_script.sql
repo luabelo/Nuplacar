@@ -26,11 +26,13 @@ CREATE TABLE tb_times (
 );
 
 CREATE TABLE tb_grupos (
-	idGrupo char primary key,
+	idGrupo char (1),
 	time1 varchar(20),
 	time2 varchar(20),
 	time3 varchar(20),
-	time4 varchar(20));
+	time4 varchar(20),
+    idConjuntoGrupos varchar(20)
+    );
 
 CREATE TABLE tb_partida (
     id_partida int primary key auto_increment,
