@@ -2,6 +2,8 @@ package com.saojudas.nuplacar;;
 
 
 import com.saojudas.nuplacar.CRUDTime.*;
+import java.awt.event.ActionEvent;
+import com.saojudas.nuplacar.DAO.TimeDAO;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import com.saojudas.nuplacar.DAO.GrupoDAO;
@@ -9,12 +11,14 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 public class TelaListarGrupos extends javax.swing.JFrame {
+    
+
 
     public TelaListarGrupos() {
         super("Tela Inicial");
         initComponents();
-        buscarTimes();
         buscarGrupos();
+        buscarTimes();
         setLocationRelativeTo(null);
     }
     @SuppressWarnings("unchecked")
@@ -53,12 +57,14 @@ public class TelaListarGrupos extends javax.swing.JFrame {
         grupoGTable = new javax.swing.JTable();
         jScrollPane8 = new javax.swing.JScrollPane();
         grupoHTable = new javax.swing.JTable();
-        limparTudoButton = new javax.swing.JButton();
+        idConjuntoGrupoTextField = new javax.swing.JTextField();
+        salvarConjuntoButton = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        time1ComboBox = new javax.swing.JComboBox<>();
+        timesComboBox = new javax.swing.JComboBox<>();
         gruposComboBox = new javax.swing.JComboBox<>();
         novoTimeButton1 = new javax.swing.JButton();
-        opcaoComboBox = new javax.swing.JComboBox<>();
+        conjuntosComboBox = new javax.swing.JComboBox<>();
         novoTimeButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -174,19 +180,31 @@ public class TelaListarGrupos extends javax.swing.JFrame {
         ));
         jScrollPane8.setViewportView(grupoHTable);
 
-        limparTudoButton.setBackground(new java.awt.Color(141, 27, 61));
-        limparTudoButton.setForeground(new java.awt.Color(255, 255, 255));
-        limparTudoButton.setText("Limpar Tudo");
-        limparTudoButton.addActionListener(new java.awt.event.ActionListener() {
+        salvarConjuntoButton.setBackground(new java.awt.Color(141, 27, 61));
+        salvarConjuntoButton.setForeground(new java.awt.Color(255, 255, 255));
+        salvarConjuntoButton.setText("Salvar");
+        salvarConjuntoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                limparTudoButtonActionPerformed(evt);
+                salvarConjuntoButtonActionPerformed(evt);
             }
         });
+
+        jLabel6.setText("Insira o nome do conjunto de grupos");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(119, 119, 119)
+                .addComponent(jLabel2)
+                .addGap(127, 127, 127)
+                .addComponent(jLabel4)
+                .addGap(124, 124, 124)
+                .addComponent(jLabel3)
+                .addGap(461, 461, 461))
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
@@ -200,39 +218,34 @@ public class TelaListarGrupos extends javax.swing.JFrame {
                         .addComponent(jLabel9))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(81, 81, 81)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(idConjuntoGrupoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 644, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(49, 49, 49)
+                                .addComponent(salvarConjuntoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(29, 29, 29)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(33, 33, 33)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(385, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(119, 119, 119)
-                        .addComponent(jLabel2)
-                        .addGap(127, 127, 127)
-                        .addComponent(jLabel4)
-                        .addGap(124, 124, 124)
-                        .addComponent(jLabel3)
-                        .addGap(461, 461, 461))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addComponent(limparTudoButton)
-                        .addGap(261, 261, 261))))
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(26, 26, 26)
+                                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(29, 29, 29)
+                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(33, 33, 33)
+                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addGap(250, 250, 250))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -266,19 +279,24 @@ public class TelaListarGrupos extends javax.swing.JFrame {
                         .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
-                .addComponent(limparTudoButton, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-                .addGap(131, 131, 131))
+                .addGap(31, 31, 31)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(idConjuntoGrupoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(salvarConjuntoButton))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel6.setBackground(new java.awt.Color(233, 233, 233));
 
-        time1ComboBox.addActionListener(new java.awt.event.ActionListener() {
+        timesComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                time1ComboBoxActionPerformed(evt);
+                timesComboBoxActionPerformed(evt);
             }
         });
 
+        gruposComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Grupo A", "Grupo B ", "Grupo C", "Grupo D", "Grupo E", "Grupo F", "Grupo G", "Grupo H" }));
         gruposComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 gruposComboBoxActionPerformed(evt);
@@ -294,10 +312,9 @@ public class TelaListarGrupos extends javax.swing.JFrame {
             }
         });
 
-        opcaoComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Oficiais", "Personalizados" }));
-        opcaoComboBox.addActionListener(new java.awt.event.ActionListener() {
+        conjuntosComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opcaoComboBoxActionPerformed(evt);
+                conjuntosComboBoxActionPerformed(evt);
             }
         });
 
@@ -317,8 +334,8 @@ public class TelaListarGrupos extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(59, 59, 59)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(opcaoComboBox, 0, 701, Short.MAX_VALUE)
-                    .addComponent(time1ComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(conjuntosComboBox, 0, 701, Short.MAX_VALUE)
+                    .addComponent(timesComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(gruposComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -331,10 +348,10 @@ public class TelaListarGrupos extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(opcaoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(conjuntosComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(novoTimeButton2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                .addComponent(time1ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addComponent(timesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(gruposComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -505,7 +522,7 @@ public class TelaListarGrupos extends javax.swing.JFrame {
                 .addComponent(timesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(simularButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(147, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -530,7 +547,7 @@ public class TelaListarGrupos extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addComponent(menuLateralPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -546,9 +563,7 @@ public class TelaListarGrupos extends javax.swing.JFrame {
     }//GEN-LAST:event_deletarTimeButtonActionPerformed
 
     private void simularButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simularButtonActionPerformed
-        if (Campeonato.iniciarCampeonato()) {
-            this.dispose();
-        }
+        // colocar redirecionamento para telaSimular
     }//GEN-LAST:event_simularButtonActionPerformed
 
     private void placarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placarButtonActionPerformed
@@ -581,9 +596,9 @@ public class TelaListarGrupos extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_editarTimeButtonActionPerformed
 
-    private void time1ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_time1ComboBoxActionPerformed
+    private void timesComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timesComboBoxActionPerformed
        
-    }//GEN-LAST:event_time1ComboBoxActionPerformed
+    }//GEN-LAST:event_timesComboBoxActionPerformed
 
     private void gruposComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gruposComboBoxActionPerformed
 
@@ -593,159 +608,62 @@ public class TelaListarGrupos extends javax.swing.JFrame {
        switch (gruposComboBox.getSelectedIndex()+1) {
         case 1:
                 DefaultTableModel model8 = (DefaultTableModel) grupoATable.getModel();
-                model8.addRow(new Object[] {time1ComboBox.getSelectedItem()});
+                model8.addRow(new Object[] {timesComboBox.getSelectedItem()});
                 break; 
         case 2:
                 DefaultTableModel model9 = (DefaultTableModel) grupoBTable.getModel();
-                model9.addRow(new Object[] {time1ComboBox.getSelectedItem()});
+                model9.addRow(new Object[] {timesComboBox.getSelectedItem()});
                 break;
         case 3:
                 DefaultTableModel model10 = (DefaultTableModel) grupoCTable.getModel();
-                model10.addRow(new Object[]{time1ComboBox.getSelectedItem()});
+                model10.addRow(new Object[]{timesComboBox.getSelectedItem()});
                 break;
         case 4:
                 DefaultTableModel model11 = (DefaultTableModel) grupoDTable.getModel();
-                model11.addRow(new Object[] {time1ComboBox.getSelectedItem()});
+                model11.addRow(new Object[] {timesComboBox.getSelectedItem()});
                 break;
         case 5:
                 DefaultTableModel model12 = (DefaultTableModel) grupoETable.getModel();
-                model12.addRow(new Object[] {time1ComboBox.getSelectedItem()});
+                model12.addRow(new Object[] {timesComboBox.getSelectedItem()});
                 break;        
         case 6:
                 DefaultTableModel model13 = (DefaultTableModel) grupoFTable.getModel();
-                model13.addRow(new Object[] {time1ComboBox.getSelectedItem()});
+                model13.addRow(new Object[] {timesComboBox.getSelectedItem()});
                 break;       
         case 7:
                 DefaultTableModel model14 = (DefaultTableModel) grupoGTable.getModel();
-                model14.addRow(new Object[] {time1ComboBox.getSelectedItem()});
+                model14.addRow(new Object[] {timesComboBox.getSelectedItem()});
                 break;
         case 8:
                 DefaultTableModel model15 = (DefaultTableModel) grupoHTable.getModel();
-                model15.addRow(new Object[] {time1ComboBox.getSelectedItem()});
+                model15.addRow(new Object[] {timesComboBox.getSelectedItem()});
                 break;           
        }
     }//GEN-LAST:event_novoTimeButton1ActionPerformed
 
     private void novoTimeButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoTimeButton2ActionPerformed
-        if (opcaoComboBox.getSelectedItem() == "Oficiais") {
-        
-        try{
-        // Grupo A    
-        GrupoDAO grupoDAO = new GrupoDAO();
-        ArrayList<Time> list = grupoDAO.addTimesA();
-        DefaultTableModel model = (DefaultTableModel) grupoATable.getModel();
-        Object[] row = new Object[1];
-        model.setRowCount(0);
-        for (int i = 0;i < list.size();i++) {
-                row[0] = list.get(i).getNome();
-                model.addRow(row);      
-        }        
-        // Grupo B
-        ArrayList<Time> list1 = grupoDAO.addTimesB();
-        DefaultTableModel model1 = (DefaultTableModel) grupoBTable.getModel();
-        Object[] row1 = new Object[1];
-        model1.setRowCount(0);
-        for (int i1 = 0;i1 < list1.size();i1++) {
-                row1[0] = list1.get(i1).getNome();
-                model1.addRow(row1);
-        }
-        
-        // Grupo C
-        ArrayList<Time> list2 = grupoDAO.addTimesC();
-        DefaultTableModel model2 = (DefaultTableModel) grupoCTable.getModel();
-        Object[] row2 = new Object[1];
-        model2.setRowCount(0);
-        for (int i2 = 0;i2 < list2.size();i2++) {
-                row2[0] = list2.get(i2).getNome();
-                model2.addRow(row2);
-        }
-        // Grupo D
-        ArrayList<Time> list3 = grupoDAO.addTimesD();
-        DefaultTableModel model3 = (DefaultTableModel) grupoDTable.getModel();
-        Object[] row3 = new Object[1];
-        model3.setRowCount(0);
-        for (int i3 = 0;i3 < list3.size();i3++) {
-                row3[0] = list3.get(i3).getNome();
-                model3.addRow(row3);
-        }
-        
-        // Grupo E
-        ArrayList<Time> list4 = grupoDAO.addTimesE();
-        DefaultTableModel model4 = (DefaultTableModel) grupoETable.getModel();
-        Object[] row4 = new Object[1];
-        model4.setRowCount(0);
-        for (int i4 = 0;i4 < list4.size();i4++) {
-                row4[0] = list4.get(i4).getNome();
-                model4.addRow(row4);
-        }
-        
-        // Grupo F
-        ArrayList<Time> list5 = grupoDAO.addTimesF();
-        DefaultTableModel model5 = (DefaultTableModel) grupoFTable.getModel();
-        Object[] row5 = new Object[1];
-        model5.setRowCount(0);
-        for (int i5 = 0;i5 < list5.size();i5++) {
-                row5[0] = list5.get(i5).getNome();
-                model5.addRow(row5);
-        }
-        
-        // Grupo G
-        ArrayList<Time> list6 = grupoDAO.addTimesG();
-        DefaultTableModel model6 = (DefaultTableModel) grupoGTable.getModel();
-        Object[] row6 = new Object[1];
-        model6.setRowCount(0);
-        for (int i6 = 0;i6 < list6.size();i6++) {
-                row6[0] = list6.get(i6).getNome();
-                model6.addRow(row6);
-        }
-        
-        // Grupo H
-        ArrayList<Time> list7 = grupoDAO.addTimesH();
-        DefaultTableModel model7 = (DefaultTableModel) grupoHTable.getModel();
-        Object[] row7 = new Object[1];
-        model7.setRowCount(0);
-        for (int i7 = 0;i7 < list7.size();i7++) {
-                row7[0] = list7.get(i7).getNome();
-                model7.addRow(row7);
-        }
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-        } else {
-            
-        }
- 
+        adicionarTimes();
     }//GEN-LAST:event_novoTimeButton2ActionPerformed
 
-    private void limparTudoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparTudoButtonActionPerformed
-        DefaultTableModel limpar1 = (DefaultTableModel) grupoATable.getModel();
-        limpar1.setRowCount(0);
-        
-        DefaultTableModel limpar2 = (DefaultTableModel) grupoBTable.getModel();
-        limpar2.setRowCount(0);
-        
-        DefaultTableModel limpar3 = (DefaultTableModel) grupoCTable.getModel();
-        limpar3.setRowCount(0);
-        
-        DefaultTableModel limpar4 = (DefaultTableModel) grupoDTable.getModel();
-        limpar4.setRowCount(0);
-        
-        DefaultTableModel limpar5 = (DefaultTableModel) grupoETable.getModel();
-        limpar5.setRowCount(0);
-        
-        DefaultTableModel limpar6 = (DefaultTableModel) grupoFTable.getModel();
-        limpar6.setRowCount(0);
-        
-        DefaultTableModel limpar7 = (DefaultTableModel) grupoGTable.getModel();
-        limpar7.setRowCount(0);
-        
-        DefaultTableModel limpar8 = (DefaultTableModel) grupoHTable.getModel();
-        limpar8.setRowCount(0);
-    }//GEN-LAST:event_limparTudoButtonActionPerformed
-
-    private void opcaoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcaoComboBoxActionPerformed
+    private void conjuntosComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conjuntosComboBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_opcaoComboBoxActionPerformed
+    }//GEN-LAST:event_conjuntosComboBoxActionPerformed
+
+    private void salvarConjuntoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarConjuntoButtonActionPerformed
+        SalvarConjuntosDB();
+    }//GEN-LAST:event_salvarConjuntoButtonActionPerformed
+
+    private void novoTimeButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoTimeButton3ActionPerformed
+       try {
+            TimeDAO timeDAO = new TimeDAO();
+            ArrayList<Time> time = timeDAO.obterTimes();
+            timesComboBox.setModel(new DefaultComboBoxModel<>(time.toArray()));
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Times indisponíveis...");
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_novoTimeButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -789,23 +707,12 @@ public class TelaListarGrupos extends javax.swing.JFrame {
         });
     }
     
-    private void buscarTimes() {
-        try {
-            GrupoDAO grupoDAO = new GrupoDAO();
-            Time[] times = grupoDAO.obterTimes();
-            time1ComboBox.setModel(new DefaultComboBoxModel<>(times));
-        }
-        catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Times indisponíveis...");
-            e.printStackTrace();
-        }
-    }
     
     private void buscarGrupos() {
         try {
             GrupoDAO grupoDAO = new GrupoDAO();
-            Grupo[] grupos = grupoDAO.obterGrupos();
-            gruposComboBox.setModel(new DefaultComboBoxModel<>(grupos));
+            ConjuntoGrupos[] conjuntoGrupos = grupoDAO.obterConjuntoGrupos();
+            conjuntosComboBox.setModel(new DefaultComboBoxModel<>(conjuntoGrupos));
         }
         catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Times indisponíveis...");
@@ -814,8 +721,147 @@ public class TelaListarGrupos extends javax.swing.JFrame {
     }
     
     
+    private void adicionarTimes() {
+            GrupoDAO grupoDAO = new GrupoDAO();
+            ArrayList<Time> timesA = grupoDAO.obterTimes(conjuntosComboBox.getSelectedItem().toString(), "A");
+            DefaultTableModel modelA = (DefaultTableModel)grupoATable.getModel();
+            modelA.setRowCount(0);
+            Object[] objA = new Object[1];
+            for (int i = 0;i < 4;i++) {
+                objA[0] = timesA.get(i).getNome();
+                modelA.addRow(objA);  
+            }    
+            ArrayList<Time> timesB = grupoDAO.obterTimes(conjuntosComboBox.getSelectedItem().toString(), "B");  
+            DefaultTableModel modelB = (DefaultTableModel)grupoBTable.getModel();
+            modelB.setRowCount(0);
+            Object[] objB = new Object[1];
+            for (int i = 0;i < 4;i++) {
+                objB[0] = timesB.get(i).getNome();
+                modelB.addRow(objB);      
+            }
+            ArrayList<Time> timesC = grupoDAO.obterTimes(conjuntosComboBox.getSelectedItem().toString(), "C");  
+            DefaultTableModel modelC = (DefaultTableModel)grupoCTable.getModel();
+            modelC.setRowCount(0);
+            Object[] objC = new Object[1];
+            for (int i = 0;i < 4;i++) {
+                objC[0] = timesC.get(i).getNome();
+                modelC.addRow(objC);         
+            }
+            ArrayList<Time> timesD = grupoDAO.obterTimes(conjuntosComboBox.getSelectedItem().toString(), "D");  
+            DefaultTableModel modelD = (DefaultTableModel)grupoDTable.getModel();
+            modelD.setRowCount(0);
+            Object[] objD = new Object[1];
+            for (int i = 0;i < 4;i++) {
+                objD[0] = timesD.get(i).getNome();
+                modelD.addRow(objD);         
+            }
+            ArrayList<Time> timesE = grupoDAO.obterTimes(conjuntosComboBox.getSelectedItem().toString(), "E");  
+            DefaultTableModel modelE = (DefaultTableModel)grupoETable.getModel();
+            modelE.setRowCount(0);
+            Object[] objE = new Object[1];
+            for (int i = 0;i < 4;i++) {
+                objE[0] = timesE.get(i).getNome();
+                modelE.addRow(objE);         
+            }
+            ArrayList<Time> timesF = grupoDAO.obterTimes(conjuntosComboBox.getSelectedItem().toString(), "F");  
+            DefaultTableModel modelF = (DefaultTableModel)grupoFTable.getModel();
+            modelF.setRowCount(0);
+            Object[] objF = new Object[1];
+            for (int i = 0;i < 4;i++) {
+                objF[0] = timesF.get(i).getNome();
+                modelF.addRow(objF);         
+            }
+            ArrayList<Time> timesG = grupoDAO.obterTimes(conjuntosComboBox.getSelectedItem().toString(), "G");  
+            DefaultTableModel modelG = (DefaultTableModel)grupoGTable.getModel();
+            modelG.setRowCount(0);
+            Object[] objG = new Object[1];
+            for (int i = 0;i < 4;i++) {
+                objG[0] = timesG.get(i).getNome();
+                modelG.addRow(objG);         
+            }
+            ArrayList<Time> timesH = grupoDAO.obterTimes(conjuntosComboBox.getSelectedItem().toString(), "H");  
+            DefaultTableModel modelH = (DefaultTableModel)grupoHTable.getModel();
+            modelH.setRowCount(0);
+            Object[] objH = new Object[1];
+            for (int i = 0;i < 4;i++) {
+                objH[0] = timesH.get(i).getNome();
+                modelH.addRow(objH);         
+            }
+    }
+
+        private void SalvarConjuntosDB() {
+            GrupoDAO grupoDAO = new GrupoDAO();
+
+            String time1 = grupoATable.getModel().getValueAt(0,0).toString();
+            String time2 = grupoATable.getModel().getValueAt(1,0).toString();
+            String time3 = grupoATable.getModel().getValueAt(2,0).toString();
+            String time4 = grupoATable.getModel().getValueAt(3,0).toString();
+            String idConjuntoGrupos = idConjuntoGrupoTextField.getText();
+            grupoDAO.inserirTimesGruposDB("A", time1, time2, time3, time4, idConjuntoGrupos);
+            
+            String time5 = grupoBTable.getModel().getValueAt(0,0).toString();
+            String time6 = grupoBTable.getModel().getValueAt(1,0).toString();
+            String time7 = grupoBTable.getModel().getValueAt(2,0).toString();
+            String time8 = grupoBTable.getModel().getValueAt(3,0).toString();
+            String idConjuntoGrupos1 = idConjuntoGrupoTextField.getText();
+            grupoDAO.inserirTimesGruposDB("B", time5, time6, time7, time8, idConjuntoGrupos1);
+            
+            String time9 = grupoCTable.getModel().getValueAt(0,0).toString();
+            String time10 = grupoCTable.getModel().getValueAt(1,0).toString();
+            String time11 = grupoCTable.getModel().getValueAt(2,0).toString();
+            String time12 = grupoCTable.getModel().getValueAt(3,0).toString();
+            String idConjuntoGrupos2 = idConjuntoGrupoTextField.getText();
+            grupoDAO.inserirTimesGruposDB("C", time9, time10, time11, time12, idConjuntoGrupos2);
+            
+            String time13 = grupoDTable.getModel().getValueAt(0,0).toString();
+            String time14 = grupoDTable.getModel().getValueAt(1,0).toString();
+            String time15 = grupoDTable.getModel().getValueAt(2,0).toString();
+            String time16 = grupoDTable.getModel().getValueAt(3,0).toString();
+            String idConjuntoGrupos3 = idConjuntoGrupoTextField.getText();
+            grupoDAO.inserirTimesGruposDB("D", time13, time14, time15, time16, idConjuntoGrupos3);
+            
+            String time17 = grupoETable.getModel().getValueAt(0,0).toString();
+            String time18 = grupoETable.getModel().getValueAt(1,0).toString();
+            String time19 = grupoETable.getModel().getValueAt(2,0).toString();
+            String time20 = grupoETable.getModel().getValueAt(3,0).toString();
+            String idConjuntoGrupos4 = idConjuntoGrupoTextField.getText();
+            grupoDAO.inserirTimesGruposDB("E", time17, time18, time19, time20, idConjuntoGrupos4);
+            
+            String time21 = grupoFTable.getModel().getValueAt(0,0).toString();
+            String time22 = grupoFTable.getModel().getValueAt(1,0).toString();
+            String time23 = grupoFTable.getModel().getValueAt(2,0).toString();
+            String time24 = grupoFTable.getModel().getValueAt(3,0).toString();
+            String idConjuntoGrupos5 = idConjuntoGrupoTextField.getText();
+            grupoDAO.inserirTimesGruposDB("F", time21, time22, time23, time24, idConjuntoGrupos5);
+            
+            String time25 = grupoGTable.getModel().getValueAt(0,0).toString();
+            String time26 = grupoGTable.getModel().getValueAt(1,0).toString();
+            String time27 = grupoGTable.getModel().getValueAt(2,0).toString();
+            String time28 = grupoGTable.getModel().getValueAt(3,0).toString();
+            String idConjuntoGrupos6 = idConjuntoGrupoTextField.getText();
+            grupoDAO.inserirTimesGruposDB("G", time25, time26, time27, time28, idConjuntoGrupos6);
+            
+            String time29 = grupoHTable.getModel().getValueAt(0,0).toString();
+            String time30 = grupoHTable.getModel().getValueAt(1,0).toString();
+            String time31 = grupoHTable.getModel().getValueAt(2,0).toString();
+            String time32 = grupoHTable.getModel().getValueAt(3,0).toString();
+            String idConjuntoGrupos7 = idConjuntoGrupoTextField.getText();
+            grupoDAO.inserirTimesGruposDB("H", time29, time30, time31, time32, idConjuntoGrupos7);
+        }
     
-    
+        
+    private void buscarTimes() {
+        try {
+            TimeDAO timeDAO = new TimeDAO();
+            ArrayList<Time> time = timeDAO.obterTimes();
+            timesComboBox.setModel(new DefaultComboBoxModel<>(time.toArray()));
+            
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Times indisponíveis...");
+            e.printStackTrace();
+        }
+    }
     
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -825,6 +871,7 @@ public class TelaListarGrupos extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup4;
     private javax.swing.ButtonGroup buttonGroup5;
     private javax.swing.ButtonGroup buttonGroup6;
+    private javax.swing.JComboBox<ConjuntoGrupos> conjuntosComboBox;
     private javax.swing.JButton deletarTimeButton;
     private javax.swing.JButton editarTimeButton;
     private javax.swing.JTable grupoATable;
@@ -836,13 +883,15 @@ public class TelaListarGrupos extends javax.swing.JFrame {
     private javax.swing.JTable grupoGTable;
     private javax.swing.JTable grupoHTable;
     private javax.swing.JButton gruposButton;
-    private javax.swing.JComboBox<Grupo> gruposComboBox;
+    private javax.swing.JComboBox<String> gruposComboBox;
+    private javax.swing.JTextField idConjuntoGrupoTextField;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -858,17 +907,16 @@ public class TelaListarGrupos extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JButton limparTudoButton;
     private javax.swing.JLabel logoLabel;
     private javax.swing.JPanel menuLateralPanel;
     private javax.swing.JButton novoTimeButton;
     private javax.swing.JButton novoTimeButton1;
     private javax.swing.JButton novoTimeButton2;
-    private javax.swing.JComboBox<String> opcaoComboBox;
     private javax.swing.JButton placarButton;
+    private javax.swing.JButton salvarConjuntoButton;
     private javax.swing.JButton simularButton;
-    private javax.swing.JComboBox<Time> time1ComboBox;
     private javax.swing.JLabel timeLabel;
     private javax.swing.JButton timesButton;
+    private javax.swing.JComboBox<Object> timesComboBox;
     // End of variables declaration//GEN-END:variables
 }

@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import com.saojudas.nuplacar.CRUDTime.Time;
+import com.saojudas.nuplacar.ConjuntoGrupos;
 
 public class GrupoDAO {
 
@@ -50,191 +51,6 @@ public class GrupoDAO {
         return grupos;
     }
     
-    public ArrayList<Time> addTimesA() {
-        ArrayList timesList = new ArrayList<Time>();
-        Connection conn = ConexaoBD.obtemConexao();
-        ResultSet rs = null;
-        
-        try {
-            String sql = "SELECT * FROM tb_time WHERE idGrupo = 1";
-            PreparedStatement pstm = conn.prepareStatement(sql);
-            rs = pstm.executeQuery();
-            Time time;
-            while(rs.next())
-            {
-            time = new Time(
-                    rs.getInt(1),
-                    rs.getString(2),
-                    rs.getBytes(3));
-            timesList.add(time);
-            }                        
-        } catch (Exception e){
-            e.printStackTrace();
-        }    
-        return timesList;
-        }
-    
-    public ArrayList<Time> addTimesB() {
-        ArrayList timesList = new ArrayList<Time>();
-        Connection conn = ConexaoBD.obtemConexao();
-        ResultSet rs = null;
-        try {
-            String sql = "SELECT * FROM tb_time WHERE idGrupo = 2";
-            PreparedStatement pstm = conn.prepareStatement(sql);
-            rs = pstm.executeQuery();
-            Time time;
-            while(rs.next())
-            {
-            time = new Time(
-                    rs.getInt(1),
-                    rs.getString(2),
-                    rs.getBytes(3));
-            timesList.add(time);
-            }                        
-        } catch (Exception e){
-            e.printStackTrace();
-        }    
-        return timesList;
-        }
-    
-    public ArrayList<Time> addTimesC() {
-        ArrayList timesList = new ArrayList<Time>();
-        Connection conn = ConexaoBD.obtemConexao();
-        ResultSet rs = null;
-        try {
-            String sql = "SELECT * FROM tb_time WHERE idGrupo = 3";
-            PreparedStatement pstm = conn.prepareStatement(sql);
-            rs = pstm.executeQuery();
-            Time time;
-            while(rs.next())
-            {
-            time = new Time(
-                    rs.getInt(1),
-                    rs.getString(2),
-                    rs.getBytes(3));
-            timesList.add(time);
-            }                        
-        } catch (Exception e){
-            e.printStackTrace();
-        }    
-        return timesList;
-        }
-    
-    public ArrayList<Time> addTimesD() {
-        ArrayList timesList = new ArrayList<Time>();
-        Connection conn = ConexaoBD.obtemConexao();
-        ResultSet rs = null;
-        try {
-            String sql = "SELECT * FROM tb_time WHERE idGrupo = 4";
-            PreparedStatement pstm = conn.prepareStatement(sql);
-            rs = pstm.executeQuery();
-            Time time;
-            while(rs.next())
-            {
-            time = new Time(
-                    rs.getInt(1),
-                    rs.getString(2),
-                    rs.getBytes(3));
-            timesList.add(time);
-            }                        
-        } catch (Exception e){
-            e.printStackTrace();
-        }    
-        return timesList;
-        }
-    
-    public ArrayList<Time> addTimesE() {
-        ArrayList timesList = new ArrayList<Time>();
-        Connection conn = ConexaoBD.obtemConexao();
-        ResultSet rs = null;
-        try {
-            String sql = "SELECT * FROM tb_time WHERE idGrupo = 5";
-            PreparedStatement pstm = conn.prepareStatement(sql);
-            rs = pstm.executeQuery();
-            Time time;
-            while(rs.next())
-            {
-            time = new Time(
-                    rs.getInt(1),
-                    rs.getString(2),
-                    rs.getBytes(3));
-            timesList.add(time);
-            }                        
-        } catch (Exception e){
-            e.printStackTrace();
-        }    
-        return timesList;
-        }
-    
-    public ArrayList<Time> addTimesF() {
-        ArrayList timesList = new ArrayList<Time>();
-        Connection conn = ConexaoBD.obtemConexao();
-        ResultSet rs = null;
-        try {
-            String sql = "SELECT * FROM tb_time WHERE idGrupo = 6";
-            PreparedStatement pstm = conn.prepareStatement(sql);
-            rs = pstm.executeQuery();
-            Time time;
-            while(rs.next())
-            {
-            time = new Time(
-                    rs.getInt(1),
-                    rs.getString(2),
-                    rs.getBytes(3));
-            timesList.add(time);
-            }                        
-        } catch (Exception e){
-            e.printStackTrace();
-        }    
-        return timesList;
-        }
-    
-    public ArrayList<Time> addTimesG() {
-        ArrayList timesList = new ArrayList<Time>();
-        Connection conn = ConexaoBD.obtemConexao();
-        ResultSet rs = null;
-        try {
-            String sql = "SELECT * FROM tb_time WHERE idGrupo = 7";
-            PreparedStatement pstm = conn.prepareStatement(sql);
-            rs = pstm.executeQuery();
-            Time time;
-            while(rs.next())
-            {
-            time = new Time(
-                    rs.getInt(1),
-                    rs.getString(2),
-                    rs.getBytes(3));
-            timesList.add(time);
-            }                        
-        } catch (Exception e){
-            e.printStackTrace();
-        }    
-        return timesList;
-        }
-    
-    public ArrayList<Time> addTimesH() {
-        ArrayList timesList = new ArrayList<Time>();
-        Connection conn = ConexaoBD.obtemConexao();
-        ResultSet rs = null;
-        try {
-            String sql = "SELECT * FROM tb_time WHERE idGrupo = 8";
-            PreparedStatement pstm = conn.prepareStatement(sql);
-            rs = pstm.executeQuery();
-            Time time;
-            while(rs.next())
-            {
-            time = new Time(
-                    rs.getInt(1),
-                    rs.getString(2),
-                    rs.getBytes(3));
-            timesList.add(time);
-            }                        
-        } catch (Exception e){
-            e.printStackTrace();
-        }    
-        return timesList;
-        }
-    
     
      public Time[] obterTimes () throws Exception {
         String sql = "SELECT * FROM tb_time";
@@ -275,4 +91,70 @@ public class GrupoDAO {
             return grupos;
         }
     }
+     
+      public void inserirTimesGruposDB(String idGrupo, String time1, String time2, String time3, String time4, String idConjuntoGrupos) {
+        String sql = "INSERT INTO tb_grupos (idGrupo, time1, time2, time3, time4, idConjuntoGrupos) values (?, ?, ?, ?, ?, ?)";
+        Connection connection = new ConexaoBD().obterConexao();
+        try ( PreparedStatement ps = connection.prepareStatement(sql);) {
+            ps.setString(1,idGrupo);
+            ps.setString(2,time1);
+            ps.setString(3,time2);
+            ps.setString(4,time3);
+            ps.setString(5,time4);
+            ps.setString(6,idConjuntoGrupos);
+            ps.execute();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+      
+      public ArrayList<Time> obterTimes(String idConjuntosGrupos, String idGrupo) {
+        ArrayList timeList = new ArrayList<TimeDAO>();
+        Connection conn = ConexaoBD.obtemConexao();
+        try {
+              String sql = "SELECT * FROM tb_grupos WHERE idConjuntoGrupos = ? AND idGrupo = ?";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            
+            pstm.setString(1,idConjuntosGrupos);
+            pstm.setString(2,idGrupo);
+            ResultSet rs = pstm.executeQuery();
+            Time time1;
+            Time time2;
+            Time time3;
+            Time time4;
+            while(rs.next()) {    
+        time1 = new Time(rs.getString("time1"));
+            timeList.add(time1);
+            time2 = new Time(rs.getString("time2"));
+            timeList.add(time2);
+            time3 = new Time(rs.getString("time3"));
+            timeList.add(time3);
+            time4 = new Time(rs.getString("time4"));
+            timeList.add(time4);
+            }                        
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return timeList;
+    }
+       public ConjuntoGrupos[] obterConjuntoGrupos () throws Exception {
+        String sql = "SELECT * FROM tb_grupos GROUP BY idConjuntoGrupos";
+        Connection conn = ConexaoBD.obtemConexao();
+             try (
+             PreparedStatement ps = conn.prepareStatement(
+             sql, ResultSet.TYPE_SCROLL_INSENSITIVE, 
+                  ResultSet.CONCUR_READ_ONLY); 
+            ResultSet rs = ps.executeQuery()){
+                 int totalConjunto = rs.last()? rs.getRow(): 0;
+            ConjuntoGrupos[] conjunto = new ConjuntoGrupos[totalConjunto];
+            rs.beforeFirst();
+            int cont = 0;
+            while (rs.next()) {
+                String nome = rs.getString("idConjuntoGrupos");
+                conjunto[cont++] = new ConjuntoGrupos(nome);
+            }
+            return conjunto;
+            }
+            }
 }

@@ -210,4 +210,9 @@ public class Time {
         setSaldoGols(getSaldoGols() + gols);
         TimeDAO.atualizaStatus(this);
     }
+    
+    @Override
+    public String toString() {
+    return nome;
+    }
 }
