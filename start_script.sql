@@ -25,7 +25,9 @@ CREATE TABLE tb_times (
 	saldoGols int
 );
 
-CREATE TABLE tb_grupo (
+
+
+CREATE TABLE tb_grupos (
 	idGrupo char primary key,
 	time1 varchar(20),
 	time2 varchar(20),
