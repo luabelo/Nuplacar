@@ -7,8 +7,8 @@ public class ConexaoBD {
     private static String host = "localhost";
     private static String porta = "3306";
     private static String db = "nuplacar";
-    private static String usuario = "root";
-    private static String senha = "root";
+    private static String usuario = "luana";
+    private static String senha = "babel42";
     public static Connection obtemConexao () {
         try {
             String url = String.format(

@@ -123,7 +123,7 @@ public class TimeDAO {
     }
 
     public void cadastrarTime(Time time) {
-        String sql = "INSERT INTO tb_time (nome, bandeira) values (?, ?)";
+        String sql = "INSERT INTO tb_times (nome, bandeira) values (?, ?)";
         Connection connection = new ConexaoBD().obterConexao();
         try ( PreparedStatement ps = connection.prepareStatement(sql);) {
             ps.setString(1,time.getNome());
@@ -139,7 +139,7 @@ public class TimeDAO {
         ArrayList timeList = new ArrayList<TimeDAO>();
         Connection conn = ConexaoBD.obtemConexao();
         try {
-            String sql = "SELECT * FROM tb_time";
+            String sql = "SELECT * FROM tb_times";
             PreparedStatement pstm = conn.prepareStatement(sql);
             ResultSet rs = pstm.executeQuery();
             Time time;
@@ -164,7 +164,7 @@ public class TimeDAO {
         ResultSet rs = null;
         
         try {
-            String sql = "SELECT * FROM tb_time WHERE idTime = ?";
+            String sql = "SELECT * FROM tb_times WHERE idTime = ?";
             PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setInt(1, id);
             rs = pstm.executeQuery();
@@ -188,7 +188,7 @@ public class TimeDAO {
         
         try {
             String sql = """
-                         UPDATE tb_time 
+                         UPDATE tb_times 
                          SET 
                             nome = ?, 
                             bandeira = ?
@@ -209,7 +209,7 @@ public class TimeDAO {
         Connection conn = ConexaoBD.obtemConexao();
         
         try {
-            String sql = "DELETE FROM tb_time WHERE idTime = ?";
+            String sql = "DELETE FROM tb_times WHERE idTime = ?";
             PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setInt(1,id);
             pstm.executeUpdate();
@@ -223,7 +223,7 @@ public class TimeDAO {
         Connection conn = ConexaoBD.obtemConexao();
         
         try {
-            String sql = "SELECT * FROM tb_time WHERE nome = ?";
+            String sql = "SELECT * FROM tb_times WHERE nome = ?";
             PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setString(1, nome);
             ResultSet rs = pstm.executeQuery();

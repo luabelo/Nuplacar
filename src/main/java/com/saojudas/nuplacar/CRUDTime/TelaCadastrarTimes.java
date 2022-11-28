@@ -386,7 +386,7 @@ public class TelaCadastrarTimes extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null,"Time já existe. Por favor, informe outro nome", "",2);
         } else {
         // adiciona a foto no banco de dados
-        String sql= "INSERT INTO tb_time(`nome`, `bandeira`) VALUES (?,?)";               
+        String sql= "INSERT INTO tb_times(`nome`, `bandeira`) VALUES (?,?)";               
                PreparedStatement pst=connection.prepareStatement(sql);                
                 pst.setString(1, nome);
                 pst.setBytes(2, bandeira);                
