@@ -32,6 +32,21 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
         this.campeonato = new Campeonato(grupos);
         setValoresIniciaisTabelas();
     }
+    
+    public TelaSimularFaseGrupos(ArrayList<Grupo> grupos, boolean voltandoDeMataMata) {
+        super("Simular fase grupos");
+        
+        initComponents();
+        setLocationRelativeTo(null);
+        
+        if (voltandoDeMataMata) {
+            SimularButton.setEnabled(false);
+            refazerSimulacaoButton.setEnabled(true);
+        }
+        
+        this.campeonato = new Campeonato(grupos);
+        setValoresIniciaisTabelas();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -83,6 +98,7 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
         });
 
         refazerSimulacaoButton.setText("Refazer simulação");
+        refazerSimulacaoButton.setEnabled(false);
         refazerSimulacaoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refazerSimulacaoButtonActionPerformed(evt);
@@ -90,6 +106,7 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
         });
 
         avancarButton.setText("Avançar para a próxima fase");
+        avancarButton.setEnabled(false);
         avancarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 avancarButtonActionPerformed(evt);
@@ -475,12 +492,16 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
 
     private void SimularButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SimularButtonActionPerformed
         simularFaseGrupo();
+        refazerSimulacaoButton.setEnabled(true);
+        avancarButton.setEnabled(true);
+        SimularButton.setEnabled(false);
     }//GEN-LAST:event_SimularButtonActionPerformed
 
     private void refazerSimulacaoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refazerSimulacaoButtonActionPerformed
         TimeDAO.zerarClassificacaoGeral();
         this.campeonato = new Campeonato(GrupoDAO.listarGruposCompletos());
         simularFaseGrupo();
+        avancarButton.setEnabled(true);
     }//GEN-LAST:event_refazerSimulacaoButtonActionPerformed
 
     private void avancarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avancarButtonActionPerformed

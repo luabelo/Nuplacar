@@ -312,18 +312,7 @@ public class TelaInicialAdm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void simularButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simularButtonActionPerformed
-        
-        int totalTimes = TimeDAO.listarTimes().size();
-        ArrayList<Grupo> grupos = GrupoDAO.listarGruposCompletos();
-        
-        if (totalTimes < 32) {
-            JOptionPane.showInputDialog(null, "Há somente " + totalTimes  + " times cadastrados, cadastre mais " + (totalTimes - 32) + " times para iniciar a simulação");
-        }
-        else if (grupos.size() != 8) {
-            JOptionPane.showInputDialog(null, "Há grupos incompletos, por favor cadastre todos antes de fazer a simulação!");
-        }
-        else {
-            new TelaSimularFaseGrupos(grupos).setVisible(true);
+        if (Campeonato.iniciarCampeonato()) {
             this.dispose();
         }
     }//GEN-LAST:event_simularButtonActionPerformed
