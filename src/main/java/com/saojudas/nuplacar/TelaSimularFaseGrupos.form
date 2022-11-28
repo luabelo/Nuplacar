@@ -159,6 +159,7 @@
         <Component class="javax.swing.JButton" name="refazerSimulacaoButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Refazer simula&#xe7;&#xe3;o"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="refazerSimulacaoButtonActionPerformed"/>
@@ -167,6 +168,7 @@
         <Component class="javax.swing.JButton" name="avancarButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Avan&#xe7;ar para a pr&#xf3;xima fase"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="avancarButtonActionPerformed"/>

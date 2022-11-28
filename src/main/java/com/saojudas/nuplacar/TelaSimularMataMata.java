@@ -1027,13 +1027,13 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SimularButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SimularButtonActionPerformed
-        new TelaSimularFaseGrupos(campeonatoFaseGrupo.getGrupos()).setVisible(true);
+        new TelaSimularFaseGrupos(campeonatoFaseGrupo.getGrupos(), true).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_SimularButtonActionPerformed
 
     private void refazerSimulacaoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refazerSimulacaoButtonActionPerformed
         try {
-            campeonato = (Campeonato)campeonatoFaseGrupo.clone();
+            campeonato.zerarJogosFaseMataMata();
             simularFaseMataMata();
         }
         catch (Exception e) {}
@@ -1205,17 +1205,17 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
         Time2Jogo4Label.setText(grupos.get(7).getTimes().get(1).getNome());
         
         // Lado direito
-        Time1Jogo5Label.setText(grupos.get(1).getTimes().get(0).getNome());
-        Time2Jogo5Label.setText(grupos.get(0).getTimes().get(1).getNome());
+        Time1Jogo5Label.setText(grupos.get(0).getTimes().get(1).getNome());
+        Time2Jogo5Label.setText(grupos.get(1).getTimes().get(0).getNome());
         
-        Time1Jogo6Label.setText(grupos.get(3).getTimes().get(0).getNome());
-        Time2Jogo6Label.setText(grupos.get(2).getTimes().get(1).getNome());
+        Time1Jogo6Label.setText(grupos.get(2).getTimes().get(1).getNome());
+        Time2Jogo6Label.setText(grupos.get(3).getTimes().get(0).getNome());
         
-        Time1Jogo7Label.setText(grupos.get(5).getTimes().get(0).getNome());
-        Time2Jogo7Label.setText(grupos.get(4).getTimes().get(1).getNome());
+        Time1Jogo7Label.setText(grupos.get(4).getTimes().get(1).getNome());
+        Time2Jogo7Label.setText(grupos.get(5).getTimes().get(0).getNome());
         
-        Time1Jogo8Label.setText(grupos.get(7).getTimes().get(0).getNome());
-        Time2Jogo8Label.setText(grupos.get(6).getTimes().get(1).getNome());
+        Time1Jogo8Label.setText(grupos.get(6).getTimes().get(1).getNome());
+        Time2Jogo8Label.setText(grupos.get(7).getTimes().get(0).getNome());
     }
 
     private void setResultadosOitavasDeFinal() {

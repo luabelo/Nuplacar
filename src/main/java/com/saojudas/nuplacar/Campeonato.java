@@ -7,6 +7,9 @@ package com.saojudas.nuplacar;
 import java.util.ArrayList;
 import java.util.Comparator;
 import com.saojudas.nuplacar.CRUDTime.Time;
+import com.saojudas.nuplacar.DAO.GrupoDAO;
+import com.saojudas.nuplacar.DAO.TimeDAO;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -48,6 +51,23 @@ public class Campeonato implements Cloneable{
         return partidasFinal;
     }
     
+    public static boolean iniciarCampeonato() {
+        int totalTimes = TimeDAO.listarTimes().size();
+        ArrayList<Grupo> grupos = GrupoDAO.listarGruposCompletos();
+        
+        if (totalTimes < 32) {
+            JOptionPane.showInputDialog(null, "Há somente " + totalTimes  + " times cadastrados, cadastre mais " + (totalTimes - 32) + " times para iniciar a simulação");
+            return false;
+        }
+        
+        if (grupos.size() != 8) {
+            JOptionPane.showInputDialog(null, "Há grupos incompletos, por favor cadastre todos antes de fazer a simulação!");
+            return false;
+        }
+        
+        new TelaSimularFaseGrupos(grupos).setVisible(true);
+        return true;
+    }
     
     
     private void criarPartidasFaseGrupo() {
@@ -209,6 +229,13 @@ public class Campeonato implements Cloneable{
     @Override
     public Object clone() throws CloneNotSupportedException{
         return super.clone();
+    }
+    
+    public void zerarJogosFaseMataMata() {
+        partidasOitavasDeFinal = new ArrayList();
+        partidasQuartasDeFinal = new ArrayList();
+        partidasSemifinal = new ArrayList();
+        partidasFinal = new ArrayList();    
     }
 }
 

@@ -546,7 +546,9 @@ public class TelaListarGrupos extends javax.swing.JFrame {
     }//GEN-LAST:event_deletarTimeButtonActionPerformed
 
     private void simularButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simularButtonActionPerformed
-        // colocar redirecionamento para telaSimular
+        if (Campeonato.iniciarCampeonato()) {
+            this.dispose();
+        }
     }//GEN-LAST:event_simularButtonActionPerformed
 
     private void placarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placarButtonActionPerformed
