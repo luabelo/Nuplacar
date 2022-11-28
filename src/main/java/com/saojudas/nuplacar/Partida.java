@@ -1,15 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.saojudas.nuplacar;
 
 import java.util.Random;
 import com.saojudas.nuplacar.CRUDTime.Time;
-/**
- *
- * @author Mathe
- */
+
 public class Partida {
     private int id; 
     private Time time1;    

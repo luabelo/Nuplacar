@@ -1,9 +1,5 @@
 package com.saojudas.nuplacar;
 
-/**
- *
- * @author mathe
- */
 public class ConjuntoGrupos {
     String nomeConjuntoGrupos;
 

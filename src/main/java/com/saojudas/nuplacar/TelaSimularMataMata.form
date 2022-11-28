@@ -395,9 +395,9 @@
                                           <Component id="Time2Jogo1GolsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel64" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                      <Component id="Time2Jogo5GolsLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="Time2Jogo5Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="Time2Jogo5GolsLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel65" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>

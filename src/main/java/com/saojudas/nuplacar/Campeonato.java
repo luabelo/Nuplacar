@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.saojudas.nuplacar;
 
 import java.util.ArrayList;
@@ -11,10 +7,6 @@ import com.saojudas.nuplacar.DAO.GrupoDAO;
 import com.saojudas.nuplacar.DAO.TimeDAO;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Mathe
- */
 public class Campeonato implements Cloneable{
     private ArrayList<Partida> partidasFaseGrupo = new ArrayList();
     private ArrayList<Partida> partidasOitavasDeFinal = new ArrayList();
