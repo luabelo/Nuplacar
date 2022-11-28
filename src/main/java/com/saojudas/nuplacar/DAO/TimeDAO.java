@@ -1,6 +1,5 @@
 package com.saojudas.nuplacar.DAO;
 
-import com.saojudas.nuplacar.Time;
 import com.saojudas.nuplacar.ConexaoBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -22,7 +21,9 @@ public class TimeDAO {
             ps.execute();
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
-                    times.add(new Time(rs.getString("nome"), rs.getString("bandeira")));
+                    times.add(new Time(
+                            rs.getString("nome"),
+                            rs.getBytes("bandeira")));
                 }
             }
         }
@@ -44,10 +45,13 @@ public class TimeDAO {
 
             try (ResultSet rs = ps.executeQuery()){
                 rs.next();
-                return new Time(rs.getString("nome"), rs.getString("bandeira"));                
+                return new Time(
+                        rs.getString("nome"), 
+                        rs.getBytes("bandeira"));                
             }
             catch(NullPointerException ex) {
-                throw new NullPointerException("Time com o nome: " +  nome + " não foi encontrado!");
+                throw new NullPointerException(
+                        "Time com o nome: " +  nome + " não foi encontrado!");
             }
         }
         catch(Exception ex) {
@@ -59,7 +63,19 @@ public class TimeDAO {
         try (
             Connection conexao = ConexaoBD.obtemConexao();
         ){
-            String sql = "UPDATE tb_times SET pontos=?, jogos=?, vitorias=?, empates=?, derrotas=?, golPro=?, golContra=?, saldoGols=? WHERE nome=?";
+            String sql = """
+                        UPDATE tb_times 
+                        SET 
+                            pontos=?, 
+                            jogos=?,
+                            vitorias=?, 
+                            empates=?, 
+                            derrotas=?, 
+                            golPro=?, 
+                            golContra=?, 
+                            saldoGols=? 
+                        WHERE nome=?
+                        """;
 
             PreparedStatement ps = conexao.prepareStatement(sql);
 
@@ -130,9 +146,9 @@ public class TimeDAO {
             while(rs.next())
             {
             time = new Time(
-                    rs.getInt(1),
-                    rs.getString(2),
-                    rs.getBytes(3));
+                    rs.getInt("idTime"),
+                    rs.getString("nome"),
+                    rs.getBytes("bandeira"));
             timeList.add(time);
             }                        
         } catch (Exception e){
@@ -171,7 +187,13 @@ public class TimeDAO {
         ResultSet rs = null;
         
         try {
-            String sql = "UPDATE tb_time SET nome = ?, bandeira = ? WHERE idTime = ?";
+            String sql = """
+                         UPDATE tb_time 
+                         SET 
+                            nome = ?, 
+                            bandeira = ?
+                         WHERE idTime = ?
+                         """;
             PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setString(1,time.getNome());
             pstm.setBytes(2,time.getBandeira());
@@ -181,7 +203,7 @@ public class TimeDAO {
         } catch (Exception e){
             e.printStackTrace();
         }    
-        }
+    }
     
     public void deletarTime(int id) {
         Connection conn = ConexaoBD.obtemConexao();

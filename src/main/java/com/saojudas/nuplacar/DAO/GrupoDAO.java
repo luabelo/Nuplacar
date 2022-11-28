@@ -1,7 +1,6 @@
 package com.saojudas.nuplacar.DAO;
 
 import com.saojudas.nuplacar.Grupo;
-import com.saojudas.nuplacar.Time;
 import com.saojudas.nuplacar.ConexaoBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -49,7 +48,8 @@ public class GrupoDAO {
             ex.printStackTrace();
         }
         return grupos;
-
+    }
+    
     public ArrayList<Time> addTimesA() {
         ArrayList timesList = new ArrayList<Time>();
         Connection conn = ConexaoBD.obtemConexao();
@@ -268,9 +268,9 @@ public class GrupoDAO {
             rs.beforeFirst();
             int cont = 0;
             while (rs.next()) {
-                int id = rs.getInt("idGrupo");
+                char id = rs.getString("idGrupo").charAt(0);
                 String nome = rs.getString("nome");
-                grupos[cont++] = new Grupo(id,nome);
+                grupos[cont++] = new Grupo(id);
             }
             return grupos;
         }

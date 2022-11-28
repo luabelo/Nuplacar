@@ -9,6 +9,7 @@ import com.saojudas.nuplacar.DAO.TimeDAO;
 import javax.swing.JTable;
 import java.util.ArrayList;
 import java.util.Collections;
+import com.saojudas.nuplacar.CRUDTime.Time;
 
 
 /**

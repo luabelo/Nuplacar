@@ -5,6 +5,7 @@
 package com.saojudas.nuplacar;
 
 import java.util.Random;
+import com.saojudas.nuplacar.CRUDTime.Time;
 /**
  *
  * @author Mathe

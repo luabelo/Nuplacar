@@ -1,12 +1,16 @@
 package com.saojudas.nuplacar;
 
 import java.util.ArrayList;
-//import com.saojudas.nuplacar.CRUDTime.Time;
+import com.saojudas.nuplacar.CRUDTime.Time;
 
  public class Grupo {
     private ArrayList<Time> times = new ArrayList();
     private char id;
     private String nome;
+    
+    public Grupo(char id) {
+        this.id = id;
+    }
 
     public Grupo(char id, ArrayList<Time> times) {
         this.id = id;
