@@ -1252,14 +1252,14 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
     
     private void setResultadosQuartasDeFinal() {
         Time1Jogo9GolsLabel.setText(Integer.toString(campeonato.getPartidasQuartasDeFinal().get(0).getGolsTime1()));
-        Time2Jogo9GolsLabel.setText(Integer.toString(campeonato.getPartidasOitavasDeFinal().get(0).getGolsTime2()));
+        Time2Jogo9GolsLabel.setText(Integer.toString(campeonato.getPartidasQuartasDeFinal().get(0).getGolsTime2()));
         Time1Jogo10GolsLabel.setText(Integer.toString(campeonato.getPartidasQuartasDeFinal().get(1).getGolsTime1()));
-        Time2Jogo10GolsLabel.setText(Integer.toString(campeonato.getPartidasOitavasDeFinal().get(1).getGolsTime2()));
+        Time2Jogo10GolsLabel.setText(Integer.toString(campeonato.getPartidasQuartasDeFinal().get(1).getGolsTime2()));
         
         Time1Jogo11GolsLabel.setText(Integer.toString(campeonato.getPartidasQuartasDeFinal().get(2).getGolsTime1()));
-        Time2Jogo11GolsLabel.setText(Integer.toString(campeonato.getPartidasOitavasDeFinal().get(2).getGolsTime2()));
+        Time2Jogo11GolsLabel.setText(Integer.toString(campeonato.getPartidasQuartasDeFinal().get(2).getGolsTime2()));
         Time1Jogo12GolsLabel.setText(Integer.toString(campeonato.getPartidasQuartasDeFinal().get(3).getGolsTime1()));
-        Time2Jogo12GolsLabel.setText(Integer.toString(campeonato.getPartidasOitavasDeFinal().get(3).getGolsTime2()));
+        Time2Jogo12GolsLabel.setText(Integer.toString(campeonato.getPartidasQuartasDeFinal().get(3).getGolsTime2()));
     }
     
     private void setJogosSemiFinal() {
