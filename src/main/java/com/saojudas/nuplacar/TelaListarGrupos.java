@@ -708,17 +708,7 @@ public class TelaListarGrupos extends javax.swing.JFrame {
     }
     
     
-    private void buscarGrupos() {
-        try {
-            GrupoDAO grupoDAO = new GrupoDAO();
-            ConjuntoGrupos[] conjuntoGrupos = grupoDAO.obterConjuntoGrupos();
-            conjuntosComboBox.setModel(new DefaultComboBoxModel<>(conjuntoGrupos));
-        }
-        catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Times indisponíveis...");
-            e.printStackTrace();
-        }
-    }
+
     
     
     private void adicionarTimes() {
@@ -858,10 +848,22 @@ public class TelaListarGrupos extends javax.swing.JFrame {
             
         }
         catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Times indisponíveis...");
+            JOptionPane.showMessageDialog(null, "Times indisponíveis");
             e.printStackTrace();
         }
     }
+    
+        private void buscarGrupos() {
+        try {
+            GrupoDAO grupoDAO = new GrupoDAO();
+            ConjuntoGrupos[] conjuntoGrupos = grupoDAO.obterConjuntoGrupos();
+            conjuntosComboBox.setModel(new DefaultComboBoxModel<>(conjuntoGrupos));
+            }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Grupos indisponíveis");
+            e.printStackTrace();
+            }
+        }
     
   
     // Variables declaration - do not modify//GEN-BEGIN:variables

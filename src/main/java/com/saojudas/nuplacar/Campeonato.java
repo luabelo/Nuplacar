@@ -45,7 +45,8 @@ public class Campeonato implements Cloneable{
     
     public static boolean iniciarCampeonato() {
         int totalTimes = TimeDAO.listarTimes().size();
-        ArrayList<Grupo> grupos = GrupoDAO.listarGruposCompletos();
+        String conjuntoGrupos = null;
+        ArrayList<Grupo> grupos = GrupoDAO.listarGruposCompletos(conjuntoGrupos);
         
         if (totalTimes < 32) {
             JOptionPane.showInputDialog(null, "Há somente " + totalTimes  + " times cadastrados, cadastre mais " + (totalTimes - 32) + " times para iniciar a simulação");

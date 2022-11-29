@@ -1,8 +1,6 @@
 package com.saojudas.nuplacar;;
 
 import com.saojudas.nuplacar.DAO.GrupoDAO;
-import com.saojudas.nuplacar.DAO.TimeDAO;
-import javax.swing.JTable;
 import java.util.ArrayList;
 import java.util.Collections;
 import com.saojudas.nuplacar.CRUDTime.Time;
@@ -27,6 +25,8 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
         setJogosIniciais();
         simularFaseMataMata();
     }
+    
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -1057,7 +1057,8 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaSimularMataMata(new Campeonato(GrupoDAO.listarGruposCompletos())).setVisible(true);
+                String conjuntoGrupos = null;
+                new TelaSimularMataMata(new Campeonato(GrupoDAO.listarGruposCompletos("Copa do Mundo 2022"))).setVisible(true);
             }
         });
     }

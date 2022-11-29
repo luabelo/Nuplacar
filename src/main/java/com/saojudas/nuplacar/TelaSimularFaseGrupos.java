@@ -1,5 +1,9 @@
 package com.saojudas.nuplacar;;
 
+
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import com.saojudas.nuplacar.DAO.GrupoDAO;
 import com.saojudas.nuplacar.DAO.TimeDAO;
 import javax.swing.JTable;
@@ -11,6 +15,8 @@ import com.saojudas.nuplacar.CRUDTime.Time;
 public class TelaSimularFaseGrupos extends javax.swing.JFrame {
 
     private Campeonato campeonato;
+
+    
     
     public TelaSimularFaseGrupos(ArrayList<Grupo> grupos) {
         super("Simular fase grupos");
@@ -20,6 +26,7 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
         
         this.campeonato = new Campeonato(grupos);
         setValoresIniciaisTabelas();
+        buscarGrupos();
     }
     
     public TelaSimularFaseGrupos(ArrayList<Grupo> grupos, boolean voltandoDeMataMata) {
@@ -35,7 +42,9 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
         
         this.campeonato = new Campeonato(grupos);
         setValoresIniciaisTabelas();
+        buscarGrupos();
     }
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -63,6 +72,7 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
         jScrollPane11 = new javax.swing.JScrollPane();
         grupoGTable = new javax.swing.JTable();
         SimularButton = new javax.swing.JButton();
+        conjuntos1ComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,10 +110,10 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
         grupoATable.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         grupoATable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Brasil",  new Integer(5),  new Integer(5),  new Integer(5)},
-                {"Jamaica",  new Integer(5),  new Integer(5),  new Integer(5)},
-                {"Coreia do Sul",  new Integer(5),  new Integer(5),  new Integer(5)},
-                {"Afeganistão",  new Integer(5),  new Integer(5),  new Integer(5)}
+                {"----------",  new Integer(0),  new Integer(0),  new Integer(0)},
+                {"----------",  new Integer(0),  new Integer(0),  new Integer(0)},
+                {"----------",  new Integer(0),  new Integer(0),  new Integer(0)},
+                {"----------",  new Integer(0),  new Integer(0),  new Integer(0)}
             },
             new String [] {
                 "Grupo A", "P", "G", "S"
@@ -135,10 +145,10 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
         grupoCTable.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         grupoCTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Brasil",  new Integer(5),  new Integer(5),  new Integer(5)},
-                {"Jamaica",  new Integer(5),  new Integer(5),  new Integer(5)},
-                {"Coreia do Sul",  new Integer(5),  new Integer(5),  new Integer(5)},
-                {"Afeganistão",  new Integer(5),  new Integer(5),  new Integer(5)}
+                {"----------",  new Integer(0),  new Integer(0),  new Integer(0)},
+                {"----------",  new Integer(0),  new Integer(0),  new Integer(0)},
+                {"----------",  new Integer(0),  new Integer(0),  new Integer(0)},
+                {"----------",  new Integer(0),  new Integer(0),  new Integer(0)}
             },
             new String [] {
                 "Grupo C", "P", "G", "S"
@@ -170,10 +180,10 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
         grupoBTable.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         grupoBTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Brasil",  new Integer(5),  new Integer(5),  new Integer(5)},
-                {"Jamaica",  new Integer(5),  new Integer(5),  new Integer(5)},
-                {"Coreia do Sul",  new Integer(5),  new Integer(5),  new Integer(5)},
-                {"Afeganistão",  new Integer(5),  new Integer(5),  new Integer(5)}
+                {"----------",  new Integer(0),  new Integer(0),  new Integer(0)},
+                {"----------",  new Integer(0),  new Integer(0),  new Integer(0)},
+                {"----------",  new Integer(0),  new Integer(0),  new Integer(0)},
+                {"----------",  new Integer(0),  new Integer(0),  new Integer(0)}
             },
             new String [] {
                 "Grupo B", "P", "G", "S"
@@ -205,10 +215,10 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
         grupoDTable.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         grupoDTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Brasil",  new Integer(5),  new Integer(5),  new Integer(5)},
-                {"Jamaica",  new Integer(5),  new Integer(5),  new Integer(5)},
-                {"Coreia do Sul",  new Integer(5),  new Integer(5),  new Integer(5)},
-                {"Afeganistão",  new Integer(5),  new Integer(5),  new Integer(5)}
+                {"----------",  new Integer(0),  new Integer(0),  new Integer(0)},
+                {"----------",  new Integer(0),  new Integer(0),  new Integer(0)},
+                {"----------",  new Integer(0),  new Integer(0),  new Integer(0)},
+                {"----------",  new Integer(0),  new Integer(0),  new Integer(0)}
             },
             new String [] {
                 "Grupo D", "P", "G", "S"
@@ -240,10 +250,10 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
         grupoFTable.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         grupoFTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Brasil",  new Integer(5),  new Integer(5),  new Integer(5)},
-                {"Jamaica",  new Integer(5),  new Integer(5),  new Integer(5)},
-                {"Coreia do Sul",  new Integer(5),  new Integer(5),  new Integer(5)},
-                {"Afeganistão",  new Integer(5),  new Integer(5),  new Integer(5)}
+                {"----------",  new Integer(0),  new Integer(0),  new Integer(0)},
+                {"----------",  new Integer(0),  new Integer(0),  new Integer(0)},
+                {"----------",  new Integer(0),  new Integer(0),  new Integer(0)},
+                {"----------",  new Integer(0),  new Integer(0),  new Integer(0)}
             },
             new String [] {
                 "Grupo F", "P", "G", "S"
@@ -275,10 +285,10 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
         grupoHTable.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         grupoHTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Brasil",  new Integer(5),  new Integer(5),  new Integer(5)},
-                {"Jamaica",  new Integer(5),  new Integer(5),  new Integer(5)},
-                {"Coreia do Sul",  new Integer(5),  new Integer(5),  new Integer(5)},
-                {"Afeganistão",  new Integer(5),  new Integer(5),  new Integer(5)}
+                {"----------",  new Integer(0),  new Integer(0),  new Integer(0)},
+                {"----------",  new Integer(0),  new Integer(0),  new Integer(0)},
+                {"----------",  new Integer(0),  new Integer(0),  new Integer(0)},
+                {"----------",  new Integer(0),  new Integer(0),  new Integer(0)}
             },
             new String [] {
                 "Grupo H", "P", "G", "S"
@@ -310,10 +320,10 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
         grupoETable.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         grupoETable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Brasil",  new Integer(5),  new Integer(5),  new Integer(5)},
-                {"Jamaica",  new Integer(5),  new Integer(5),  new Integer(5)},
-                {"Coreia do Sul",  new Integer(5),  new Integer(5),  new Integer(5)},
-                {"Afeganistão",  new Integer(5),  new Integer(5),  new Integer(5)}
+                {"----------",  new Integer(0),  new Integer(0),  new Integer(0)},
+                {"----------",  new Integer(0),  new Integer(0),  new Integer(0)},
+                {"----------",  new Integer(0),  new Integer(0),  new Integer(0)},
+                {"----------",  new Integer(0),  new Integer(0),  new Integer(0)}
             },
             new String [] {
                 "Grupo E", "P", "G", "S"
@@ -345,10 +355,10 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
         grupoGTable.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         grupoGTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Brasil",  new Integer(5),  new Integer(5),  new Integer(5)},
-                {"Jamaica",  new Integer(5),  new Integer(5),  new Integer(5)},
-                {"Coreia do Sul",  new Integer(5),  new Integer(5),  new Integer(5)},
-                {"Afeganistão",  new Integer(5),  new Integer(5),  new Integer(5)}
+                {"----------",  new Integer(0),  new Integer(0),  new Integer(0)},
+                {"----------",  new Integer(0),  new Integer(0),  new Integer(0)},
+                {"----------",  new Integer(0),  new Integer(0),  new Integer(0)},
+                {"----------",  new Integer(0),  new Integer(0),  new Integer(0)}
             },
             new String [] {
                 "Grupo G", "P", "G", "S"
@@ -388,13 +398,9 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+            .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap(40, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(FaseGruposLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(318, 318, 318)
-                        .addComponent(voltarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(SimularButton)
                         .addGap(43, 43, 43)
@@ -416,7 +422,15 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
                         .addGap(35, 35, 35)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(conjuntos1ComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(FaseGruposLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(318, 318, 318)
+                        .addComponent(voltarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(41, 41, 41))
         );
         jPanel5Layout.setVerticalGroup(
@@ -429,7 +443,9 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addComponent(FaseGruposLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(55, 55, 55)
+                .addGap(8, 8, 8)
+                .addComponent(conjuntos1ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -475,6 +491,8 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
     }//GEN-LAST:event_voltarButtonActionPerformed
 
     private void SimularButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SimularButtonActionPerformed
+        String conjuntoGrupos = conjuntos1ComboBox.getSelectedItem().toString();
+        this.campeonato = new Campeonato(GrupoDAO.listarGruposCompletos(conjuntoGrupos));
         simularFaseGrupo();
         refazerSimulacaoButton.setEnabled(true);
         avancarButton.setEnabled(true);
@@ -483,7 +501,8 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
 
     private void refazerSimulacaoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refazerSimulacaoButtonActionPerformed
         TimeDAO.zerarClassificacaoGeral();
-        this.campeonato = new Campeonato(GrupoDAO.listarGruposCompletos());
+        String conjuntoGrupos = conjuntos1ComboBox.getSelectedItem().toString();
+        this.campeonato = new Campeonato(GrupoDAO.listarGruposCompletos(conjuntoGrupos));
         simularFaseGrupo();
         avancarButton.setEnabled(true);
     }//GEN-LAST:event_refazerSimulacaoButtonActionPerformed
@@ -492,11 +511,14 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
         new TelaSimularMataMata(this.campeonato).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_avancarButtonActionPerformed
+    
+
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -522,11 +544,13 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+                        
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaSimularFaseGrupos(GrupoDAO.listarGruposCompletos()).setVisible(true);
+                String conjuntoGrupos = null;
+                new TelaSimularFaseGrupos(GrupoDAO.listarGruposCompletos(conjuntoGrupos)).setVisible(true);
             }
         });
     }
@@ -535,6 +559,7 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
     private javax.swing.JLabel FaseGruposLabel;
     private javax.swing.JButton SimularButton;
     private javax.swing.JButton avancarButton;
+    private javax.swing.JComboBox<ConjuntoGrupos> conjuntos1ComboBox;
     private javax.swing.JTable grupoATable;
     private javax.swing.JTable grupoBTable;
     private javax.swing.JTable grupoCTable;
@@ -555,7 +580,8 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
     private javax.swing.JButton refazerSimulacaoButton;
     private javax.swing.JButton voltarButton;
     // End of variables declaration//GEN-END:variables
-
+       
+    
     private void simularFaseGrupo() {
         campeonato.simularPartidasFaseGrupo();
         campeonato.getGrupos().forEach((grupo) -> {
@@ -608,4 +634,16 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
             tabela.setValueAt(times.get(i).getSaldoGols(), i, 3);
         }
     }
+    
+    private void buscarGrupos() {
+        try {
+            GrupoDAO grupoDAO = new GrupoDAO();
+            ConjuntoGrupos[] conjuntoGrupos = grupoDAO.obterConjuntoGrupos();
+            conjuntos1ComboBox.setModel(new DefaultComboBoxModel<>(conjuntoGrupos));
+            }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Grupos indisponíveis");
+            e.printStackTrace();
+            }
+        }
 }

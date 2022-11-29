@@ -12,7 +12,7 @@ import com.saojudas.nuplacar.ConjuntoGrupos;
 
 public class GrupoDAO {
 
-    public static ArrayList<Grupo> listarGruposCompletos(){
+    public static ArrayList<Grupo> listarGruposCompletos(String idConjuntoGrupos){
         ArrayList<Grupo> grupos = new ArrayList<>();
         Time time1;
         Time time2;
@@ -22,9 +22,10 @@ public class GrupoDAO {
         try (
             Connection conexao = ConexaoBD.obtemConexao();
         ){
-        String sql = "SELECT * FROM tb_grupos";
+        String sql = "SELECT * FROM tb_grupos WHERE idConjuntoGrupos = ?";
             PreparedStatement ps = conexao.prepareStatement(sql);
-            ps.execute();
+            ps.setString(1, idConjuntoGrupos);
+            ps.executeQuery();
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
                     ArrayList<Time> times = new ArrayList<>();
@@ -139,7 +140,7 @@ public class GrupoDAO {
         return timeList;
     }
        public ConjuntoGrupos[] obterConjuntoGrupos () throws Exception {
-        String sql = "SELECT * FROM tb_grupos GROUP BY idConjuntoGrupos";
+        String sql = "SELECT DISTINCT idConjuntoGrupos FROM tb_grupos";
         Connection conn = ConexaoBD.obtemConexao();
              try (
              PreparedStatement ps = conn.prepareStatement(
