@@ -1,14 +1,9 @@
-# Nuplacar
+ 
 
-- [Sobre o projeto](#sobre-o-projeto)  
-- [Ícones utilizados](#ícones-utilizados)  
+## 🚀 Sobre o projeto
+Projeto Avaliativo 2º Semestre - Criação de Sistema com o Tema "Copa do Mundo", das UCs de Programação de Soluções Computacionais e Modelagem de Software, apresentado durante a Expo São Judas 2022/2.
 
----
-
-## Sobre o projeto
-Projeto Avaliativo 2º Semestre - Criação de Sistema com o Tema "Copa do Mundo", das UCs de Programação de Soluções Computacionais e Modelagem de Software.
-
-**Requisitos apresentados**
+## 📄 Requisitos apresentados
 
 - O sistema deve ser uma solução desktop com interface gráfica e banco de dados.
 - A interface gráfica deve ser desenvolvida utilizando-se classes do pacote javax.swing.
@@ -25,7 +20,7 @@ Projeto Avaliativo 2º Semestre - Criação de Sistema com o Tema "Copa do Mundo
     - Visualização da lista de times cadastrados (lista de times completa sem grupos)
     - Visualização da lista de grupos cadastrados
 
-## Ícones utilizados
+## 🧩 Ícones utilizados
 
 <details>
   <summary><strong>Clique para ver a lista</strong></summary>
