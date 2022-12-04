@@ -1,4 +1,6 @@
- 
+<p align="center">
+  <img width="400" height="300" src="LogoNuplacar.svg">
+</p>
 
 ## 🚀 Sobre o projeto
 Projeto Avaliativo 2º Semestre - Criação de Sistema com o Tema "Copa do Mundo", das UCs de Programação de Soluções Computacionais e Modelagem de Software, apresentado durante a Expo São Judas 2022/2.
