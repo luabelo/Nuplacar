@@ -1,5 +1,6 @@
 package com.saojudas.nuplacar;
 
+import com.saojudas.nuplacar.UsuarioComum.TelaInicialUsuario;
 import com.saojudas.nuplacar.TelaInicialAdm;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

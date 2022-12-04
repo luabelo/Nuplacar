@@ -1,6 +1,6 @@
-package com.saojudas.nuplacar;;
+package com.saojudas.nuplacar.UsuarioComum;;
 
-
+import com.saojudas.nuplacar.*;
 import com.saojudas.nuplacar.CRUDTime.*;
 import com.saojudas.nuplacar.DAO.TimeDAO;
 import java.util.ArrayList;
@@ -9,9 +9,11 @@ import com.saojudas.nuplacar.DAO.GrupoDAO;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
-public class TelaListarGrupos extends javax.swing.JFrame {
+public class TelaListarGruposComum extends javax.swing.JFrame {
     
-    public TelaListarGrupos() {
+
+
+    public TelaListarGruposComum() {
         super("Tela Inicial");
         initComponents();
         buscarGrupos();
@@ -54,7 +56,6 @@ public class TelaListarGrupos extends javax.swing.JFrame {
         grupoGTable = new javax.swing.JTable();
         jScrollPane8 = new javax.swing.JScrollPane();
         grupoHTable = new javax.swing.JTable();
-        salvarConjuntoButton = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         conjuntosComboBox = new javax.swing.JComboBox<>();
         novoTimeButton2 = new javax.swing.JButton();
@@ -62,7 +63,6 @@ public class TelaListarGrupos extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         timeLabel = new javax.swing.JLabel();
         menuLateralPanel = new javax.swing.JPanel();
-        simularButton = new javax.swing.JButton();
         placarButton = new javax.swing.JButton();
         gruposButton = new javax.swing.JButton();
         timesButton = new javax.swing.JButton();
@@ -70,12 +70,6 @@ public class TelaListarGrupos extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        gerenciarUsuariosButton1 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        timesComboBox = new javax.swing.JComboBox<>();
-        gruposComboBox = new javax.swing.JComboBox<>();
-        novoTimeButton1 = new javax.swing.JButton();
-        idConjuntoGrupoTextField = new javax.swing.JTextField();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
@@ -178,109 +172,88 @@ public class TelaListarGrupos extends javax.swing.JFrame {
         ));
         jScrollPane8.setViewportView(grupoHTable);
 
-        salvarConjuntoButton.setBackground(new java.awt.Color(141, 27, 61));
-        salvarConjuntoButton.setForeground(new java.awt.Color(255, 255, 255));
-        salvarConjuntoButton.setText("Salvar");
-        salvarConjuntoButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                salvarConjuntoButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(223, 223, 223)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1)
+                        .addGap(119, 119, 119)
+                        .addComponent(jLabel2)
+                        .addGap(127, 127, 127)
+                        .addComponent(jLabel4)
+                        .addGap(124, 124, 124)
+                        .addComponent(jLabel3)
+                        .addGap(90, 90, 90))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(116, 116, 116)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(49, 49, 49)
-                                .addComponent(jLabel5)
-                                .addGap(116, 116, 116)
-                                .addComponent(jLabel7)
-                                .addGap(115, 115, 115)
-                                .addComponent(jLabel8)
-                                .addGap(107, 107, 107)
-                                .addComponent(jLabel9))
+                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(46, 46, 46)
-                                .addComponent(jLabel1)
-                                .addGap(114, 114, 114)
-                                .addComponent(jLabel2)
-                                .addGap(114, 114, 114)
-                                .addComponent(jLabel4)
-                                .addGap(113, 113, 113)
-                                .addComponent(jLabel3))))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(29, 29, 29)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(33, 33, 33)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(352, 352, 352)
-                        .addComponent(salvarConjuntoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(41, 41, 41)
+                        .addComponent(jLabel5)
+                        .addGap(129, 129, 129)
+                        .addComponent(jLabel7)
+                        .addGap(131, 131, 131)
+                        .addComponent(jLabel8)
+                        .addGap(124, 124, 124)
+                        .addComponent(jLabel9)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel3))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9))
-                .addGap(18, 18, 18)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(salvarConjuntoButton)
-                .addContainerGap(85, Short.MAX_VALUE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 170, Short.MAX_VALUE))
         );
 
         jPanel6.setBackground(new java.awt.Color(233, 233, 233));
 
-        conjuntosComboBox.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                conjuntosComboBoxItemStateChanged(evt);
-            }
-        });
-        conjuntosComboBox.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                conjuntosComboBoxMouseClicked(evt);
-            }
-        });
         conjuntosComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 conjuntosComboBoxActionPerformed(evt);
@@ -301,11 +274,11 @@ public class TelaListarGrupos extends javax.swing.JFrame {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addComponent(conjuntosComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 681, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(novoTimeButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addGap(59, 59, 59)
+                .addComponent(conjuntosComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 701, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(novoTimeButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(133, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -358,21 +331,6 @@ public class TelaListarGrupos extends javax.swing.JFrame {
         menuLateralPanel.setBackground(new java.awt.Color(141, 27, 61));
         menuLateralPanel.setForeground(new java.awt.Color(86, 4, 44));
 
-        simularButton.setBackground(new java.awt.Color(141, 27, 61));
-        simularButton.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        simularButton.setForeground(new java.awt.Color(255, 255, 255));
-        simularButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/simularMenu.png"))); // NOI18N
-        simularButton.setText("  Simular");
-        simularButton.setAlignmentY(0.0F);
-        simularButton.setBorder(null);
-        simularButton.setContentAreaFilled(false);
-        simularButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        simularButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                simularButtonActionPerformed(evt);
-            }
-        });
-
         placarButton.setBackground(new java.awt.Color(105, 29, 51));
         placarButton.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
         placarButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -423,20 +381,7 @@ public class TelaListarGrupos extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText(" Admin");
-
-        gerenciarUsuariosButton1.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
-        gerenciarUsuariosButton1.setForeground(new java.awt.Color(255, 255, 255));
-        gerenciarUsuariosButton1.setText("Gerenciar usuários");
-        gerenciarUsuariosButton1.setBorder(null);
-        gerenciarUsuariosButton1.setContentAreaFilled(false);
-        gerenciarUsuariosButton1.setDefaultCapable(false);
-        gerenciarUsuariosButton1.setMargin(new java.awt.Insets(2, 20, 3, 20));
-        gerenciarUsuariosButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                gerenciarUsuariosButton1ActionPerformed(evt);
-            }
-        });
+        jLabel10.setText("Usuário");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -446,22 +391,20 @@ public class TelaListarGrupos extends javax.swing.JFrame {
                 .addGap(53, 53, 53)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(gerenciarUsuariosButton1))
+                .addComponent(jLabel10)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap(55, Short.MAX_VALUE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(55, 55, 55))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                         .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(gerenciarUsuariosButton1))
-                    .addComponent(jLabel6))
-                .addGap(55, 55, 55))
+                        .addGap(69, 69, 69))))
         );
 
         javax.swing.GroupLayout menuLateralPanelLayout = new javax.swing.GroupLayout(menuLateralPanel);
@@ -471,14 +414,11 @@ public class TelaListarGrupos extends javax.swing.JFrame {
             .addComponent(placarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(gruposButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(timesButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(simularButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(menuLateralPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(menuLateralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(logoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
-                    .addGroup(menuLateralPanelLayout.createSequentialGroup()
-                        .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         menuLateralPanelLayout.setVerticalGroup(
             menuLateralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -491,70 +431,8 @@ public class TelaListarGrupos extends javax.swing.JFrame {
                 .addComponent(gruposButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(timesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(simularButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
-        );
-
-        jPanel1.setBackground(new java.awt.Color(233, 233, 233));
-
-        timesComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                timesComboBoxActionPerformed(evt);
-            }
-        });
-
-        gruposComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Grupo A", "Grupo B ", "Grupo C", "Grupo D", "Grupo E", "Grupo F", "Grupo G", "Grupo H" }));
-        gruposComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                gruposComboBoxActionPerformed(evt);
-            }
-        });
-
-        novoTimeButton1.setBackground(new java.awt.Color(141, 27, 61));
-        novoTimeButton1.setForeground(new java.awt.Color(255, 255, 255));
-        novoTimeButton1.setText("Adicionar Time");
-        novoTimeButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                novoTimeButton1ActionPerformed(evt);
-            }
-        });
-
-        idConjuntoGrupoTextField.setBackground(new java.awt.Color(233, 233, 233));
-        idConjuntoGrupoTextField.setToolTipText("");
-        idConjuntoGrupoTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Insira o nome do \"Conjunto de Grupos\""));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(timesComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(gruposComboBox, 0, 681, Short.MAX_VALUE)
-                    .addComponent(idConjuntoGrupoTextField))
-                .addGap(18, 18, 18)
-                .addComponent(novoTimeButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(idConjuntoGrupoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(timesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(novoTimeButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(gruposComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -569,10 +447,9 @@ public class TelaListarGrupos extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())))
+                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(6, 6, 6))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -580,83 +457,32 @@ public class TelaListarGrupos extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(108, 108, 108)
                 .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addComponent(menuLateralPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(menuLateralPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void simularButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simularButtonActionPerformed
-        // colocar redirecionamento para telaSimular
-    }//GEN-LAST:event_simularButtonActionPerformed
-
     private void placarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placarButtonActionPerformed
-        TelaInicialAdm tia = new TelaInicialAdm();
-        tia.setVisible(true);
+        TelaInicialUsuario tiu = new TelaInicialUsuario();
+        tiu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_placarButtonActionPerformed
 
     private void gruposButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gruposButtonActionPerformed
-        TelaListarGrupos TLG = new TelaListarGrupos();
-        TLG.setVisible(true);
+        TelaListarGruposComum tlgc = new TelaListarGruposComum();
+        tlgc.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_gruposButtonActionPerformed
 
     private void timesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timesButtonActionPerformed
-        TelaListarTimes tlt = new TelaListarTimes();
-        tlt.setVisible(true);
+        TelaListarTimesComum tltc = new TelaListarTimesComum();
+        tltc.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_timesButtonActionPerformed
-
-    private void timesComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timesComboBoxActionPerformed
-       
-    }//GEN-LAST:event_timesComboBoxActionPerformed
-
-    private void gruposComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gruposComboBoxActionPerformed
-
-    }//GEN-LAST:event_gruposComboBoxActionPerformed
-
-    private void novoTimeButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoTimeButton1ActionPerformed
-       switch (gruposComboBox.getSelectedIndex()+1) {
-        case 1:
-                DefaultTableModel model8 = (DefaultTableModel) grupoATable.getModel();
-                model8.addRow(new Object[] {timesComboBox.getSelectedItem()});
-                break; 
-        case 2:
-                DefaultTableModel model9 = (DefaultTableModel) grupoBTable.getModel();
-                model9.addRow(new Object[] {timesComboBox.getSelectedItem()});
-                break;
-        case 3:
-                DefaultTableModel model10 = (DefaultTableModel) grupoCTable.getModel();
-                model10.addRow(new Object[]{timesComboBox.getSelectedItem()});
-                break;
-        case 4:
-                DefaultTableModel model11 = (DefaultTableModel) grupoDTable.getModel();
-                model11.addRow(new Object[] {timesComboBox.getSelectedItem()});
-                break;
-        case 5:
-                DefaultTableModel model12 = (DefaultTableModel) grupoETable.getModel();
-                model12.addRow(new Object[] {timesComboBox.getSelectedItem()});
-                break;        
-        case 6:
-                DefaultTableModel model13 = (DefaultTableModel) grupoFTable.getModel();
-                model13.addRow(new Object[] {timesComboBox.getSelectedItem()});
-                break;       
-        case 7:
-                DefaultTableModel model14 = (DefaultTableModel) grupoGTable.getModel();
-                model14.addRow(new Object[] {timesComboBox.getSelectedItem()});
-                break;
-        case 8:
-                DefaultTableModel model15 = (DefaultTableModel) grupoHTable.getModel();
-                model15.addRow(new Object[] {timesComboBox.getSelectedItem()});
-                break;           
-       }
-    }//GEN-LAST:event_novoTimeButton1ActionPerformed
 
     private void novoTimeButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoTimeButton2ActionPerformed
         adicionarTimes();
@@ -666,33 +492,9 @@ public class TelaListarGrupos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_conjuntosComboBoxActionPerformed
 
-    private void salvarConjuntoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarConjuntoButtonActionPerformed
-        SalvarConjuntosDB();
-    }//GEN-LAST:event_salvarConjuntoButtonActionPerformed
-
     private void novoTimeButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoTimeButton3ActionPerformed
-       try {
-            TimeDAO timeDAO = new TimeDAO();
-            ArrayList<Time> time = timeDAO.obterTimes();
-            timesComboBox.setModel(new DefaultComboBoxModel<>(time.toArray()));
-        }
-        catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Times indisponíveis...");
-            e.printStackTrace();
-        }
+
     }//GEN-LAST:event_novoTimeButton3ActionPerformed
-
-    private void conjuntosComboBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_conjuntosComboBoxMouseClicked
-
-    }//GEN-LAST:event_conjuntosComboBoxMouseClicked
-
-    private void conjuntosComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_conjuntosComboBoxItemStateChanged
-
-    }//GEN-LAST:event_conjuntosComboBoxItemStateChanged
-
-    private void gerenciarUsuariosButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerenciarUsuariosButton1ActionPerformed
-
-    }//GEN-LAST:event_gerenciarUsuariosButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -711,14 +513,22 @@ public class TelaListarGrupos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaListarGrupos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListarGruposComum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaListarGrupos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListarGruposComum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaListarGrupos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListarGruposComum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaListarGrupos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListarGruposComum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -731,7 +541,7 @@ public class TelaListarGrupos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaListarGrupos().setVisible(true);
+                new TelaListarGruposComum().setVisible(true);
             }
         });
     }
@@ -815,66 +625,48 @@ public class TelaListarGrupos extends javax.swing.JFrame {
             String time2 = grupoATable.getModel().getValueAt(1,0).toString();
             String time3 = grupoATable.getModel().getValueAt(2,0).toString();
             String time4 = grupoATable.getModel().getValueAt(3,0).toString();
-            String idConjuntoGrupos = idConjuntoGrupoTextField.getText();
-            grupoDAO.inserirTimesGruposDB("A", time1, time2, time3, time4, idConjuntoGrupos);
             
             String time5 = grupoBTable.getModel().getValueAt(0,0).toString();
             String time6 = grupoBTable.getModel().getValueAt(1,0).toString();
             String time7 = grupoBTable.getModel().getValueAt(2,0).toString();
             String time8 = grupoBTable.getModel().getValueAt(3,0).toString();
-            String idConjuntoGrupos1 = idConjuntoGrupoTextField.getText();
-            grupoDAO.inserirTimesGruposDB("B", time5, time6, time7, time8, idConjuntoGrupos1);
             
             String time9 = grupoCTable.getModel().getValueAt(0,0).toString();
             String time10 = grupoCTable.getModel().getValueAt(1,0).toString();
             String time11 = grupoCTable.getModel().getValueAt(2,0).toString();
             String time12 = grupoCTable.getModel().getValueAt(3,0).toString();
-            String idConjuntoGrupos2 = idConjuntoGrupoTextField.getText();
-            grupoDAO.inserirTimesGruposDB("C", time9, time10, time11, time12, idConjuntoGrupos2);
             
             String time13 = grupoDTable.getModel().getValueAt(0,0).toString();
             String time14 = grupoDTable.getModel().getValueAt(1,0).toString();
             String time15 = grupoDTable.getModel().getValueAt(2,0).toString();
             String time16 = grupoDTable.getModel().getValueAt(3,0).toString();
-            String idConjuntoGrupos3 = idConjuntoGrupoTextField.getText();
-            grupoDAO.inserirTimesGruposDB("D", time13, time14, time15, time16, idConjuntoGrupos3);
             
             String time17 = grupoETable.getModel().getValueAt(0,0).toString();
             String time18 = grupoETable.getModel().getValueAt(1,0).toString();
             String time19 = grupoETable.getModel().getValueAt(2,0).toString();
             String time20 = grupoETable.getModel().getValueAt(3,0).toString();
-            String idConjuntoGrupos4 = idConjuntoGrupoTextField.getText();
-            grupoDAO.inserirTimesGruposDB("E", time17, time18, time19, time20, idConjuntoGrupos4);
             
             String time21 = grupoFTable.getModel().getValueAt(0,0).toString();
             String time22 = grupoFTable.getModel().getValueAt(1,0).toString();
             String time23 = grupoFTable.getModel().getValueAt(2,0).toString();
             String time24 = grupoFTable.getModel().getValueAt(3,0).toString();
-            String idConjuntoGrupos5 = idConjuntoGrupoTextField.getText();
-            grupoDAO.inserirTimesGruposDB("F", time21, time22, time23, time24, idConjuntoGrupos5);
             
             String time25 = grupoGTable.getModel().getValueAt(0,0).toString();
             String time26 = grupoGTable.getModel().getValueAt(1,0).toString();
             String time27 = grupoGTable.getModel().getValueAt(2,0).toString();
             String time28 = grupoGTable.getModel().getValueAt(3,0).toString();
-            String idConjuntoGrupos6 = idConjuntoGrupoTextField.getText();
-            grupoDAO.inserirTimesGruposDB("G", time25, time26, time27, time28, idConjuntoGrupos6);
             
             String time29 = grupoHTable.getModel().getValueAt(0,0).toString();
             String time30 = grupoHTable.getModel().getValueAt(1,0).toString();
             String time31 = grupoHTable.getModel().getValueAt(2,0).toString();
             String time32 = grupoHTable.getModel().getValueAt(3,0).toString();
-            String idConjuntoGrupos7 = idConjuntoGrupoTextField.getText();
-            grupoDAO.inserirTimesGruposDB("H", time29, time30, time31, time32, idConjuntoGrupos7);
         }
     
         
     private void buscarTimes() {
         try {
             TimeDAO timeDAO = new TimeDAO();
-            ArrayList<Time> time = timeDAO.obterTimes();
-            timesComboBox.setModel(new DefaultComboBoxModel<>(time.toArray()));
-            
+            ArrayList<Time> time = timeDAO.obterTimes();            
         }
         catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Times indisponíveis");
@@ -903,7 +695,6 @@ public class TelaListarGrupos extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup5;
     private javax.swing.ButtonGroup buttonGroup6;
     private javax.swing.JComboBox<ConjuntoGrupos> conjuntosComboBox;
-    private javax.swing.JButton gerenciarUsuariosButton1;
     private javax.swing.JTable grupoATable;
     private javax.swing.JTable grupoBTable;
     private javax.swing.JTable grupoCTable;
@@ -913,8 +704,6 @@ public class TelaListarGrupos extends javax.swing.JFrame {
     private javax.swing.JTable grupoGTable;
     private javax.swing.JTable grupoHTable;
     private javax.swing.JButton gruposButton;
-    private javax.swing.JComboBox<String> gruposComboBox;
-    private javax.swing.JTextField idConjuntoGrupoTextField;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -926,7 +715,6 @@ public class TelaListarGrupos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
@@ -942,13 +730,9 @@ public class TelaListarGrupos extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JLabel logoLabel;
     private javax.swing.JPanel menuLateralPanel;
-    private javax.swing.JButton novoTimeButton1;
     private javax.swing.JButton novoTimeButton2;
     private javax.swing.JButton placarButton;
-    private javax.swing.JButton salvarConjuntoButton;
-    private javax.swing.JButton simularButton;
     private javax.swing.JLabel timeLabel;
     private javax.swing.JButton timesButton;
-    private javax.swing.JComboBox<Object> timesComboBox;
     // End of variables declaration//GEN-END:variables
 }

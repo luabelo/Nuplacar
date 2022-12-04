@@ -1,20 +1,18 @@
-package com.saojudas.nuplacar.CRUDTime;;
+package com.saojudas.nuplacar.UsuarioComum;;
 
+import com.saojudas.nuplacar.CRUDTime.*;
 import javax.swing.JTable;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.Component;
 import java.awt.Image;
-import com.saojudas.nuplacar.CRUDUsuário.TelaListarUsuarios;
-import com.saojudas.nuplacar.TelaListarGrupos;
-import com.saojudas.nuplacar.TelaInicialAdm;
 import com.saojudas.nuplacar.DAO.TimeDAO;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
-public class TelaListarTimes extends javax.swing.JFrame {
+public class TelaListarTimesComum extends javax.swing.JFrame {
 
-    public TelaListarTimes() {
+    public TelaListarTimesComum() {
         super("Tela Inicial");
         initComponents();
         listarTimesTela();
@@ -35,19 +33,14 @@ public class TelaListarTimes extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         timeLabel = new javax.swing.JLabel();
-        deletarTimeButton = new javax.swing.JButton();
-        novoTimeButton = new javax.swing.JButton();
-        editarTimeButton = new javax.swing.JButton();
         menuLateralPanel = new javax.swing.JPanel();
-        simularButton = new javax.swing.JButton();
         placarButton = new javax.swing.JButton();
         gruposButton = new javax.swing.JButton();
         timesButton = new javax.swing.JButton();
         logoLabel = new javax.swing.JLabel();
-        jPanel8 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        gerenciarUsuariosButton1 = new javax.swing.JButton();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -108,13 +101,13 @@ public class TelaListarTimes extends javax.swing.JFrame {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addComponent(buscarTimeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(79, 79, 79)
+                .addComponent(buscarTimeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(buscarTimeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(33, 33, 33)
                 .addComponent(limparBuscaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,33 +137,6 @@ public class TelaListarTimes extends javax.swing.JFrame {
         timeLabel.setForeground(new java.awt.Color(151, 151, 151));
         timeLabel.setText("Times");
 
-        deletarTimeButton.setBackground(new java.awt.Color(141, 27, 61));
-        deletarTimeButton.setForeground(new java.awt.Color(255, 255, 255));
-        deletarTimeButton.setText("Deletar Time");
-        deletarTimeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deletarTimeButtonActionPerformed(evt);
-            }
-        });
-
-        novoTimeButton.setBackground(new java.awt.Color(141, 27, 61));
-        novoTimeButton.setForeground(new java.awt.Color(255, 255, 255));
-        novoTimeButton.setText("Novo time");
-        novoTimeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                novoTimeButtonActionPerformed(evt);
-            }
-        });
-
-        editarTimeButton.setBackground(new java.awt.Color(141, 27, 61));
-        editarTimeButton.setForeground(new java.awt.Color(255, 255, 255));
-        editarTimeButton.setText("Editar Time");
-        editarTimeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editarTimeButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -181,45 +147,19 @@ public class TelaListarTimes extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(timeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(novoTimeButton)
-                .addGap(18, 18, 18)
-                .addComponent(editarTimeButton)
-                .addGap(18, 18, 18)
-                .addComponent(deletarTimeButton)
-                .addGap(83, 83, 83))
+                .addGap(83, 525, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(timeLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(deletarTimeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(novoTimeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(editarTimeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(timeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
         menuLateralPanel.setBackground(new java.awt.Color(141, 27, 61));
         menuLateralPanel.setForeground(new java.awt.Color(86, 4, 44));
-
-        simularButton.setBackground(new java.awt.Color(141, 27, 61));
-        simularButton.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        simularButton.setForeground(new java.awt.Color(255, 255, 255));
-        simularButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/simularMenu.png"))); // NOI18N
-        simularButton.setText("  Simular");
-        simularButton.setAlignmentY(0.0F);
-        simularButton.setBorder(null);
-        simularButton.setContentAreaFilled(false);
-        simularButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        simularButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                simularButtonActionPerformed(evt);
-            }
-        });
 
         placarButton.setBackground(new java.awt.Color(105, 29, 51));
         placarButton.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
@@ -265,51 +205,36 @@ public class TelaListarTimes extends javax.swing.JFrame {
 
         logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LogoNuplacarMenu.png"))); // NOI18N
 
-        jPanel8.setBackground(new java.awt.Color(141, 27, 61));
+        jPanel9.setBackground(new java.awt.Color(141, 27, 61));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/profile-user.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/profile-user.png"))); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText(" Admin");
+        jLabel11.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Usuário");
 
-        gerenciarUsuariosButton1.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
-        gerenciarUsuariosButton1.setForeground(new java.awt.Color(255, 255, 255));
-        gerenciarUsuariosButton1.setText("Gerenciar usuários");
-        gerenciarUsuariosButton1.setBorder(null);
-        gerenciarUsuariosButton1.setContentAreaFilled(false);
-        gerenciarUsuariosButton1.setDefaultCapable(false);
-        gerenciarUsuariosButton1.setMargin(new java.awt.Insets(2, 20, 3, 20));
-        gerenciarUsuariosButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                gerenciarUsuariosButton1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGap(53, 53, 53)
-                .addComponent(jLabel4)
+                .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(gerenciarUsuariosButton1))
+                .addComponent(jLabel11)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(gerenciarUsuariosButton1))
-                    .addComponent(jLabel4))
-                .addGap(55, 55, 55))
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addContainerGap(55, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(55, 55, 55))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addGap(69, 69, 69))))
         );
 
         javax.swing.GroupLayout menuLateralPanelLayout = new javax.swing.GroupLayout(menuLateralPanel);
@@ -319,14 +244,11 @@ public class TelaListarTimes extends javax.swing.JFrame {
             .addComponent(placarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(gruposButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(timesButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(simularButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(menuLateralPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(menuLateralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(logoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuLateralPanelLayout.createSequentialGroup()
-                        .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                    .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         menuLateralPanelLayout.setVerticalGroup(
             menuLateralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -339,11 +261,9 @@ public class TelaListarTimes extends javax.swing.JFrame {
                 .addComponent(gruposButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(timesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(simularButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -369,17 +289,11 @@ public class TelaListarTimes extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addComponent(menuLateralPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 720, Short.MAX_VALUE)
+            .addComponent(menuLateralPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void deletarTimeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarTimeButtonActionPerformed
-        TelaDeletarTime TDT = new TelaDeletarTime();
-        TDT.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_deletarTimeButtonActionPerformed
 
     private void buscarTimeTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarTimeTextFieldActionPerformed
         // TODO add your handling code here:
@@ -403,47 +317,27 @@ public class TelaListarTimes extends javax.swing.JFrame {
         timeTable.setRowHeight(40);
     }//GEN-LAST:event_buscarTimeButtonActionPerformed
 
-    private void simularButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simularButtonActionPerformed
-        // colocar redirecionamento para telaSimular
-    }//GEN-LAST:event_simularButtonActionPerformed
-
     private void placarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placarButtonActionPerformed
-        TelaInicialAdm tia = new TelaInicialAdm();
-        tia.setVisible(true);
+        TelaInicialUsuario tiu = new TelaInicialUsuario();
+        tiu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_placarButtonActionPerformed
 
     private void gruposButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gruposButtonActionPerformed
-        TelaListarGrupos TLG = new TelaListarGrupos();
-        TLG.setVisible(true);
+        TelaListarGruposComum tlgc = new TelaListarGruposComum();
+        tlgc.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_gruposButtonActionPerformed
 
     private void timesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timesButtonActionPerformed
-
+        TelaListarTimesComum tltc = new TelaListarTimesComum();
+        tltc.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_timesButtonActionPerformed
 
     private void limparBuscaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparBuscaButtonActionPerformed
         listarTimesTela();
     }//GEN-LAST:event_limparBuscaButtonActionPerformed
-
-    private void editarTimeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarTimeButtonActionPerformed
-        TelaEditarTime TCT = new TelaEditarTime();
-        TCT.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_editarTimeButtonActionPerformed
-
-    private void gerenciarUsuariosButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerenciarUsuariosButton1ActionPerformed
-        TelaListarUsuarios TLU = new TelaListarUsuarios();
-        TLU.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_gerenciarUsuariosButton1ActionPerformed
-
-    private void novoTimeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoTimeButtonActionPerformed
-        TelaCadastrarTimes TCT = new TelaCadastrarTimes();
-        TCT.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_novoTimeButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -462,14 +356,18 @@ public class TelaListarTimes extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaListarTimes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListarTimesComum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaListarTimes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListarTimesComum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaListarTimes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListarTimesComum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaListarTimes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListarTimesComum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -478,7 +376,7 @@ public class TelaListarTimes extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaListarTimes().setVisible(true);
+                new TelaListarTimesComum().setVisible(true);
             }
         });
     }
@@ -515,24 +413,22 @@ public class TelaListarTimes extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buscarTimeButton;
     private javax.swing.JTextField buscarTimeTextField;
-    private javax.swing.JButton deletarTimeButton;
-    private javax.swing.JButton editarTimeButton;
-    private javax.swing.JButton gerenciarUsuariosButton1;
     private javax.swing.JButton gruposButton;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton limparBuscaButton;
     private javax.swing.JLabel logoLabel;
     private javax.swing.JPanel menuLateralPanel;
-    private javax.swing.JButton novoTimeButton;
     private javax.swing.JButton placarButton;
-    private javax.swing.JButton simularButton;
     private javax.swing.JLabel timeLabel;
     private javax.swing.JTable timeTable;
     private javax.swing.JButton timesButton;
