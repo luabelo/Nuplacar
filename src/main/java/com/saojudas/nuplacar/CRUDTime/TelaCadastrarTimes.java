@@ -1,11 +1,11 @@
 package com.saojudas.nuplacar.CRUDTime;;
 
+import com.saojudas.nuplacar.Campeonato;
 import com.saojudas.nuplacar.CRUDUsuário.TelaListarUsuarios;
 import com.saojudas.nuplacar.TelaListarGrupos;
 import com.saojudas.nuplacar.TelaInicialAdm;
 import com.saojudas.nuplacar.DAO.TimeDAO;
 import javax.swing.JOptionPane;
-
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,16 +14,15 @@ import javax.swing.JFileChooser;
 import java.awt.Image;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import com.saojudas.nuplacar.ConexaoBD;
 
 public class TelaCadastrarTimes extends javax.swing.JFrame {
     
-   private ImageIcon format=null;
-   String nomeImagem=null;
-   int s=0;
-   byte[] bandeira=null;
-   Connection connection=null;
+   private ImageIcon format = null;
+   String nomeImagem = null;
+   int s = 0;
+   byte[] bandeira = null;
+   Connection connection = null;
 
     public TelaCadastrarTimes() {
         super("Tela Inicial");
@@ -420,7 +419,9 @@ public class TelaCadastrarTimes extends javax.swing.JFrame {
     }//GEN-LAST:event_nomeTimeTextFieldActionPerformed
 
     private void simularButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simularButtonActionPerformed
-        // colocar redirecionamento para telaSimular
+        if (Campeonato.iniciarCampeonato()) {
+        this.dispose();
+        }
     }//GEN-LAST:event_simularButtonActionPerformed
 
     private void placarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placarButtonActionPerformed

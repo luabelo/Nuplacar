@@ -477,7 +477,7 @@ public class TelaInicialAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_simularButtonActionPerformed
 
     private void placarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placarButtonActionPerformed
-
+        
     }//GEN-LAST:event_placarButtonActionPerformed
 
     private void gruposButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gruposButtonActionPerformed

@@ -1,5 +1,6 @@
 package com.saojudas.nuplacar.CRUDTime;;
 
+import com.saojudas.nuplacar.Campeonato;
 import com.saojudas.nuplacar.CRUDUsuário.TelaListarUsuarios;
 import com.saojudas.nuplacar.TelaListarGrupos;
 import com.saojudas.nuplacar.TelaInicialAdm;
@@ -363,7 +364,9 @@ public class TelaEditarTime extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void simularButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simularButtonActionPerformed
-        // colocar redirecionamento para telaSimular
+        if (Campeonato.iniciarCampeonato()) {
+        this.dispose();
+        }
     }//GEN-LAST:event_simularButtonActionPerformed
 
     private void placarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placarButtonActionPerformed

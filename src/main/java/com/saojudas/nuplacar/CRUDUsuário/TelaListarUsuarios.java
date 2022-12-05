@@ -1,11 +1,7 @@
 package com.saojudas.nuplacar.CRUDUsuário;;
 
-import com.saojudas.nuplacar.TelaInicialAdm;
-import com.saojudas.nuplacar.CRUDTime.TelaListarTimes;
-import com.saojudas.nuplacar.DAO.UsuarioDAO;
+import com.saojudas.nuplacar.Campeonato;
 import com.saojudas.nuplacar.TelaListarGrupos;
-import java.util.ArrayList;
-import javax.swing.table.DefaultTableModel;
 import com.saojudas.nuplacar.TelaInicialAdm;
 import com.saojudas.nuplacar.CRUDTime.TelaListarTimes;
 import com.saojudas.nuplacar.DAO.UsuarioDAO;
@@ -392,7 +388,9 @@ public class TelaListarUsuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_listarUsuariosButtonActionPerformed
 
     private void simularButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simularButtonActionPerformed
-        // colocar redirecionamento para telaSimular
+        if (Campeonato.iniciarCampeonato()) {
+        this.dispose();
+        }
     }//GEN-LAST:event_simularButtonActionPerformed
 
     private void placarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placarButtonActionPerformed

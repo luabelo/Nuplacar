@@ -74,8 +74,9 @@ public class TelaListarGrupos extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         timesComboBox = new javax.swing.JComboBox<>();
         gruposComboBox = new javax.swing.JComboBox<>();
-        novoTimeButton1 = new javax.swing.JButton();
+        AdicionarTimesGrupos = new javax.swing.JButton();
         idConjuntoGrupoTextField = new javax.swing.JTextField();
+        limparGruposButton = new javax.swing.JButton();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
@@ -513,18 +514,27 @@ public class TelaListarGrupos extends javax.swing.JFrame {
             }
         });
 
-        novoTimeButton1.setBackground(new java.awt.Color(141, 27, 61));
-        novoTimeButton1.setForeground(new java.awt.Color(255, 255, 255));
-        novoTimeButton1.setText("Adicionar Time");
-        novoTimeButton1.addActionListener(new java.awt.event.ActionListener() {
+        AdicionarTimesGrupos.setBackground(new java.awt.Color(141, 27, 61));
+        AdicionarTimesGrupos.setForeground(new java.awt.Color(255, 255, 255));
+        AdicionarTimesGrupos.setText("Adicionar Time");
+        AdicionarTimesGrupos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                novoTimeButton1ActionPerformed(evt);
+                AdicionarTimesGruposActionPerformed(evt);
             }
         });
 
         idConjuntoGrupoTextField.setBackground(new java.awt.Color(233, 233, 233));
         idConjuntoGrupoTextField.setToolTipText("");
         idConjuntoGrupoTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Insira o nome do \"Conjunto de Grupos\""));
+
+        limparGruposButton.setBackground(new java.awt.Color(141, 27, 61));
+        limparGruposButton.setForeground(new java.awt.Color(255, 255, 255));
+        limparGruposButton.setText("Limpar Grupos");
+        limparGruposButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                limparGruposButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -537,25 +547,28 @@ public class TelaListarGrupos extends javax.swing.JFrame {
                     .addComponent(gruposComboBox, 0, 681, Short.MAX_VALUE)
                     .addComponent(idConjuntoGrupoTextField))
                 .addGap(18, 18, 18)
-                .addComponent(novoTimeButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(AdicionarTimesGrupos, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(limparGruposButton, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(idConjuntoGrupoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(7, 7, 7)
                         .addComponent(timesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(novoTimeButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(gruposComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(gruposComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(limparGruposButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(AdicionarTimesGrupos)
+                        .addGap(20, 20, 20))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -585,14 +598,16 @@ public class TelaListarGrupos extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addComponent(menuLateralPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(menuLateralPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 720, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void simularButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simularButtonActionPerformed
-        // colocar redirecionamento para telaSimular
+        if (Campeonato.iniciarCampeonato()) {
+        this.dispose();
+        }
     }//GEN-LAST:event_simularButtonActionPerformed
 
     private void placarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placarButtonActionPerformed
@@ -621,7 +636,7 @@ public class TelaListarGrupos extends javax.swing.JFrame {
 
     }//GEN-LAST:event_gruposComboBoxActionPerformed
 
-    private void novoTimeButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoTimeButton1ActionPerformed
+    private void AdicionarTimesGruposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdicionarTimesGruposActionPerformed
        switch (gruposComboBox.getSelectedIndex()+1) {
         case 1:
                 DefaultTableModel model8 = (DefaultTableModel) grupoATable.getModel();
@@ -656,7 +671,7 @@ public class TelaListarGrupos extends javax.swing.JFrame {
                 model15.addRow(new Object[] {timesComboBox.getSelectedItem()});
                 break;           
        }
-    }//GEN-LAST:event_novoTimeButton1ActionPerformed
+    }//GEN-LAST:event_AdicionarTimesGruposActionPerformed
 
     private void novoTimeButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoTimeButton2ActionPerformed
         adicionarTimes();
@@ -668,19 +683,13 @@ public class TelaListarGrupos extends javax.swing.JFrame {
 
     private void salvarConjuntoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarConjuntoButtonActionPerformed
         SalvarConjuntosDB();
+        JOptionPane.showMessageDialog(null, "Conjunto cadastrado com sucesso","NuPlacar",1);
+        buscarGrupos();
     }//GEN-LAST:event_salvarConjuntoButtonActionPerformed
 
-    private void novoTimeButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoTimeButton3ActionPerformed
-       try {
-            TimeDAO timeDAO = new TimeDAO();
-            ArrayList<Time> time = timeDAO.obterTimes();
-            timesComboBox.setModel(new DefaultComboBoxModel<>(time.toArray()));
-        }
-        catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Times indisponíveis...");
-            e.printStackTrace();
-        }
-    }//GEN-LAST:event_novoTimeButton3ActionPerformed
+    private void limparGruposButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparGruposButtonActionPerformed
+        limparGrupos();
+    }//GEN-LAST:event_limparGruposButtonActionPerformed
 
     private void conjuntosComboBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_conjuntosComboBoxMouseClicked
 
@@ -869,6 +878,32 @@ public class TelaListarGrupos extends javax.swing.JFrame {
         }
     
         
+    private void limparGrupos () {
+       DefaultTableModel modelA = (DefaultTableModel)grupoATable.getModel();
+       modelA.setRowCount(0);
+       
+       DefaultTableModel modelB = (DefaultTableModel)grupoBTable.getModel();
+       modelB.setRowCount(0);
+       
+       DefaultTableModel modelC = (DefaultTableModel)grupoCTable.getModel();
+       modelC.setRowCount(0);
+       
+       DefaultTableModel modelD = (DefaultTableModel)grupoDTable.getModel();
+       modelD.setRowCount(0);
+       
+       DefaultTableModel modelE = (DefaultTableModel)grupoETable.getModel();
+       modelE.setRowCount(0);
+       
+       DefaultTableModel modelF = (DefaultTableModel)grupoFTable.getModel();
+       modelF.setRowCount(0);
+       
+       DefaultTableModel modelG = (DefaultTableModel)grupoGTable.getModel();
+       modelG.setRowCount(0);
+       
+       DefaultTableModel modelH = (DefaultTableModel)grupoHTable.getModel();
+       modelH.setRowCount(0);
+    }    
+        
     private void buscarTimes() {
         try {
             TimeDAO timeDAO = new TimeDAO();
@@ -896,6 +931,7 @@ public class TelaListarGrupos extends javax.swing.JFrame {
     
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AdicionarTimesGrupos;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
@@ -940,9 +976,9 @@ public class TelaListarGrupos extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JButton limparGruposButton;
     private javax.swing.JLabel logoLabel;
     private javax.swing.JPanel menuLateralPanel;
-    private javax.swing.JButton novoTimeButton1;
     private javax.swing.JButton novoTimeButton2;
     private javax.swing.JButton placarButton;
     private javax.swing.JButton salvarConjuntoButton;

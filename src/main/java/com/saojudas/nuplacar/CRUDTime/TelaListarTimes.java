@@ -1,5 +1,6 @@
 package com.saojudas.nuplacar.CRUDTime;;
 
+import com.saojudas.nuplacar.Campeonato;
 import javax.swing.JTable;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -404,7 +405,9 @@ public class TelaListarTimes extends javax.swing.JFrame {
     }//GEN-LAST:event_buscarTimeButtonActionPerformed
 
     private void simularButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simularButtonActionPerformed
-        // colocar redirecionamento para telaSimular
+        if (Campeonato.iniciarCampeonato()) {
+        this.dispose();
+        }
     }//GEN-LAST:event_simularButtonActionPerformed
 
     private void placarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placarButtonActionPerformed
