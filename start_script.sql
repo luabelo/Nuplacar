@@ -25,6 +25,7 @@ CREATE TABLE tb_times (
 	saldoGols int
 );
 
+
 CREATE TABLE tb_grupos (
     idGrupo char (1),
     time1 varchar(20),
@@ -97,5 +98,12 @@ INSERT INTO tb_grupos (idGrupo, time1, time2, time3, time4, idConjuntoGrupos) VA
 ('G', 'Brasil', 'Sérvia', 'Suíça', 'Camarões','Copa do Mundo 2022'),
 ('H', 'Portugal', 'Gana', 'Uruguai', 'Coreia do Sul','Copa do Mundo 2022');
 
-SELECT * FROM tb_times;
-SELECT * FROM tb_grupos;
+INSERT INTO tb_grupos (idGrupo, time1, time2, time3, time4, idConjuntoGrupos) VALUES
+('A', 'Russia', 'Arábia Saudita', 'Egito', 'Uruguai', 'Copa do Mundo 2018'),
+('B', 'Portugal', 'Espanha', 'Marrocos', 'Irã', 'Copa do Mundo 2018'),
+('C', 'França', 'Austrália', 'Peru', 'Dinamarca', 'Copa do Mundo 2018'),
+('D', 'Argentina', 'Islândia', 'Croácia', 'Nigéria', 'Copa do Mundo 2018'),
+('E', 'Brasil', 'Suíça', 'Costa Rica', 'Sérvia', 'Copa do Mundo 2018'),
+('F', 'Alemanhã', 'México', 'Suécia', 'Coreia do Sul', 'Copa do Mundo 2018'),
+('G', 'Bélgica', 'Panamá', 'Tunísia', 'Inglaterra','Copa do Mundo 2018'),
+('H', 'Polonia', 'Senegal', 'Colombia', 'Japão','Copa do Mundo 2018');
