@@ -579,10 +579,14 @@ public class TelaInicialAdm extends javax.swing.JFrame {
     
     private void exibirBandeira () {
     String campeao = new TimeDAO().getCampeao();
+    try {
     ImageIcon icon = new ImageIcon(getClass().getClassLoader().getResource(campeao+".png"));
     Image image = icon.getImage().getScaledInstance(120, 80, Image.SCALE_DEFAULT);
     ImageIcon imageIcon = new ImageIcon(image);
     bandeiraIconLabel.setIcon(imageIcon);
+    } catch (NullPointerException e) {
+        e.printStackTrace();
+    }
     }
 
     
