@@ -1037,8 +1037,7 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
     }//GEN-LAST:event_refazerSimulacaoButtonActionPerformed
 
     private void avancarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avancarButtonActionPerformed
-        TelaInicialAdm TIA = new TelaInicialAdm();
-        TIA.setVisible(true);
+        new TelaInicialAdm().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_avancarButtonActionPerformed
 

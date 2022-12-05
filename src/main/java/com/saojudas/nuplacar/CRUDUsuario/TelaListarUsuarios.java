@@ -1,7 +1,19 @@
-package com.saojudas.nuplacar.CRUDUsuário;;
+package com.saojudas.nuplacar.CRUDUsuario;;
 
 import com.saojudas.nuplacar.Campeonato;
 import com.saojudas.nuplacar.TelaListarGrupos;
+import com.saojudas.nuplacar.TelaInicialAdm;
+import com.saojudas.nuplacar.CRUDTime.TelaListarTimes;
+import com.saojudas.nuplacar.Campeonato;
+import com.saojudas.nuplacar.DAO.UsuarioDAO;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import com.saojudas.nuplacar.TelaInicialAdm;
+import com.saojudas.nuplacar.CRUDTime.TelaListarTimes;
+import com.saojudas.nuplacar.DAO.UsuarioDAO;
+import com.saojudas.nuplacar.TelaListarGrupos;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 import com.saojudas.nuplacar.TelaInicialAdm;
 import com.saojudas.nuplacar.CRUDTime.TelaListarTimes;
 import com.saojudas.nuplacar.DAO.UsuarioDAO;

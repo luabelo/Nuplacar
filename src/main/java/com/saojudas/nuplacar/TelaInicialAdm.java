@@ -1,6 +1,6 @@
 package com.saojudas.nuplacar;
 
-import com.saojudas.nuplacar.CRUDUsuário.TelaListarUsuarios;
+import com.saojudas.nuplacar.CRUDUsuario.TelaListarUsuarios;
 import com.saojudas.nuplacar.CRUDTime.TelaListarTimes;
 import com.saojudas.nuplacar.CRUDTime.Time;
 import com.saojudas.nuplacar.DAO.TimeDAO;
@@ -636,6 +636,8 @@ public class TelaInicialAdm extends javax.swing.JFrame {
     private javax.swing.JLabel pontosCampeaoLabel;
     private javax.swing.JTable rankTable;
     private javax.swing.JButton simularButton;
+    private javax.swing.JLabel time1Final;
+    private javax.swing.JLabel time2Final;
     private javax.swing.JLabel timeLabel;
     private javax.swing.JButton timesButton;
     private javax.swing.JLabel vitoriasCampeaoLabel;

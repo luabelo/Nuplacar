@@ -1,18 +1,33 @@
-package com.saojudas.nuplacar.CRUDUsuário;;
+package com.saojudas.nuplacar.CRUDUsuario;;
 
 import com.saojudas.nuplacar.Campeonato;
 import com.saojudas.nuplacar.TelaListarGrupos;
-import com.saojudas.nuplacar.DAO.UsuarioDAO;
-import com.saojudas.nuplacar.TelaInicialAdm;
-import com.saojudas.nuplacar.CRUDTime.TelaListarTimes;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+import com.saojudas.nuplacar.TelaInicialAdm;
+import com.saojudas.nuplacar.CRUDTime.TelaListarTimes;
+import com.saojudas.nuplacar.Campeonato;
+import com.saojudas.nuplacar.DAO.UsuarioDAO;
+import javax.swing.JOptionPane;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import com.saojudas.nuplacar.TelaInicialAdm;
+import com.saojudas.nuplacar.CRUDTime.TelaListarTimes;
+import com.saojudas.nuplacar.DAO.UsuarioDAO;
+import com.saojudas.nuplacar.TelaListarGrupos;
+import javax.swing.JOptionPane;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import com.saojudas.nuplacar.TelaInicialAdm;
+import com.saojudas.nuplacar.CRUDTime.TelaListarTimes;
+import com.saojudas.nuplacar.DAO.UsuarioDAO;
 
 
-public class TelaEditarUsuario extends javax.swing.JFrame {
 
-    public TelaEditarUsuario() {
+public class TelaDeletarUsuario extends javax.swing.JFrame {
+
+    public TelaDeletarUsuario() {
         super("Tela Inicial");
         initComponents();
         setLocationRelativeTo(null);
@@ -23,18 +38,9 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel5 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        editarUsuarioButton = new javax.swing.JButton();
+        deletarUsuarioButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        atualizaUsuarioTable = new javax.swing.JTable();
-        novoNomeTextField = new javax.swing.JTextField();
-        nomeLabel = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        novoTipoUsuarioComboBox = new javax.swing.JComboBox<>();
-        jLabel5 = new javax.swing.JLabel();
-        novaConfirmarSenhaPasswordField = new javax.swing.JPasswordField();
-        novaSenhaPasswordField = new javax.swing.JPasswordField();
+        deletaUsuarioTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         buscarIdTextField = new javax.swing.JTextField();
@@ -42,7 +48,6 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         timeLabel = new javax.swing.JLabel();
-        novoUsuarioButton = new javax.swing.JButton();
         menuLateralPanel = new javax.swing.JPanel();
         simularButton = new javax.swing.JButton();
         placarButton = new javax.swing.JButton();
@@ -56,21 +61,17 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(151, 151, 151));
-        jLabel2.setText(" Novos dados");
-
-        editarUsuarioButton.setBackground(new java.awt.Color(141, 27, 61));
-        editarUsuarioButton.setForeground(new java.awt.Color(255, 255, 255));
-        editarUsuarioButton.setText("Editar Usuário");
-        editarUsuarioButton.setBorder(null);
-        editarUsuarioButton.addActionListener(new java.awt.event.ActionListener() {
+        deletarUsuarioButton.setBackground(new java.awt.Color(141, 27, 61));
+        deletarUsuarioButton.setForeground(new java.awt.Color(255, 255, 255));
+        deletarUsuarioButton.setText("Deletar usuário");
+        deletarUsuarioButton.setBorder(null);
+        deletarUsuarioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editarUsuarioButtonActionPerformed(evt);
+                deletarUsuarioButtonActionPerformed(evt);
             }
         });
 
-        atualizaUsuarioTable.setModel(new javax.swing.table.DefaultTableModel(
+        deletaUsuarioTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -78,111 +79,36 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "IdUsuario", "Nome", "Senha", "Tipo de Usuario"
+                "ID", "Nome", "Senha", "Tipo de Usuário"
             }
         ));
-        jScrollPane1.setViewportView(atualizaUsuarioTable);
-
-        nomeLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        nomeLabel.setForeground(new java.awt.Color(151, 151, 151));
-        nomeLabel.setText(" Nome");
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(151, 151, 151));
-        jLabel3.setText("Nova senha");
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(151, 151, 151));
-        jLabel4.setText("Confirmar Senha");
-
-        novoTipoUsuarioComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Comum", "Administrador" }));
-        novoTipoUsuarioComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                novoTipoUsuarioComboBoxActionPerformed(evt);
-            }
-        });
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(151, 151, 151));
-        jLabel5.setText("Tipo de usuário");
-
-        novaConfirmarSenhaPasswordField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                novaConfirmarSenhaPasswordFieldActionPerformed(evt);
-            }
-        });
+        jScrollPane1.setViewportView(deletaUsuarioTable);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(151, 151, 151));
-        jLabel1.setText(" Dados atuais");
+        jLabel1.setText("Dados atuais");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(157, 157, 157)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(editarUsuarioButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 739, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
-                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(nomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                                .addGap(6, 6, 6)
-                                                .addComponent(novoNomeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(novoTipoUsuarioComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel5))))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(116, 116, 116))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(novaConfirmarSenhaPasswordField, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
-                                    .addComponent(novaSenhaPasswordField, javax.swing.GroupLayout.Alignment.LEADING))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(160, 160, 160)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 732, Short.MAX_VALUE)
+                    .addComponent(deletarUsuarioButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(120, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nomeLabel)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(novoNomeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(novoTipoUsuarioComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(novaSenhaPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(novaConfirmarSenhaPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(editarUsuarioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(deletarUsuarioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -238,16 +164,7 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
 
         timeLabel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 30)); // NOI18N
         timeLabel.setForeground(new java.awt.Color(151, 151, 151));
-        timeLabel.setText("Editar Usuário");
-
-        novoUsuarioButton.setBackground(new java.awt.Color(141, 27, 61));
-        novoUsuarioButton.setForeground(new java.awt.Color(255, 255, 255));
-        novoUsuarioButton.setText("Novo Usuário");
-        novoUsuarioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                novoUsuarioButtonActionPerformed(evt);
-            }
-        });
+        timeLabel.setText("Deletar Usuário");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -259,18 +176,14 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(timeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(novoUsuarioButton)
-                .addGap(75, 75, 75))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(timeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(novoUsuarioButton))
+                .addComponent(timeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -372,16 +285,15 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addContainerGap(9, Short.MAX_VALUE)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(gerenciarUsuariosButton2)))
-                .addGap(47, 47, 47))
+                        .addComponent(gerenciarUsuariosButton2))
+                    .addComponent(jLabel6))
+                .addGap(55, 55, 55))
         );
 
         javax.swing.GroupLayout menuLateralPanelLayout = new javax.swing.GroupLayout(menuLateralPanel);
@@ -413,8 +325,8 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
                 .addComponent(timesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(simularButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -438,7 +350,7 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addComponent(menuLateralPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -446,12 +358,6 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void novoUsuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoUsuarioButtonActionPerformed
-        TelaCadastrarUsuario TCU = new TelaCadastrarUsuario();
-        TCU.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_novoUsuarioButtonActionPerformed
 
     private void simularButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simularButtonActionPerformed
         if (Campeonato.iniciarCampeonato()) {
@@ -478,10 +384,10 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_timesButtonActionPerformed
 
     private void buscarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarUsuarioActionPerformed
-            UsuarioDAO usuarioDao = new UsuarioDAO();
+        UsuarioDAO usuarioDao = new UsuarioDAO();
             int id = Integer.parseInt(buscarIdTextField.getText());
             ArrayList<Usuario> list = usuarioDao.obterUsuarioId(id);
-            DefaultTableModel model = (DefaultTableModel)atualizaUsuarioTable.getModel();
+            DefaultTableModel model = (DefaultTableModel)deletaUsuarioTable.getModel();
             model.setRowCount(0);
             Object[] row = new Object[4];
             for (int i = 0;i < list.size();i++) {
@@ -493,42 +399,31 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
             }  
     }//GEN-LAST:event_buscarUsuarioActionPerformed
 
-    private void editarUsuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarUsuarioButtonActionPerformed
-        UsuarioDAO usuarioDao = new UsuarioDAO();
-        int id = Integer.parseInt(buscarIdTextField.getText());
-        String novoNome = novoNomeTextField.getText();
-        String novaSenha = new String(novaSenhaPasswordField.getPassword());
-        String confirmarNovaSenha = new String(novaConfirmarSenhaPasswordField.getPassword());
-        String novoTipoUsuario = novoTipoUsuarioComboBox.getSelectedItem().toString();
-        
-        Usuario usuario = new Usuario (id, novoNome, novaSenha,novoTipoUsuario);
-        usuarioDao.atualizarUsuario(usuario);
-        
-        if (novaSenha.equals(confirmarNovaSenha)) {
-                JOptionPane.showMessageDialog(null,"Usuário atualizado com sucesso", "NuPlacar",1);
-                mostrarUsuarioAtualizado();
-            } else {
-                JOptionPane.showMessageDialog(null,"Senhas não coincidem. Tente novamente", "Erro",2);
-            }
-    }//GEN-LAST:event_editarUsuarioButtonActionPerformed
-
     private void buscarIdTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarIdTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buscarIdTextFieldActionPerformed
 
-    private void novoTipoUsuarioComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoTipoUsuarioComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_novoTipoUsuarioComboBoxActionPerformed
+    private void deletarUsuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarUsuarioButtonActionPerformed
+        UsuarioDAO usuarioDao = new UsuarioDAO();
+        int id = Integer.parseInt(buscarIdTextField.getText());
+        
+        int confirmacao = JOptionPane.showConfirmDialog(null,
+                "Essa ação é irreversível. Deseja continuar?",
+                "Atenção",
+                JOptionPane.YES_NO_OPTION,2);
+        if (confirmacao == JOptionPane.YES_OPTION) {
+            usuarioDao.deletarUsuario(id);
+            atualizarUsuarioDeletado();
+            JOptionPane.showMessageDialog(null, "Usuário deletado com sucesso","NuPlacar",1);
+        } else if (confirmacao == JOptionPane.NO_OPTION){
+        }
+    }//GEN-LAST:event_deletarUsuarioButtonActionPerformed
 
     private void gerenciarUsuariosButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerenciarUsuariosButton2ActionPerformed
         TelaListarUsuarios TLU = new TelaListarUsuarios();
         TLU.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_gerenciarUsuariosButton2ActionPerformed
-
-    private void novaConfirmarSenhaPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novaConfirmarSenhaPasswordFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_novaConfirmarSenhaPasswordFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -547,14 +442,30 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaEditarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaDeletarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaEditarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaDeletarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaEditarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaDeletarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaEditarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaDeletarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -575,16 +486,16 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaEditarUsuario().setVisible(true);
+                new TelaDeletarUsuario().setVisible(true);
             }
         });
     }
     
-    private void mostrarUsuarioAtualizado() {
-            UsuarioDAO usuarioDao = new UsuarioDAO();
+    private void atualizarUsuarioDeletado() {
+        UsuarioDAO usuarioDao = new UsuarioDAO();
             int id = Integer.parseInt(buscarIdTextField.getText());
             ArrayList<Usuario> list = usuarioDao.obterUsuarioId(id);
-            DefaultTableModel model = (DefaultTableModel)atualizaUsuarioTable.getModel();
+            DefaultTableModel model = (DefaultTableModel)deletaUsuarioTable.getModel();
             model.setRowCount(0);
             Object[] row = new Object[4];
             for (int i = 0;i < list.size();i++) {
@@ -593,21 +504,17 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
                 row[2] = list.get(i).getSenha();
                 row[3] = list.get(i).getTipoUsuario();
                 model.addRow(row);
-            }  
+            } 
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable atualizaUsuarioTable;
     private javax.swing.JTextField buscarIdTextField;
     private javax.swing.JButton buscarUsuario;
-    private javax.swing.JButton editarUsuarioButton;
+    private javax.swing.JTable deletaUsuarioTable;
+    private javax.swing.JButton deletarUsuarioButton;
     private javax.swing.JButton gerenciarUsuariosButton2;
     private javax.swing.JButton gruposButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel2;
@@ -618,12 +525,6 @@ public class TelaEditarUsuario extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel logoLabel;
     private javax.swing.JPanel menuLateralPanel;
-    private javax.swing.JLabel nomeLabel;
-    private javax.swing.JPasswordField novaConfirmarSenhaPasswordField;
-    private javax.swing.JPasswordField novaSenhaPasswordField;
-    private javax.swing.JTextField novoNomeTextField;
-    private javax.swing.JComboBox<String> novoTipoUsuarioComboBox;
-    private javax.swing.JButton novoUsuarioButton;
     private javax.swing.JButton placarButton;
     private javax.swing.JButton simularButton;
     private javax.swing.JLabel timeLabel;

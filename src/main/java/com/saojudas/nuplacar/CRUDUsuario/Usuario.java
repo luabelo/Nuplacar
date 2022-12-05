@@ -1,4 +1,4 @@
-package com.saojudas.nuplacar.CRUDUsuário;
+package com.saojudas.nuplacar.CRUDUsuario;
 
 public class Usuario {
     private int id;

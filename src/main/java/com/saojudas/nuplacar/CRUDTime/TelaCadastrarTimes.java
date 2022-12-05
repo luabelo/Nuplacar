@@ -1,7 +1,8 @@
 package com.saojudas.nuplacar.CRUDTime;;
 
 import com.saojudas.nuplacar.Campeonato;
-import com.saojudas.nuplacar.CRUDUsuário.TelaListarUsuarios;
+import com.saojudas.nuplacar.CRUDUsuario.TelaListarUsuarios;
+import com.saojudas.nuplacar.Campeonato;
 import com.saojudas.nuplacar.TelaListarGrupos;
 import com.saojudas.nuplacar.TelaInicialAdm;
 import com.saojudas.nuplacar.DAO.TimeDAO;
@@ -14,6 +15,21 @@ import javax.swing.JFileChooser;
 import java.awt.Image;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import com.saojudas.nuplacar.ConexaoBD;
+import com.saojudas.nuplacar.CRUDUsuario.TelaListarUsuarios;
+import com.saojudas.nuplacar.TelaListarGrupos;
+import com.saojudas.nuplacar.TelaInicialAdm;
+import com.saojudas.nuplacar.DAO.TimeDAO;
+import javax.swing.JOptionPane;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import java.awt.Image;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import com.saojudas.nuplacar.ConexaoBD;
 
 public class TelaCadastrarTimes extends javax.swing.JFrame {

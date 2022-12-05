@@ -2,7 +2,7 @@ package com.saojudas.nuplacar.DAO;
 
 import com.saojudas.nuplacar.Administrador;
 import com.saojudas.nuplacar.ConexaoBD;
-import com.saojudas.nuplacar.CRUDUsuário.Usuario;
+import com.saojudas.nuplacar.CRUDUsuario.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
