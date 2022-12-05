@@ -7,8 +7,8 @@ import com.saojudas.nuplacar.CRUDTime.Time;
 
 public class TelaSimularMataMata extends javax.swing.JFrame {
     
-    private Campeonato campeonato;
-    private Campeonato campeonatoFaseGrupo;
+    public Campeonato campeonato;
+    public Campeonato campeonatoFaseGrupo;
     
     public TelaSimularMataMata(Campeonato campeonato) {
         super("Simulação Mata-mata");
@@ -24,6 +24,7 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
         }
         setJogosIniciais();
         simularFaseMataMata();
+        getCampeao();
     }
     
     
@@ -112,6 +113,8 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
         jLabel70 = new javax.swing.JLabel();
         Time2Jogo10GolsLabel = new javax.swing.JLabel();
         Time1Jogo10GolsLabel = new javax.swing.JLabel();
+        campeaoLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -616,6 +619,16 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
         Time1Jogo10GolsLabel.setAlignmentX(1.0F);
         Time1Jogo10GolsLabel.setOpaque(true);
 
+        campeaoLabel.setBackground(new java.awt.Color(255, 255, 255));
+        campeaoLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        campeaoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        campeaoLabel.setText(" ");
+        campeaoLabel.setAlignmentX(1.0F);
+        campeaoLabel.setOpaque(true);
+
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Campeão");
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -623,12 +636,6 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(403, 403, 403)
-                        .addComponent(jLabel67)
-                        .addGap(360, 360, 360)
-                        .addComponent(jLabel68)
-                        .addContainerGap())
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(Time1Jogo1Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -652,15 +659,13 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
                                                             .addComponent(Time1Jogo11GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                             .addComponent(Time2Jogo11GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                             .addComponent(Time1Jogo12GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addComponent(Time2Jogo12GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                            .addComponent(Time2Jogo12GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(SimularButton)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(refazerSimulacaoButton)))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(jLabel1)
+                                                        .addGap(310, 310, 310)))
                                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(avancarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(Time2Jogo11Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(Time1Jogo11Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addGroup(jPanel5Layout.createSequentialGroup()
@@ -668,10 +673,6 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
                                                         .addComponent(jLabel65)
                                                         .addGap(49, 49, 49)
                                                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                                                .addComponent(Time1Jogo5GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(Time1Jogo5Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                             .addGroup(jPanel5Layout.createSequentialGroup()
                                                                 .addComponent(Time2Jogo5GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -692,10 +693,26 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
                                                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                                     .addComponent(Time1Jogo7Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                     .addComponent(Time2Jogo6Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                    .addComponent(Time2Jogo7Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                                                    .addComponent(Time2Jogo7Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                                                .addComponent(Time1Jogo5GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(Time1Jogo5Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                                     .addComponent(Time1Jogo12Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(Time2Jogo12Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGap(0, 0, Short.MAX_VALUE))
+                                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                                .addGap(208, 208, 208)
+                                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                                        .addComponent(Time2Jogo15Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(Time2Jogo15GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                                        .addComponent(Time1Jogo15Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(Time1Jogo15GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addContainerGap(580, Short.MAX_VALUE))
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -708,29 +725,23 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
                                                         .addComponent(filler2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addGap(226, 226, 226))
                                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                                                        .addComponent(Time2Jogo8GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(Time2Jogo8Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(18, 18, 18))))
-                                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(jPanel5Layout.createSequentialGroup()
-                                                        .addGap(208, 208, 208)
-                                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                                                .addComponent(Time2Jogo15Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(Time1Jogo8GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(Time2Jogo15GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addComponent(Time1Jogo8Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                                                .addComponent(Time1Jogo15Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(Time2Jogo8GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(Time1Jogo15GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                                    .addGroup(jPanel5Layout.createSequentialGroup()
-                                                        .addGap(782, 782, 782)
-                                                        .addComponent(Time1Jogo8GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(Time2Jogo8Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                        .addContainerGap())
+                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                                                        .addComponent(SimularButton)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(Time1Jogo8Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                .addContainerGap(18, Short.MAX_VALUE))))
+                                                        .addComponent(refazerSimulacaoButton)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(avancarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(247, 247, 247))))))
                                     .addGroup(jPanel5Layout.createSequentialGroup()
                                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(Time2Jogo10Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -749,6 +760,12 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(Time1Jogo1GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap())))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(403, 403, 403)
+                        .addComponent(jLabel67)
+                        .addGap(360, 360, 360)
+                        .addComponent(jLabel68)
+                        .addContainerGap())
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -775,19 +792,19 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(Time1Jogo2GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel5Layout.createSequentialGroup()
-                                    .addComponent(Time1Jogo3Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(Time1Jogo3GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel5Layout.createSequentialGroup()
-                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addGroup(jPanel5Layout.createSequentialGroup()
                                             .addGap(378, 378, 378)
-                                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(Time2Jogo13Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(Time1Jogo13Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(Time1Jogo13Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                                             .addComponent(Time2Jogo2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(378, 378, 378)))
+                                            .addGap(378, 378, 378))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                                            .addComponent(Time1Jogo3Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(Time1Jogo3GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(Time2Jogo13Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel5Layout.createSequentialGroup()
                                             .addGap(43, 43, 43)
@@ -796,11 +813,13 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
                                                     .addComponent(Time2Jogo16Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                     .addComponent(Time2Jogo16GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGroup(jPanel5Layout.createSequentialGroup()
-                                                    .addComponent(Time1Jogo16Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(Time1Jogo16GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addComponent(FaseGruposLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                                        .addComponent(Time1Jogo16Label, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(Time1Jogo16GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(FaseGruposLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(campeaoLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                         .addGroup(jPanel5Layout.createSequentialGroup()
                                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(Time1Jogo13GolsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -820,7 +839,7 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
                                 .addComponent(jLabel66)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel24)
-                        .addGap(156, 156, 156))))
+                        .addGap(44, 44, 44))))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -837,7 +856,7 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
                             .addComponent(Time2Jogo11GolsLabel))
                         .addGap(18, 18, 18)
                         .addComponent(filler3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                         .addComponent(filler2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
                         .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -859,19 +878,19 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
                             .addComponent(Time2Jogo13GolsLabel))
                         .addComponent(jLabel70))
                     .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel66)
+                            .addComponent(FaseGruposLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel24))
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel66)
-                                    .addComponent(FaseGruposLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel24)))
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(73, 73, 73)
+                                .addGap(4, 4, 4)
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(campeaoLabel)
+                                .addGap(28, 28, 28)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(Time1Jogo9Label)
                                     .addComponent(Time1Jogo9GolsLabel)))
@@ -924,14 +943,14 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(Time2Jogo2GolsLabel)
                                     .addComponent(Time2Jogo2Label))))
-                        .addGap(77, 77, 77)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Time1Jogo3Label)
-                            .addComponent(Time1Jogo3GolsLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Time1Jogo7GolsLabel)
-                            .addComponent(Time1Jogo7Label))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(Time1Jogo7GolsLabel)
+                                .addComponent(Time1Jogo7Label))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(Time1Jogo3Label)
+                                .addComponent(Time1Jogo3GolsLabel)))
                         .addGap(5, 5, 5)))
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
@@ -941,7 +960,7 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(Time2Jogo3Label)
                                     .addComponent(Time2Jogo3GolsLabel))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(Time1Jogo10Label)
                                     .addComponent(Time1Jogo12Label)
@@ -1012,12 +1031,14 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
         try {
             campeonato.zerarJogosFaseMataMata();
             simularFaseMataMata();
+            getCampeao();
         }
         catch (Exception e) {}
     }//GEN-LAST:event_refazerSimulacaoButtonActionPerformed
 
     private void avancarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avancarButtonActionPerformed
-        // TODO add your handling code here:
+        TelaInicialAdm TIA = new TelaInicialAdm();
+        TIA.setVisible(true);
     }//GEN-LAST:event_avancarButtonActionPerformed
 
     /**
@@ -1058,7 +1079,7 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 String conjuntoGrupos = null;
-                new TelaSimularMataMata(new Campeonato(GrupoDAO.listarGruposCompletos("Copa do Mundo 2022"))).setVisible(true);
+                new TelaSimularMataMata(new Campeonato(GrupoDAO.listarGruposCompletos(conjuntoGrupos))).setVisible(true);
             }
         });
     }
@@ -1078,8 +1099,8 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
     private javax.swing.JLabel Time1Jogo14Label;
     private javax.swing.JLabel Time1Jogo15GolsLabel;
     private javax.swing.JLabel Time1Jogo15Label;
-    private javax.swing.JLabel Time1Jogo16GolsLabel;
-    private javax.swing.JLabel Time1Jogo16Label;
+    public javax.swing.JLabel Time1Jogo16GolsLabel;
+    public javax.swing.JLabel Time1Jogo16Label;
     private javax.swing.JLabel Time1Jogo1GolsLabel;
     private javax.swing.JLabel Time1Jogo1Label;
     private javax.swing.JLabel Time1Jogo2GolsLabel;
@@ -1110,8 +1131,8 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
     private javax.swing.JLabel Time2Jogo14Label;
     private javax.swing.JLabel Time2Jogo15GolsLabel;
     private javax.swing.JLabel Time2Jogo15Label;
-    private javax.swing.JLabel Time2Jogo16GolsLabel;
-    private javax.swing.JLabel Time2Jogo16Label;
+    public javax.swing.JLabel Time2Jogo16GolsLabel;
+    public javax.swing.JLabel Time2Jogo16Label;
     private javax.swing.JLabel Time2Jogo1GolsLabel;
     private javax.swing.JLabel Time2Jogo1Label;
     private javax.swing.JLabel Time2Jogo2GolsLabel;
@@ -1131,9 +1152,11 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
     private javax.swing.JLabel Time2Jogo9GolsLabel;
     private javax.swing.JLabel Time2Jogo9Label;
     private javax.swing.JButton avancarButton;
+    public javax.swing.JLabel campeaoLabel;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
     private javax.swing.Box.Filler filler3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel64;
     private javax.swing.JLabel jLabel65;
@@ -1271,5 +1294,12 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
         Time1Jogo16GolsLabel.setText(Integer.toString(campeonato.getPartidasFinal().get(1).getGolsTime1()));
         Time2Jogo16GolsLabel.setText(Integer.toString(campeonato.getPartidasFinal().get(1).getGolsTime2()));
     }
-
+    
+     public void getCampeao() {
+        if (Integer.parseInt(Time1Jogo16GolsLabel.getText()) >  Integer.parseInt(Time2Jogo16GolsLabel.getText())) {
+        campeaoLabel.setText(Time1Jogo16Label.getText());
+        } else {
+        campeaoLabel.setText(Time2Jogo16Label.getText());
+        }
+        }
 }

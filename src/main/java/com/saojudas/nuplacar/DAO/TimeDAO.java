@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Optional;
 import com.saojudas.nuplacar.CRUDTime.Time;
 
 public class TimeDAO {
@@ -133,7 +132,7 @@ public class TimeDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
-}
+    }
     
     public ArrayList<Time> obterTimes() {
         ArrayList timeList = new ArrayList<TimeDAO>();
@@ -234,5 +233,137 @@ public class TimeDAO {
         }    
         return false;
     }
+     
+    
+    public ArrayList<Time> listarRankTimes(){
+        ArrayList<Time> times = new ArrayList<>();
+        try (
+            Connection conexao = ConexaoBD.obtemConexao();
+        ){
+            String sql = "SELECT * FROM tb_times";
+            PreparedStatement ps = conexao.prepareStatement(sql);
+            ps.execute();
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    times.add(new Time(
+                            rs.getString("nome"),
+                            rs.getInt("pontos"),
+                            rs.getInt("jogos"),
+                            rs.getInt("vitorias"),
+                            rs.getInt("empates"),
+                            rs.getInt("derrotas"),
+                            rs.getInt("golPro")
+                            ));
+                }
+            }
+        }
+        catch(SQLException ex){
+            ex.printStackTrace();
+        }
+        return times;
+    }
+    
+    public String getCampeao(){   
+    String returned = null;
+    try {
+        Connection conexao = ConexaoBD.obtemConexao();
+        String sql = "SELECT nome, pontos FROM tb_times WHERE pontos = (SELECT MAX(pontos) FROM tb_times)";
+        PreparedStatement pstm = conexao.prepareStatement(sql);
+        ResultSet rs = pstm.executeQuery();
+        while(rs.next())
+        {
+            returned = rs.getString("nome");
+        }
+    } catch (Exception e){
+    }
+    return returned;
+    }
+    
+    public String getJogosCampeao(String campeao){   
+    String returned = null;
+    try {
+        Connection conexao = ConexaoBD.obtemConexao();
+        String sql = "SELECT jogos FROM tb_times WHERE nome = ?";
+        PreparedStatement pstm = conexao.prepareStatement(sql);
+        pstm.setString(1, campeao);
+        ResultSet rs = pstm.executeQuery();
+        while(rs.next())
+        {
+            returned = rs.getString("jogos");
+        }
+    } catch (Exception e){
+    }
+    return returned;
+    }
+    
+    public String getVitoriasCampeao(String campeao){   
+    String returned = null;
+    try {
+        Connection conexao = ConexaoBD.obtemConexao();
+        String sql = "SELECT vitorias FROM tb_times WHERE nome = ?";
+        PreparedStatement pstm = conexao.prepareStatement(sql);
+        pstm.setString(1, campeao);
+        ResultSet rs = pstm.executeQuery();
+        while(rs.next())
+        {
+            returned = rs.getString("vitorias");
+        }
+    } catch (Exception e){
+    }
+    return returned;
+    }
+        
+    public String getDerrotasCampeao(String campeao){   
+    String returned = null;
+    try {
+        Connection conexao = ConexaoBD.obtemConexao();
+        String sql = "SELECT derrotas FROM tb_times WHERE nome = ?";
+        PreparedStatement pstm = conexao.prepareStatement(sql);
+        pstm.setString(1, campeao);
+        ResultSet rs = pstm.executeQuery();
+        while(rs.next())
+        {
+            returned = rs.getString("derrotas");
+        }
+    } catch (Exception e){
+    }
+    return returned;
+    }
+    
+    public String getEmpatesCampeao(String campeao){   
+    String returned = null;
+    try {
+        Connection conexao = ConexaoBD.obtemConexao();
+        String sql = "SELECT empates FROM tb_times WHERE nome = ?";
+        PreparedStatement pstm = conexao.prepareStatement(sql);
+        pstm.setString(1, campeao);
+        ResultSet rs = pstm.executeQuery();
+        while(rs.next())
+        {
+            returned = rs.getString("empates");
+        }
+    } catch (Exception e){
+    }
+    return returned;
+    }
+    
+    public String getGolsCampeao(String campeao){   
+    String returned = null;
+    try {
+        Connection conexao = ConexaoBD.obtemConexao();
+        String sql = "SELECT golPro FROM tb_times WHERE nome = ?";
+        PreparedStatement pstm = conexao.prepareStatement(sql);
+        pstm.setString(1, campeao);
+        ResultSet rs = pstm.executeQuery();
+        while(rs.next())
+        {
+            returned = rs.getString("golPro");
+        }
+    } catch (Exception e){
+    }
+    return returned;
+    }
+    
 }
+
 

@@ -2,13 +2,27 @@ package com.saojudas.nuplacar;
 
 import com.saojudas.nuplacar.CRUDUsuário.TelaListarUsuarios;
 import com.saojudas.nuplacar.CRUDTime.TelaListarTimes;
+import com.saojudas.nuplacar.CRUDTime.Time;
+import com.saojudas.nuplacar.DAO.TimeDAO;
+import java.awt.Image;
+import java.util.ArrayList;
+import javax.swing.ImageIcon;
+import javax.swing.RowSorter;
+import javax.swing.SortOrder;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 public class TelaInicialAdm extends javax.swing.JFrame {
+    
 
     public TelaInicialAdm() {
-        super("Tela Inicial");
+        super("Tela Inicial Adm");
         initComponents();
         setLocationRelativeTo(null);
+        mostrarRank();
+        dadosCampeao();
+        exibirBandeira ();
     }
 
     @SuppressWarnings("unchecked")
@@ -32,6 +46,24 @@ public class TelaInicialAdm extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         bemVindoAdminTitulo = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jScrollBar1 = new javax.swing.JScrollBar();
+        jLabel2 = new javax.swing.JLabel();
+        campeaoLabel = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        rankTable = new javax.swing.JTable();
+        bandeiraLabel = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        golsCampeaoLabel = new javax.swing.JLabel();
+        derrotasCampeaoLabel = new javax.swing.JLabel();
+        empateCampeaoLabel = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        pontosCampeaoLabel = new javax.swing.JLabel();
+        vitoriasCampeaoLabel = new javax.swing.JLabel();
+        bandeiraIconLabel = new javax.swing.JLabel();
 
         jPanel2.setBackground(java.awt.SystemColor.controlHighlight);
 
@@ -213,7 +245,7 @@ public class TelaInicialAdm extends javax.swing.JFrame {
                 .addComponent(simularButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel4.setBackground(java.awt.SystemColor.controlHighlight);
@@ -254,15 +286,163 @@ public class TelaInicialAdm extends javax.swing.JFrame {
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel2.setText("Campeão");
+        jLabel2.setToolTipText("");
+
+        campeaoLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        campeaoLabel.setText("Simulando...");
+
+        rankTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Time", "P", "J", "V", "E", "D", "G"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(rankTable);
+
+        jLabel10.setText("Empate:");
+
+        jLabel12.setText("Derrotas:");
+
+        jLabel14.setText("Gols:");
+
+        golsCampeaoLabel.setText("0");
+
+        derrotasCampeaoLabel.setText("0");
+
+        empateCampeaoLabel.setText("0");
+
+        jLabel8.setText("Vitórias:");
+
+        jLabel6.setText("Jogos:");
+
+        pontosCampeaoLabel.setText("0");
+
+        vitoriasCampeaoLabel.setText("0");
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(derrotasCampeaoLabel))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(golsCampeaoLabel))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(empateCampeaoLabel))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel8))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(pontosCampeaoLabel)
+                                    .addComponent(vitoriasCampeaoLabel))))))
+                .addContainerGap(33, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(pontosCampeaoLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(vitoriasCampeaoLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(empateCampeaoLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(derrotasCampeaoLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(golsCampeaoLabel)))
+        );
+
+        bandeiraIconLabel.setBackground(new java.awt.Color(255, 255, 255));
+        bandeiraIconLabel.setForeground(new java.awt.Color(255, 255, 255));
+        bandeiraIconLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        bandeiraIconLabel.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        bandeiraIconLabel.setOpaque(true);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 73, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 910, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(438, 438, 438)
+                                .addComponent(jLabel2))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(243, 243, 243)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(bandeiraIconLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(campeaoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE))
+                                .addGap(49, 49, 49)
+                                .addComponent(bandeiraLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(38, 38, 38)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bandeiraLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(bandeiraIconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(campeaoLabel)))
+                        .addGap(98, 98, 98)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -350,24 +530,100 @@ public class TelaInicialAdm extends javax.swing.JFrame {
             }
         });
     }
+    
+    private void mostrarRank() {
+        TimeDAO timeDAO = new TimeDAO();
+        ArrayList<Time> lista = timeDAO.listarRankTimes();
+        DefaultTableModel modelo = (DefaultTableModel)rankTable.getModel(); 
+        TableRowSorter<TableModel> sorter = new TableRowSorter<>(rankTable.getModel());
+        ArrayList<RowSorter.SortKey> sortKeys = new ArrayList<RowSorter.SortKey>();
+        rankTable.setRowSorter(sorter);
+        sortKeys.add(new RowSorter.SortKey(1, SortOrder.DESCENDING));
+        sorter.setSortKeys(sortKeys);
+        sorter.sort();  
+        modelo.setRowCount(0); 
+            Object[] row = new Object[7]; 
+            for (int i = 0;i < lista.size();i++) { 
+                row[0] = lista.get(i).getNome(); 
+                row[1] = lista.get(i).getPontos(); 
+                row[2] = lista.get(i).getJogos();
+                row[3] = lista.get(i).getVitorias();
+                row[4] = lista.get(i).getEmpates();
+                row[5] = lista.get(i).getDerrotas();
+                row[6] = lista.get(i).getGolPro();
+        modelo.addRow(row); 
+            }    
+    }
 
+    
+    private void dadosCampeao(){
+        String campeao = new TimeDAO().getCampeao();
+        campeaoLabel.setText(campeao);
+        
+        String pontosCampeao = new TimeDAO().getJogosCampeao(campeao);
+        pontosCampeaoLabel.setText(pontosCampeao);
+        
+        String vitoriasCampeao = new TimeDAO().getVitoriasCampeao(campeao);
+        vitoriasCampeaoLabel.setText(vitoriasCampeao);
+        
+        String empatesCampeao = new TimeDAO().getEmpatesCampeao(campeao);
+        empateCampeaoLabel.setText(empatesCampeao);
+        
+        String derrotasCampeao = new TimeDAO().getDerrotasCampeao(campeao);
+        derrotasCampeaoLabel.setText(derrotasCampeao);
+        
+        String golsCampeao = new TimeDAO().getGolsCampeao(campeao);
+        golsCampeaoLabel.setText(golsCampeao);        
+    }
+    
+    
+    private void exibirBandeira () {
+    String campeao = new TimeDAO().getCampeao();
+    ImageIcon icon = new ImageIcon(getClass().getClassLoader().getResource(campeao+".png"));
+    Image image = icon.getImage().getScaledInstance(120, 80, Image.SCALE_DEFAULT);
+    ImageIcon imageIcon = new ImageIcon(image);
+    bandeiraIconLabel.setIcon(imageIcon);
+    }
+
+    
+
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel bandeiraIconLabel;
+    private javax.swing.JLabel bandeiraLabel;
     private javax.swing.JLabel bemVindoAdminTitulo;
+    private javax.swing.JLabel campeaoLabel;
+    private javax.swing.JLabel derrotasCampeaoLabel;
+    private javax.swing.JLabel empateCampeaoLabel;
     private javax.swing.JButton gerenciarUsuariosButton;
+    private javax.swing.JLabel golsCampeaoLabel;
     private javax.swing.JButton gruposButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JScrollBar jScrollBar1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel logoLabel;
     private javax.swing.JPanel menuLateralPanel;
     private javax.swing.JButton placarButton;
+    private javax.swing.JLabel pontosCampeaoLabel;
+    private javax.swing.JTable rankTable;
     private javax.swing.JButton simularButton;
     private javax.swing.JLabel timeLabel;
     private javax.swing.JButton timesButton;
+    private javax.swing.JLabel vitoriasCampeaoLabel;
     // End of variables declaration//GEN-END:variables
 }

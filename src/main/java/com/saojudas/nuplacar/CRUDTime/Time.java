@@ -28,6 +28,16 @@ public class Time {
     public Time(String nome) {
         this.nome = nome;
     }
+    
+    public Time(String nome, int pontos, int jogos, int vitorias, int empates, int derrotas, int golPro) {
+        this.nome = nome;
+        this.pontos = pontos;
+        this.jogos = jogos;
+        this.vitorias = vitorias;
+        this.empates = empates;
+        this.derrotas = derrotas;
+        this.golPro = golPro;
+    }
 
     public Time (String nome, byte[] bandeira) {
         this.nome = nome;
