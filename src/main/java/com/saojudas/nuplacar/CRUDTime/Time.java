@@ -187,29 +187,28 @@ public class Time {
 
     }
 
-    public void ganhouPartida(int gols) {
-        setGolPro(getGolPro() + gols);
+    public void ganhouPartida(int golsFeitos, int golsLevados) {
+        setGolPro(getGolPro() + golsFeitos);
         setVitorias(getVitorias() + 1);
         setPontos(getPontos() + 3);
         setJogos(getJogos() + 1);
-        setSaldoGols(getSaldoGols() + gols);
+        setSaldoGols(getSaldoGols() + (golsFeitos - golsLevados));
         TimeDAO.atualizaStatus(this);
     }
 
-    public void perdeuPartida(int gols) {
-        setGolPro(getGolPro() + gols);
+    public void perdeuPartida(int golsFeitos, int golsLevados) {
+        setGolPro(getGolPro() + golsFeitos);
         setDerrotas(getDerrotas() + 1);
         setJogos(getJogos() + 1);
-        setSaldoGols(getSaldoGols() + gols);
+        setSaldoGols(getSaldoGols() + (golsFeitos - golsLevados));
         TimeDAO.atualizaStatus(this);
     }
 
-    public void empatouPartida(int gols) {
-        setGolPro(getGolPro() + gols);
+    public void empatouPartida(int golsFeitos) {
+        setGolPro(getGolPro() + golsFeitos);
         setEmpates(getEmpates() + 1);
         setPontos(getPontos() + 1);
-        setJogos(getJogos() + 1);
-        setSaldoGols(getSaldoGols() + gols);
+        setJogos(getJogos() + 1); 
         TimeDAO.atualizaStatus(this);
     }
     

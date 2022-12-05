@@ -389,7 +389,7 @@ public class TelaListarUsuarios extends javax.swing.JFrame {
 
     private void simularButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simularButtonActionPerformed
         if (Campeonato.iniciarCampeonato()) {
-        this.dispose();
+            this.dispose();
         }
     }//GEN-LAST:event_simularButtonActionPerformed
 

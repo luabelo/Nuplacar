@@ -79,16 +79,16 @@ public class Partida {
     private void atualizarStatusTimes() {
         if (partidaFinalizada) {
             if (golsTime1 > golsTime2) {
-                time1.ganhouPartida(golsTime1);
-                time2.perdeuPartida(golsTime2);
+                time1.ganhouPartida(golsTime1, golsTime2);
+                time2.perdeuPartida(golsTime2, golsTime1);
             }
             else if (golsTime1 == golsTime2) {
                 time1.empatouPartida(golsTime1);
                 time2.empatouPartida(golsTime2);
             }
             else {
-                time1.perdeuPartida(golsTime1);
-                time2.ganhouPartida(golsTime2);
+                time1.perdeuPartida(golsTime1, golsTime2);
+                time2.ganhouPartida(golsTime2, golsTime1);
             }
         }
         else {
