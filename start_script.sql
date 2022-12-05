@@ -26,11 +26,11 @@ CREATE TABLE tb_times (
 );
 
 CREATE TABLE tb_grupos (
-	idGrupo char (1),
-	time1 varchar(20),
-	time2 varchar(20),
-	time3 varchar(20),
-	time4 varchar(20),
+    idGrupo char (1),
+    time1 varchar(20),
+    time2 varchar(20),
+    time3 varchar(20),
+    time4 varchar(20),
     idConjuntoGrupos varchar(20)
     );
 
@@ -77,7 +77,15 @@ INSERT INTO tb_times (nome, bandeira) VALUES
 ('Portugal','@var1\portugal.png'),
 ('Gana','@var1\gana.png'),
 ('Uruguai','@var1\uruguai.png'),
-('Coreia Do Sul','@var1\coreia-do-sul.png');
+('Coreia Do Sul','@var1\coreia-do-sul.png'),
+('Russia','@var1\russia.png'), 
+('Egito','@var1\egito.png'), 
+('Peru','@var1\peru.png'), 
+('Islândia','@var1\islandia.png'), 
+('Nigéria','@var1\nigeria.png'), 
+('Suécia','@var1\suecia.png'), 
+('Panamá','@var1\panama.png'), 
+('Colombia','@var1\colombia.png');
 
 INSERT INTO tb_grupos (idGrupo, time1, time2, time3, time4, idConjuntoGrupos) VALUES
 ('A', 'Qatar', 'Equador', 'Senegal', 'Holanda', 'Copa do Mundo 2022'),
@@ -89,4 +97,5 @@ INSERT INTO tb_grupos (idGrupo, time1, time2, time3, time4, idConjuntoGrupos) VA
 ('G', 'Brasil', 'Sérvia', 'Suíça', 'Camarões','Copa do Mundo 2022'),
 ('H', 'Portugal', 'Gana', 'Uruguai', 'Coreia do Sul','Copa do Mundo 2022');
 
-SELECT * FROM tb_times
+SELECT * FROM tb_times;
+SELECT * FROM tb_grupos;
