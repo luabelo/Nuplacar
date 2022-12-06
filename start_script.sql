@@ -54,6 +54,8 @@ CREATE TABLE tb_campeonatos (
 	finalizado bool
 );
 
+SELECT * FROM tb_campeonatos;
+
 -- adicionar o caminho até a pasta resources
 SET @var1 = 'C:\Users\luana\OneDrive\Documentos\GitHub\Nuplacar\src\main\resources';
 
