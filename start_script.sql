@@ -1,3 +1,6 @@
+-- drop database nuplacar;
+
+
 CREATE DATABASE IF NOT EXISTS nuplacar;
 
 USE nuplacar;
@@ -9,7 +12,8 @@ CREATE TABLE tb_usuario (
 	tipoUsuario varchar(200));
 
 INSERT INTO tb_usuario (nome, senha, tipoUsuario) 
-VALUES ('admin', 'admin', 'Administrador');
+VALUES 	('admin', 'admin', 'Administrador'),
+		('usuario', 'usuario', 'Comum');
 
 CREATE TABLE tb_times (
 	idTime int primary key auto_increment,
@@ -35,7 +39,7 @@ CREATE TABLE tb_grupos (
     idConjuntoGrupos varchar(20)
     );
 
-CREATE TABLE tb_partida (
+CREATE TABLE tb_partidas (
     idPartida int primary key auto_increment,
     idCampeonato varchar(20),
     time1 varchar(20) not null,
@@ -44,10 +48,11 @@ CREATE TABLE tb_partida (
     gols_time2 int
 );
 
-CREATE TABLE tb_campeonato (
-	idCampeonato varchar(20),
-	idConjuntoGrupos varchar(20)
-)
+CREATE TABLE tb_campeonatos (
+	idCampeonato int primary key auto_increment,
+	idConjuntoGrupos varchar(20),
+	finalizado bool
+);
 
 -- adicionar o caminho até a pasta resources
 SET @var1 = 'C:\Users\luana\OneDrive\Documentos\GitHub\Nuplacar\src\main\resources';
