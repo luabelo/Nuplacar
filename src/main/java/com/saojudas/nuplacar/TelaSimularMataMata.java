@@ -26,8 +26,7 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
         simularFaseMataMata();
         getCampeao();
     }
-    
-    
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -1037,7 +1036,7 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
     }//GEN-LAST:event_refazerSimulacaoButtonActionPerformed
 
     private void avancarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avancarButtonActionPerformed
-        new TelaInicialAdm().setVisible(true);
+        new TelaInicialAdm(campeonato).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_avancarButtonActionPerformed
 

@@ -43,6 +43,17 @@ public class Campeonato implements Cloneable{
         return partidasFinal;
     }
     
+    public ArrayList<Partida> getTodasPartidas() {
+        ArrayList<Partida> todasPartidas = new ArrayList<>();
+        todasPartidas.addAll(partidasFaseGrupo);                
+        todasPartidas.addAll(partidasOitavasDeFinal);
+        todasPartidas.addAll(partidasQuartasDeFinal);
+        todasPartidas.addAll(partidasSemifinal);
+        todasPartidas.addAll(partidasFinal);
+        
+        return todasPartidas;
+    }
+    
     public static boolean iniciarCampeonato() {
         int totalTimes = TimeDAO.listarTimes().size();
         String conjuntoGrupos = null;

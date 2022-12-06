@@ -36,12 +36,18 @@ CREATE TABLE tb_grupos (
     );
 
 CREATE TABLE tb_partida (
-    id_partida int primary key auto_increment,
-    time1 varchar(30) not null,
-    time2 varchar(30) not null,
+    idPartida int primary key auto_increment,
+    idCampeonato varchar(20),
+    time1 varchar(20) not null,
+    time2 varchar(20) not null,
     gols_time1 int,
     gols_time2 int
 );
+
+CREATE TABLE tb_campeonato (
+	idCampeonato varchar(20),
+	idConjuntoGrupos varchar(20)
+)
 
 -- adicionar o caminho até a pasta resources
 SET @var1 = 'C:\Users\luana\OneDrive\Documentos\GitHub\Nuplacar\src\main\resources';
