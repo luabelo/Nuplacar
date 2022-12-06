@@ -14,7 +14,7 @@ import javax.swing.ImageIcon;
 public class Imagem {
     public ImageIcon criaIcone(String path) {
         ImageIcon icon = new ImageIcon(getClass().getClassLoader().getResource(path));
-        Image image = icon.getImage().getScaledInstance(120, 80, Image.SCALE_DEFAULT);
+        Image image = icon.getImage().getScaledInstance(120, 100, Image.SCALE_DEFAULT);
         return new ImageIcon(image);
     }
 }
