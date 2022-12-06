@@ -65,7 +65,6 @@ public class TelaInicialAdm extends javax.swing.JFrame {
         campeaoLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         rankTable = new javax.swing.JTable();
-        bandeiraLabel = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -163,6 +162,7 @@ public class TelaInicialAdm extends javax.swing.JFrame {
         golsTime2Jogo29Label = new javax.swing.JLabel();
         time2Jogo29Label = new javax.swing.JLabel();
         golsTime1Jogo29Label = new javax.swing.JLabel();
+        iconeBandeiraLabel = new javax.swing.JLabel();
 
         jPanel2.setBackground(java.awt.SystemColor.controlHighlight);
 
@@ -369,11 +369,14 @@ public class TelaInicialAdm extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(246, 246, 246));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel2.setText("Campeão");
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(151, 151, 151));
+        jLabel2.setText("CAMPEÃO");
         jLabel2.setToolTipText("");
 
-        campeaoLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        campeaoLabel.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        campeaoLabel.setForeground(new java.awt.Color(151, 151, 151));
+        campeaoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         campeaoLabel.setText("Simulando...");
 
         rankTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -397,10 +400,18 @@ public class TelaInicialAdm extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(rankTable);
 
+        jPanel7.setBackground(new java.awt.Color(246, 246, 246));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(151, 151, 151));
         jLabel10.setText("Empate:");
 
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(151, 151, 151));
         jLabel12.setText("Derrotas:");
 
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(151, 151, 151));
         jLabel14.setText("Gols:");
 
         golsCampeaoLabel.setText("0");
@@ -409,8 +420,12 @@ public class TelaInicialAdm extends javax.swing.JFrame {
 
         empateCampeaoLabel.setText("0");
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(151, 151, 151));
         jLabel8.setText("Vitórias:");
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(151, 151, 151));
         jLabel6.setText("Jogos:");
 
         pontosCampeaoLabel.setText("0");
@@ -448,7 +463,7 @@ public class TelaInicialAdm extends javax.swing.JFrame {
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(pontosCampeaoLabel)
                                     .addComponent(vitoriasCampeaoLabel))))))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -474,7 +489,6 @@ public class TelaInicialAdm extends javax.swing.JFrame {
                     .addComponent(golsCampeaoLabel)))
         );
 
-        bandeiraIconLabel.setBackground(new java.awt.Color(255, 255, 255));
         bandeiraIconLabel.setForeground(new java.awt.Color(255, 255, 255));
         bandeiraIconLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         bandeiraIconLabel.setBorder(javax.swing.BorderFactory.createCompoundBorder());
@@ -1183,6 +1197,11 @@ public class TelaInicialAdm extends javax.swing.JFrame {
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
+        iconeBandeiraLabel.setBackground(new java.awt.Color(246, 246, 246));
+        iconeBandeiraLabel.setForeground(new java.awt.Color(255, 255, 255));
+        iconeBandeiraLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iconeBandeiraLabel.setOpaque(true);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -1193,15 +1212,15 @@ public class TelaInicialAdm extends javax.swing.JFrame {
                         .addGap(438, 438, 438)
                         .addComponent(jLabel2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(243, 243, 243)
+                        .addContainerGap(223, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(bandeiraIconLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(campeaoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE))
-                        .addGap(49, 49, 49)
-                        .addComponent(bandeiraLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(campeaoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
+                            .addComponent(iconeBandeiraLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bandeiraIconLabel)
+                        .addGap(95, 95, 95)
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(368, Short.MAX_VALUE))
+                .addGap(385, 385, 385))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(64, 64, 64)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1234,24 +1253,27 @@ public class TelaInicialAdm extends javax.swing.JFrame {
                                     .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addComponent(jLabel73, javax.swing.GroupLayout.Alignment.LEADING))
                             .addComponent(jPanel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap(34, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(56, 56, 56)
                 .addComponent(jLabel2)
-                .addGap(43, 43, 43)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bandeiraLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(bandeiraIconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(campeaoLabel)))
-                .addGap(98, 98, 98)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(91, 91, 91))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bandeiraIconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(iconeBandeiraLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(campeaoLabel)
+                        .addGap(30, 30, 30)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71)
+                .addGap(163, 163, 163)
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1308,7 +1330,7 @@ public class TelaInicialAdm extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1010, Short.MAX_VALUE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(bemVindoAdminTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -1321,7 +1343,7 @@ public class TelaInicialAdm extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(bemVindoAdminTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 3106, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1433,38 +1455,78 @@ public class TelaInicialAdm extends javax.swing.JFrame {
 
     
     private void dadosCampeao(){
-        String campeao = new TimeDAO().getCampeao();
-        campeaoLabel.setText(campeao);
+        String campeao1 = time1Jogo32Label.getText();
+        String campeao2 = time2Jogo32Label.getText();
         
-        String pontosCampeao = new TimeDAO().getJogosCampeao(campeao);
+        if (Integer.parseInt(golsTime1Jogo32Label.getText()) 
+                        >  Integer.parseInt(golsTime2Jogo32Label.getText())) {
+        campeaoLabel.setText(time1Jogo32Label.getText());
+        
+        String pontosCampeao = new TimeDAO().getJogosCampeao(campeao1);
         pontosCampeaoLabel.setText(pontosCampeao);
         
-        String vitoriasCampeao = new TimeDAO().getVitoriasCampeao(campeao);
+        String vitoriasCampeao = new TimeDAO().getVitoriasCampeao(campeao1);
         vitoriasCampeaoLabel.setText(vitoriasCampeao);
         
-        String empatesCampeao = new TimeDAO().getEmpatesCampeao(campeao);
+        String empatesCampeao = new TimeDAO().getEmpatesCampeao(campeao1);
         empateCampeaoLabel.setText(empatesCampeao);
         
-        String derrotasCampeao = new TimeDAO().getDerrotasCampeao(campeao);
+        String derrotasCampeao = new TimeDAO().getDerrotasCampeao(campeao1);
         derrotasCampeaoLabel.setText(derrotasCampeao);
         
-        String golsCampeao = new TimeDAO().getGolsCampeao(campeao);
-        golsCampeaoLabel.setText(golsCampeao);        
-    }
+        String golsCampeao = new TimeDAO().getGolsCampeao(campeao1);
+        golsCampeaoLabel.setText(golsCampeao); 
+        
+        } else {
+        campeaoLabel.setText(time2Jogo32Label.getText());
+        String pontosCampeao = new TimeDAO().getJogosCampeao(campeao2);
+        pontosCampeaoLabel.setText(pontosCampeao);
+        
+        String vitoriasCampeao = new TimeDAO().getVitoriasCampeao(campeao2);
+        vitoriasCampeaoLabel.setText(vitoriasCampeao);
+        
+        String empatesCampeao = new TimeDAO().getEmpatesCampeao(campeao2);
+        empateCampeaoLabel.setText(empatesCampeao);
+        
+        String derrotasCampeao = new TimeDAO().getDerrotasCampeao(campeao2);
+        derrotasCampeaoLabel.setText(derrotasCampeao);
+        
+        String golsCampeao = new TimeDAO().getGolsCampeao(campeao2);
+        golsCampeaoLabel.setText(golsCampeao); 
+        
+        }  
+              
+      }
     
     
     private void exibirBandeira () {
-        String campeao = new TimeDAO().getCampeao();
+        String campeao1 = time1Jogo32Label.getText();
+        String campeao2 = time2Jogo32Label.getText();
+        
+    if (Integer.parseInt(golsTime1Jogo32Label.getText()) 
+                        >  Integer.parseInt(golsTime2Jogo32Label.getText())) {
+        
         try {
-            ImageIcon icon = new ImageIcon(getClass().getClassLoader().getResource(campeao+".png"));;
-            Image image = icon.getImage().getScaledInstance(320, 300, Image.SCALE_DEFAULT);
+            ImageIcon icon = new ImageIcon(getClass().getClassLoader().getResource(campeao1+".png"));
+            Image image = icon.getImage().getScaledInstance(256, 240, Image.SCALE_DEFAULT);
             ImageIcon imageIcon = new ImageIcon(image);
-            bandeiraIconLabel.setIcon(imageIcon);
+            iconeBandeiraLabel.setIcon(imageIcon);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+    } else {
+            try {
+            ImageIcon icon = new ImageIcon(getClass().getClassLoader().getResource(campeao2+".png"));
+            Image image = icon.getImage().getScaledInstance(256, 240, Image.SCALE_DEFAULT);
+            ImageIcon imageIcon = new ImageIcon(image);
+            iconeBandeiraLabel.setIcon(imageIcon);
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
     }
-    
+    }
+            
+            
     private void preencherPartidas() {
         ArrayList<Partida> todasPartidas = campeonato.getTodasPartidas();
         //<editor-fold defaultstate="collapsed" desc=" Final ">
@@ -1626,7 +1688,6 @@ public class TelaInicialAdm extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bandeiraIconLabel;
-    private javax.swing.JLabel bandeiraLabel;
     private javax.swing.JLabel bemVindoAdminTitulo;
     private javax.swing.JLabel campeaoLabel;
     private javax.swing.JLabel derrotasCampeaoLabel;
@@ -1666,6 +1727,7 @@ public class TelaInicialAdm extends javax.swing.JFrame {
     private javax.swing.JLabel golsTime2Jogo31Label;
     private javax.swing.JLabel golsTime2Jogo32Label;
     private javax.swing.JButton gruposButton;
+    private javax.swing.JLabel iconeBandeiraLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;

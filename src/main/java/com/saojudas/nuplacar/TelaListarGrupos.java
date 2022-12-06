@@ -640,35 +640,51 @@ public class TelaListarGrupos extends javax.swing.JFrame {
        switch (gruposComboBox.getSelectedIndex()+1) {
         case 1:
                 DefaultTableModel model8 = (DefaultTableModel) grupoATable.getModel();
+                if(model8.getRowCount() <  4){
                 model8.addRow(new Object[] {timesComboBox.getSelectedItem()});
-                break; 
+                } else {}
+                break;
         case 2:
                 DefaultTableModel model9 = (DefaultTableModel) grupoBTable.getModel();
+                if(model9.getRowCount() <  4){
                 model9.addRow(new Object[] {timesComboBox.getSelectedItem()});
+                } else {}
                 break;
         case 3:
                 DefaultTableModel model10 = (DefaultTableModel) grupoCTable.getModel();
+                if(model10.getRowCount() <  4){
                 model10.addRow(new Object[]{timesComboBox.getSelectedItem()});
+                } else {}
                 break;
         case 4:
                 DefaultTableModel model11 = (DefaultTableModel) grupoDTable.getModel();
+                if(model11.getRowCount() <  4){
                 model11.addRow(new Object[] {timesComboBox.getSelectedItem()});
+                } else {}
                 break;
         case 5:
                 DefaultTableModel model12 = (DefaultTableModel) grupoETable.getModel();
+                if(model12.getRowCount() <  4){
                 model12.addRow(new Object[] {timesComboBox.getSelectedItem()});
+                } else {}
                 break;        
         case 6:
                 DefaultTableModel model13 = (DefaultTableModel) grupoFTable.getModel();
+                if(model13.getRowCount() <  4){
                 model13.addRow(new Object[] {timesComboBox.getSelectedItem()});
+                } else {}
                 break;       
         case 7:
                 DefaultTableModel model14 = (DefaultTableModel) grupoGTable.getModel();
+                if(model14.getRowCount() <  4){
                 model14.addRow(new Object[] {timesComboBox.getSelectedItem()});
+                } else {}
                 break;
         case 8:
                 DefaultTableModel model15 = (DefaultTableModel) grupoHTable.getModel();
+                if(model15.getRowCount() <  4){
                 model15.addRow(new Object[] {timesComboBox.getSelectedItem()});
+                } else {}
                 break;           
        }
     }//GEN-LAST:event_AdicionarTimesGruposActionPerformed
@@ -908,14 +924,14 @@ public class TelaListarGrupos extends javax.swing.JFrame {
         try {
             TimeDAO timeDAO = new TimeDAO();
             ArrayList<Time> time = timeDAO.obterTimes();
-            timesComboBox.setModel(new DefaultComboBoxModel<>(time.toArray()));
-            
+            timesComboBox.setModel(new DefaultComboBoxModel<>(time.toArray())); 
         }
         catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Times indisponíveis");
             e.printStackTrace();
         }
     }
+
     
         private void buscarGrupos() {
         try {

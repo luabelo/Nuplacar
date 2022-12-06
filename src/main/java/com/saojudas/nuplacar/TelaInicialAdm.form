@@ -370,7 +370,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane2" max="32767" attributes="0"/>
+                      <Component id="jScrollPane2" pref="1010" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Component id="bemVindoAdminTitulo" min="-2" pref="481" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -387,7 +387,7 @@
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Component id="bemVindoAdminTitulo" min="-2" pref="38" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jScrollPane2" max="32767" attributes="0"/>
+                  <Component id="jScrollPane2" pref="3106" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -445,18 +445,18 @@
                                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="243" max="-2" attributes="0"/>
+                                  <EmptySpace pref="223" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="bandeiraIconLabel" max="32767" attributes="0"/>
-                                      <Component id="campeaoLabel" pref="120" max="32767" attributes="0"/>
+                                      <Component id="campeaoLabel" pref="305" max="32767" attributes="0"/>
+                                      <Component id="iconeBandeiraLabel" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                                  <Component id="bandeiraLabel" min="-2" pref="122" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="bandeiraIconLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
                                   <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="368" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="385" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
@@ -495,7 +495,7 @@
                                       </Group>
                                       <Component id="jPanel13" alignment="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="34" max="32767" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -504,21 +504,26 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jPanel7" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="bandeiraLabel" alignment="1" min="-2" pref="52" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Component id="bandeiraIconLabel" min="-2" pref="52" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="bandeiraIconLabel" min="-2" pref="174" max="-2" attributes="0"/>
+                                      <Component id="iconeBandeiraLabel" min="-2" pref="174" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="campeaoLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
                           <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
@@ -569,17 +574,24 @@
                 <Component class="javax.swing.JLabel" name="jLabel2">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="24" style="1"/>
+                      <Font name="Segoe UI" size="36" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Campe&#xe3;o"/>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="97" green="97" red="97" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="CAMPE&#xc3;O"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="campeaoLabel">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="18" style="1"/>
+                      <Font name="Segoe UI" size="22" style="1"/>
                     </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="97" green="97" red="97" type="rgb"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="Simulando..."/>
                   </Properties>
                 </Component>
@@ -607,9 +619,12 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JLabel" name="bandeiraLabel">
-                </Component>
                 <Container class="javax.swing.JPanel" name="jPanel7">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="f6" green="f6" red="f6" type="rgb"/>
+                    </Property>
+                  </Properties>
 
                   <Layout>
                     <DimensionLayout dim="0">
@@ -650,7 +665,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="33" max="32767" attributes="0"/>
+                              <EmptySpace pref="41" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -688,16 +703,34 @@
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="jLabel10">
                       <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="12" style="1"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="97" green="97" red="97" type="rgb"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Empate:"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel12">
                       <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="12" style="1"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="97" green="97" red="97" type="rgb"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Derrotas:"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel14">
                       <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="12" style="1"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="97" green="97" red="97" type="rgb"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Gols:"/>
                       </Properties>
                     </Component>
@@ -718,11 +751,23 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel8">
                       <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="12" style="1"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="97" green="97" red="97" type="rgb"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Vit&#xf3;rias:"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel6">
                       <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="12" style="1"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="97" green="97" red="97" type="rgb"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Jogos:"/>
                       </Properties>
                     </Component>
@@ -740,9 +785,6 @@
                 </Container>
                 <Component class="javax.swing.JLabel" name="bandeiraIconLabel">
                   <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
@@ -2043,6 +2085,18 @@
                     </Component>
                   </SubComponents>
                 </Container>
+                <Component class="javax.swing.JLabel" name="iconeBandeiraLabel">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="f6" green="f6" red="f6" type="rgb"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="opaque" type="boolean" value="true"/>
+                  </Properties>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>
