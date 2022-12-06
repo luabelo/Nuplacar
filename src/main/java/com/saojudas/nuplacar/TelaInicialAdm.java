@@ -3,6 +3,8 @@ package com.saojudas.nuplacar;
 import com.saojudas.nuplacar.CRUDUsuario.TelaListarUsuarios;
 import com.saojudas.nuplacar.CRUDTime.TelaListarTimes;
 import com.saojudas.nuplacar.CRUDTime.Time;
+import com.saojudas.nuplacar.DAO.CampeonatoDAO;
+import com.saojudas.nuplacar.DAO.PartidaDAO;
 import com.saojudas.nuplacar.DAO.TimeDAO;
 import java.awt.Image;
 import java.util.ArrayList;
@@ -23,6 +25,11 @@ public class TelaInicialAdm extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         mostrarRank();
+        int idCampeonato = CampeonatoDAO.getIdUltimoCampeonatoFinalizado();
+        try {
+            preencherPartidas(PartidaDAO.getPartidasPorCampeonato(idCampeonato));
+        }
+        catch(Exception ex) {}
         dadosCampeao();
         exibirBandeira();
     }
@@ -33,7 +40,7 @@ public class TelaInicialAdm extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         this.campeonato = campeonato;
         
-        preencherPartidas();
+        preencherPartidas(campeonato.getTodasPartidas());
         mostrarRank();
         dadosCampeao();
         exibirBandeira ();
@@ -1527,8 +1534,7 @@ public class TelaInicialAdm extends javax.swing.JFrame {
     }
             
             
-    private void preencherPartidas() {
-        ArrayList<Partida> todasPartidas = campeonato.getTodasPartidas();
+    private void preencherPartidas(ArrayList<Partida> todasPartidas) {
         //<editor-fold defaultstate="collapsed" desc=" Final ">
         time1Jogo32Label.setText(todasPartidas.get(63).getTime1().getNome());
         time2Jogo32Label.setText(todasPartidas.get(63).getTime2().getNome());

@@ -132,7 +132,7 @@ public class Time {
     }
 
     public void setSaldoGols(int saldoGols) {
-        if (this.saldoGols - saldoGols < 0) {
+        if (saldoGols < 0) {
             this.saldoGols = 0;
         }
         else {

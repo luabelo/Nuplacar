@@ -3,6 +3,7 @@ package com.saojudas.nuplacar;
 import java.util.ArrayList;
 import java.util.Comparator;
 import com.saojudas.nuplacar.CRUDTime.Time;
+import com.saojudas.nuplacar.DAO.CampeonatoDAO;
 import com.saojudas.nuplacar.DAO.GrupoDAO;
 import com.saojudas.nuplacar.DAO.TimeDAO;
 import javax.swing.JOptionPane;
@@ -14,11 +15,28 @@ public class Campeonato implements Cloneable{
     private ArrayList<Partida> partidasSemifinal = new ArrayList();
     private ArrayList<Partida> partidasFinal = new ArrayList();
     private ArrayList<Grupo> grupos = new ArrayList();
+    private int id;
+    private String idConjuntoGrupos;
     
-    public Campeonato(ArrayList<Grupo> grupos) {
+    public Campeonato(ArrayList<Grupo> grupos, String idConjuntoGrupos) {
         this.grupos = grupos;
+        this.idConjuntoGrupos = idConjuntoGrupos;
+        this.id = CampeonatoDAO.criar(idConjuntoGrupos);
+    }
+    
+    public Campeonato(ArrayList<Grupo> grupos, int id) {
+        this.grupos = grupos;
+        this.id = id;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public ArrayList<Grupo> getGrupos() {
         return grupos;
     }
@@ -55,10 +73,10 @@ public class Campeonato implements Cloneable{
     }
     
     public static boolean iniciarCampeonato() {
-        int totalTimes = TimeDAO.listarTimes().size();
-        String conjuntoGrupos = null;
-        ArrayList<Grupo> grupos = GrupoDAO.listarGruposCompletos(conjuntoGrupos);       
-        new TelaSimularFaseGrupos(grupos).setVisible(true);
+//        int totalTimes = TimeDAO.listarTimes().size();
+//        String conjuntoGrupos = null;
+//        ArrayList<Grupo> grupos = GrupoDAO.listarGruposCompletos(conjuntoGrupos);
+        new TelaSimularFaseGrupos().setVisible(true);
         return true;
     }
     
@@ -229,6 +247,10 @@ public class Campeonato implements Cloneable{
         partidasQuartasDeFinal = new ArrayList();
         partidasSemifinal = new ArrayList();
         partidasFinal = new ArrayList();    
+    }
+    
+    public void finalizar() {
+        CampeonatoDAO.finalizar(id);
     }
 }
 

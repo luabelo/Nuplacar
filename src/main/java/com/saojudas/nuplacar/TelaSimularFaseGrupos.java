@@ -15,16 +15,22 @@ import com.saojudas.nuplacar.CRUDTime.Time;
 public class TelaSimularFaseGrupos extends javax.swing.JFrame {
 
     private Campeonato campeonato;
-
     
+    public TelaSimularFaseGrupos() {
+        super("Simular fase grupos");
+        
+        initComponents();
+        setLocationRelativeTo(null);
+        
+        buscarGrupos();
+    }
     
     public TelaSimularFaseGrupos(ArrayList<Grupo> grupos) {
         super("Simular fase grupos");
         
         initComponents();
         setLocationRelativeTo(null);
-        
-        this.campeonato = new Campeonato(grupos);
+        this.campeonato = new Campeonato(grupos, "Copa do Mundo 2022");
         setValoresIniciaisTabelas();
         buscarGrupos();
     }
@@ -40,7 +46,7 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
             refazerSimulacaoButton.setEnabled(true);
         }
         
-        this.campeonato = new Campeonato(grupos);
+        this.campeonato = new Campeonato(grupos, "aa");
         setValoresIniciaisTabelas();
         buscarGrupos();
     }
@@ -394,6 +400,12 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
             }
         });
 
+        conjuntos1ComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                conjuntos1ComboBoxItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -492,7 +504,7 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
 
     private void SimularButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SimularButtonActionPerformed
         String conjuntoGrupos = conjuntos1ComboBox.getSelectedItem().toString();
-        this.campeonato = new Campeonato(GrupoDAO.listarGruposCompletos(conjuntoGrupos));
+        this.campeonato = new Campeonato(GrupoDAO.listarGruposCompletos(conjuntoGrupos), conjuntoGrupos);
         simularFaseGrupo();
         refazerSimulacaoButton.setEnabled(true);
         avancarButton.setEnabled(true);
@@ -502,7 +514,7 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
     private void refazerSimulacaoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refazerSimulacaoButtonActionPerformed
         TimeDAO.zerarClassificacaoGeral();
         String conjuntoGrupos = conjuntos1ComboBox.getSelectedItem().toString();
-        this.campeonato = new Campeonato(GrupoDAO.listarGruposCompletos(conjuntoGrupos));
+        this.campeonato = new Campeonato(GrupoDAO.listarGruposCompletos(conjuntoGrupos), conjuntoGrupos);
         simularFaseGrupo();
         avancarButton.setEnabled(true);
     }//GEN-LAST:event_refazerSimulacaoButtonActionPerformed
@@ -511,6 +523,12 @@ public class TelaSimularFaseGrupos extends javax.swing.JFrame {
         new TelaSimularMataMata(this.campeonato).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_avancarButtonActionPerformed
+
+    private void conjuntos1ComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_conjuntos1ComboBoxItemStateChanged
+        String conjuntoGrupos = conjuntos1ComboBox.getSelectedItem().toString();
+        this.campeonato = new Campeonato(GrupoDAO.listarGruposCompletos(conjuntoGrupos), conjuntoGrupos);
+        setValoresIniciaisTabelas();
+    }//GEN-LAST:event_conjuntos1ComboBoxItemStateChanged
     
 
 

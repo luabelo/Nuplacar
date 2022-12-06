@@ -1,5 +1,12 @@
 package com.saojudas.nuplacar;;
 
+import com.saojudas.nuplacar.DAO.PartidaDAO;
+import com.saojudas.nuplacar.DAO.GrupoDAO;
+import java.util.ArrayList;
+import java.util.Collections;
+import com.saojudas.nuplacar.CRUDTime.Time;
+import com.saojudas.nuplacar.DAO.CampeonatoDAO;
+import com.saojudas.nuplacar.DAO.PartidaDAO;
 import com.saojudas.nuplacar.DAO.GrupoDAO;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -1036,6 +1043,7 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
     }//GEN-LAST:event_refazerSimulacaoButtonActionPerformed
 
     private void avancarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avancarButtonActionPerformed
+        salvarDadosCampeonato();
         new TelaInicialAdm(campeonato).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_avancarButtonActionPerformed
@@ -1043,45 +1051,45 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaSimularMataMata.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaSimularMataMata.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaSimularMataMata.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaSimularMataMata.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                String conjuntoGrupos = null;
-                new TelaSimularMataMata(new Campeonato(GrupoDAO.listarGruposCompletos(conjuntoGrupos))).setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {;
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(TelaSimularMataMata.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(TelaSimularMataMata.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(TelaSimularMataMata.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(TelaSimularMataMata.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {;
+//            public void run() {
+//                String conjuntoGrupos = null;
+//                new TelaSimularMataMata(new Campeonato(GrupoDAO.listarGruposCompletos(conjuntoGrupos))).setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel FaseGruposLabel;
@@ -1294,11 +1302,16 @@ public class TelaSimularMataMata extends javax.swing.JFrame {
         Time2Jogo16GolsLabel.setText(Integer.toString(campeonato.getPartidasFinal().get(1).getGolsTime2()));
     }
     
-     public void getCampeao() {
+    public void getCampeao() {
         if (Integer.parseInt(Time1Jogo16GolsLabel.getText()) >  Integer.parseInt(Time2Jogo16GolsLabel.getText())) {
-        campeaoLabel.setText(Time1Jogo16Label.getText());
+            campeaoLabel.setText(Time1Jogo16Label.getText());
         } else {
-        campeaoLabel.setText(Time2Jogo16Label.getText());
+            campeaoLabel.setText(Time2Jogo16Label.getText());
         }
-        }
+    }
+    
+    private void salvarDadosCampeonato() {
+        PartidaDAO.salvar(campeonato.getTodasPartidas(), campeonato.getId());
+        campeonato.finalizar();
+    }
 }
