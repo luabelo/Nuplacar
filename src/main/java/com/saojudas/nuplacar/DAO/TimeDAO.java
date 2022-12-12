@@ -189,14 +189,12 @@ public class TimeDAO {
             String sql = """
                          UPDATE tb_times 
                          SET 
-                            nome = ?, 
-                            bandeira = ?
+                            nome = ?
                          WHERE idTime = ?
                          """;
             PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setString(1,time.getNome());
-            pstm.setBytes(2,time.getBandeira());
-            pstm.setInt(3,time.getIdTime());
+            pstm.setInt(2,time.getIdTime());
             pstm.executeUpdate();
                
         } catch (Exception e){
